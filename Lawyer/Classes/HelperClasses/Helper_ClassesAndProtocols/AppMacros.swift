@@ -31,9 +31,7 @@ let TABBAR_DEFAULT_HEIGHT = 49
 let ACCEPTABLE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz "
 
 //TODO: Network
-
 let kNoInterNet = "No internet"
-let NETWORK_ACTIVITY = APPLICATION.isNetworkActivityIndicatorVisible
 
 //TODO: Application informations
 
