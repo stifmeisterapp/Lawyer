@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,13 +18,34 @@
 		9D25568124C1DCAB006563AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D25567F24C1DCAB006563AC /* LaunchScreen.storyboard */; };
 		9D25568C24C1DCAB006563AC /* LawyerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D25568B24C1DCAB006563AC /* LawyerTests.swift */; };
 		9D25569724C1DCAB006563AC /* LawyerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D25569624C1DCAB006563AC /* LawyerUITests.swift */; };
+		9D4C683024C598180064E935 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D4C682F24C598180064E935 /* Home.storyboard */; };
+		9D4C683924C5A3EB0064E935 /* HomeVC+MethodExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4C683824C5A3EB0064E935 /* HomeVC+MethodExtension.swift */; };
 		9D554C4F24C2C26300E2080D /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D554C4E24C2C26300E2080D /* Launch.storyboard */; };
 		9D554C5124C2C3E000E2080D /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D554C5024C2C3E000E2080D /* Colors.xcassets */; };
 		9D554C5524C2C8D300E2080D /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D554C5424C2C8D300E2080D /* SplashVC.swift */; };
 		9D554C5724C2C9CD00E2080D /* SplashVC+MethodExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D554C5624C2C9CD00E2080D /* SplashVC+MethodExtension.swift */; };
 		9D554C5F24C2D41600E2080D /* SoundProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D554C5E24C2D41600E2080D /* SoundProtocol.swift */; };
 		9D554C6124C2D4FB00E2080D /* SoundClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D554C6024C2D4FB00E2080D /* SoundClass.swift */; };
-		9D554C6324C2D69200E2080D /* Judges_Gavel.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9D554C6224C2D69200E2080D /* Judges_Gavel.mp3 */; };
+		9D5F2B2A24C5FB3900BA4015 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D5F2B2924C5FB3800BA4015 /* TabBar.storyboard */; };
+		9D5F2B2D24C612BB00BA4015 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5F2B2C24C612BB00BA4015 /* TabBarVC.swift */; };
+		9D5F2B3124C6AF1100BA4015 /* LawyerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5F2B2F24C6AF1100BA4015 /* LawyerTableViewCell.swift */; };
+		9D5F2B3224C6AF1100BA4015 /* LawyerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D5F2B3024C6AF1100BA4015 /* LawyerTableViewCell.xib */; };
+		9D5F2B3524C6AF9700BA4015 /* SBaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5F2B3424C6AF9700BA4015 /* SBaseTableViewCell.swift */; };
+		9D5F2B3724C6B15000BA4015 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5F2B3624C6B15000BA4015 /* HomeVC.swift */; };
+		9D5F2B3A24C6C2B500BA4015 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5F2B3924C6C2B500BA4015 /* Category.swift */; };
+		9D5F2B3D24C6C3A500BA4015 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5F2B3C24C6C3A500BA4015 /* CategoryViewModel.swift */; };
+		9D5F2B4024C6C73600BA4015 /* CategoryListModeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5F2B3F24C6C73600BA4015 /* CategoryListModeling.swift */; };
+		9D5F2B4224C6C7FD00BA4015 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5F2B4124C6C7FD00BA4015 /* HomeVM.swift */; };
+		9D5F2B4524C6D29B00BA4015 /* UITableView+AdditionsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5F2B4424C6D29B00BA4015 /* UITableView+AdditionsExtension.swift */; };
+		9D5F2B4724C6D4B900BA4015 /* HomeVC+TableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5F2B4624C6D4B900BA4015 /* HomeVC+TableViewExtension.swift */; };
+		9D5F2B4A24C6F81B00BA4015 /* LawyerShortDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5F2B4824C6F81B00BA4015 /* LawyerShortDetailTableViewCell.swift */; };
+		9D5F2B4B24C6F81C00BA4015 /* LawyerShortDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D5F2B4924C6F81B00BA4015 /* LawyerShortDetailTableViewCell.xib */; };
+		9D5F2B4E24C70D0600BA4015 /* LawyerListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5F2B4D24C70D0600BA4015 /* LawyerListVC.swift */; };
+		9D5F2B5024C7100300BA4015 /* LawyerListVC+MethodExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5F2B4F24C7100300BA4015 /* LawyerListVC+MethodExtension.swift */; };
+		9D5F2B5224C7172600BA4015 /* LawyerListVC+TableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5F2B5124C7172600BA4015 /* LawyerListVC+TableViewExtension.swift */; };
+		9D87E70424C57C8100EF0870 /* SoundClassTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D87E70324C57C8100EF0870 /* SoundClassTests.swift */; };
+		9D97428F24C34F6D00CF80BD /* Law.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D97428E24C34F6D00CF80BD /* Law.json */; };
+		9D97429124C36AAB00CF80BD /* Judges_Gavel.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9D97429024C36AAB00CF80BD /* Judges_Gavel.mp3 */; };
 		9DC5455A24C32EF9009AF27A /* TypewriterKeys.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DC5455924C32EF9009AF27A /* TypewriterKeys.ttf */; };
 		9DC5455C24C32F8C009AF27A /* AppFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC5455B24C32F8C009AF27A /* AppFonts.swift */; };
 		9DC5455E24C33170009AF27A /* CustomMethodProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC5455D24C33170009AF27A /* CustomMethodProtocol.swift */; };
@@ -73,13 +94,34 @@
 		9D25569224C1DCAB006563AC /* LawyerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LawyerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D25569624C1DCAB006563AC /* LawyerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LawyerUITests.swift; sourceTree = "<group>"; };
 		9D25569824C1DCAB006563AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9D4C682F24C598180064E935 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		9D4C683824C5A3EB0064E935 /* HomeVC+MethodExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeVC+MethodExtension.swift"; sourceTree = "<group>"; };
 		9D554C4E24C2C26300E2080D /* Launch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
 		9D554C5024C2C3E000E2080D /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		9D554C5424C2C8D300E2080D /* SplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
 		9D554C5624C2C9CD00E2080D /* SplashVC+MethodExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SplashVC+MethodExtension.swift"; sourceTree = "<group>"; };
 		9D554C5E24C2D41600E2080D /* SoundProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundProtocol.swift; sourceTree = "<group>"; };
 		9D554C6024C2D4FB00E2080D /* SoundClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundClass.swift; sourceTree = "<group>"; };
-		9D554C6224C2D69200E2080D /* Judges_Gavel.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Judges_Gavel.mp3; sourceTree = "<group>"; };
+		9D5F2B2924C5FB3800BA4015 /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
+		9D5F2B2C24C612BB00BA4015 /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
+		9D5F2B2F24C6AF1100BA4015 /* LawyerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LawyerTableViewCell.swift; sourceTree = "<group>"; };
+		9D5F2B3024C6AF1100BA4015 /* LawyerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LawyerTableViewCell.xib; sourceTree = "<group>"; };
+		9D5F2B3424C6AF9700BA4015 /* SBaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBaseTableViewCell.swift; sourceTree = "<group>"; };
+		9D5F2B3624C6B15000BA4015 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		9D5F2B3924C6C2B500BA4015 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		9D5F2B3C24C6C3A500BA4015 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
+		9D5F2B3F24C6C73600BA4015 /* CategoryListModeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListModeling.swift; sourceTree = "<group>"; };
+		9D5F2B4124C6C7FD00BA4015 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
+		9D5F2B4424C6D29B00BA4015 /* UITableView+AdditionsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+AdditionsExtension.swift"; sourceTree = "<group>"; };
+		9D5F2B4624C6D4B900BA4015 /* HomeVC+TableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeVC+TableViewExtension.swift"; sourceTree = "<group>"; };
+		9D5F2B4824C6F81B00BA4015 /* LawyerShortDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LawyerShortDetailTableViewCell.swift; sourceTree = "<group>"; };
+		9D5F2B4924C6F81B00BA4015 /* LawyerShortDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LawyerShortDetailTableViewCell.xib; sourceTree = "<group>"; };
+		9D5F2B4D24C70D0600BA4015 /* LawyerListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LawyerListVC.swift; sourceTree = "<group>"; };
+		9D5F2B4F24C7100300BA4015 /* LawyerListVC+MethodExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LawyerListVC+MethodExtension.swift"; sourceTree = "<group>"; };
+		9D5F2B5124C7172600BA4015 /* LawyerListVC+TableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LawyerListVC+TableViewExtension.swift"; sourceTree = "<group>"; };
+		9D87E70324C57C8100EF0870 /* SoundClassTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundClassTests.swift; sourceTree = "<group>"; };
+		9D97428E24C34F6D00CF80BD /* Law.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Law.json; sourceTree = "<group>"; };
+		9D97429024C36AAB00CF80BD /* Judges_Gavel.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Judges_Gavel.mp3; sourceTree = "<group>"; };
 		9DC5455924C32EF9009AF27A /* TypewriterKeys.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TypewriterKeys.ttf; sourceTree = "<group>"; };
 		9DC5455B24C32F8C009AF27A /* AppFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFonts.swift; sourceTree = "<group>"; };
 		9DC5455D24C33170009AF27A /* CustomMethodProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMethodProtocol.swift; sourceTree = "<group>"; };
@@ -155,6 +197,9 @@
 			isa = PBXGroup;
 			children = (
 				9D2556A424C1DD10006563AC /* System_Files */,
+				9D5F2B3E24C6C6B500BA4015 /* DipendenciesInjections */,
+				9D5F2B3B24C6C37300BA4015 /* ViewModels */,
+				9D5F2B3824C6C27F00BA4015 /* Models */,
 				9D554C4C24C2C20300E2080D /* Views */,
 				9D554C5824C2D03A00E2080D /* Classes */,
 				9D25568224C1DCAB006563AC /* Info.plist */,
@@ -165,8 +210,9 @@
 		9D25568A24C1DCAB006563AC /* LawyerTests */ = {
 			isa = PBXGroup;
 			children = (
-				9D25568B24C1DCAB006563AC /* LawyerTests.swift */,
 				9D25568D24C1DCAB006563AC /* Info.plist */,
+				9D25568B24C1DCAB006563AC /* LawyerTests.swift */,
+				9D87E70324C57C8100EF0870 /* SoundClassTests.swift */,
 			);
 			path = LawyerTests;
 			sourceTree = "<group>";
@@ -183,10 +229,10 @@
 		9D2556A424C1DD10006563AC /* System_Files */ = {
 			isa = PBXGroup;
 			children = (
-				9D554C6224C2D69200E2080D /* Judges_Gavel.mp3 */,
 				9D25567424C1DCAA006563AC /* AppDelegate.swift */,
 				9D25567624C1DCAA006563AC /* SceneDelegate.swift */,
 				9D25567824C1DCAA006563AC /* ViewController.swift */,
+				9D97429024C36AAB00CF80BD /* Judges_Gavel.mp3 */,
 				9D25567A24C1DCAA006563AC /* Main.storyboard */,
 				9D25567D24C1DCAB006563AC /* Assets.xcassets */,
 				9D554C5024C2C3E000E2080D /* Colors.xcassets */,
@@ -195,10 +241,39 @@
 			path = System_Files;
 			sourceTree = "<group>";
 		};
+		9D4C683124C59DF30064E935 /* HomeScreens */ = {
+			isa = PBXGroup;
+			children = (
+				9D4C683324C59E180064E935 /* HomeScreen */,
+				9D5F2B4C24C70CDA00BA4015 /* LawyerListScreen */,
+			);
+			path = HomeScreens;
+			sourceTree = "<group>";
+		};
+		9D4C683224C59E040064E935 /* InitScreens */ = {
+			isa = PBXGroup;
+			children = (
+				9D554C5324C2C89500E2080D /* SplashScreen */,
+			);
+			path = InitScreens;
+			sourceTree = "<group>";
+		};
+		9D4C683324C59E180064E935 /* HomeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				9D5F2B3624C6B15000BA4015 /* HomeVC.swift */,
+				9D4C683824C5A3EB0064E935 /* HomeVC+MethodExtension.swift */,
+				9D5F2B4624C6D4B900BA4015 /* HomeVC+TableViewExtension.swift */,
+				9D5F2B4124C6C7FD00BA4015 /* HomeVM.swift */,
+			);
+			path = HomeScreen;
+			sourceTree = "<group>";
+		};
 		9D554C4C24C2C20300E2080D /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				9D554C4D24C2C21A00E2080D /* Storyboards */,
+				9D5F2B2E24C6ADA500BA4015 /* TableViewCellsAndXibs */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -207,6 +282,8 @@
 			isa = PBXGroup;
 			children = (
 				9D554C4E24C2C26300E2080D /* Launch.storyboard */,
+				9D4C682F24C598180064E935 /* Home.storyboard */,
+				9D5F2B2924C5FB3800BA4015 /* TabBar.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -214,7 +291,9 @@
 		9D554C5224C2C88400E2080D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				9D554C5324C2C89500E2080D /* SplashScreen */,
+				9D4C683224C59E040064E935 /* InitScreens */,
+				9D5F2B2B24C6127C00BA4015 /* TabBarScreens */,
+				9D4C683124C59DF30064E935 /* HomeScreens */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -231,6 +310,7 @@
 		9D554C5824C2D03A00E2080D /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				9D5F2B3324C6AF7D00BA4015 /* BaseClasses */,
 				9D554C5924C2D04E00E2080D /* HelperClasses */,
 				9D554C5224C2C88400E2080D /* Controllers */,
 			);
@@ -240,6 +320,8 @@
 		9D554C5924C2D04E00E2080D /* HelperClasses */ = {
 			isa = PBXGroup;
 			children = (
+				9D5F2B4324C6D26100BA4015 /* Extensions */,
+				9D97428D24C34F3800CF80BD /* AnimationFiles */,
 				9DC5456124C33D8D009AF27A /* CustomStructs */,
 				9DC5455824C32EE7009AF27A /* CustomFontFiles */,
 				9D554C5D24C2D3EE00E2080D /* Helper_ClassesAndProtocols */,
@@ -257,6 +339,83 @@
 				9DC5455F24C331A5009AF27A /* CustomMethodClass.swift */,
 			);
 			path = Helper_ClassesAndProtocols;
+			sourceTree = "<group>";
+		};
+		9D5F2B2B24C6127C00BA4015 /* TabBarScreens */ = {
+			isa = PBXGroup;
+			children = (
+				9D5F2B2C24C612BB00BA4015 /* TabBarVC.swift */,
+			);
+			path = TabBarScreens;
+			sourceTree = "<group>";
+		};
+		9D5F2B2E24C6ADA500BA4015 /* TableViewCellsAndXibs */ = {
+			isa = PBXGroup;
+			children = (
+				9D5F2B2F24C6AF1100BA4015 /* LawyerTableViewCell.swift */,
+				9D5F2B3024C6AF1100BA4015 /* LawyerTableViewCell.xib */,
+				9D5F2B4824C6F81B00BA4015 /* LawyerShortDetailTableViewCell.swift */,
+				9D5F2B4924C6F81B00BA4015 /* LawyerShortDetailTableViewCell.xib */,
+			);
+			path = TableViewCellsAndXibs;
+			sourceTree = "<group>";
+		};
+		9D5F2B3324C6AF7D00BA4015 /* BaseClasses */ = {
+			isa = PBXGroup;
+			children = (
+				9D5F2B3424C6AF9700BA4015 /* SBaseTableViewCell.swift */,
+			);
+			path = BaseClasses;
+			sourceTree = "<group>";
+		};
+		9D5F2B3824C6C27F00BA4015 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9D5F2B3924C6C2B500BA4015 /* Category.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9D5F2B3B24C6C37300BA4015 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				9D5F2B3C24C6C3A500BA4015 /* CategoryViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		9D5F2B3E24C6C6B500BA4015 /* DipendenciesInjections */ = {
+			isa = PBXGroup;
+			children = (
+				9D5F2B3F24C6C73600BA4015 /* CategoryListModeling.swift */,
+			);
+			path = DipendenciesInjections;
+			sourceTree = "<group>";
+		};
+		9D5F2B4324C6D26100BA4015 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9D5F2B4424C6D29B00BA4015 /* UITableView+AdditionsExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		9D5F2B4C24C70CDA00BA4015 /* LawyerListScreen */ = {
+			isa = PBXGroup;
+			children = (
+				9D5F2B4D24C70D0600BA4015 /* LawyerListVC.swift */,
+				9D5F2B4F24C7100300BA4015 /* LawyerListVC+MethodExtension.swift */,
+				9D5F2B5124C7172600BA4015 /* LawyerListVC+TableViewExtension.swift */,
+			);
+			path = LawyerListScreen;
+			sourceTree = "<group>";
+		};
+		9D97428D24C34F3800CF80BD /* AnimationFiles */ = {
+			isa = PBXGroup;
+			children = (
+				9D97428E24C34F6D00CF80BD /* Law.json */,
+			);
+			path = AnimationFiles;
 			sourceTree = "<group>";
 		};
 		9DC5455824C32EE7009AF27A /* CustomFontFiles */ = {
@@ -287,7 +446,6 @@
 				469CCD19A01A137EFBF87BA5 /* Pods-LawyerTests.debug.xcconfig */,
 				4C88BE4B62D9819F89AE5048 /* Pods-LawyerTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -400,12 +558,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D5F2B2A24C5FB3900BA4015 /* TabBar.storyboard in Resources */,
 				9D554C5124C2C3E000E2080D /* Colors.xcassets in Resources */,
 				9D25568124C1DCAB006563AC /* LaunchScreen.storyboard in Resources */,
 				9D25567E24C1DCAB006563AC /* Assets.xcassets in Resources */,
+				9D4C683024C598180064E935 /* Home.storyboard in Resources */,
+				9D5F2B4B24C6F81C00BA4015 /* LawyerShortDetailTableViewCell.xib in Resources */,
 				9D25567C24C1DCAA006563AC /* Main.storyboard in Resources */,
-				9D554C6324C2D69200E2080D /* Judges_Gavel.mp3 in Resources */,
+				9D97428F24C34F6D00CF80BD /* Law.json in Resources */,
 				9DC5455A24C32EF9009AF27A /* TypewriterKeys.ttf in Resources */,
+				9D97429124C36AAB00CF80BD /* Judges_Gavel.mp3 in Resources */,
+				9D5F2B3224C6AF1100BA4015 /* LawyerTableViewCell.xib in Resources */,
 				9D554C4F24C2C26300E2080D /* Launch.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -535,17 +698,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				9DC5456524C33E9A009AF27A /* ConstantTexts.swift in Sources */,
+				9D5F2B4224C6C7FD00BA4015 /* HomeVM.swift in Sources */,
+				9D5F2B4524C6D29B00BA4015 /* UITableView+AdditionsExtension.swift in Sources */,
+				9D5F2B3A24C6C2B500BA4015 /* Category.swift in Sources */,
+				9D4C683924C5A3EB0064E935 /* HomeVC+MethodExtension.swift in Sources */,
 				9D554C6124C2D4FB00E2080D /* SoundClass.swift in Sources */,
+				9D5F2B3724C6B15000BA4015 /* HomeVC.swift in Sources */,
 				9D25567924C1DCAA006563AC /* ViewController.swift in Sources */,
+				9D5F2B5224C7172600BA4015 /* LawyerListVC+TableViewExtension.swift in Sources */,
 				9D554C5524C2C8D300E2080D /* SplashVC.swift in Sources */,
 				9D554C5724C2C9CD00E2080D /* SplashVC+MethodExtension.swift in Sources */,
 				9DC5456024C331A5009AF27A /* CustomMethodClass.swift in Sources */,
 				9DC5455C24C32F8C009AF27A /* AppFonts.swift in Sources */,
 				9DC5456724C33F55009AF27A /* AppMacros.swift in Sources */,
 				9D25567524C1DCAA006563AC /* AppDelegate.swift in Sources */,
+				9D5F2B4024C6C73600BA4015 /* CategoryListModeling.swift in Sources */,
+				9D5F2B4724C6D4B900BA4015 /* HomeVC+TableViewExtension.swift in Sources */,
+				9D5F2B3D24C6C3A500BA4015 /* CategoryViewModel.swift in Sources */,
 				9D25567724C1DCAA006563AC /* SceneDelegate.swift in Sources */,
+				9D5F2B3124C6AF1100BA4015 /* LawyerTableViewCell.swift in Sources */,
+				9D5F2B4A24C6F81B00BA4015 /* LawyerShortDetailTableViewCell.swift in Sources */,
+				9D5F2B4E24C70D0600BA4015 /* LawyerListVC.swift in Sources */,
 				9DC5455E24C33170009AF27A /* CustomMethodProtocol.swift in Sources */,
+				9D5F2B3524C6AF9700BA4015 /* SBaseTableViewCell.swift in Sources */,
 				9D554C5F24C2D41600E2080D /* SoundProtocol.swift in Sources */,
+				9D5F2B5024C7100300BA4015 /* LawyerListVC+MethodExtension.swift in Sources */,
+				9D5F2B2D24C612BB00BA4015 /* TabBarVC.swift in Sources */,
 				9DC5456324C33DAE009AF27A /* AppStoryboard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -554,6 +732,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D87E70424C57C8100EF0870 /* SoundClassTests.swift in Sources */,
 				9D25568C24C1DCAB006563AC /* LawyerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

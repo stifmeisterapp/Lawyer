@@ -10,4 +10,6 @@ import Foundation
 import UIKit
 struct AppStoryboard {
     public static let launchSB = UIStoryboard(name: "Launch", bundle: nil)
+    public static let homeSB = UIStoryboard(name: "Home", bundle: nil)
+    public static let tabBarSB = UIStoryboard(name: "TabBar", bundle: nil)
 }

@@ -8,7 +8,6 @@
 
 import UIKit
 import AVFoundation
-import AVFoundation
 class SplashVC: UIViewController {
     
     //MARK: - IBOutlets
@@ -20,23 +19,15 @@ class SplashVC: UIViewController {
     internal var soundManager:SoundProtocol?
     internal var customMethodManager:CustomMethodProtocol?
     
-    var player: AVAudioPlayer?
+    
+    //MARK: - View life cycle methods
+    //TODO: Implementation viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
         initValues()
     }
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+   
     
 }

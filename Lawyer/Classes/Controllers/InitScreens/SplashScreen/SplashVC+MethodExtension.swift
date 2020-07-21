@@ -8,11 +8,8 @@
 
 import UIKit
 import Foundation
-import AVFoundation
 
 extension SplashVC{
-    
-    
     
     //TODO: Init values
     internal func initValues(){
@@ -30,25 +27,21 @@ extension SplashVC{
     
     
     //TODO: IntialSetup
-    internal func initialSetup(){
+    private func initialSetup(){
         self.view.backgroundColor = UIColor(named: "LaunchColor")
         
         self.view_Animation.backgroundColor = .white
         self.customMethodManager?.provideShadowAndCornerRadius(self.view_Animation, self.view_Animation.frame.size.height / 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], UIColor(named: "WhiteShadow") ?? .clear, 2, 2, 2, 2, 0.5, UIColor(named: "CreamColor") ?? .clear)
         
-       
+        self.customMethodManager?.showLottieAnimation(self.view_Animation, ConstantTexts.Law, .playOnce)
+        
         label_Logo.textAlignment = .center
-        label_Logo.font = UIFont(name:"TypewriterKeys",size:30)
+        label_Logo.font = UIFont(name:"TypewriterKeys",size:35)
         label_Logo.text = ConstantTexts.AppName
-        
-        
         
         runAnimationLogo()
         
     }
-
-    
-    
     
     
     //TODO: Run logo animation
@@ -61,6 +54,10 @@ extension SplashVC{
         }) { (done) in
             if done{
                 //Move Forward
+                let vc = AppStoryboard.tabBarSB.instantiateViewController(withIdentifier: TabBarVC.className) as! TabBarVC
+                UIApplication.shared.windows.first?.rootViewController = vc
+                UIApplication.shared.windows.first?.makeKeyAndVisible()
+                
             }
         }
         

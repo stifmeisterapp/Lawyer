@@ -16,17 +16,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="RS2-1n-C7d">
-                                <rect key="frame" x="107" y="318" width="200" height="260"/>
+                                <rect key="frame" x="82" y="293" width="250" height="310"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vRl-3X-jEb">
-                                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
                                         <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="200" id="0jr-GS-Igs"/>
+                                            <constraint firstAttribute="height" constant="250" id="0jr-GS-Igs"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wdK-s7-XPP">
-                                        <rect key="frame" x="0.0" y="210" width="200" height="50"/>
+                                        <rect key="frame" x="0.0" y="260" width="250" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="D9G-mR-e4A"/>
                                         </constraints>
@@ -36,7 +36,7 @@
                                     </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="1ud-ED-4Er"/>
+                                    <constraint firstAttribute="width" constant="250" id="1ud-ED-4Er"/>
                                 </constraints>
                             </stackView>
                         </subviews>
