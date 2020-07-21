@@ -32,7 +32,6 @@
 		9D5F2B3224C6AF1100BA4015 /* LawyerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D5F2B3024C6AF1100BA4015 /* LawyerTableViewCell.xib */; };
 		9D5F2B3524C6AF9700BA4015 /* SBaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5F2B3424C6AF9700BA4015 /* SBaseTableViewCell.swift */; };
 		9D5F2B3724C6B15000BA4015 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5F2B3624C6B15000BA4015 /* HomeVC.swift */; };
-		9D5F2B3A24C6C2B500BA4015 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5F2B3924C6C2B500BA4015 /* Category.swift */; };
 		9D5F2B3D24C6C3A500BA4015 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5F2B3C24C6C3A500BA4015 /* CategoryViewModel.swift */; };
 		9D5F2B4024C6C73600BA4015 /* CategoryListModeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5F2B3F24C6C73600BA4015 /* CategoryListModeling.swift */; };
 		9D5F2B4224C6C7FD00BA4015 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5F2B4124C6C7FD00BA4015 /* HomeVM.swift */; };
@@ -43,6 +42,7 @@
 		9D5F2B4E24C70D0600BA4015 /* LawyerListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5F2B4D24C70D0600BA4015 /* LawyerListVC.swift */; };
 		9D5F2B5024C7100300BA4015 /* LawyerListVC+MethodExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5F2B4F24C7100300BA4015 /* LawyerListVC+MethodExtension.swift */; };
 		9D5F2B5224C7172600BA4015 /* LawyerListVC+TableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5F2B5124C7172600BA4015 /* LawyerListVC+TableViewExtension.swift */; };
+		9D5F2B5424C75DB700BA4015 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5F2B5324C75DB700BA4015 /* Category.swift */; };
 		9D87E70424C57C8100EF0870 /* SoundClassTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D87E70324C57C8100EF0870 /* SoundClassTests.swift */; };
 		9D97428F24C34F6D00CF80BD /* Law.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D97428E24C34F6D00CF80BD /* Law.json */; };
 		9D97429124C36AAB00CF80BD /* Judges_Gavel.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9D97429024C36AAB00CF80BD /* Judges_Gavel.mp3 */; };
@@ -108,7 +108,6 @@
 		9D5F2B3024C6AF1100BA4015 /* LawyerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LawyerTableViewCell.xib; sourceTree = "<group>"; };
 		9D5F2B3424C6AF9700BA4015 /* SBaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBaseTableViewCell.swift; sourceTree = "<group>"; };
 		9D5F2B3624C6B15000BA4015 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
-		9D5F2B3924C6C2B500BA4015 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		9D5F2B3C24C6C3A500BA4015 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
 		9D5F2B3F24C6C73600BA4015 /* CategoryListModeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListModeling.swift; sourceTree = "<group>"; };
 		9D5F2B4124C6C7FD00BA4015 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
@@ -119,6 +118,7 @@
 		9D5F2B4D24C70D0600BA4015 /* LawyerListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LawyerListVC.swift; sourceTree = "<group>"; };
 		9D5F2B4F24C7100300BA4015 /* LawyerListVC+MethodExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LawyerListVC+MethodExtension.swift"; sourceTree = "<group>"; };
 		9D5F2B5124C7172600BA4015 /* LawyerListVC+TableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LawyerListVC+TableViewExtension.swift"; sourceTree = "<group>"; };
+		9D5F2B5324C75DB700BA4015 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		9D87E70324C57C8100EF0870 /* SoundClassTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundClassTests.swift; sourceTree = "<group>"; };
 		9D97428E24C34F6D00CF80BD /* Law.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Law.json; sourceTree = "<group>"; };
 		9D97429024C36AAB00CF80BD /* Judges_Gavel.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Judges_Gavel.mp3; sourceTree = "<group>"; };
@@ -371,7 +371,7 @@
 		9D5F2B3824C6C27F00BA4015 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				9D5F2B3924C6C2B500BA4015 /* Category.swift */,
+				9D5F2B5324C75DB700BA4015 /* Category.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -700,7 +700,6 @@
 				9DC5456524C33E9A009AF27A /* ConstantTexts.swift in Sources */,
 				9D5F2B4224C6C7FD00BA4015 /* HomeVM.swift in Sources */,
 				9D5F2B4524C6D29B00BA4015 /* UITableView+AdditionsExtension.swift in Sources */,
-				9D5F2B3A24C6C2B500BA4015 /* Category.swift in Sources */,
 				9D4C683924C5A3EB0064E935 /* HomeVC+MethodExtension.swift in Sources */,
 				9D554C6124C2D4FB00E2080D /* SoundClass.swift in Sources */,
 				9D5F2B3724C6B15000BA4015 /* HomeVC.swift in Sources */,
@@ -725,6 +724,7 @@
 				9D5F2B5024C7100300BA4015 /* LawyerListVC+MethodExtension.swift in Sources */,
 				9D5F2B2D24C612BB00BA4015 /* TabBarVC.swift in Sources */,
 				9DC5456324C33DAE009AF27A /* AppStoryboard.swift in Sources */,
+				9D5F2B5424C75DB700BA4015 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
