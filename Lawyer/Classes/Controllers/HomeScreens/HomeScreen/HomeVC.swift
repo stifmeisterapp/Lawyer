@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import DropDown
 
-class HomeVC: UIViewController {
+class HomeVC: SBaseViewController {
 
     //MARK: - IBOutlets
     
@@ -22,7 +23,7 @@ class HomeVC: UIViewController {
     internal var categoryListVM:CategoryListViewModel?
     internal var homeVM: CategoryListModeling?
     internal var customMethodManager:CustomMethodProtocol?
-    
+    internal let dropDown = DropDown()
     //MARK: - variables for the animate tableview
    
    internal var animationName = String()
@@ -44,14 +45,38 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        initialSetup()
+        initValues()
     }
     
-    //TODO: Implementation viewDidLoad
+    //TODO: Implementation viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navSetup()
     }
+    
+    
+    //MARK: - Actions, Gestures, Selectors
+    //TODO: Actions
+    
+    @IBAction func btnCountryTapped(_ sender: UIButton) {
+        self.customMethodManager?.openDownOnView(dropDown: self.dropDown, array: [ConstantTexts.SelectCityLT,"Gurugram","Amadalavalasa (Amudalavalasa)","Alipur","Akkarampalle","Anantapur","Ambicapur Pt VI","Abango","Along","Alinye"], anchor: self.viewLocationBackground, callBack: { (dropDown) in
+            
+            dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
+                print("Selected item: \(item) at index: \(index)")
+                
+                if item == ConstantTexts.SelectCityLT{
+                    self.labelLoationTitle.text = "\(ConstantTexts.YouAreInLT) \("Delhi")"
+                }else{
+                    self.labelLoationTitle.text = "\(ConstantTexts.YouAreInLT) \(item)"
+                }
+            }
+            
+            
+        })
+
+    }
+    
+    
     
 
     /*
@@ -62,6 +87,7 @@ class HomeVC: UIViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
+ 
     */
 
 }

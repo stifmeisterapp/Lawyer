@@ -10,8 +10,9 @@ import UIKit
 class TabBarVC: UITabBarController {
     
     //MARK: - Variables
-    private let images = [ #imageLiteral(resourceName: "Menu"), #imageLiteral(resourceName: "Home"), #imageLiteral(resourceName: "Blogs") ,#imageLiteral(resourceName: "FlatFee"), #imageLiteral(resourceName: "Coupons")]
-    private let titles = [ConstantTexts.MoreLT,ConstantTexts.HomeLT,ConstantTexts.BlogsLT,ConstantTexts.FlatFeesLT,ConstantTexts.CouponsLT]
+    
+    private let images = [#imageLiteral(resourceName: "Home") ,#imageLiteral(resourceName: "Blogs")  ,#imageLiteral(resourceName: "FlatFee")  , #imageLiteral(resourceName: "Coupons"),  #imageLiteral(resourceName: "Menu")]
+    private let titles = [ConstantTexts.HomeLT ,ConstantTexts.BlogsLT,ConstantTexts.FlatFeesLT, ConstantTexts.CouponsLT, ConstantTexts.MoreLT]
     
     //MARK: - View life cycle methods
     //TODO: Implementation viewDidLoad
@@ -26,21 +27,21 @@ extension TabBarVC{
     //TODO: Implementation setUpView
     private func setUpView() {
         
-       /* self.tabBar.barTintColor =  UIColor(named: "LaunchColor") ?? .clear
-        self.tabBar.isTranslucent = false */
+        self.tabBar.barTintColor =  AppColor.themeColor
+        self.tabBar.isTranslucent = false
         
         self.selectedIndex = 0
         self.delegate = self
         
-        self.tabBar.unselectedItemTintColor = UIColor(named: "DarkGrayColor") ?? .clear
+        self.tabBar.unselectedItemTintColor = AppColor.bgColorTwo
         
         if let tabBarItems = tabBar.items{
             for index in 0..<tabBarItems.count {
                 
-                tabBarItems[index].setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor(named: "LaunchColor") ?? .clear], for: .selected)
+                tabBarItems[index].setTitleTextAttributes([NSAttributedString.Key.foregroundColor: AppColor.whiteColor], for: .selected)
                 tabBarItems[index].imageInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
                 
-                let image = images[index].withRenderingMode(.alwaysOriginal).withTintColor(UIColor(named: "LaunchColor") ?? .clear)
+                let image = images[index].withRenderingMode(.alwaysOriginal).withTintColor(AppColor.whiteColor)
                 
                 tabBarItems[index].selectedImage = image
                 tabBarItems[index].image = images[index]
@@ -59,4 +60,18 @@ extension TabBarVC: UITabBarControllerDelegate {
     
     /*  func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController){
      } */
+}
+
+
+
+extension UITabBar {
+    func tabsVisiblty(_ isVisiblty: Bool = true){
+        if isVisiblty {
+            self.isHidden = false
+            self.layer.zPosition = 0
+        } else {
+            self.isHidden = true
+            self.layer.zPosition = -1
+        }
+    }
 }

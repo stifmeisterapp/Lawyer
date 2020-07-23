@@ -64,47 +64,47 @@ class LawyerShortDetailTableViewCell: SBaseTableViewCell {
             customMethodManager = CustomMethodClass.shared
         }
         
-        self.backgroundColor = UIColor(named: "CreamColor") ?? .clear
-        self.viewBG.backgroundColor = UIColor(named: "WhiteShadow") ?? .clear
-        self.customMethodManager?.provideShadowAndCornerRadius(self.viewBG, 10, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], UIColor(named: "LightGrayColor") ?? .clear, 2, 2, 2, 2, 0, UIColor(named: "CreamColor") ?? .clear)
+        self.backgroundColor = AppColor.tableBGColor
+        self.viewBG.backgroundColor = AppColor.whiteColor
+        self.customMethodManager?.provideShadowAndCornerRadius(self.viewBG, 10, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.placeholderColor, 2, 2, 2, 2, 0, AppColor.tableBGColor)
         
-        self.imageLawyer.setImageTintColor(UIColor(named: "DarkGrayColor") ?? .clear)
+        self.imageLawyer.setImageTintColor(AppColor.darkGrayColor)
         
         self.labelNameLayer.font = UIFont.systemFont(ofSize: 15.0)
-        self.labelNameLayer.textColor = UIColor(named: "BlackColor") ?? .clear
+        self.labelNameLayer.textColor = AppColor.textColor
         
-        self.imageLawyerExp.setImageTintColor(UIColor(named: "CyanColor") ?? .clear)
+        self.imageLawyerExp.setImageTintColor(AppColor.cyanColor)
         self.labelNameLayerExp.font = UIFont.systemFont(ofSize: 15.0)
-        self.labelNameLayerExp.textColor = UIColor(named: "DarkGrayColor") ?? .clear
+        self.labelNameLayerExp.textColor = AppColor.darkGrayColor
         
-        self.imageLawyerLoc.setImageTintColor(UIColor(named: "TangerineColor") ?? .clear)
+        self.imageLawyerLoc.setImageTintColor(AppColor.tanColor)
         self.labelNameLayerLoc.font = UIFont.systemFont(ofSize: 15.0)
-        self.labelNameLayerLoc.textColor = UIColor(named: "DarkGrayColor") ?? .clear
+        self.labelNameLayerLoc.textColor = AppColor.darkGrayColor
         
         
-        self.imageLawyerLang.setImageTintColor(UIColor(named: "LaunchColor") ?? .clear)
+        self.imageLawyerLang.setImageTintColor(AppColor.themeColor)
         self.labelNameLayerLang.font = UIFont.systemFont(ofSize: 15.0)
-        self.labelNameLayerLang.textColor = UIColor(named: "DarkGrayColor") ?? .clear
+        self.labelNameLayerLang.textColor = AppColor.darkGrayColor
         
-        self.imageLawyerNav.setImageTintColor(UIColor(named: "LaunchColor") ?? .clear)
+        self.imageLawyerNav.setImageTintColor(AppColor.themeColor)
         
-        self.viewSeprator1.backgroundColor = UIColor(named: "DarkGrayColor") ?? .clear
-        self.viewSeprator2.backgroundColor = UIColor(named: "DarkGrayColor") ?? .clear
+        self.viewSeprator1.backgroundColor = AppColor.darkGrayColor
+        self.viewSeprator2.backgroundColor = AppColor.darkGrayColor
         
         
         self.customMethodManager?.provideCornerRadiusTo(self.buttonMeetRef, 5, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
-        self.customMethodManager?.provideCornerBorderTo(self.buttonMeetRef, 1, UIColor(named: "LaunchColor") ?? .clear)
+        self.customMethodManager?.provideCornerBorderTo(self.buttonMeetRef, 1, AppColor.themeColor)
         
-        self.buttonMeetRef.setTitleColor(UIColor(named: "LaunchColor") ?? .clear, for: .normal)
-        self.buttonMeetRef.backgroundColor = UIColor(named: "WhiteShadow") ?? .clear
+        self.buttonMeetRef.setTitleColor(AppColor.themeColor, for: .normal)
+        self.buttonMeetRef.backgroundColor = AppColor.whiteColor
         self.buttonMeetRef.setTitle(ConstantTexts.MeetBT, for: .normal)
         self.buttonMeetRef.titleLabel?.font = UIFont.systemFont(ofSize: 15.0)
         
         
         self.customMethodManager?.provideCornerRadiusTo(self.buttonCallRef, 5, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
         
-        self.buttonCallRef.setTitleColor(UIColor(named: "WhiteShadow") ?? .clear, for: .normal)
-        self.buttonCallRef.backgroundColor = UIColor(named: "LaunchColor") ?? .clear
+        self.buttonCallRef.setTitleColor(AppColor.whiteColor, for: .normal)
+        self.buttonCallRef.backgroundColor = AppColor.themeColor
         self.buttonCallRef.setTitle(ConstantTexts.CallBT, for: .normal)
         self.buttonCallRef.titleLabel?.font = UIFont.systemFont(ofSize: 15.0)
         
@@ -124,9 +124,9 @@ class LawyerShortDetailTableViewCell: SBaseTableViewCell {
         
         
         var myMutableString = NSMutableAttributedString()
-        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: ConstantTexts.ExperienceLT, font: UIFont.systemFont(ofSize: 15.0), color: UIColor(named: "DarkGrayColor") ?? .clear) ?? NSMutableAttributedString())
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: ConstantTexts.ExperienceLT, font: UIFont.systemFont(ofSize: 15.0), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
         
-        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\n \(15) \(ConstantTexts.YrsLT)", font: UIFont.systemFont(ofSize: 15.0), color: UIColor(named: "BlackColor") ?? .clear) ?? NSMutableAttributedString())
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\n \(15) \(ConstantTexts.YrsLT)", font: UIFont.systemFont(ofSize: 15.0), color: AppColor.textColor) ?? NSMutableAttributedString())
         
         
         // *** Apply attribute to string ***
@@ -142,9 +142,9 @@ class LawyerShortDetailTableViewCell: SBaseTableViewCell {
         
         myMutableString = NSMutableAttributedString()
         
-        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: ConstantTexts.CallLT, font: UIFont.systemFont(ofSize: 15.0), color: UIColor(named: "DarkGrayColor") ?? .clear) ?? NSMutableAttributedString())
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: ConstantTexts.CallLT, font: UIFont.systemFont(ofSize: 15.0), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
         
-        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\n\(ConstantTexts.CurLT)  \(500)", font: UIFont.systemFont(ofSize: 15.0), color: UIColor(named: "BlackColor") ?? .clear) ?? NSMutableAttributedString())
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\n\(ConstantTexts.CurLT)  \(500)", font: UIFont.systemFont(ofSize: 15.0), color: AppColor.textColor) ?? NSMutableAttributedString())
         
         
         // *** Apply attribute to string ***
@@ -158,9 +158,9 @@ class LawyerShortDetailTableViewCell: SBaseTableViewCell {
         
         myMutableString = NSMutableAttributedString()
         
-        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: ConstantTexts.MeetLT, font: UIFont.systemFont(ofSize: 15.0), color: UIColor(named: "DarkGrayColor") ?? .clear) ?? NSMutableAttributedString())
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: ConstantTexts.MeetLT, font: UIFont.systemFont(ofSize: 15.0), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
         
-        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\n\(ConstantTexts.CurLT)  \(2000)", font: UIFont.systemFont(ofSize: 15.0), color: UIColor(named: "BlackColor") ?? .clear) ?? NSMutableAttributedString())
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\n\(ConstantTexts.CurLT)  \(2000)", font: UIFont.systemFont(ofSize: 15.0), color: AppColor.textColor) ?? NSMutableAttributedString())
         
         
         // *** Apply attribute to string ***

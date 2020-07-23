@@ -57,5 +57,48 @@
             </objects>
             <point key="canvasLocation" x="195.6521739130435" y="134.59821428571428"/>
         </scene>
+        <!--OnboardingVC-->
+        <scene sceneID="t4m-eA-TAs">
+            <objects>
+                <viewController storyboardIdentifier="OnboardingVC" id="BnT-Em-geH" customClass="OnboardingVC" customModule="Lawyer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="L5n-uo-Kp6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9WN-Cr-k5b" customClass="OnboardingView" customModule="Lawyer" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sid-8A-rEG">
+                                <rect key="frame" x="184" y="746" width="46" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="vfp-iZ-ecO"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="btnProceedTapped:" destination="BnT-Em-geH" eventType="touchUpInside" id="MG1-lv-FnL"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="9WN-Cr-k5b" firstAttribute="top" secondItem="L5n-uo-Kp6" secondAttribute="top" id="1ke-Q4-3zM"/>
+                            <constraint firstAttribute="trailing" secondItem="9WN-Cr-k5b" secondAttribute="trailing" id="au0-dD-Pnv"/>
+                            <constraint firstAttribute="bottom" secondItem="9WN-Cr-k5b" secondAttribute="bottom" id="bpE-bg-nCx"/>
+                            <constraint firstAttribute="bottom" secondItem="Sid-8A-rEG" secondAttribute="bottom" constant="100" id="hYC-VB-0gB"/>
+                            <constraint firstItem="Sid-8A-rEG" firstAttribute="centerX" secondItem="L5n-uo-Kp6" secondAttribute="centerX" id="tAN-ie-LXO"/>
+                            <constraint firstItem="9WN-Cr-k5b" firstAttribute="leading" secondItem="L5n-uo-Kp6" secondAttribute="leading" id="zZk-Fm-9ur"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="OlY-Hi-VTB"/>
+                    </view>
+                    <connections>
+                        <outlet property="buttonProceedRef" destination="Sid-8A-rEG" id="joG-S9-PsT"/>
+                        <outlet property="onboardingView" destination="9WN-Cr-k5b" id="v7i-jo-Vsl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kQg-wP-jeD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="844.92753623188412" y="134.59821428571428"/>
+        </scene>
     </scenes>
 </document>

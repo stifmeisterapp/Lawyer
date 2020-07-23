@@ -11,40 +11,46 @@ import Foundation
 
 extension LawyerListVC{
     
-    //TODO: Intial setup implementation
-    internal func initialSetup(){
-        
+    
+    //TODO: Init values
+    internal func initValues(){
         if customMethodManager == nil {
             customMethodManager = CustomMethodClass.shared
         }
         
+        initialSetup()
         
-        self.view.backgroundColor = UIColor(named: "CreamColor") ?? .clear
+    }
+    
+    //TODO: Intial setup implementation
+    private func initialSetup(){
+
+        self.view.backgroundColor = AppColor.tableBGColor
         
         self.lawyerTableView.separatorStyle = .none
         self.lawyerTableView.hideEmptyCells()
         self.lawyerTableView.isHidden = false
         self.lawyerTableView.isScrollEnabled = true
-        self.lawyerTableView.backgroundColor = UIColor(named: "CreamColor") ?? .clear
+        self.lawyerTableView.backgroundColor = AppColor.tableBGColor
         
-        self.viewBtnStackBG.backgroundColor = UIColor(named: "LaunchColor") ?? .clear
+        self.viewBtnStackBG.backgroundColor = AppColor.themeColor
         
-        self.viewList.backgroundColor = UIColor(named: "GreenColor") ?? .clear
+        self.viewList.backgroundColor = AppColor.passGreenColor
         self.customMethodManager?.provideCornerRadiusTo(self.viewList, self.viewList.frame.size.height/2, [.layerMinXMinYCorner, .layerMinXMaxYCorner])
         
-        self.imageList.setImageTintColor(UIColor(named: "WhiteShadow") ?? .clear)
+        self.imageList.setImageTintColor(AppColor.whiteColor)
         
         self.labelList.font = UIFont.boldSystemFont(ofSize: 15)
-        self.labelList.textColor = UIColor(named: "WhiteShadow") ?? .clear
+        self.labelList.textColor = AppColor.whiteColor
         self.labelList.text = ConstantTexts.LIST_VIEW_BT
 
-        self.viewMap.backgroundColor = UIColor(named: "WhiteShadow") ?? .clear
+        self.viewMap.backgroundColor = AppColor.whiteColor
         self.customMethodManager?.provideCornerRadiusTo(self.viewMap, self.viewMap.frame.size.height/2, [.layerMaxXMinYCorner, .layerMaxXMaxYCorner])
         
-        self.imageMap.setImageTintColor(UIColor(named: "LaunchColor") ?? .clear)
+        self.imageMap.setImageTintColor(AppColor.themeColor)
         
         self.labelMap.font = UIFont.boldSystemFont(ofSize: 15)
-        self.labelMap.textColor = UIColor(named: "BlackColor") ?? .clear
+        self.labelMap.textColor = AppColor.textColor
         self.labelMap.text = ConstantTexts.MAP_VIEW_BT
         
         
@@ -55,11 +61,8 @@ extension LawyerListVC{
     
     //TODO: Navigation setup implenemtation
     internal func navSetup(){
-        self.navigationItem.title = self.headerTitle
-        self.navigationController?.navigationBar.prefersLargeTitles = false
-        self.navigationController?.navigationBar.barTintColor = UIColor(named: "LaunchColor")
-        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor(named: "WhiteShadow") ?? .clear]
-        self.navigationController?.navigationBar.isTranslucent = false
+        super.setupNavigationBarTitle(self.headerTitle, leftBarButtonsType: [.back], rightBarButtonsType: [])
+
     }
     
     

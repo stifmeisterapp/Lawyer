@@ -43,15 +43,25 @@
                                             </imageView>
                                         </subviews>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XLD-44-Iau">
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="50"/>
+                                        <connections>
+                                            <action selector="btnCountryTapped:" destination="8DU-OJ-wEF" eventType="touchUpInside" id="ktp-JY-lYt"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="XLD-44-Iau" firstAttribute="leading" secondItem="5kL-fh-XV6" secondAttribute="leading" id="BhZ-CB-bPg"/>
                                     <constraint firstAttribute="height" constant="50" id="CG1-hu-eNp"/>
                                     <constraint firstItem="FTJ-lO-Wpo" firstAttribute="centerX" secondItem="5kL-fh-XV6" secondAttribute="centerX" id="CqH-2H-iJj"/>
+                                    <constraint firstAttribute="bottom" secondItem="XLD-44-Iau" secondAttribute="bottom" id="Lk0-HC-cEg"/>
+                                    <constraint firstAttribute="trailing" secondItem="XLD-44-Iau" secondAttribute="trailing" id="Tou-hq-c71"/>
                                     <constraint firstItem="FTJ-lO-Wpo" firstAttribute="centerY" secondItem="5kL-fh-XV6" secondAttribute="centerY" id="mrR-B6-I7l"/>
+                                    <constraint firstItem="XLD-44-Iau" firstAttribute="top" secondItem="5kL-fh-XV6" secondAttribute="top" id="ypi-qh-Oxf"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Yiw-cy-9Mt">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Yiw-cy-9Mt">
                                 <rect key="frame" x="0.0" y="114" width="414" height="748"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <connections>
@@ -82,7 +92,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1aK-Xw-zMI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-396" y="77"/>
+            <point key="canvasLocation" x="-397.10144927536237" y="76.339285714285708"/>
         </scene>
         <!--Lawyer ListVC-->
         <scene sceneID="d8I-IZ-Gcb">
@@ -94,7 +104,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jzt-xn-lsV">
                                 <rect key="frame" x="0.0" y="44" width="414" height="50"/>
-                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="XS1-ef-VpP"/>
                                 </constraints>

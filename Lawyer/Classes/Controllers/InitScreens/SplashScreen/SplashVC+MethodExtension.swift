@@ -28,10 +28,10 @@ extension SplashVC{
     
     //TODO: IntialSetup
     private func initialSetup(){
-        self.view.backgroundColor = UIColor(named: "LaunchColor")
+        self.view.backgroundColor = AppColor.themeColor
         
         self.view_Animation.backgroundColor = .white
-        self.customMethodManager?.provideShadowAndCornerRadius(self.view_Animation, self.view_Animation.frame.size.height / 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], UIColor(named: "WhiteShadow") ?? .clear, 2, 2, 2, 2, 0.5, UIColor(named: "CreamColor") ?? .clear)
+        self.customMethodManager?.provideShadowAndCornerRadius(self.view_Animation, self.view_Animation.frame.size.height / 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.whiteColor, 2, 2, 2, 2, 0.5, AppColor.tableBGColor)
         
         self.customMethodManager?.showLottieAnimation(self.view_Animation, ConstantTexts.Law, .playOnce)
         
@@ -54,7 +54,7 @@ extension SplashVC{
         }) { (done) in
             if done{
                 //Move Forward
-                let vc = AppStoryboard.tabBarSB.instantiateViewController(withIdentifier: TabBarVC.className) as! TabBarVC
+                let vc = AppStoryboard.launchSB.instantiateViewController(withIdentifier: OnboardingVC.className) as! OnboardingVC
                 UIApplication.shared.windows.first?.rootViewController = vc
                 UIApplication.shared.windows.first?.makeKeyAndVisible()
                 

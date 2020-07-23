@@ -8,8 +8,8 @@
 
 import UIKit
 
-class LawyerListVC: UIViewController {
-
+class LawyerListVC: SBaseViewController {
+    
     //MARK: - IBOutlets
     
     @IBOutlet weak var viewBtnStackBG: UIView!
@@ -31,18 +31,18 @@ class LawyerListVC: UIViewController {
     internal var customMethodManager:CustomMethodProtocol?
     
     
- /*  //MARK: - variables for the animate tableview
-   
-   internal var animationName = String()
-    
-    /// an enum of type TableAnimation - determines the animation to be applied to the tableViewCells
-   internal var currentTableAnimation: TableAnimation = .fadeIn(duration: 0.85, delay: 0.03) {
-        didSet {
-            self.animationName = currentTableAnimation.getTitle()
-        }
-    }
-   internal var animationDuration: TimeInterval = 0.85
-   internal var delay: TimeInterval = 0.05  */
+    /*  //MARK: - variables for the animate tableview
+     
+     internal var animationName = String()
+     
+     /// an enum of type TableAnimation - determines the animation to be applied to the tableViewCells
+     internal var currentTableAnimation: TableAnimation = .fadeIn(duration: 0.85, delay: 0.03) {
+     didSet {
+     self.animationName = currentTableAnimation.getTitle()
+     }
+     }
+     internal var animationDuration: TimeInterval = 0.85
+     internal var delay: TimeInterval = 0.05  */
     
     
     
@@ -50,56 +50,56 @@ class LawyerListVC: UIViewController {
     //TODO: Implementation viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
-            initialSetup()
+        initValues()
     }
     
-    //TODO: Implementation viewDidLoad
+    //TODO: Implementation viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navSetup()
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
     
     
-    //MARK: - Actions, Gestures, Selecters
+    //MARK: - Actions, Gestures, Selectors
     //TODO: Actions
     
     @IBAction func btnListTapped(_ sender: UIButton) {
         
-        self.viewList.backgroundColor = UIColor(named: "GreenColor") ?? .clear
-        self.imageList.setImageTintColor(UIColor(named: "WhiteShadow") ?? .clear)
-        self.labelList.textColor = UIColor(named: "WhiteShadow") ?? .clear
+        self.viewList.backgroundColor = AppColor.passGreenColor
+        self.imageList.setImageTintColor(AppColor.whiteColor)
+        self.labelList.textColor = AppColor.whiteColor
         
-        self.viewMap.backgroundColor = UIColor(named: "WhiteShadow") ?? .clear
-        self.imageMap.setImageTintColor(UIColor(named: "LaunchColor") ?? .clear)
-        self.labelMap.textColor = UIColor(named: "BlackColor") ?? .clear
- 
+        self.viewMap.backgroundColor = AppColor.whiteColor
+        self.imageMap.setImageTintColor(AppColor.themeColor)
+        self.labelMap.textColor = AppColor.textColor
+        
     }
     
     @IBAction func btnMapTapped(_ sender: UIButton) {
-           
-           self.viewList.backgroundColor = UIColor(named: "WhiteShadow") ?? .clear
-           self.imageList.setImageTintColor(UIColor(named: "LaunchColor") ?? .clear)
-           self.labelList.textColor = UIColor(named: "BlackColor") ?? .clear
-           
-           self.viewMap.backgroundColor = UIColor(named: "GreenColor") ?? .clear
-           self.imageMap.setImageTintColor(UIColor(named: "WhiteShadow") ?? .clear)
-           self.labelMap.textColor = UIColor(named: "WhiteShadow") ?? .clear
+        
+        self.viewList.backgroundColor = AppColor.whiteColor
+        self.imageList.setImageTintColor(AppColor.themeColor)
+        self.labelList.textColor = AppColor.textColor
+        
+        self.viewMap.backgroundColor = AppColor.passGreenColor
+        self.imageMap.setImageTintColor(AppColor.whiteColor)
+        self.labelMap.textColor = AppColor.whiteColor
+        
+    }
     
-       }
     
     
-
 }

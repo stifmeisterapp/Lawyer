@@ -10,6 +10,11 @@
 		27933A82CCB121DBF6D058BE /* Pods_LawyerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3129BC034A8C3602D9FF64E3 /* Pods_LawyerTests.framework */; };
 		7C646813CC71624E9ED7CEA2 /* Pods_Lawyer_LawyerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEB6203CFFF145774FC5892F /* Pods_Lawyer_LawyerUITests.framework */; };
 		88BAAB8D8F4A55A5086DFC8B /* Pods_Lawyer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5E67AB4FEE1E9E590A3FBF /* Pods_Lawyer.framework */; };
+		9D00E1FB24C7625900F6FC74 /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D00E1FA24C7625900F6FC74 /* OnboardingVC.swift */; };
+		9D00E1FF24C7E02900F6FC74 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D00E1FE24C7E02900F6FC74 /* OnboardingView.swift */; };
+		9D00E20124C7E0F500F6FC74 /* OnboardingVC+MethodExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D00E20024C7E0F500F6FC74 /* OnboardingVC+MethodExtension.swift */; };
+		9D00E20324C7E19800F6FC74 /* OnboardingVC+paper_onboardingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D00E20224C7E19800F6FC74 /* OnboardingVC+paper_onboardingExtension.swift */; };
+		9D0B206724CA03180073C3C4 /* SBaseViewController+MethodExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0B206624CA03180073C3C4 /* SBaseViewController+MethodExtension.swift */; };
 		9D25567524C1DCAA006563AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D25567424C1DCAA006563AC /* AppDelegate.swift */; };
 		9D25567724C1DCAA006563AC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D25567624C1DCAA006563AC /* SceneDelegate.swift */; };
 		9D25567924C1DCAA006563AC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D25567824C1DCAA006563AC /* ViewController.swift */; };
@@ -21,7 +26,6 @@
 		9D4C683024C598180064E935 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D4C682F24C598180064E935 /* Home.storyboard */; };
 		9D4C683924C5A3EB0064E935 /* HomeVC+MethodExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4C683824C5A3EB0064E935 /* HomeVC+MethodExtension.swift */; };
 		9D554C4F24C2C26300E2080D /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D554C4E24C2C26300E2080D /* Launch.storyboard */; };
-		9D554C5124C2C3E000E2080D /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D554C5024C2C3E000E2080D /* Colors.xcassets */; };
 		9D554C5524C2C8D300E2080D /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D554C5424C2C8D300E2080D /* SplashVC.swift */; };
 		9D554C5724C2C9CD00E2080D /* SplashVC+MethodExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D554C5624C2C9CD00E2080D /* SplashVC+MethodExtension.swift */; };
 		9D554C5F24C2D41600E2080D /* SoundProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D554C5E24C2D41600E2080D /* SoundProtocol.swift */; };
@@ -43,6 +47,21 @@
 		9D5F2B5024C7100300BA4015 /* LawyerListVC+MethodExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5F2B4F24C7100300BA4015 /* LawyerListVC+MethodExtension.swift */; };
 		9D5F2B5224C7172600BA4015 /* LawyerListVC+TableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5F2B5124C7172600BA4015 /* LawyerListVC+TableViewExtension.swift */; };
 		9D5F2B5424C75DB700BA4015 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5F2B5324C75DB700BA4015 /* Category.swift */; };
+		9D76C04624C8CC51002B400E /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D76C04524C8CC51002B400E /* AppColor.swift */; };
+		9D76C04824C8D8ED002B400E /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D76C04724C8D8ED002B400E /* Auth.storyboard */; };
+		9D76C04C24C8DE46002B400E /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D76C04B24C8DE46002B400E /* LoginVC.swift */; };
+		9D76C04E24C8E011002B400E /* LoginVC+MethodExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D76C04D24C8E011002B400E /* LoginVC+MethodExtension.swift */; };
+		9D76C05124C8EB4C002B400E /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D76C05024C8EB4C002B400E /* SignUpVC.swift */; };
+		9D76C05324C8EBD2002B400E /* SignUpVC+MethodExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D76C05224C8EBD2002B400E /* SignUpVC+MethodExtension.swift */; };
+		9D787D7E24C942FF00EB22D2 /* OTP_VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D787D7D24C942FF00EB22D2 /* OTP_VC.swift */; };
+		9D787D8024C9437200EB22D2 /* OTP_VC+MethodExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D787D7F24C9437200EB22D2 /* OTP_VC+MethodExtension.swift */; };
+		9D787D8224C9663300EB22D2 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D787D8124C9663300EB22D2 /* UITextField+Extension.swift */; };
+		9D787D8424C9834E00EB22D2 /* ValidationClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D787D8324C9834E00EB22D2 /* ValidationClass.swift */; };
+		9D787D8624C9848C00EB22D2 /* ValidationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D787D8524C9848C00EB22D2 /* ValidationProtocol.swift */; };
+		9D787D8C24C990D700EB22D2 /* TipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D787D8824C990D700EB22D2 /* TipView.swift */; };
+		9D787D8D24C990D700EB22D2 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D787D8924C990D700EB22D2 /* MessageView.swift */; };
+		9D787D8E24C990D700EB22D2 /* AnchorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D787D8A24C990D700EB22D2 /* AnchorView.swift */; };
+		9D787D8F24C990D700EB22D2 /* TipViewTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D787D8B24C990D700EB22D2 /* TipViewTransition.swift */; };
 		9D87E70424C57C8100EF0870 /* SoundClassTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D87E70324C57C8100EF0870 /* SoundClassTests.swift */; };
 		9D97428F24C34F6D00CF80BD /* Law.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D97428E24C34F6D00CF80BD /* Law.json */; };
 		9D97429124C36AAB00CF80BD /* Judges_Gavel.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9D97429024C36AAB00CF80BD /* Judges_Gavel.mp3 */; };
@@ -53,6 +72,10 @@
 		9DC5456324C33DAE009AF27A /* AppStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC5456224C33DAE009AF27A /* AppStoryboard.swift */; };
 		9DC5456524C33E9A009AF27A /* ConstantTexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC5456424C33E9A009AF27A /* ConstantTexts.swift */; };
 		9DC5456724C33F55009AF27A /* AppMacros.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC5456624C33F55009AF27A /* AppMacros.swift */; };
+		9DFFC28624C9CD8300A50EA0 /* SBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFFC28524C9CD8300A50EA0 /* SBaseViewController.swift */; };
+		9DFFC28924C9CF2C00A50EA0 /* UINavigationBarButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFFC28824C9CF2C00A50EA0 /* UINavigationBarButtonType.swift */; };
+		9DFFC28B24C9D30300A50EA0 /* NSObject+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFFC28A24C9D30300A50EA0 /* NSObject+Extensions.swift */; };
+		9DFFC28D24C9D36B00A50EA0 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFFC28C24C9D36B00A50EA0 /* UIImageView+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +103,11 @@
 		4C88BE4B62D9819F89AE5048 /* Pods-LawyerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LawyerTests.release.xcconfig"; path = "Target Support Files/Pods-LawyerTests/Pods-LawyerTests.release.xcconfig"; sourceTree = "<group>"; };
 		6544288F677EC312055129F8 /* Pods-Lawyer-LawyerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lawyer-LawyerUITests.release.xcconfig"; path = "Target Support Files/Pods-Lawyer-LawyerUITests/Pods-Lawyer-LawyerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8908AF1CC8FEF4EAEBFC05EE /* Pods-Lawyer-LawyerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lawyer-LawyerUITests.debug.xcconfig"; path = "Target Support Files/Pods-Lawyer-LawyerUITests/Pods-Lawyer-LawyerUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		9D00E1FA24C7625900F6FC74 /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
+		9D00E1FE24C7E02900F6FC74 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		9D00E20024C7E0F500F6FC74 /* OnboardingVC+MethodExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OnboardingVC+MethodExtension.swift"; sourceTree = "<group>"; };
+		9D00E20224C7E19800F6FC74 /* OnboardingVC+paper_onboardingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OnboardingVC+paper_onboardingExtension.swift"; sourceTree = "<group>"; };
+		9D0B206624CA03180073C3C4 /* SBaseViewController+MethodExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SBaseViewController+MethodExtension.swift"; sourceTree = "<group>"; };
 		9D25567124C1DCAA006563AC /* Lawyer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lawyer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D25567424C1DCAA006563AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D25567624C1DCAA006563AC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,7 +125,6 @@
 		9D4C682F24C598180064E935 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		9D4C683824C5A3EB0064E935 /* HomeVC+MethodExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeVC+MethodExtension.swift"; sourceTree = "<group>"; };
 		9D554C4E24C2C26300E2080D /* Launch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
-		9D554C5024C2C3E000E2080D /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		9D554C5424C2C8D300E2080D /* SplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
 		9D554C5624C2C9CD00E2080D /* SplashVC+MethodExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SplashVC+MethodExtension.swift"; sourceTree = "<group>"; };
 		9D554C5E24C2D41600E2080D /* SoundProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundProtocol.swift; sourceTree = "<group>"; };
@@ -119,6 +146,21 @@
 		9D5F2B4F24C7100300BA4015 /* LawyerListVC+MethodExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LawyerListVC+MethodExtension.swift"; sourceTree = "<group>"; };
 		9D5F2B5124C7172600BA4015 /* LawyerListVC+TableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LawyerListVC+TableViewExtension.swift"; sourceTree = "<group>"; };
 		9D5F2B5324C75DB700BA4015 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		9D76C04524C8CC51002B400E /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
+		9D76C04724C8D8ED002B400E /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
+		9D76C04B24C8DE46002B400E /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		9D76C04D24C8E011002B400E /* LoginVC+MethodExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginVC+MethodExtension.swift"; sourceTree = "<group>"; };
+		9D76C05024C8EB4C002B400E /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		9D76C05224C8EBD2002B400E /* SignUpVC+MethodExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpVC+MethodExtension.swift"; sourceTree = "<group>"; };
+		9D787D7D24C942FF00EB22D2 /* OTP_VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTP_VC.swift; sourceTree = "<group>"; };
+		9D787D7F24C9437200EB22D2 /* OTP_VC+MethodExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OTP_VC+MethodExtension.swift"; sourceTree = "<group>"; };
+		9D787D8124C9663300EB22D2 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
+		9D787D8324C9834E00EB22D2 /* ValidationClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationClass.swift; sourceTree = "<group>"; };
+		9D787D8524C9848C00EB22D2 /* ValidationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationProtocol.swift; sourceTree = "<group>"; };
+		9D787D8824C990D700EB22D2 /* TipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipView.swift; sourceTree = "<group>"; };
+		9D787D8924C990D700EB22D2 /* MessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
+		9D787D8A24C990D700EB22D2 /* AnchorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnchorView.swift; sourceTree = "<group>"; };
+		9D787D8B24C990D700EB22D2 /* TipViewTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipViewTransition.swift; sourceTree = "<group>"; };
 		9D87E70324C57C8100EF0870 /* SoundClassTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundClassTests.swift; sourceTree = "<group>"; };
 		9D97428E24C34F6D00CF80BD /* Law.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Law.json; sourceTree = "<group>"; };
 		9D97429024C36AAB00CF80BD /* Judges_Gavel.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Judges_Gavel.mp3; sourceTree = "<group>"; };
@@ -129,6 +171,10 @@
 		9DC5456224C33DAE009AF27A /* AppStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoryboard.swift; sourceTree = "<group>"; };
 		9DC5456424C33E9A009AF27A /* ConstantTexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantTexts.swift; sourceTree = "<group>"; };
 		9DC5456624C33F55009AF27A /* AppMacros.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMacros.swift; sourceTree = "<group>"; };
+		9DFFC28524C9CD8300A50EA0 /* SBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBaseViewController.swift; sourceTree = "<group>"; };
+		9DFFC28824C9CF2C00A50EA0 /* UINavigationBarButtonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationBarButtonType.swift; sourceTree = "<group>"; };
+		9DFFC28A24C9D30300A50EA0 /* NSObject+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extensions.swift"; sourceTree = "<group>"; };
+		9DFFC28C24C9D36B00A50EA0 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		BE5E67AB4FEE1E9E590A3FBF /* Pods_Lawyer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lawyer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEB6203CFFF145774FC5892F /* Pods_Lawyer_LawyerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lawyer_LawyerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -169,6 +215,16 @@
 				3129BC034A8C3602D9FF64E3 /* Pods_LawyerTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9D00E1F924C7622900F6FC74 /* OnboardingScreen */ = {
+			isa = PBXGroup;
+			children = (
+				9D00E1FA24C7625900F6FC74 /* OnboardingVC.swift */,
+				9D00E20024C7E0F500F6FC74 /* OnboardingVC+MethodExtension.swift */,
+				9D00E20224C7E19800F6FC74 /* OnboardingVC+paper_onboardingExtension.swift */,
+			);
+			path = OnboardingScreen;
 			sourceTree = "<group>";
 		};
 		9D25566824C1DCAA006563AC = {
@@ -235,7 +291,6 @@
 				9D97429024C36AAB00CF80BD /* Judges_Gavel.mp3 */,
 				9D25567A24C1DCAA006563AC /* Main.storyboard */,
 				9D25567D24C1DCAB006563AC /* Assets.xcassets */,
-				9D554C5024C2C3E000E2080D /* Colors.xcassets */,
 				9D25567F24C1DCAB006563AC /* LaunchScreen.storyboard */,
 			);
 			path = System_Files;
@@ -254,6 +309,7 @@
 			isa = PBXGroup;
 			children = (
 				9D554C5324C2C89500E2080D /* SplashScreen */,
+				9D00E1F924C7622900F6FC74 /* OnboardingScreen */,
 			);
 			path = InitScreens;
 			sourceTree = "<group>";
@@ -282,8 +338,9 @@
 			isa = PBXGroup;
 			children = (
 				9D554C4E24C2C26300E2080D /* Launch.storyboard */,
-				9D4C682F24C598180064E935 /* Home.storyboard */,
+				9D76C04724C8D8ED002B400E /* Auth.storyboard */,
 				9D5F2B2924C5FB3800BA4015 /* TabBar.storyboard */,
+				9D4C682F24C598180064E935 /* Home.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -292,6 +349,7 @@
 			isa = PBXGroup;
 			children = (
 				9D4C683224C59E040064E935 /* InitScreens */,
+				9D76C04924C8DDFC002B400E /* AuthScreens */,
 				9D5F2B2B24C6127C00BA4015 /* TabBarScreens */,
 				9D4C683124C59DF30064E935 /* HomeScreens */,
 			);
@@ -320,6 +378,8 @@
 		9D554C5924C2D04E00E2080D /* HelperClasses */ = {
 			isa = PBXGroup;
 			children = (
+				9DFFC28724C9CEFC00A50EA0 /* Enumrations */,
+				9D787D8724C990B600EB22D2 /* ToolTipHelper */,
 				9D5F2B4324C6D26100BA4015 /* Extensions */,
 				9D97428D24C34F3800CF80BD /* AnimationFiles */,
 				9DC5456124C33D8D009AF27A /* CustomStructs */,
@@ -337,6 +397,9 @@
 				9D554C6024C2D4FB00E2080D /* SoundClass.swift */,
 				9DC5455D24C33170009AF27A /* CustomMethodProtocol.swift */,
 				9DC5455F24C331A5009AF27A /* CustomMethodClass.swift */,
+				9D787D8524C9848C00EB22D2 /* ValidationProtocol.swift */,
+				9D787D8324C9834E00EB22D2 /* ValidationClass.swift */,
+				9D00E1FE24C7E02900F6FC74 /* OnboardingView.swift */,
 			);
 			path = Helper_ClassesAndProtocols;
 			sourceTree = "<group>";
@@ -364,6 +427,8 @@
 			isa = PBXGroup;
 			children = (
 				9D5F2B3424C6AF9700BA4015 /* SBaseTableViewCell.swift */,
+				9DFFC28524C9CD8300A50EA0 /* SBaseViewController.swift */,
+				9D0B206624CA03180073C3C4 /* SBaseViewController+MethodExtension.swift */,
 			);
 			path = BaseClasses;
 			sourceTree = "<group>";
@@ -396,6 +461,9 @@
 			isa = PBXGroup;
 			children = (
 				9D5F2B4424C6D29B00BA4015 /* UITableView+AdditionsExtension.swift */,
+				9D787D8124C9663300EB22D2 /* UITextField+Extension.swift */,
+				9DFFC28A24C9D30300A50EA0 /* NSObject+Extensions.swift */,
+				9DFFC28C24C9D36B00A50EA0 /* UIImageView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -408,6 +476,54 @@
 				9D5F2B5124C7172600BA4015 /* LawyerListVC+TableViewExtension.swift */,
 			);
 			path = LawyerListScreen;
+			sourceTree = "<group>";
+		};
+		9D76C04924C8DDFC002B400E /* AuthScreens */ = {
+			isa = PBXGroup;
+			children = (
+				9D76C04F24C8EB1B002B400E /* SignupScreen */,
+				9D76C04A24C8DE1C002B400E /* LoginScreen */,
+				9D787D7C24C942DB00EB22D2 /* OTPScreen */,
+			);
+			path = AuthScreens;
+			sourceTree = "<group>";
+		};
+		9D76C04A24C8DE1C002B400E /* LoginScreen */ = {
+			isa = PBXGroup;
+			children = (
+				9D76C04B24C8DE46002B400E /* LoginVC.swift */,
+				9D76C04D24C8E011002B400E /* LoginVC+MethodExtension.swift */,
+			);
+			path = LoginScreen;
+			sourceTree = "<group>";
+		};
+		9D76C04F24C8EB1B002B400E /* SignupScreen */ = {
+			isa = PBXGroup;
+			children = (
+				9D76C05024C8EB4C002B400E /* SignUpVC.swift */,
+				9D76C05224C8EBD2002B400E /* SignUpVC+MethodExtension.swift */,
+			);
+			path = SignupScreen;
+			sourceTree = "<group>";
+		};
+		9D787D7C24C942DB00EB22D2 /* OTPScreen */ = {
+			isa = PBXGroup;
+			children = (
+				9D787D7D24C942FF00EB22D2 /* OTP_VC.swift */,
+				9D787D7F24C9437200EB22D2 /* OTP_VC+MethodExtension.swift */,
+			);
+			path = OTPScreen;
+			sourceTree = "<group>";
+		};
+		9D787D8724C990B600EB22D2 /* ToolTipHelper */ = {
+			isa = PBXGroup;
+			children = (
+				9D787D8A24C990D700EB22D2 /* AnchorView.swift */,
+				9D787D8924C990D700EB22D2 /* MessageView.swift */,
+				9D787D8824C990D700EB22D2 /* TipView.swift */,
+				9D787D8B24C990D700EB22D2 /* TipViewTransition.swift */,
+			);
+			path = ToolTipHelper;
 			sourceTree = "<group>";
 		};
 		9D97428D24C34F3800CF80BD /* AnimationFiles */ = {
@@ -432,8 +548,17 @@
 			children = (
 				9DC5456224C33DAE009AF27A /* AppStoryboard.swift */,
 				9DC5456424C33E9A009AF27A /* ConstantTexts.swift */,
+				9D76C04524C8CC51002B400E /* AppColor.swift */,
 			);
 			path = CustomStructs;
+			sourceTree = "<group>";
+		};
+		9DFFC28724C9CEFC00A50EA0 /* Enumrations */ = {
+			isa = PBXGroup;
+			children = (
+				9DFFC28824C9CF2C00A50EA0 /* UINavigationBarButtonType.swift */,
+			);
+			path = Enumrations;
 			sourceTree = "<group>";
 		};
 		C64139B8F84DE84A41F24DA9 /* Pods */ = {
@@ -558,8 +683,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D76C04824C8D8ED002B400E /* Auth.storyboard in Resources */,
 				9D5F2B2A24C5FB3900BA4015 /* TabBar.storyboard in Resources */,
-				9D554C5124C2C3E000E2080D /* Colors.xcassets in Resources */,
 				9D25568124C1DCAB006563AC /* LaunchScreen.storyboard in Resources */,
 				9D25567E24C1DCAB006563AC /* Assets.xcassets in Resources */,
 				9D4C683024C598180064E935 /* Home.storyboard in Resources */,
@@ -697,34 +822,57 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D00E1FB24C7625900F6FC74 /* OnboardingVC.swift in Sources */,
 				9DC5456524C33E9A009AF27A /* ConstantTexts.swift in Sources */,
 				9D5F2B4224C6C7FD00BA4015 /* HomeVM.swift in Sources */,
+				9D00E1FF24C7E02900F6FC74 /* OnboardingView.swift in Sources */,
+				9D787D7E24C942FF00EB22D2 /* OTP_VC.swift in Sources */,
+				9D787D8F24C990D700EB22D2 /* TipViewTransition.swift in Sources */,
+				9D787D8224C9663300EB22D2 /* UITextField+Extension.swift in Sources */,
+				9D76C04C24C8DE46002B400E /* LoginVC.swift in Sources */,
 				9D5F2B4524C6D29B00BA4015 /* UITableView+AdditionsExtension.swift in Sources */,
+				9D787D8624C9848C00EB22D2 /* ValidationProtocol.swift in Sources */,
+				9D0B206724CA03180073C3C4 /* SBaseViewController+MethodExtension.swift in Sources */,
+				9DFFC28D24C9D36B00A50EA0 /* UIImageView+Extensions.swift in Sources */,
+				9D00E20324C7E19800F6FC74 /* OnboardingVC+paper_onboardingExtension.swift in Sources */,
+				9D787D8424C9834E00EB22D2 /* ValidationClass.swift in Sources */,
 				9D4C683924C5A3EB0064E935 /* HomeVC+MethodExtension.swift in Sources */,
 				9D554C6124C2D4FB00E2080D /* SoundClass.swift in Sources */,
 				9D5F2B3724C6B15000BA4015 /* HomeVC.swift in Sources */,
 				9D25567924C1DCAA006563AC /* ViewController.swift in Sources */,
 				9D5F2B5224C7172600BA4015 /* LawyerListVC+TableViewExtension.swift in Sources */,
+				9D76C05324C8EBD2002B400E /* SignUpVC+MethodExtension.swift in Sources */,
 				9D554C5524C2C8D300E2080D /* SplashVC.swift in Sources */,
 				9D554C5724C2C9CD00E2080D /* SplashVC+MethodExtension.swift in Sources */,
 				9DC5456024C331A5009AF27A /* CustomMethodClass.swift in Sources */,
+				9D787D8C24C990D700EB22D2 /* TipView.swift in Sources */,
 				9DC5455C24C32F8C009AF27A /* AppFonts.swift in Sources */,
 				9DC5456724C33F55009AF27A /* AppMacros.swift in Sources */,
 				9D25567524C1DCAA006563AC /* AppDelegate.swift in Sources */,
 				9D5F2B4024C6C73600BA4015 /* CategoryListModeling.swift in Sources */,
+				9DFFC28624C9CD8300A50EA0 /* SBaseViewController.swift in Sources */,
+				9DFFC28924C9CF2C00A50EA0 /* UINavigationBarButtonType.swift in Sources */,
 				9D5F2B4724C6D4B900BA4015 /* HomeVC+TableViewExtension.swift in Sources */,
 				9D5F2B3D24C6C3A500BA4015 /* CategoryViewModel.swift in Sources */,
+				9D76C04624C8CC51002B400E /* AppColor.swift in Sources */,
+				9D787D8D24C990D700EB22D2 /* MessageView.swift in Sources */,
 				9D25567724C1DCAA006563AC /* SceneDelegate.swift in Sources */,
+				9D787D8024C9437200EB22D2 /* OTP_VC+MethodExtension.swift in Sources */,
 				9D5F2B3124C6AF1100BA4015 /* LawyerTableViewCell.swift in Sources */,
 				9D5F2B4A24C6F81B00BA4015 /* LawyerShortDetailTableViewCell.swift in Sources */,
 				9D5F2B4E24C70D0600BA4015 /* LawyerListVC.swift in Sources */,
+				9DFFC28B24C9D30300A50EA0 /* NSObject+Extensions.swift in Sources */,
 				9DC5455E24C33170009AF27A /* CustomMethodProtocol.swift in Sources */,
+				9D787D8E24C990D700EB22D2 /* AnchorView.swift in Sources */,
 				9D5F2B3524C6AF9700BA4015 /* SBaseTableViewCell.swift in Sources */,
+				9D76C05124C8EB4C002B400E /* SignUpVC.swift in Sources */,
 				9D554C5F24C2D41600E2080D /* SoundProtocol.swift in Sources */,
 				9D5F2B5024C7100300BA4015 /* LawyerListVC+MethodExtension.swift in Sources */,
 				9D5F2B2D24C612BB00BA4015 /* TabBarVC.swift in Sources */,
 				9DC5456324C33DAE009AF27A /* AppStoryboard.swift in Sources */,
 				9D5F2B5424C75DB700BA4015 /* Category.swift in Sources */,
+				9D00E20124C7E0F500F6FC74 /* OnboardingVC+MethodExtension.swift in Sources */,
+				9D76C04E24C8E011002B400E /* LoginVC+MethodExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

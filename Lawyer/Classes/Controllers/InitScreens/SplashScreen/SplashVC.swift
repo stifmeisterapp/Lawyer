@@ -8,7 +8,7 @@
 
 import UIKit
 import AVFoundation
-class SplashVC: UIViewController {
+class SplashVC: SBaseViewController {
     
     //MARK: - IBOutlets
     @IBOutlet weak var logo_splash_Stack: UIStackView!

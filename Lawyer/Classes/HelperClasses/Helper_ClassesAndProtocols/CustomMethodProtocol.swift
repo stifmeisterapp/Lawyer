@@ -9,7 +9,11 @@
 import Foundation
 import UIKit
 import Lottie
+import DropDown
 protocol CustomMethodProtocol {
+    
+    //TODO: Show ToolTip
+    func showToolTip(msg:String,anchorView:UIView,sourceView:UIView)
     
     //TODO: Provide corner radius
     func provideCornerRadiusTo(_ view:UIView, _ radius:CGFloat, _ corners:CACornerMask)
@@ -25,4 +29,13 @@ protocol CustomMethodProtocol {
     
     //TODO: Provide AttributedText
     func provideSimpleAttributedText( text:String, font: UIFont,  color: UIColor)->NSMutableAttributedString
+    
+    //TODO: Provide underline AttributedText
+    func provideUnderlineAttributedText( text:String, font: UIFont, _ color: UIColor)->NSMutableAttributedString
+    
+    //TODO: Open drop down
+    func openDownOnView(dropDown:DropDown,array:[String],anchor:UIView,callBack:((_ dropDown:DropDown)->()))
+    
+    
+    
 }

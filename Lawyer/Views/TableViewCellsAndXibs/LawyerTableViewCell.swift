@@ -39,15 +39,15 @@ class LawyerTableViewCell: SBaseTableViewCell {
         }
         
         
-        self.customMethodManager?.provideShadowAndCornerRadius(self.viewBG, 0, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], UIColor(named: "LightGrayColor") ?? .clear, 2, 2, 2, 2, 0, UIColor(named: "CreamColor") ?? .clear)
-        self.viewBG.backgroundColor = UIColor(named: "WhiteShadow") ?? .clear
+        self.customMethodManager?.provideShadowAndCornerRadius(self.viewBG, 0, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.placeholderColor, 2, 2, 2, 2, 0, AppColor.tableBGColor)
+        self.viewBG.backgroundColor = AppColor.whiteColor
         
-        self.backgroundColor = UIColor(named: "CreamColor") ?? .clear
+        self.backgroundColor = AppColor.tableBGColor
         self.titlelLabelCategory.font = UIFont.systemFont(ofSize: 15.0)
-        self.titlelLabelCategory.textColor = UIColor(named: "DarkGrayColor") ?? .clear
+        self.titlelLabelCategory.textColor = AppColor.darkGrayColor
         
-        self.imageCategory.setImageTintColor(UIColor(named: "DarkGrayColor") ?? .clear)
-        self.imageRightArrow.setImageTintColor(UIColor(named: "DarkGrayColor") ?? .clear)
+        self.imageCategory.setImageTintColor(AppColor.darkGrayColor)
+        self.imageRightArrow.setImageTintColor(AppColor.darkGrayColor)
     }
     
     

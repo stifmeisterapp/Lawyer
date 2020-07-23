@@ -9,7 +9,7 @@
         <!--Tab BarVC-->
         <scene sceneID="4Rs-Qw-BzB">
             <objects>
-                <tabBarController storyboardIdentifier="TabBarVC" id="YfN-Jj-5vd" customClass="TabBarVC" customModule="Lawyer" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarVC" modalPresentationStyle="fullScreen" hidesBottomBarWhenPushed="YES" id="YfN-Jj-5vd" customClass="TabBarVC" customModule="Lawyer" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oZQ-7u-4GY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

@@ -43,11 +43,11 @@ extension HomeVC:UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableView.frame.size.height / CGFloat(self.categoryListVM?.numberOfRowsInSection(indexPath.section) ?? 0)
+        return 60
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableView.frame.size.height / CGFloat(self.categoryListVM?.numberOfRowsInSection(indexPath.section) ?? 0)
+        return 60
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

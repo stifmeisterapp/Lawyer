@@ -8,8 +8,6 @@
 
 import Foundation
 protocol SoundProtocol {
-    
-    
     //TODO: Play sounds
     func playSound(_ fileName:String)
 }

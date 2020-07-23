@@ -9,11 +9,28 @@
 import Foundation
 import UIKit
 import Lottie
+import DropDown
 class CustomMethodClass: CustomMethodProtocol {
     
     //TODO: Singleton object
     static let shared = CustomMethodClass()
     private init() {}
+    
+    
+    //TODO: Show ToolTip
+    func showToolTip(msg:String,anchorView:UIView,sourceView:UIView){
+        let rightBottomView = TipView()
+        rightBottomView.maxWidth = anchorView.frame.size.width - 50
+        rightBottomView.dismissClosure = { tipview in
+            print("call back to there..")
+        }
+        // Dismiss after spwcified duration
+        rightBottomView.show(message: msg,
+                             sourceView: anchorView,
+                             containerView: sourceView,
+                             direction: .top, dismissAfterDuration: 2.0)
+    }
+    
     
     //TODO: Provide corner radius
     func provideCornerRadiusTo(_ view:UIView, _ radius:CGFloat, _ corners:CACornerMask){
@@ -49,7 +66,28 @@ class CustomMethodClass: CustomMethodProtocol {
     
     //TODO: Provide AttributedText
     public func provideSimpleAttributedText( text:String, font: UIFont,  color: UIColor)->NSMutableAttributedString{
-        return NSMutableAttributedString(string: "\(text) ", attributes:[.font: font, .foregroundColor :color])
+        return NSMutableAttributedString(string: "\(text)", attributes:[.font: font, .foregroundColor :color])
+    }
+    
+    
+    //TODO: Provide underline AttributedText
+    public func provideUnderlineAttributedText( text:String, font: UIFont, _ color: UIColor)->NSMutableAttributedString{
+        return NSMutableAttributedString(string: "\(text)", attributes:[.font: font, .foregroundColor :color, NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue])
+    }
+    
+    
+    //TODO: Open drop down
+    public func openDownOnView(dropDown:DropDown,array:[String],anchor:UIView,callBack:((_ dropDown:DropDown)->())){
+        dropDown.anchorView = anchor
+        dropDown.width = anchor.frame.size.width
+        dropDown.dataSource = array
+        /* dropDown.backgroundColor = AppColor.bgColor
+         dropDown.textColor = AppColor.whiteColor */
+        dropDown.bottomOffset = CGPoint(x: 0, y:anchor.bounds.height)
+        dropDown.direction = .bottom
+        dropDown.show()
+        
+        callBack(dropDown)
     }
     
    
@@ -76,20 +114,4 @@ extension CustomMethodClass {
     
 }
 
-//MARK: - NSObject extension
-extension NSObject {
-    //TODO: Get class name
-    class var className: String {
-        return String(describing: self)
-    }
-}
 
-
-//MARK: - Extension UIImageView
-extension UIImageView{
-    //TODO: Set image color
-    func setImageTintColor(_ color:UIColor){
-        self.image = self.image?.withRenderingMode(.alwaysTemplate)
-        self.tintColor = color
-    }
-}
