@@ -32,28 +32,7 @@ extension LawyerListVC{
         self.lawyerTableView.isHidden = false
         self.lawyerTableView.isScrollEnabled = true
         self.lawyerTableView.backgroundColor = AppColor.tableBGColor
-        
-        self.viewBtnStackBG.backgroundColor = AppColor.themeColor
-        
-        self.viewList.backgroundColor = AppColor.passGreenColor
-        self.customMethodManager?.provideCornerRadiusTo(self.viewList, self.viewList.frame.size.height/2, [.layerMinXMinYCorner, .layerMinXMaxYCorner])
-        
-        self.imageList.setImageTintColor(AppColor.whiteColor)
-        
-        self.labelList.font = UIFont.boldSystemFont(ofSize: 15)
-        self.labelList.textColor = AppColor.whiteColor
-        self.labelList.text = ConstantTexts.LIST_VIEW_BT
-
-        self.viewMap.backgroundColor = AppColor.whiteColor
-        self.customMethodManager?.provideCornerRadiusTo(self.viewMap, self.viewMap.frame.size.height/2, [.layerMaxXMinYCorner, .layerMaxXMaxYCorner])
-        
-        self.imageMap.setImageTintColor(AppColor.themeColor)
-        
-        self.labelMap.font = UIFont.boldSystemFont(ofSize: 15)
-        self.labelMap.textColor = AppColor.textColor
-        self.labelMap.text = ConstantTexts.MAP_VIEW_BT
-        
-        
+        self.lawyerTableView.addSubview(self.refreshControl)
         recheckDataModels()
         
     }
@@ -61,6 +40,7 @@ extension LawyerListVC{
     
     //TODO: Navigation setup implenemtation
     internal func navSetup(){
+        self.tabBarController?.tabBar.isHidden = true
         super.setupNavigationBarTitle(self.headerTitle, leftBarButtonsType: [.back], rightBarButtonsType: [])
 
     }
@@ -69,7 +49,7 @@ extension LawyerListVC{
     //TODO: Recheck data models implenemtation
     private func recheckDataModels(){
         
-        self.lawyerTableView.register(nib: LawyerShortDetailTableViewCell.className)
+        self.lawyerTableView.register(nib: LawyerNewTableViewCell.className)
         
        /* DispatchQueue.main.asyncAfter(deadline: .now()) {
             self.lawyerTableView.isHidden = false

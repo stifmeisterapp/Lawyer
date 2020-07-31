@@ -11,24 +11,21 @@ import UIKit
 class LawyerListVC: SBaseViewController {
     
     //MARK: - IBOutlets
-    
-    @IBOutlet weak var viewBtnStackBG: UIView!
-    @IBOutlet weak var buttonListRef: UIButton!
-    @IBOutlet weak var buttonMapRef: UIButton!
     @IBOutlet weak var lawyerTableView: UITableView!
-    
-    @IBOutlet weak var viewList: UIView!
-    @IBOutlet weak var imageList: UIImageView!
-    @IBOutlet weak var labelList: UILabel!
-    
-    @IBOutlet weak var viewMap: UIView!
-    @IBOutlet weak var imageMap: UIImageView!
-    @IBOutlet weak var labelMap: UILabel!
-    
-    
+   
     //MARK: - Variables
     internal var headerTitle:String = String()
     internal var customMethodManager:CustomMethodProtocol?
+    
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:
+            #selector(self.handleRefresh(_:)),
+                                 for: UIControl.Event.valueChanged)
+        refreshControl.tintColor = AppColor.themeColor
+        
+        return refreshControl
+    }()
     
     
     /*  //MARK: - variables for the animate tableview
@@ -61,6 +58,7 @@ class LawyerListVC: SBaseViewController {
         navSetup()
     }
     
+   
     
     /*
      // MARK: - Navigation
@@ -76,30 +74,12 @@ class LawyerListVC: SBaseViewController {
     //MARK: - Actions, Gestures, Selectors
     //TODO: Actions
     
-    @IBAction func btnListTapped(_ sender: UIButton) {
-        
-        self.viewList.backgroundColor = AppColor.passGreenColor
-        self.imageList.setImageTintColor(AppColor.whiteColor)
-        self.labelList.textColor = AppColor.whiteColor
-        
-        self.viewMap.backgroundColor = AppColor.whiteColor
-        self.imageMap.setImageTintColor(AppColor.themeColor)
-        self.labelMap.textColor = AppColor.textColor
-        
-    }
     
-    @IBAction func btnMapTapped(_ sender: UIButton) {
-        
-        self.viewList.backgroundColor = AppColor.whiteColor
-        self.imageList.setImageTintColor(AppColor.themeColor)
-        self.labelList.textColor = AppColor.textColor
-        
-        self.viewMap.backgroundColor = AppColor.passGreenColor
-        self.imageMap.setImageTintColor(AppColor.whiteColor)
-        self.labelMap.textColor = AppColor.whiteColor
-        
+    //TODO: Selectors
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+     
+        refreshControl.endRefreshing()
     }
-    
     
     
 }

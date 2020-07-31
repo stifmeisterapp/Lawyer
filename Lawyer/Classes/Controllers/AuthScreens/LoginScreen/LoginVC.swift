@@ -15,7 +15,7 @@ class LoginVC: SBaseViewController {
     @IBOutlet weak var btnCustomerRef: UIButton!
     @IBOutlet weak var btnSendOTPRef: UIButton!
     @IBOutlet weak var btnSignUpRef: UIButton!
-    
+    @IBOutlet weak var lblInstruction: UILabel!
     @IBOutlet weak var txtPhoneNumber: UITextField!{
         didSet {
             txtPhoneNumber.tintColor = UIColor.lightGray
@@ -76,6 +76,8 @@ class LoginVC: SBaseViewController {
         
         self.tag = 1
         
+        self.lblInstruction.text = ConstantTexts.LawyerIns_LT
+        
         self.customMethodManager?.provideCornerBorderTo(self.btnCustomerRef, 1, AppColor.themeColor)
         self.btnCustomerRef.setTitleColor(AppColor.themeColor, for: .normal)
         self.btnCustomerRef.backgroundColor = AppColor.whiteColor
@@ -110,6 +112,9 @@ class LoginVC: SBaseViewController {
     
     @IBAction func btnCustomerTapped(_ sender: UIButton) {
         self.tag = 0
+        
+        self.lblInstruction.text = ConstantTexts.CustomerIns_LT
+        
         self.customMethodManager?.provideCornerBorderTo(self.btnLawyerRef, 1, AppColor.themeColor)
         self.btnLawyerRef.setTitleColor(AppColor.themeColor, for: .normal)
         self.btnLawyerRef.backgroundColor = AppColor.whiteColor

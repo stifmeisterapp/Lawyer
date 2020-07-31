@@ -54,6 +54,7 @@ class HomeVC: SBaseViewController {
         navSetup()
     }
     
+
     
     //MARK: - Actions, Gestures, Selectors
     //TODO: Actions

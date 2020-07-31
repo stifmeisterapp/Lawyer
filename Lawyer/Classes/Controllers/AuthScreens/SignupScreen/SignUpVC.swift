@@ -13,7 +13,8 @@ class SignUpVC: SBaseViewController {
     //MARK: - IBOutlets
     @IBOutlet weak var btnRegisterRef: UIButton!
     @IBOutlet weak var btnLoginRef: UIButton!
-    
+    @IBOutlet weak var lblInstruction: UILabel!
+
     @IBOutlet weak var txtFullName: UITextField!{
         didSet {
             txtFullName.tintColor = UIColor.lightGray

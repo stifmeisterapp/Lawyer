@@ -38,6 +38,7 @@ class LawyerTableViewCell: SBaseTableViewCell {
             customMethodManager = CustomMethodClass.shared
         }
         
+        self.imageRightArrow.isHidden = true
         
         self.customMethodManager?.provideShadowAndCornerRadius(self.viewBG, 0, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.placeholderColor, 2, 2, 2, 2, 0, AppColor.tableBGColor)
         self.viewBG.backgroundColor = AppColor.whiteColor

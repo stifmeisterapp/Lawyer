@@ -27,9 +27,7 @@ extension HomeVC{
     
     //TODO: Intial setup implementation
     private func initialSetup(){
-        
-        
-        
+      
         self.view.backgroundColor = AppColor.tableBGColor
         self.viewLocationBackground.backgroundColor = AppColor.whiteColor
         
@@ -53,6 +51,7 @@ extension HomeVC{
     
     //TODO: Navigation setup implenemtation
     internal func navSetup(){
+        self.tabBarController?.tabBar.isHidden = false
         super.setupNavigationBarTitle(ConstantTexts.CategoriesHT, leftBarButtonsType: [.empty], rightBarButtonsType: [])
     }
     
