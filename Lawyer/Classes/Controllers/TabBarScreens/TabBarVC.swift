@@ -20,6 +20,14 @@ class TabBarVC: UITabBarController {
         super.viewDidLoad()
         setUpView()
     }
+    
+    
+    //TODO: Implementation viewWillAppear
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.extendedLayoutIncludesOpaqueBars = false
+    }
+    
 }
 
 //MARK: - Extension custom methods
@@ -28,12 +36,12 @@ extension TabBarVC{
     private func setUpView() {
         
         self.tabBar.barTintColor =  AppColor.themeColor
-        self.tabBar.isTranslucent = false
+        self.tabBar.isTranslucent = true
         
         self.selectedIndex = 0
         self.delegate = self
         
-        self.tabBar.unselectedItemTintColor = AppColor.bgColorTwo
+        self.tabBar.unselectedItemTintColor = AppColor.tabUnselectTintColor
         
         if let tabBarItems = tabBar.items{
             for index in 0..<tabBarItems.count {
@@ -63,15 +71,7 @@ extension TabBarVC: UITabBarControllerDelegate {
 }
 
 
-
-extension UITabBar {
-    func tabsVisiblty(_ isVisiblty: Bool = true){
-        if isVisiblty {
-            self.isHidden = false
-            self.layer.zPosition = 0
-        } else {
-            self.isHidden = true
-            self.layer.zPosition = -1
-        }
-    }
+//MARK: - Tab bar show hide
+extension TabBarVC {
+    
 }

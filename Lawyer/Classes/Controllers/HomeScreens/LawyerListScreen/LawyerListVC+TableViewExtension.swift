@@ -20,7 +20,7 @@ extension LawyerListVC:UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: LawyerShortDetailTableViewCell.className, for: indexPath) as? LawyerShortDetailTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: LawyerNewTableViewCell.className, for: indexPath) as? LawyerNewTableViewCell else {
             fatalError(ConstantTexts.unexpectedIndexPath)
         }
         
@@ -35,11 +35,11 @@ extension LawyerListVC:UITableViewDataSource{
 extension LawyerListVC:UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 250
+        return UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 250
+        return UITableView.automaticDimension
     }
     
    /* func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

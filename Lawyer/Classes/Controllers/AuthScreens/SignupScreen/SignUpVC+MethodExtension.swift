@@ -72,10 +72,17 @@ extension SignUpVC{
         let myMutableString = NSMutableAttributedString()
         myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: ConstantTexts.AlreadyHaveBT, font: UIFont.systemFont(ofSize: 15.0), color: AppColor.textColor) ?? NSMutableAttributedString())
         
+        self.lblInstruction.font = UIFont.systemFont(ofSize: 12)
+        self.lblInstruction.textColor = AppColor.darkGrayColor
+        self.lblInstruction.numberOfLines = 0
+        
+        
         if tag == 0{
            myMutableString.append(customMethodManager?.provideUnderlineAttributedText(text: ConstantTexts.LogInAsC_BT, font: UIFont.systemFont(ofSize: 15.0), AppColor.themeColor) ?? NSMutableAttributedString())
+            self.lblInstruction.text = ConstantTexts.CustomerIns_LT
         }else{
             myMutableString.append(customMethodManager?.provideUnderlineAttributedText(text: ConstantTexts.LogInAsL_BT, font: UIFont.systemFont(ofSize: 15.0), AppColor.themeColor) ?? NSMutableAttributedString())
+            self.lblInstruction.text = ConstantTexts.LawyerIns_LT
         }
         
         

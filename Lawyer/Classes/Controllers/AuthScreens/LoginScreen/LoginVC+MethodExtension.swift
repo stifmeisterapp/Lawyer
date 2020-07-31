@@ -49,6 +49,11 @@ extension LoginVC{
         self.btnLawyerRef.backgroundColor = AppColor.whiteColor
         
         
+        self.lblInstruction.font = UIFont.systemFont(ofSize: 12)
+        self.lblInstruction.textColor = AppColor.darkGrayColor
+        self.lblInstruction.numberOfLines = 0
+        self.lblInstruction.text = ConstantTexts.CustomerIns_LT
+        
         
         self.customMethodManager?.provideCornerRadiusTo(self.btnCustomerRef, 5, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
         self.btnCustomerRef.setTitle(ConstantTexts.CustomerBT, for: .normal)

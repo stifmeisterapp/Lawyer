@@ -20,6 +20,8 @@ class CustomMethodClass: CustomMethodProtocol {
     //TODO: Show ToolTip
     func showToolTip(msg:String,anchorView:UIView,sourceView:UIView){
         let rightBottomView = TipView()
+        rightBottomView.color = AppColor.errorColor
+        rightBottomView.textColor = AppColor.whiteColor
         rightBottomView.maxWidth = anchorView.frame.size.width - 50
         rightBottomView.dismissClosure = { tipview in
             print("call back to there..")

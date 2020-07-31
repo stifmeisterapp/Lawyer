@@ -69,6 +69,11 @@ struct ConstantTexts{
     
     static let  EnterOTP1_LT                        =      "Enter OTP"
     static let  EnterOTP2_LT                        =      "Enter OTP sent to"
+    
+    static let  LawyerIns_LT                        =      "Register here to create your profile as a lawyer with us. Once your profile is approved, you can start building your client network and provide consultations."
+    
+    static let  CustomerIns_LT                      =      "Register with us as a customer and gain access to a wide network of lawyers for consultations and legal counselling."
+    
 
     
     //TODO: Header Title Text
@@ -83,8 +88,8 @@ struct ConstantTexts{
     static let  LIST_VIEW_BT                        =      "LIST VIEW"
     static let  MAP_VIEW_BT                         =      "MAP VIEW"
     static let  PROCEED_BT                          =      "PROCEED"
-    static let  LawyerBT                            =      "Lawyer"
-    static let  CustomerBT                          =      "Customer"
+    static let  LawyerBT                            =      "For Lawyer"
+    static let  CustomerBT                          =      "For Customer"
     static let  SendOTP_BT                          =      "Send OTP"
     static let  Done_BT                             =      "Done"
     static let  ResendOTP_BT                        =      "Resend OTP"

@@ -65,6 +65,8 @@
 		9D87E70424C57C8100EF0870 /* SoundClassTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D87E70324C57C8100EF0870 /* SoundClassTests.swift */; };
 		9D97428F24C34F6D00CF80BD /* Law.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D97428E24C34F6D00CF80BD /* Law.json */; };
 		9D97429124C36AAB00CF80BD /* Judges_Gavel.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9D97429024C36AAB00CF80BD /* Judges_Gavel.mp3 */; };
+		9DB3E93C24D2A0CF0041508D /* LawyerNewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB3E93A24D2A0CF0041508D /* LawyerNewTableViewCell.swift */; };
+		9DB3E93D24D2A0CF0041508D /* LawyerNewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DB3E93B24D2A0CF0041508D /* LawyerNewTableViewCell.xib */; };
 		9DC5455A24C32EF9009AF27A /* TypewriterKeys.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DC5455924C32EF9009AF27A /* TypewriterKeys.ttf */; };
 		9DC5455C24C32F8C009AF27A /* AppFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC5455B24C32F8C009AF27A /* AppFonts.swift */; };
 		9DC5455E24C33170009AF27A /* CustomMethodProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC5455D24C33170009AF27A /* CustomMethodProtocol.swift */; };
@@ -164,6 +166,8 @@
 		9D87E70324C57C8100EF0870 /* SoundClassTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundClassTests.swift; sourceTree = "<group>"; };
 		9D97428E24C34F6D00CF80BD /* Law.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Law.json; sourceTree = "<group>"; };
 		9D97429024C36AAB00CF80BD /* Judges_Gavel.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Judges_Gavel.mp3; sourceTree = "<group>"; };
+		9DB3E93A24D2A0CF0041508D /* LawyerNewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LawyerNewTableViewCell.swift; sourceTree = "<group>"; };
+		9DB3E93B24D2A0CF0041508D /* LawyerNewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LawyerNewTableViewCell.xib; sourceTree = "<group>"; };
 		9DC5455924C32EF9009AF27A /* TypewriterKeys.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TypewriterKeys.ttf; sourceTree = "<group>"; };
 		9DC5455B24C32F8C009AF27A /* AppFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFonts.swift; sourceTree = "<group>"; };
 		9DC5455D24C33170009AF27A /* CustomMethodProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMethodProtocol.swift; sourceTree = "<group>"; };
@@ -419,6 +423,8 @@
 				9D5F2B3024C6AF1100BA4015 /* LawyerTableViewCell.xib */,
 				9D5F2B4824C6F81B00BA4015 /* LawyerShortDetailTableViewCell.swift */,
 				9D5F2B4924C6F81B00BA4015 /* LawyerShortDetailTableViewCell.xib */,
+				9DB3E93A24D2A0CF0041508D /* LawyerNewTableViewCell.swift */,
+				9DB3E93B24D2A0CF0041508D /* LawyerNewTableViewCell.xib */,
 			);
 			path = TableViewCellsAndXibs;
 			sourceTree = "<group>";
@@ -687,6 +693,7 @@
 				9D5F2B2A24C5FB3900BA4015 /* TabBar.storyboard in Resources */,
 				9D25568124C1DCAB006563AC /* LaunchScreen.storyboard in Resources */,
 				9D25567E24C1DCAB006563AC /* Assets.xcassets in Resources */,
+				9DB3E93D24D2A0CF0041508D /* LawyerNewTableViewCell.xib in Resources */,
 				9D4C683024C598180064E935 /* Home.storyboard in Resources */,
 				9D5F2B4B24C6F81C00BA4015 /* LawyerShortDetailTableViewCell.xib in Resources */,
 				9D25567C24C1DCAA006563AC /* Main.storyboard in Resources */,
@@ -838,6 +845,7 @@
 				9D787D8424C9834E00EB22D2 /* ValidationClass.swift in Sources */,
 				9D4C683924C5A3EB0064E935 /* HomeVC+MethodExtension.swift in Sources */,
 				9D554C6124C2D4FB00E2080D /* SoundClass.swift in Sources */,
+				9DB3E93C24D2A0CF0041508D /* LawyerNewTableViewCell.swift in Sources */,
 				9D5F2B3724C6B15000BA4015 /* HomeVC.swift in Sources */,
 				9D25567924C1DCAA006563AC /* ViewController.swift in Sources */,
 				9D5F2B5224C7172600BA4015 /* LawyerListVC+TableViewExtension.swift in Sources */,
@@ -1047,7 +1055,8 @@
 			baseConfigurationReference = 26BC0869787379417EA415AE /* Pods-Lawyer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Lawyer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1055,6 +1064,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = www.corwhite.com.Lawyer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1065,7 +1075,8 @@
 			baseConfigurationReference = 26283AA1C805B8ECEA6209FE /* Pods-Lawyer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Lawyer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1073,6 +1084,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = www.corwhite.com.Lawyer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
