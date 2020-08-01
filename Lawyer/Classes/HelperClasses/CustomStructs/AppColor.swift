@@ -30,7 +30,7 @@ struct AppColor {
     public static let clearColor               = UIColor.clear
     public static let tableBGColor             = #colorLiteral(red: 0.9761723876, green: 0.9761723876, blue: 0.9761723876, alpha: 1)
     
-    
+    public static let highLightColor           = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1)
     
   /*  public static let bgColorOne              = UIColor(red: 0.40, green: 0.56, blue: 0.71, alpha: 1.00)
     public static let bgColorTwo               = UIColor(red: 0.40, green: 0.69, blue: 0.71, alpha: 1.00)

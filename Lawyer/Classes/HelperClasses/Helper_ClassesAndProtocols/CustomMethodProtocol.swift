@@ -36,7 +36,10 @@ protocol CustomMethodProtocol {
     //TODO: Open drop down
     func openDownOnView(dropDown:DropDown,array:[String],anchor:UIView,callBack:((_ dropDown:DropDown)->()))
     
-    //TODO: Get indexPath for cell
+    //TODO: Get indexPath for tableview cell
     func getIndexPathFor(view: UIView, tableView: UITableView) -> IndexPath?
+    
+    //TODO: Get indexPath for collectionview cell
+    func getIndexPathForCollectionView(view: UIView, collectionView: UICollectionView) -> IndexPath?
     
 }

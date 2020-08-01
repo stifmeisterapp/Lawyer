@@ -17,13 +17,20 @@ class HomeVC: SBaseViewController {
     @IBOutlet weak var imageViewLoction: UIImageView!
     @IBOutlet weak var labelLoationTitle: UILabel!
     @IBOutlet weak var imageViewDropDown: UIImageView!
-    @IBOutlet weak var categoryTableView: UITableView!
+    
+    @IBOutlet weak var categoryCollectionView: UICollectionView!
+    
+   /* For Tableview
+ @IBOutlet weak var categoryTableView: UITableView! */
     
     //MARK: - Variables
     internal var categoryListVM:CategoryListViewModel?
     internal var homeVM: CategoryListModeling?
     internal var customMethodManager:CustomMethodProtocol?
     internal let dropDown = DropDown()
+    
+    
+    /* For Tableview
     //MARK: - variables for the animate tableview
    
    internal var animationName = String()
@@ -35,7 +42,7 @@ class HomeVC: SBaseViewController {
         }
     }
    internal var animationDuration: TimeInterval = 0.85
-   internal var delay: TimeInterval = 0.05
+   internal var delay: TimeInterval = 0.05 */
     
     
     

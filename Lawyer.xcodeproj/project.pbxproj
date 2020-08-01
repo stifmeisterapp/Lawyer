@@ -73,6 +73,10 @@
 		9D948F2724D5716600AB41F0 /* VPMOTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D948F2624D5716600AB41F0 /* VPMOTPView.swift */; };
 		9D948F2924D572F200AB41F0 /* OTP_VC+ VPMOTPViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D948F2824D572F200AB41F0 /* OTP_VC+ VPMOTPViewDelegate.swift */; };
 		9D948F2B24D5BED000AB41F0 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D948F2A24D5BED000AB41F0 /* UIImage+Extensions.swift */; };
+		9D948F2E24D5F9AD00AB41F0 /* UICollectionView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D948F2D24D5F9AD00AB41F0 /* UICollectionView+Extensions.swift */; };
+		9D948F3124D5FB6000AB41F0 /* CategoryCollectionViewCellAndXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D948F2F24D5FB6000AB41F0 /* CategoryCollectionViewCellAndXib.swift */; };
+		9D948F3224D5FB6000AB41F0 /* CategoryCollectionViewCellAndXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D948F3024D5FB6000AB41F0 /* CategoryCollectionViewCellAndXib.xib */; };
+		9D948F3424D5FFF900AB41F0 /* HomeVC+CollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D948F3324D5FFF900AB41F0 /* HomeVC+CollectionViewExtension.swift */; };
 		9D97428F24C34F6D00CF80BD /* Law.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D97428E24C34F6D00CF80BD /* Law.json */; };
 		9D97429124C36AAB00CF80BD /* Judges_Gavel.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9D97429024C36AAB00CF80BD /* Judges_Gavel.mp3 */; };
 		9DB3E93C24D2A0CF0041508D /* LawyerNewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB3E93A24D2A0CF0041508D /* LawyerNewTableViewCell.swift */; };
@@ -190,6 +194,10 @@
 		9D948F2624D5716600AB41F0 /* VPMOTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VPMOTPView.swift; sourceTree = "<group>"; };
 		9D948F2824D572F200AB41F0 /* OTP_VC+ VPMOTPViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OTP_VC+ VPMOTPViewDelegate.swift"; sourceTree = "<group>"; };
 		9D948F2A24D5BED000AB41F0 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
+		9D948F2D24D5F9AD00AB41F0 /* UICollectionView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extensions.swift"; sourceTree = "<group>"; };
+		9D948F2F24D5FB6000AB41F0 /* CategoryCollectionViewCellAndXib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCellAndXib.swift; sourceTree = "<group>"; };
+		9D948F3024D5FB6000AB41F0 /* CategoryCollectionViewCellAndXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCollectionViewCellAndXib.xib; sourceTree = "<group>"; };
+		9D948F3324D5FFF900AB41F0 /* HomeVC+CollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeVC+CollectionViewExtension.swift"; sourceTree = "<group>"; };
 		9D97428E24C34F6D00CF80BD /* Law.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Law.json; sourceTree = "<group>"; };
 		9D97429024C36AAB00CF80BD /* Judges_Gavel.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Judges_Gavel.mp3; sourceTree = "<group>"; };
 		9DB3E93A24D2A0CF0041508D /* LawyerNewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LawyerNewTableViewCell.swift; sourceTree = "<group>"; };
@@ -356,6 +364,7 @@
 				9D5F2B3624C6B15000BA4015 /* HomeVC.swift */,
 				9D4C683824C5A3EB0064E935 /* HomeVC+MethodExtension.swift */,
 				9D5F2B4624C6D4B900BA4015 /* HomeVC+TableViewExtension.swift */,
+				9D948F3324D5FFF900AB41F0 /* HomeVC+CollectionViewExtension.swift */,
 				9D5F2B4124C6C7FD00BA4015 /* HomeVM.swift */,
 			);
 			path = HomeScreen;
@@ -510,6 +519,7 @@
 				9DFFC28A24C9D30300A50EA0 /* NSObject+Extensions.swift */,
 				9DFFC28C24C9D36B00A50EA0 /* UIImageView+Extensions.swift */,
 				9D948F2A24D5BED000AB41F0 /* UIImage+Extensions.swift */,
+				9D948F2D24D5F9AD00AB41F0 /* UICollectionView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -591,6 +601,8 @@
 		9D948F2C24D5F4DF00AB41F0 /* CollectionViewCellsAnaXibs */ = {
 			isa = PBXGroup;
 			children = (
+				9D948F2F24D5FB6000AB41F0 /* CategoryCollectionViewCellAndXib.swift */,
+				9D948F3024D5FB6000AB41F0 /* CategoryCollectionViewCellAndXib.xib */,
 			);
 			path = CollectionViewCellsAnaXibs;
 			sourceTree = "<group>";
@@ -760,6 +772,7 @@
 				9D25567E24C1DCAB006563AC /* Assets.xcassets in Resources */,
 				9DB3E93D24D2A0CF0041508D /* LawyerNewTableViewCell.xib in Resources */,
 				9D4C683024C598180064E935 /* Home.storyboard in Resources */,
+				9D948F3224D5FB6000AB41F0 /* CategoryCollectionViewCellAndXib.xib in Resources */,
 				9D5F2B4B24C6F81C00BA4015 /* LawyerShortDetailTableViewCell.xib in Resources */,
 				9D25567C24C1DCAA006563AC /* Main.storyboard in Resources */,
 				9D97428F24C34F6D00CF80BD /* Law.json in Resources */,
@@ -896,6 +909,7 @@
 			files = (
 				9D00E1FB24C7625900F6FC74 /* OnboardingVC.swift in Sources */,
 				9DC5456524C33E9A009AF27A /* ConstantTexts.swift in Sources */,
+				9D948F3124D5FB6000AB41F0 /* CategoryCollectionViewCellAndXib.swift in Sources */,
 				9D948F2724D5716600AB41F0 /* VPMOTPView.swift in Sources */,
 				9D5F2B4224C6C7FD00BA4015 /* HomeVM.swift in Sources */,
 				9D00E1FF24C7E02900F6FC74 /* OnboardingView.swift in Sources */,
@@ -939,6 +953,7 @@
 				9D76C04624C8CC51002B400E /* AppColor.swift in Sources */,
 				9D948F2924D572F200AB41F0 /* OTP_VC+ VPMOTPViewDelegate.swift in Sources */,
 				9D787D8D24C990D700EB22D2 /* MessageView.swift in Sources */,
+				9D948F3424D5FFF900AB41F0 /* HomeVC+CollectionViewExtension.swift in Sources */,
 				9D25567724C1DCAA006563AC /* SceneDelegate.swift in Sources */,
 				9D787D8024C9437200EB22D2 /* OTP_VC+MethodExtension.swift in Sources */,
 				9D5F2B3124C6AF1100BA4015 /* LawyerTableViewCell.swift in Sources */,
@@ -946,6 +961,7 @@
 				9D5F2B4A24C6F81B00BA4015 /* LawyerShortDetailTableViewCell.swift in Sources */,
 				9D5F2B4E24C70D0600BA4015 /* LawyerListVC.swift in Sources */,
 				9DFFC28B24C9D30300A50EA0 /* NSObject+Extensions.swift in Sources */,
+				9D948F2E24D5F9AD00AB41F0 /* UICollectionView+Extensions.swift in Sources */,
 				9DFED3DD24D48F7800851570 /* DataStoreStruct_Model.swift in Sources */,
 				9DC5455E24C33170009AF27A /* CustomMethodProtocol.swift in Sources */,
 				9D787D8E24C990D700EB22D2 /* AnchorView.swift in Sources */,

@@ -93,12 +93,20 @@ class CustomMethodClass: CustomMethodProtocol {
     }
     
     
-    //TODO: Get indexPath for cell
+    //TODO: Get indexPath for tableview cell
      func getIndexPathFor(view: UIView, tableView: UITableView) -> IndexPath? {
         let point = tableView.convert(view.bounds.origin, from: view)
         let indexPath = tableView.indexPathForRow(at: point)
         return indexPath
     }
+    
+    //TODO: Get indexPath for collectionview cell
+     func getIndexPathForCollectionView(view: UIView, collectionView: UICollectionView) -> IndexPath? {
+        let point = collectionView.convert(view.bounds.origin, from: view)
+        let indexPath = collectionView.indexPathForItem(at: point)
+        return indexPath
+    }
+    
     
    
 }

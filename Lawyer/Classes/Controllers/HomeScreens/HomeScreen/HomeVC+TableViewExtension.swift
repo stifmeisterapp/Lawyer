@@ -50,12 +50,14 @@ extension HomeVC:UITableViewDelegate{
         return 60
     }
     
+    
+    /* For Tableview
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         // fetch the animation from the TableAnimation enum and initialze the TableViewAnimator class
         let animation = currentTableAnimation.getAnimation()
         let animator = TableViewAnimator(animation: animation)
         animator.animate(cell: cell, at: indexPath, in: tableView)
-    }
+    } */
     
     
 }

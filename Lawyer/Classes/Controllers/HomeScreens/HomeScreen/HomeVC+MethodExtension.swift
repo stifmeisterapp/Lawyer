@@ -39,11 +39,15 @@ extension HomeVC{
         self.imageViewLoction.setImageTintColor(AppColor.themeColor)
         self.imageViewDropDown.setImageTintColor(AppColor.darkGrayColor)
         
-        self.categoryTableView.backgroundColor = AppColor.tableBGColor
+      /* For Tableview
+         self.categoryTableView.backgroundColor = AppColor.tableBGColor
         self.categoryTableView.separatorStyle = .none
         self.categoryTableView.hideEmptyCells()
         self.categoryTableView.isHidden = true
-        self.categoryTableView.isScrollEnabled = true
+        self.categoryTableView.isScrollEnabled = true */
+        
+        self.categoryCollectionView.backgroundColor = AppColor.tableBGColor
+        
         recheckDataModels()
         
     }
@@ -66,6 +70,15 @@ extension HomeVC{
             self.categoryListVM = self.homeVM?.prepareDataSource()
         }
         
+        registerNib()
+        
+        
+        
+    }
+    
+    //TODO: register nib file
+    private func registerNib(){
+        /* For Tableview
         self.categoryTableView.register(nib: LawyerTableViewCell.className)
         
         DispatchQueue.main.asyncAfter(deadline: .now()) {
@@ -76,9 +89,11 @@ extension HomeVC{
             /* self.currentTableAnimation = TableAnimation.moveUpWithFade(rowHeight: 60,duration: self.animationDuration, delay: self.delay) */
             
             self.categoryTableView.reloadData()
-        }
+        } */
         
-        
+        self.categoryCollectionView.register(nib: CategoryCollectionViewCellAndXib.className)
+   
     }
+    
     
 }

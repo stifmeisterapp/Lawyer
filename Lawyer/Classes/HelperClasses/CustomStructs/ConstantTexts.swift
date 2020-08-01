@@ -18,6 +18,8 @@ struct ConstantTexts{
     static let  unexpectedIndexPath                 =      "Unexpected Index Path"
     static let  empty                               =      String()
     static let  deviceType                          =      "iOS"
+    static let  blankSpace                          =      " "
+    static let  newLineBreak                        =      "\n"
     
     //TODO: Animation
     static let  Law                                 =      "Law"
