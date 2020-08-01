@@ -92,6 +92,14 @@ class CustomMethodClass: CustomMethodProtocol {
         callBack(dropDown)
     }
     
+    
+    //TODO: Get indexPath for cell
+     func getIndexPathFor(view: UIView, tableView: UITableView) -> IndexPath? {
+        let point = tableView.convert(view.bounds.origin, from: view)
+        let indexPath = tableView.indexPathForRow(at: point)
+        return indexPath
+    }
+    
    
 }
 

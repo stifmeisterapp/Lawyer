@@ -41,7 +41,7 @@ extension LawyerListVC{
     //TODO: Navigation setup implenemtation
     internal func navSetup(){
         self.tabBarController?.tabBar.isHidden = true
-        super.setupNavigationBarTitle(self.headerTitle, leftBarButtonsType: [.back], rightBarButtonsType: [])
+        super.setupNavigationBarTitle(AppColor.themeColor,self.headerTitle, leftBarButtonsType: [.back], rightBarButtonsType: [])
 
     }
     

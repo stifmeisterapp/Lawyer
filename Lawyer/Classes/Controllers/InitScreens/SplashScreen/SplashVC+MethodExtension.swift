@@ -54,10 +54,13 @@ extension SplashVC{
         }) { (done) in
             if done{
                 //Move Forward
-                let vc = AppStoryboard.launchSB.instantiateViewController(withIdentifier: OnboardingVC.className) as! OnboardingVC
-                UIApplication.shared.windows.first?.rootViewController = vc
-                UIApplication.shared.windows.first?.makeKeyAndVisible()
                 
+                if (USER_DEFAULTS.value(forKey: ConstantTexts.tourOverUDK) as? Bool) != nil{
+                    super.moveToNextViewCViaRoot(name: ConstantTexts.AuthSBT, withIdentifier: LoginVC.className)
+                }else{
+                    super.moveToNextViewCViaRoot(name: ConstantTexts.LaunchSBT, withIdentifier: OnboardingVC.className)
+                }
+   
             }
         }
         

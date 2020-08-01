@@ -20,4 +20,11 @@ extension OnboardingVC{
         self.onboardingView.dataSource = self
         self.onboardingView.delegate = self
     }
+    
+    
+    //TODO: Navigation setup implenemtation
+    internal func navSetup(){
+        super.isHiddenNavigationBar(true)
+    }
+    
 }

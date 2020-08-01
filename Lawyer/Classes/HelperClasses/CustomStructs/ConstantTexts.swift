@@ -16,7 +16,7 @@ struct ConstantTexts{
     static let  errorMessage                        =      "There is some error occured. Please try again later."
     static let  authToken                           =      "authToken"
     static let  unexpectedIndexPath                 =      "Unexpected Index Path"
-    static let  empty                               =      ""
+    static let  empty                               =      String()
     static let  deviceType                          =      "iOS"
     
     //TODO: Animation
@@ -68,7 +68,10 @@ struct ConstantTexts{
     
     
     static let  EnterOTP1_LT                        =      "Enter OTP"
-    static let  EnterOTP2_LT                        =      "Enter OTP sent to"
+    static let  EnterOTP2_LT                        =      "OTP has been sent send to your mobile number."
+    static let  VarificationCode_LT                 =      "Varification Code"
+    
+    static let  PleaseVarify_LT                     =      "Please Verify"
     
     static let  LawyerIns_LT                        =      "Register here to create your profile as a lawyer with us. Once your profile is approved, you can start building your client network and provide consultations."
     
@@ -94,8 +97,8 @@ struct ConstantTexts{
     static let  Done_BT                             =      "Done"
     static let  ResendOTP_BT                        =      "Resend OTP"
     static let  Register_BT                         =      "Register"
-    static let  DontHaveBT                          =      "Don't have an account? "
-    static let  AlreadyHaveBT                       =      "Already have an account? "
+    static let  DontHaveBT                          =      "Don't have an account?"
+    static let  AlreadyHaveBT                       =      "Already have an account?"
     static let  SignUpAsC_BT                        =      "Sign Up as Customer."
     static let  SignUpAsL_BT                        =      "Sign Up as Lawyer."
     
@@ -119,4 +122,15 @@ struct ConstantTexts{
     
     static let  EnterOTPALERT                       =      "Please enter OTP."
     static let  EnterValidOTPALERT                  =      "Please enter valid OTP."
+    
+    
+    //TODO: User defaults key
+    static let tourOverUDK                          =      "TOUR_OVER"
+    
+    //TODO: Storyboard Title
+    static let  AuthSBT                             =      "Auth"
+    static let  LaunchSBT                           =      "Launch"
+    static let  TabBarSBT                           =      "TabBar"
+    static let  HomeSBT                             =      "Home"
+    
 }

@@ -15,8 +15,12 @@ extension SignUpVC{
             self.customMethodManager = CustomMethodClass.shared
         }
         
-        if self.validationMethodManager == nil {
-            self.validationMethodManager = ValidationClass.shared
+        if self.registerListModel == nil {
+            self.registerListModel = SignUpVM.shared
+        }
+        
+        if  self.dataListVM == nil{
+            self.dataListVM = self.registerListModel?.prepareDataSource()
         }
         
         initialSetup()
@@ -34,32 +38,21 @@ extension SignUpVC{
         //tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
         
+        customMethodManager?.provideShadowAndCornerRadius(self.viewBG, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.darkGrayColor, -1, 1, 1, 3, 0, AppColor.clearColor)
         
-        self.txtFullName.maxLength = 50
-        self.txtFullName.keyboardType = .namePhonePad
-        self.txtFullName.placeholder = ConstantTexts.FullNamePH
+        self.registerTable.separatorStyle = .none
+        self.registerTable.backgroundColor = AppColor.whiteColor
         
-        self.txtPhoneNumber.maxLength = 10
-        self.txtPhoneNumber.keyboardType = .phonePad
-        self.txtPhoneNumber.placeholder = ConstantTexts.MobileNumberPH
+        registerNib()
         
-        self.txtEmail.maxLength = 30
-        self.txtEmail.keyboardType = .emailAddress
-        self.txtEmail.placeholder = ConstantTexts.EmailAddressPH
+        self.customMethodManager?.provideShadowAndCornerRadius(self.btnRegisterRef, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.darkGrayColor, -1, 1, 1, 3, 0, AppColor.clearColor)
         
         
-       
-        self.customMethodManager?.provideShadowAndCornerRadius(self.btnRegisterRef, 5, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.placeholderColor, 2, 2, 2, 2, 0, AppColor.tableBGColor)
+        self.btnRegisterRef.setTitle(ConstantTexts.Register_BT, for: .normal)
+        self.btnRegisterRef.titleLabel?.font = UIFont.systemFont(ofSize: 14.0)
         
-        
-        self.customMethodManager?.provideCornerRadiusTo(self.btnRegisterRef, 5, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
-              self.btnRegisterRef.setTitle(ConstantTexts.Register_BT, for: .normal)
-              self.btnRegisterRef.titleLabel?.font = UIFont.systemFont(ofSize: 15.0)
-               
-              self.btnRegisterRef.setTitleColor(AppColor.whiteColor, for: .normal)
-              self.btnRegisterRef.backgroundColor = AppColor.themeColor
-        
-        
+        self.btnRegisterRef.setTitleColor(AppColor.whiteColor, for: .normal)
+        self.btnRegisterRef.backgroundColor = AppColor.themeColor
         
         // *** Create instance of `NSMutableParagraphStyle`
         let paragraphStyle = NSMutableParagraphStyle()
@@ -70,20 +63,53 @@ extension SignUpVC{
         
         
         let myMutableString = NSMutableAttributedString()
-        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: ConstantTexts.AlreadyHaveBT, font: UIFont.systemFont(ofSize: 15.0), color: AppColor.textColor) ?? NSMutableAttributedString())
+        let myMutableString_For_Instruction = NSMutableAttributedString()
         
-        self.lblInstruction.font = UIFont.systemFont(ofSize: 12)
-        self.lblInstruction.textColor = AppColor.darkGrayColor
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\(ConstantTexts.AlreadyHaveBT)  ", font: UIFont.systemFont(ofSize: 14.0), color: AppColor.textColor) ?? NSMutableAttributedString())
+        
+        /*  self.lblInstruction.font = UIFont.systemFont(ofSize: 12)
+         self.lblInstruction.textColor = AppColor.darkGrayColor
+         */
+        
         self.lblInstruction.numberOfLines = 0
         
         
         if tag == 0{
-           myMutableString.append(customMethodManager?.provideUnderlineAttributedText(text: ConstantTexts.LogInAsC_BT, font: UIFont.systemFont(ofSize: 15.0), AppColor.themeColor) ?? NSMutableAttributedString())
-            self.lblInstruction.text = ConstantTexts.CustomerIns_LT
+            myMutableString.append(customMethodManager?.provideUnderlineAttributedText(text: ConstantTexts.LogInAsC_BT, font:  UIFont.boldSystemFont(ofSize: 14.0), AppColor.themeColor) ?? NSMutableAttributedString())
+            
+            
+            myMutableString_For_Instruction.append(customMethodManager?.provideSimpleAttributedText(text: "\(ConstantTexts.CustomerBT)\n\n", font:  UIFont.boldSystemFont(ofSize: 16.0), color: AppColor.themeColor) ?? NSMutableAttributedString())
+            
+            myMutableString_For_Instruction.append(customMethodManager?.provideSimpleAttributedText(text: ConstantTexts.CustomerIns_LT, font:  UIFont.systemFont(ofSize: 12.0), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
+            
+            
+            // *** Apply attribute to string ***
+            myMutableString_For_Instruction.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, myMutableString_For_Instruction.length))
+            
+            // *** Set Attributed String to your label ***
+            
+            
+            self.lblInstruction.attributedText = myMutableString_For_Instruction
+            
         }else{
-            myMutableString.append(customMethodManager?.provideUnderlineAttributedText(text: ConstantTexts.LogInAsL_BT, font: UIFont.systemFont(ofSize: 15.0), AppColor.themeColor) ?? NSMutableAttributedString())
-            self.lblInstruction.text = ConstantTexts.LawyerIns_LT
+            myMutableString.append(customMethodManager?.provideUnderlineAttributedText(text: ConstantTexts.LogInAsL_BT, font:  UIFont.boldSystemFont(ofSize: 14.0), AppColor.themeColor) ?? NSMutableAttributedString())
+            
+            
+            myMutableString_For_Instruction.append(customMethodManager?.provideSimpleAttributedText(text: "\(ConstantTexts.LawyerBT)\n\n", font:  UIFont.boldSystemFont(ofSize: 16.0), color: AppColor.themeColor) ?? NSMutableAttributedString())
+            
+            myMutableString_For_Instruction.append(customMethodManager?.provideSimpleAttributedText(text: ConstantTexts.LawyerIns_LT, font:  UIFont.systemFont(ofSize: 12.0), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
+            
+            // *** Apply attribute to string ***
+            myMutableString_For_Instruction.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, myMutableString_For_Instruction.length))
+            
+            // *** Set Attributed String to your label ***
+            
+            self.lblInstruction.attributedText = myMutableString_For_Instruction
         }
+        
+        
+        
+        
         
         
         
@@ -98,45 +124,60 @@ extension SignUpVC{
     }
     
     
+    //TODO: register nib file
+    private func registerNib(){
+        self.registerTable.register(nib: Auth_TextField_TableViewCell.className)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
+            self.registerTable.isHidden = false
+            
+            self.currentTableAnimation =  TableAnimation.fadeIn(duration: self.animationDuration, delay: self.delay)
+            
+            /* self.currentTableAnimation = TableAnimation.moveUpWithFade(rowHeight: 60,duration: self.animationDuration, delay: self.delay) */
+            
+            self.registerTable.reloadData()
+        }
+        
+        
+        
+    }
+    
+    
+    
     //TODO: Navigation setup implenemtation
     internal func navSetup(){
-        super.setupNavigationBarTitle(ConstantTexts.SignupHT, leftBarButtonsType: [.back], rightBarButtonsType: [])
+        super.isHiddenNavigationBar(true)
     }
     
     //TODO: setup validation
-     internal func isValidate(){
-         dismissKeyboard()
-        if !validationMethodManager!.checkEmptyField(txtFullName.text!.trimmingCharacters(in: .whitespaces)){
-            self.customMethodManager!.showToolTip(msg: ConstantTexts.EnterFullNameALERT, anchorView: self.txtFullName, sourceView: self.view)
-            self.txtFullName.becomeFirstResponder()
-            return
-        }else if !validationMethodManager!.isValidFullName(txtFullName.text!.trimmingCharacters(in: .whitespaces)){
-            self.customMethodManager!.showToolTip(msg: ConstantTexts.EnterValidFullNameALERT, anchorView: self.txtFullName, sourceView: self.view)
-            self.txtFullName.becomeFirstResponder()
-            return
-        }else if !validationMethodManager!.checkEmptyField(txtPhoneNumber.text!.trimmingCharacters(in: .whitespaces)){
-             self.customMethodManager!.showToolTip(msg: ConstantTexts.EnterMobileNumberALERT, anchorView: self.txtPhoneNumber, sourceView: self.view)
-             self.txtPhoneNumber.becomeFirstResponder()
-             return
-         } else if !validationMethodManager!.isValidIndianPhoneCount(txtPhoneNumber.text!.trimmingCharacters(in: .whitespaces)){
-            self.customMethodManager!.showToolTip(msg: ConstantTexts.EnterValidMobileNumberALERT, anchorView: self.txtPhoneNumber, sourceView: self.view)
-             self.txtPhoneNumber.becomeFirstResponder()
-             return
-         }else if !validationMethodManager!.checkEmptyField(txtEmail.text!.trimmingCharacters(in: .whitespaces)){
-             self.customMethodManager!.showToolTip(msg: ConstantTexts.EnterEmailALERT, anchorView: self.txtEmail, sourceView: self.view)
-             self.txtEmail.becomeFirstResponder()
-             return
-         } else if !validationMethodManager!.isValidEmail(txtEmail.text!.trimmingCharacters(in: .whitespaces)){
-            self.customMethodManager!.showToolTip(msg: ConstantTexts.EnterValidEmailALERT, anchorView: self.txtEmail, sourceView: self.view)
-             self.txtEmail.becomeFirstResponder()
-             return
-         }else{
-             let vc = AppStoryboard.authSB.instantiateViewController(withIdentifier: OTP_VC.className) as! OTP_VC
-             vc.phoneNumber = txtPhoneNumber.text!
-             self.navigationController?.pushViewController(vc, animated: true)
-         }
-    
-     }
+    internal func isValidate(){
+        dismissKeyboard()
+        
+        if let dataListVM_T = self.dataListVM{
+            self.registerListModel?.validateFields(dataStore: dataListVM_T, validHandler: { (strMsg, status, row, section) in
+                if status{
+                    
+                    let vc = AppStoryboard.authSB.instantiateViewController(withIdentifier: OTP_VC.className) as! OTP_VC
+                    vc.phoneNumber = dataListVM_T.dataStoreStructAtIndex(row).value
+                    vc.modalPresentationStyle = .automatic //or .overFullScreen for transparency
+                    self.present(vc, animated: true, completion: nil)
+                    
+                }else{
+                    let indexPath = IndexPath(row: row, section: section)
+                    
+                    if let cell = self.registerTable.cellForRow(at: indexPath) as? Auth_TextField_TableViewCell{
+                        
+                        self.customMethodManager!.showToolTip(msg: strMsg, anchorView: cell.textFieldFloating, sourceView: self.view)
+                        cell.textFieldFloating.becomeFirstResponder()
+                        
+                    }
+                    
+                    
+                }
+            })
+        }
+        
+    }
     
     
 }

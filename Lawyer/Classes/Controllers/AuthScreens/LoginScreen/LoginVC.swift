@@ -11,24 +11,32 @@ import UIKit
 class LoginVC: SBaseViewController {
     
     //MARK: - IBOutlets
-    @IBOutlet weak var btnLawyerRef: UIButton!
-    @IBOutlet weak var btnCustomerRef: UIButton!
     @IBOutlet weak var btnSendOTPRef: UIButton!
-    @IBOutlet weak var btnSignUpRef: UIButton!
-    @IBOutlet weak var lblInstruction: UILabel!
-    @IBOutlet weak var txtPhoneNumber: UITextField!{
-        didSet {
-            txtPhoneNumber.tintColor = UIColor.lightGray
-            txtPhoneNumber.setIcon(UIImage(systemName: "phone.fill") ?? UIImage())
-        }
-    }
+    @IBOutlet weak var lblSignUpRef_Customer: UILabel!
+    @IBOutlet weak var lblSignUpRef_Lawyer: UILabel!
+    @IBOutlet weak var viewBG: UIView!
+    @IBOutlet weak var logInTable: UITableView!
     
     
     
     //MARK: - Variables
     internal var customMethodManager:CustomMethodProtocol?
-    internal var validationMethodManager:ValidationProtocol?
-    internal var tag = Int()
+    internal var logInModel: DataStoreStructListModeling?
+    internal var dataListVM:DataStoreStruct_List_ViewModel?
+    
+    //MARK: - variables for the animate tableview
+    internal var animationName = String()
+    
+    /// an enum of type TableAnimation - determines the animation to be applied to the tableViewCells
+    internal var currentTableAnimation: TableAnimation = .fadeIn(duration: 0.85, delay: 0.03) {
+        didSet {
+            self.animationName = currentTableAnimation.getTitle()
+        }
+    }
+    internal var animationDuration: TimeInterval = 0.85
+    internal var delay: TimeInterval = 0.05
+    
+    
     //MARK: - View life cycle methods
     //TODO: Implementation viewDidLoad
     override func viewDidLoad() {
@@ -45,6 +53,12 @@ class LoginVC: SBaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navSetup()
+    }
+    
+    //TODO: Implementation viewWillDisappear
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        dismissKeyboard()
     }
     
     
@@ -71,93 +85,41 @@ class LoginVC: SBaseViewController {
         view.endEditing(true)
     }
     
-    //TODO: Actions
-    @IBAction func btnLawyerTapped(_ sender: UIButton) {
+    @objc func lblSignUpRef_Customer_Tapped(_ sender: UITapGestureRecognizer) {
         
-        self.tag = 1
-        
-        self.lblInstruction.text = ConstantTexts.LawyerIns_LT
-        
-        self.customMethodManager?.provideCornerBorderTo(self.btnCustomerRef, 1, AppColor.themeColor)
-        self.btnCustomerRef.setTitleColor(AppColor.themeColor, for: .normal)
-        self.btnCustomerRef.backgroundColor = AppColor.whiteColor
-        
-        
-        self.btnLawyerRef.setTitleColor(AppColor.whiteColor, for: .normal)
-        self.btnLawyerRef.backgroundColor = AppColor.themeColor
-        
-        
-        // *** Create instance of `NSMutableParagraphStyle`
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.alignment = .center
-        
-        // *** set LineSpacing property in points ***
-        paragraphStyle.lineSpacing = 5 // Whatever line spacing you want in points
-        
-        
-        let myMutableString = NSMutableAttributedString()
-        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: ConstantTexts.DontHaveBT, font: UIFont.systemFont(ofSize: 15.0), color: AppColor.textColor) ?? NSMutableAttributedString())
-        
-        myMutableString.append(customMethodManager?.provideUnderlineAttributedText(text: ConstantTexts.SignUpAsL_BT, font: UIFont.systemFont(ofSize: 15.0), AppColor.themeColor) ?? NSMutableAttributedString())
-        
-        // *** Apply attribute to string ***
-        myMutableString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, myMutableString.length))
-        
-        // *** Set Attributed String to your label ***
-        
-        self.btnSignUpRef.setAttributedTitle(myMutableString, for: .normal)
-        
-        
+        let vc = AppStoryboard.authSB.instantiateViewController(withIdentifier: SignUpVC.className) as! SignUpVC
+        vc.tag = 0
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    @IBAction func btnCustomerTapped(_ sender: UIButton) {
-        self.tag = 0
+    
+    @objc func lblSignUpRef_Lawyer_Tapped(_ sender: UITapGestureRecognizer) {
         
-        self.lblInstruction.text = ConstantTexts.CustomerIns_LT
-        
-        self.customMethodManager?.provideCornerBorderTo(self.btnLawyerRef, 1, AppColor.themeColor)
-        self.btnLawyerRef.setTitleColor(AppColor.themeColor, for: .normal)
-        self.btnLawyerRef.backgroundColor = AppColor.whiteColor
-        
-        self.btnCustomerRef.setTitleColor(AppColor.whiteColor, for: .normal)
-        self.btnCustomerRef.backgroundColor = AppColor.themeColor
-        
-        
-        // *** Create instance of `NSMutableParagraphStyle`
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.alignment = .center
-        
-        // *** set LineSpacing property in points ***
-        paragraphStyle.lineSpacing = 5 // Whatever line spacing you want in points
-        
-        
-        let myMutableString = NSMutableAttributedString()
-        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: ConstantTexts.DontHaveBT, font: UIFont.systemFont(ofSize: 15.0), color: AppColor.textColor) ?? NSMutableAttributedString())
-        
-        myMutableString.append(customMethodManager?.provideUnderlineAttributedText(text: ConstantTexts.SignUpAsC_BT, font: UIFont.systemFont(ofSize: 15.0), AppColor.themeColor) ?? NSMutableAttributedString())
-        
-        // *** Apply attribute to string ***
-        myMutableString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, myMutableString.length))
-        
-        // *** Set Attributed String to your label ***
-        
-        self.btnSignUpRef.setAttributedTitle(myMutableString, for: .normal)
-        
+        let vc = AppStoryboard.authSB.instantiateViewController(withIdentifier: SignUpVC.className) as! SignUpVC
+        vc.tag = 1
+        self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    
+    
+    //TODO: Actions
     
     @IBAction func btnSendOTPTapped(_ sender: UIButton) {
-        
-        isValidate()
-        
+        UIView.animate(withDuration: 0.1,
+                       animations: {
+                        self.customMethodManager?.provideShadowAndCornerRadius(self.btnSendOTPRef, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.darkGrayColor, 0, 0, 0, 0, 0, AppColor.clearColor)
+                        self.btnSendOTPRef.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+        },
+                       completion: { _ in
+                        UIView.animate(withDuration: 0.1) {
+                            self.customMethodManager?.provideShadowAndCornerRadius(self.btnSendOTPRef, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.darkGrayColor, -1, 1, 1, 3, 0, AppColor.clearColor)
+                            self.btnSendOTPRef.transform = CGAffineTransform.identity
+                            self.isValidate()
+                        }
+        })
         
     }
     
-    @IBAction func btnSignUpTapped(_ sender: UIButton) {
-        let vc = AppStoryboard.authSB.instantiateViewController(withIdentifier: SignUpVC.className) as! SignUpVC
-        vc.tag = self.tag
-        self.navigationController?.pushViewController(vc, animated: true)
-        
-    }
     
     
 }

@@ -13,12 +13,12 @@ import UIKit
 extension SBaseViewController{
     
     //TODO: Main method for setup UIBarButtonItems and title
-    internal func setupNavigationBarTitle(_ title: String, leftBarButtonsType: [UINavigationBarButtonType], rightBarButtonsType: [UINavigationBarButtonType]) {
+    internal func setupNavigationBarTitle(_ barColor:UIColor, _ title: String, leftBarButtonsType: [UINavigationBarButtonType], rightBarButtonsType: [UINavigationBarButtonType]) {
         
         self.navigationItem.title = title
         self.navigationController?.navigationBar.prefersLargeTitles = false
         self.navigationController?.navigationBar.isTranslucent = false
-        self.navigationController?.navigationBar.barTintColor = AppColor.themeColor
+        self.navigationController?.navigationBar.barTintColor = barColor
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: AppColor.whiteColor]
         
         var rightBarButtonItems = [UIBarButtonItem]()
@@ -61,6 +61,11 @@ extension SBaseViewController{
         return UIBarButtonItem(customView: button)
     }
     
+    
+    //TODO: Method for setup hide show navigation bar
+    internal func isHiddenNavigationBar(_ value: Bool){
+        self.navigationController?.navigationBar.isHidden = value
+    }
     
 }
 

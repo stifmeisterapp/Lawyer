@@ -35,25 +35,46 @@ extension OTP_VC{
         view.addGestureRecognizer(tap)
         
         
-        self.txtOTP_Number.maxLength = 4
-        self.txtOTP_Number.keyboardType = .numberPad
-        self.txtOTP_Number.placeholder = ConstantTexts.EnterOTP1_LT
+        otpView.otpFieldsCount = 4
+        otpView.otpFieldDefaultBorderColor = AppColor.darkGrayColor
+        otpView.otpFieldEnteredBorderColor = AppColor.themeColor
+        otpView.otpFieldErrorBorderColor = AppColor.themeColor
+        otpView.otpFieldBorderWidth = 2
+        otpView.delegate = self
+        otpView.shouldAllowIntermediateEditing = false
         
-        self.customMethodManager?.provideCornerRadiusTo(self.btnDoneOTPRef, 5, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
+        otpView.otpFieldTextColor = AppColor.themeColor
+        otpView.otpFieldFont = UIFont.boldSystemFont(ofSize: 18)
+        otpView.otpFieldDisplayType = .underlinedBottom
+        otpView.cursorColor = AppColor.themeColor
+        
+        // Create the UI
+        otpView.initializeUI()
+        
+        
+        self.customMethodManager?.provideShadowAndCornerRadius(self.btnDoneOTPRef, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.darkGrayColor, -1, 1, 1, 3, 0, AppColor.clearColor)
+        
         self.btnDoneOTPRef.setTitle(ConstantTexts.Done_BT, for: .normal)
-        self.btnDoneOTPRef.titleLabel?.font = UIFont.systemFont(ofSize: 15.0)
+        self.btnDoneOTPRef.titleLabel?.font = UIFont.systemFont(ofSize: 14.0)
         
         self.btnDoneOTPRef.setTitleColor(AppColor.whiteColor, for: .normal)
         self.btnDoneOTPRef.backgroundColor = AppColor.themeColor
         
         
+        let image = UIImage(systemName: "x.circle.fill") ?? UIImage()
+        image.setImageTintWith(AppColor.darkGrayColor)
+        self.btnDismissRef.setImage(image, for: .normal)
+        self.btnDismissRef.tintColor = AppColor.darkGrayColor
+        
+        
+        
         self.btnResendOTPRef.setTitle(ConstantTexts.ResendOTP_BT, for: .normal)
-        self.btnResendOTPRef.titleLabel?.font = UIFont.systemFont(ofSize: 15.0)
+        self.btnResendOTPRef.titleLabel?.font = UIFont.systemFont(ofSize: 14.0)
         
         self.btnResendOTPRef.setTitleColor(AppColor.themeColor, for: .normal)
         self.btnResendOTPRef.backgroundColor = AppColor.whiteColor
         
-        self.lblTimer.font = UIFont.systemFont(ofSize: 15.0)
+        self.lblTimer.font = UIFont.systemFont(ofSize: 14.0)
         self.lblTimer.textColor = AppColor.themeColor
         
         
@@ -66,13 +87,17 @@ extension OTP_VC{
         
         
         let myMutableString = NSMutableAttributedString()
-        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\(ConstantTexts.EnterOTP1_LT)\n", font: UIFont.boldSystemFont(ofSize: 20), color: AppColor.textColor) ?? NSMutableAttributedString())
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\(ConstantTexts.VarificationCode_LT)\n\n", font: UIFont.boldSystemFont(ofSize: 20), color: AppColor.themeColor) ?? NSMutableAttributedString())
         
         
-        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\(ConstantTexts.EnterOTP2_LT) ", font: UIFont.systemFont(ofSize: 15.0), color: AppColor.textColor) ?? NSMutableAttributedString())
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\(ConstantTexts.EnterOTP2_LT)\n", font: UIFont.systemFont(ofSize: 14.0), color: AppColor.textColor) ?? NSMutableAttributedString())
         
         
-        myMutableString.append(customMethodManager?.provideUnderlineAttributedText(text: "\(ConstantTexts.CountryCodeLT) \(phoneNumber)", font: UIFont.systemFont(ofSize: 15.0), AppColor.themeColor) ?? NSMutableAttributedString())
+        myMutableString.append(customMethodManager?.provideUnderlineAttributedText(text: "\(ConstantTexts.CountryCodeLT) \(phoneNumber)", font: UIFont.systemFont(ofSize: 14.0), AppColor.themeColor) ?? NSMutableAttributedString())
+        
+        
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\n\(ConstantTexts.PleaseVarify_LT)", font: UIFont.systemFont(ofSize: 14.0), color: AppColor.textColor) ?? NSMutableAttributedString())
+        
         
         // *** Apply attribute to string ***
         myMutableString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, myMutableString.length))
@@ -80,36 +105,43 @@ extension OTP_VC{
         // *** Set Attributed String to your label ***
         lblInstruction.numberOfLines = 0
         lblInstruction.attributedText = myMutableString
-                
+        
         startTimer()
- 
+        
     }
     
     
     
     //TODO: Navigation setup implenemtation
     internal func navSetup(){
-        super.setupNavigationBarTitle(ConstantTexts.VarificationHT, leftBarButtonsType: [.back], rightBarButtonsType: [])
+        super.isHiddenNavigationBar(true)
+        //  super.setupNavigationBarTitle(AppColor.themeColor, ConstantTexts.VarificationHT, leftBarButtonsType: [.back], rightBarButtonsType: [.empty])
     }
     
     
-     //TODO: setup validation
-     internal func isValidate(){
-         dismissKeyboard()
-         if !validationMethodManager!.checkEmptyField(txtOTP_Number.text!.trimmingCharacters(in: .whitespaces)){
-             self.customMethodManager!.showToolTip(msg: ConstantTexts.EnterOTPALERT, anchorView: self.txtOTP_Number, sourceView: self.view)
-             self.txtOTP_Number.becomeFirstResponder()
-             return
-         } else if !validationMethodManager!.isValidOTPCount(txtOTP_Number.text!.trimmingCharacters(in: .whitespaces)){
-            self.customMethodManager!.showToolTip(msg: ConstantTexts.EnterValidOTPALERT, anchorView: self.txtOTP_Number, sourceView: self.view)
-             self.txtOTP_Number.becomeFirstResponder()
-             return
-         }else{
-             let vc = AppStoryboard.tabBarSB.instantiateViewController(withIdentifier: TabBarVC.className) as! TabBarVC
-             UIApplication.shared.windows.first?.rootViewController = vc
-             UIApplication.shared.windows.first?.makeKeyAndVisible()
-         }
     
+    //TODO: setup validation
+    internal func isValidate(){
+        if !validationMethodManager!.checkEmptyField(enteredOtp.trimmingCharacters(in: .whitespaces)){
+            self.customMethodManager!.showToolTip(msg: ConstantTexts.EnterOTPALERT, anchorView: self.otpView, sourceView: self.view)
+            return
+        } else if !validationMethodManager!.isValidOTPCount(enteredOtp.trimmingCharacters(in: .whitespaces)){
+            self.customMethodManager!.showToolTip(msg: ConstantTexts.EnterValidOTPALERT, anchorView: self.otpView, sourceView: self.view)
+            
+            return
+        }else{
+            dismissKeyboard()
+            
+            self.dismiss(animated: true) {
+                let vc = AppStoryboard.tabBarSB.instantiateViewController(withIdentifier: TabBarVC.className) as! TabBarVC
+                UIApplication.shared.windows.first?.rootViewController = vc
+                UIApplication.shared.windows.first?.makeKeyAndVisible()
+            }
+            
+            
+            
+        }
+        
     }
     
     

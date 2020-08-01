@@ -21,6 +21,12 @@ class OnboardingVC: SBaseViewController {
         initialSetup()
     }
     
+    //TODO: Implementation viewWillAppear
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navSetup()
+    }
+    
 
     /*
     // MARK: - Navigation
@@ -36,10 +42,8 @@ class OnboardingVC: SBaseViewController {
     //MARK: - Actions, Gestures, Selectors
     //TODO: Actions
     @IBAction func btnProceedTapped(_ sender: UIButton) {
-    
-        let newViewController = AppStoryboard.authSB.instantiateViewController(withIdentifier: LoginVC.className) as! LoginVC
-        let navigationController = UINavigationController(rootViewController: newViewController)
-        self.view.window?.rootViewController = navigationController
+        USER_DEFAULTS.set(true, forKey: ConstantTexts.tourOverUDK)
+        super.moveToNextViewCViaRoot(name: ConstantTexts.AuthSBT, withIdentifier: LoginVC.className)
  
     }
     

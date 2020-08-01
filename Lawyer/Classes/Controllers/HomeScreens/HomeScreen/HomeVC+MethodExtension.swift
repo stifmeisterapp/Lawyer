@@ -52,7 +52,7 @@ extension HomeVC{
     //TODO: Navigation setup implenemtation
     internal func navSetup(){
         self.tabBarController?.tabBar.isHidden = false
-        super.setupNavigationBarTitle(ConstantTexts.CategoriesHT, leftBarButtonsType: [.empty], rightBarButtonsType: [])
+        super.setupNavigationBarTitle(AppColor.themeColor,ConstantTexts.CategoriesHT, leftBarButtonsType: [.empty], rightBarButtonsType: [])
     }
     
     

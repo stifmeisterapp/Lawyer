@@ -22,7 +22,7 @@ struct AppColor {
     public static let tabUnselectTintColor     = #colorLiteral(red: 0.6642268896, green: 0.6642268896, blue: 0.6642268896, alpha: 1)
     public static let tanColor                 = #colorLiteral(red: 1, green: 0.5764705882, blue: 0, alpha: 1)
     public static let whiteColor               = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-    public static let errorColor               = #colorLiteral(red: 0.9411764741, green: 0.4980392158, blue: 0.3529411852, alpha: 1)
+    public static let errorColor               = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
     
     public static let bgColorOne               = themeColor
     public static let bgColorTwo               = themeColor
