@@ -8,6 +8,7 @@
 
 import UIKit
 import Foundation
+import ViewAnimator
 
 extension HomeVC{
     
@@ -57,6 +58,7 @@ extension HomeVC{
     internal func navSetup(){
         self.tabBarController?.tabBar.isHidden = false
         super.setupNavigationBarTitle(AppColor.themeColor,ConstantTexts.CategoriesHT, leftBarButtonsType: [.empty], rightBarButtonsType: [])
+        
     }
     
     
@@ -71,8 +73,6 @@ extension HomeVC{
         }
         
         registerNib()
-        
-        
         
     }
     
@@ -92,8 +92,19 @@ extension HomeVC{
         } */
         
         self.categoryCollectionView.register(nib: CategoryCollectionViewCellAndXib.className)
-   
+        runAnimation()
     }
+    
+    //TODO: Animate collection view
+     internal func runAnimation(){
+         categoryCollectionView?.reloadData()
+         categoryCollectionView?.performBatchUpdates({
+             UIView.animate(views: self.categoryCollectionView!.orderedVisibleCells,
+                 animations: animations, completion: {
+                     print("Animation done...")
+                 })
+         }, completion: nil)
+     }
     
     
 }

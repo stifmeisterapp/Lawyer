@@ -8,6 +8,7 @@
 
 import UIKit
 import DropDown
+import ViewAnimator
 
 class HomeVC: SBaseViewController {
 
@@ -28,6 +29,8 @@ class HomeVC: SBaseViewController {
     internal var homeVM: CategoryListModeling?
     internal var customMethodManager:CustomMethodProtocol?
     internal let dropDown = DropDown()
+    
+    internal let animations = [AnimationType.from(direction: .bottom, offset: 30.0)]
     
     
     /* For Tableview
@@ -59,6 +62,12 @@ class HomeVC: SBaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navSetup()
+    }
+    
+    //TODO: Implementation viewDidAppear
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        runAnimation()
     }
     
 

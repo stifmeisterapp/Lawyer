@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import ViewAnimator
+
 //MARK: - UICollectionViewDataSource extension
 extension HomeVC:UICollectionViewDataSource{
     
@@ -54,12 +56,24 @@ extension HomeVC:UICollectionViewDelegate{
              if let cell = collectionView.cellForItem(at: indexPath) as? CategoryCollectionViewCellAndXib {
                   cell.viewBG.transform = .identity
                   cell.contentView.backgroundColor = .clear
+                
+                
+                UIView.animate(views: collectionView.orderedVisibleCells,
+                               animations: self.animations, reversed: true,
+                               initialAlpha: 1.0,
+                               finalAlpha: 0.0,
+                               completion: {
+                              
+                                let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: LawyerListVC.className) as! LawyerListVC
+                                if let categoryVM = self.categoryListVM?.categoryAtIndex(indexPath.row){
+                                    vc.headerTitle = categoryVM.title
+                                }
+                                self.navigationController?.pushViewController(vc, animated: true)
+                                
+                })
+                
                   
-                  let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: LawyerListVC.className) as! LawyerListVC
-                  if let categoryVM = self.categoryListVM?.categoryAtIndex(indexPath.row){
-                      vc.headerTitle = categoryVM.title
-                  }
-                  self.navigationController?.pushViewController(vc, animated: true)
+                  
                   
               }
           }
