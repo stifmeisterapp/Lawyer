@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Foundation
 protocol DataStoreStructListModeling {
     
     //TODO: Init values implementation

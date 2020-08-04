@@ -16,7 +16,7 @@ struct AppColor {
     public static let themeColor               = #colorLiteral(red: 0.231372549, green: 0.3411764706, blue: 0.6235294118, alpha: 1)
     public static let textColor                = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
     public static let cyanColor                = #colorLiteral(red: 0, green: 0.9921568627, blue: 1, alpha: 1)
-    public static let darkGrayColor            = #colorLiteral(red: 0.4470172524, green: 0.4470853806, blue: 0.4470024109, alpha: 1)
+    public static let darkGrayColor            = #colorLiteral(red: 0.349999994, green: 0.349999994, blue: 0.349999994, alpha: 1)
     public static let passGreenColor           = #colorLiteral(red: 0.1764705882, green: 0.6392156863, blue: 0.2352941176, alpha: 1)
     public static let placeholderColor         = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
     public static let tabUnselectTintColor     = #colorLiteral(red: 0.6642268896, green: 0.6642268896, blue: 0.6642268896, alpha: 1)
@@ -28,7 +28,7 @@ struct AppColor {
     public static let bgColorTwo               = themeColor
     public static let bgColorThree             = themeColor
     public static let clearColor               = UIColor.clear
-    public static let tableBGColor             = #colorLiteral(red: 0.9761723876, green: 0.9761723876, blue: 0.9761723876, alpha: 1)
+    public static let tableBGColor             = #colorLiteral(red: 0.9499999881, green: 0.9499999881, blue: 0.9499999881, alpha: 1)
     
     public static let highLightColor           = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1)
     

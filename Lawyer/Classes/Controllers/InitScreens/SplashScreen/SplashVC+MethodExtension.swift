@@ -47,7 +47,7 @@ extension SplashVC{
     //TODO: Run logo animation
     private func runAnimationLogo(){
         UIView.animate(withDuration: 3, delay: 0, options: [.curveEaseIn], animations: {
-            self.soundManager?.playSound("Judges_Gavel.mp3")
+           // self.soundManager?.playSound("Judges_Gavel.mp3")
             self.logo_splash_Stack.alpha = 0
             self.logo_splash_Stack.transform = CGAffineTransform(scaleX: 3, y: 3)
             

@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>UIUserInterfaceStyle</key>
-    <string>Light</string>
+	<string>Light</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 	<key>CFBundleDevelopmentRegion</key>
@@ -26,6 +26,16 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
+		<string>OpenSans-Bold.ttf</string>
+		<string>OpenSans-SemiboldItalic.ttf</string>
+		<string>OpenSans-Semibold.ttf</string>
+		<string>OpenSans-Regular.ttf</string>
+		<string>OpenSans-LightItalic.ttf</string>
+		<string>OpenSans-Light.ttf</string>
+		<string>OpenSans-Italic.ttf</string>
+		<string>OpenSans-ExtraBoldItalic.ttf</string>
+		<string>OpenSans-ExtraBold.ttf</string>
+		<string>OpenSans-BoldItalic.ttf</string>
 		<string>TypewriterKeys.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>

@@ -49,6 +49,7 @@ struct ConstantTexts{
     static let  DomesticVoilenceLT                  =      "Domestic Voilence"
     static let  NALT                                =      "NA"
     static let  AnyLT                               =      "Any"
+    static let  ZeroLT                              =      "0"
     static let  ExperienceLT                        =      "Experience"
     static let  YrsLT                               =      "yrs"
     static let  CallLT                              =      "Call"
@@ -60,6 +61,9 @@ struct ConstantTexts{
     
     static let  ChooseLT                            =      "Choose"
     static let  ChooseDecLT                         =      "A specialist lawyer of chartered accountant based on your case or requirement."
+    static let  CityLT                              =      "City"
+    static let  ExpertiseLT                         =      "Expertise"
+    static let  LanguageLT                          =      "Language"
     
     static let  CompareLT                           =      "Compare"
     static let  CompareDecLT                        =      "Multiple lawyers in every category. Choose on the basis of their charges, language and experience."
@@ -71,7 +75,7 @@ struct ConstantTexts{
     
     static let  EnterOTP1_LT                        =      "Enter OTP"
     static let  EnterOTP2_LT                        =      "OTP has been sent send to your mobile number."
-    static let  VarificationCode_LT                 =      "Varification Code"
+    static let  VarificationCode_LT                 =      "Verification Code"
     
     static let  PleaseVarify_LT                     =      "Please Verify"
     
@@ -85,10 +89,11 @@ struct ConstantTexts{
     static let  CategoriesHT                        =      "CATEGORIES"
     static let  LoginHT                             =      "LOGIN"
     static let  SignupHT                            =      "SIGNUP"
-    static let  VarificationHT                      =      "VARIFICATION"
+    static let  VarificationHT                      =      "VERIFICATION"
     
     //TODO: Button Title Text
     static let  MeetBT                              =      "MEET"
+    static let  ClearFiltersBT                      =      "Clear Filters"
     static let  CallBT                              =      "CALL"
     static let  LIST_VIEW_BT                        =      "LIST VIEW"
     static let  MAP_VIEW_BT                         =      "MAP VIEW"
@@ -100,17 +105,25 @@ struct ConstantTexts{
     static let  ResendOTP_BT                        =      "Resend OTP"
     static let  Register_BT                         =      "Register"
     static let  DontHaveBT                          =      "Don't have an account?"
-    static let  AlreadyHaveBT                       =      "Already have an account?"
-    static let  SignUpAsC_BT                        =      "Sign Up as Customer."
-    static let  SignUpAsL_BT                        =      "Sign Up as Lawyer."
+    static let  AlreadyHaveBT                       =      "Already Registered with us?"
+    static let  SignUpAsC_BT                        =      "Sign Up as a Customer."
+    static let  SignUpAsL_BT                        =      "Sign Up as a Lawyer."
     
-    static let  LogInAsC_BT                         =      "Sign In as Customer."
-    static let  LogInAsL_BT                         =      "Sign In as Lawyer."
+    static let  LogInAsC_BT                         =      "Sign In as a Customer."
+    static let  LogInAsL_BT                         =      "Sign In as a Lawyer."
+    static let  Varify_BT                           =      "Verify"
+    static let  DidntRecieve_BT                     =      "Didn't reveive the verification OTP?"
+    static let  ResendAgain_BT                      =      "Resend again"
+    
+    static let  SignUpAsC_New_BT                    =      "Sign Up As Customer"
+    static let  SignUpAsL_New_BT                    =      "Sign Up As Lawyer"
 
     //TODO: Placeholder Text
     static let  MobileNumberPH                      =      "Mobile Number"
     static let  FullNamePH                          =      "Full Name"
     static let  EmailAddressPH                      =      "Email Address"
+    static let  KeywordsPH                          =      "Keywords"
+    
     
     //TODO: Alert Text
     static let  EnterMobileNumberALERT              =      "Please enter mobile number."

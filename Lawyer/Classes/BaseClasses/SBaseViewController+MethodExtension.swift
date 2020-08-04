@@ -47,7 +47,7 @@ extension SBaseViewController{
     internal func getBarButtonItem(for type: UINavigationBarButtonType, isLeftBarButtonItem: Bool) -> UIBarButtonItem {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: Int(NAVIGATION_BAR_BUTTON_DEFAULT_WIDTH), height: NAVIGATION_BAR_DEFAULT_HEIGHT))
         button.setTitleColor(.black, for: UIControl.State())
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
+        button.titleLabel?.font = AppFont.Semibold.size(AppFontName.OpenSans, size: 14)
         button.titleLabel?.textAlignment = .right
         button.tag = type.rawValue
         button.imageEdgeInsets = UIEdgeInsets(top: 0, left: isLeftBarButtonItem ? -EDGE_INSET : EDGE_INSET, bottom: 0, right: isLeftBarButtonItem ? EDGE_INSET : -EDGE_INSET)

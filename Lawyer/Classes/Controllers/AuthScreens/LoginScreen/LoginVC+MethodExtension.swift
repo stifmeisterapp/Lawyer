@@ -39,7 +39,25 @@ extension LoginVC{
         //tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
         
-        customMethodManager?.provideShadowAndCornerRadius(self.viewBG, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.darkGrayColor, -1, 1, 1, 3, 0, AppColor.clearColor)
+        self.btnLawyerRef.setTitle(ConstantTexts.LawyerBT, for: .normal)
+        self.btnLawyerRef.titleLabel?.font = AppFont.Bold.size(AppFontName.OpenSans, size: 12)
+        self.customMethodManager?.provideCornerRadiusTo(self.btnLawyerRef, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
+       
+        
+        self.btnCustomerRef.setTitle(ConstantTexts.CustomerBT, for: .normal)
+        self.btnCustomerRef.titleLabel?.font = AppFont.Bold.size(AppFontName.OpenSans, size: 12)
+        self.customMethodManager?.provideCornerRadiusTo(self.btnCustomerRef, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
+        
+       
+        self.setUpUpperButtonLawyerCustomer(tag:self.tag)
+
+        self.lblInstruction.font = AppFont.Regular.size(AppFontName.OpenSans, size: 11)
+        self.lblInstruction.textColor = AppColor.darkGrayColor
+        self.lblInstruction.numberOfLines = 0
+        self.lblInstruction.textAlignment = .center
+        
+        
+        customMethodManager?.provideShadowAndCornerRadius(self.viewBG, 3, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.placeholderColor, -1, 1, 1, 3, 0, AppColor.clearColor)
         
         self.logInTable.separatorStyle = .none
         self.logInTable.backgroundColor = AppColor.whiteColor
@@ -55,7 +73,7 @@ extension LoginVC{
         
         
         self.btnSendOTPRef.setTitle(ConstantTexts.SendOTP_BT, for: .normal)
-        self.btnSendOTPRef.titleLabel?.font = UIFont.systemFont(ofSize: 14.0)
+        self.btnSendOTPRef.titleLabel?.font = AppFont.Bold.size(AppFontName.OpenSans, size: 12)
         
         self.btnSendOTPRef.setTitleColor(AppColor.whiteColor, for: .normal)
         self.btnSendOTPRef.backgroundColor = AppColor.themeColor
@@ -70,10 +88,10 @@ extension LoginVC{
         paragraphStyle.lineSpacing = 5 // Whatever line spacing you want in points
         
         
-        var myMutableString = NSMutableAttributedString()
-        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\(ConstantTexts.DontHaveBT)  ", font: UIFont.systemFont(ofSize: 14.0), color: AppColor.textColor) ?? NSMutableAttributedString())
+        let myMutableString = NSMutableAttributedString()
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\(ConstantTexts.DontHaveBT)  ", font: AppFont.Regular.size(AppFontName.OpenSans, size: 11), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
         
-        myMutableString.append(customMethodManager?.provideUnderlineAttributedText(text: ConstantTexts.SignUpAsC_BT, font: UIFont.boldSystemFont(ofSize: 14.0), AppColor.themeColor) ?? NSMutableAttributedString())
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: ConstantTexts.SignUpAsC_BT, font: AppFont.Bold.size(AppFontName.OpenSans, size: 11), color: AppColor.themeColor) ?? NSMutableAttributedString())
         
         // *** Apply attribute to string ***
         myMutableString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, myMutableString.length))
@@ -87,18 +105,12 @@ extension LoginVC{
         
         
         
+        self.lblSignUpRef_Lawyer.font = AppFont.Bold.size(AppFontName.OpenSans, size: 11)
+        self.lblSignUpRef_Lawyer.textAlignment = .center
+        self.lblSignUpRef_Lawyer.textColor = AppColor.themeColor
+        self.lblSignUpRef_Lawyer.text = ConstantTexts.SignUpAsL_BT
                 
-        myMutableString = NSMutableAttributedString()
-        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\(ConstantTexts.DontHaveBT)  ", font: UIFont.systemFont(ofSize: 14.0), color: AppColor.textColor) ?? NSMutableAttributedString())
-        
-        myMutableString.append(customMethodManager?.provideUnderlineAttributedText(text: ConstantTexts.SignUpAsL_BT, font: UIFont.boldSystemFont(ofSize: 14.0), AppColor.themeColor) ?? NSMutableAttributedString())
-        
-        // *** Apply attribute to string ***
-        myMutableString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, myMutableString.length))
-        
-        // *** Set Attributed String to your label ***
-        
-        self.lblSignUpRef_Lawyer.attributedText = myMutableString
+
         let lblSignUpRef_Lawyer_Tap = UITapGestureRecognizer(target: self, action: #selector(self.lblSignUpRef_Lawyer_Tapped(_:)))
         self.lblSignUpRef_Lawyer.isUserInteractionEnabled = true
         self.lblSignUpRef_Lawyer.addGestureRecognizer(lblSignUpRef_Lawyer_Tap)
@@ -106,6 +118,32 @@ extension LoginVC{
         
         
     }
+    
+    
+    //TODO: IntialSetup
+    internal func setUpUpperButtonLawyerCustomer(tag:Int){
+        if self.tag == 0{
+            self.lblInstruction.text = ConstantTexts.CustomerIns_LT
+            self.customMethodManager?.provideCornerBorderTo(self.btnLawyerRef, 1, AppColor.placeholderColor)
+            self.btnLawyerRef.setTitleColor(AppColor.darkGrayColor, for: .normal)
+            self.btnLawyerRef.backgroundColor = AppColor.whiteColor
+            
+            self.customMethodManager?.provideCornerBorderTo(self.btnCustomerRef, 1, AppColor.themeColor)
+            self.btnCustomerRef.setTitleColor(AppColor.whiteColor, for: .normal)
+            self.btnCustomerRef.backgroundColor = AppColor.themeColor
+        }else{
+            self.lblInstruction.text = ConstantTexts.LawyerIns_LT
+            self.customMethodManager?.provideCornerBorderTo(self.btnCustomerRef, 1, AppColor.placeholderColor)
+            self.btnCustomerRef.setTitleColor(AppColor.darkGrayColor, for: .normal)
+            self.btnCustomerRef.backgroundColor = AppColor.whiteColor
+            
+            self.customMethodManager?.provideCornerBorderTo(self.btnLawyerRef, 1, AppColor.themeColor)
+            self.btnLawyerRef.setTitleColor(AppColor.whiteColor, for: .normal)
+            self.btnLawyerRef.backgroundColor = AppColor.themeColor
+        }
+    }
+    
+    
     
     
     //TODO: register nib file

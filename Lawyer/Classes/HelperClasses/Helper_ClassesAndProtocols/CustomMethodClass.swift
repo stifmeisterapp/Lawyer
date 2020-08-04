@@ -22,6 +22,7 @@ class CustomMethodClass: CustomMethodProtocol {
         let rightBottomView = TipView()
         rightBottomView.color = AppColor.errorColor
         rightBottomView.textColor = AppColor.whiteColor
+        rightBottomView.font = AppFont.Semibold.size(AppFontName.OpenSans, size: 12)
         rightBottomView.maxWidth = anchorView.frame.size.width - 50
         rightBottomView.dismissClosure = { tipview in
             print("call back to there..")

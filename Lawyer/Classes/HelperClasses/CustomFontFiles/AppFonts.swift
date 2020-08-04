@@ -10,24 +10,22 @@ import Foundation
 import UIKit
 
 enum AppFontName: String {
-    
-    case SegoeUI           =        "SegoeUI"
+  
+    case OpenSans           =        "OpenSans"
+    case OpenSansLight      =        "OpenSansLight"
 }
 
 enum AppFont: String {
-    
-    
-    case semibold          =        "SemiBold"
-    case semilight         =        "Semilight"
-    case boldItalic        =        "BoldItalic"
-    case black             =        "Black"
-    case semiboldItalic    =        "SemiboldItalic"
-    case italic            =        "Italic"
-    case blackItalic       =        "BlackItalic"
-    case lightItalic       =        "LightItalic"
-    case bold              =        "Bold"
-    case light             =        "Light"
-    case semiLightItalic   =        "SemilightItalic"
+   
+    case Italic             =        "Italic"
+    case Bold               =        "Bold"
+    case SemiboldItalic     =        "SemiboldItalic"
+    case ExtraboldItalic    =        "ExtraboldItalic"
+    case BoldItalic         =        "BoldItalic"
+    case Light              =        "Light"
+    case Semibold           =        "Semibold"
+    case Extrabold          =        "Extrabold"
+    case Regular            =        ""
    
     func size(_ name: AppFontName,size: CGFloat) -> UIFont {
         

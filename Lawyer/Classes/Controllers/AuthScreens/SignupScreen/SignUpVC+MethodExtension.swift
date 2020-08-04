@@ -38,7 +38,7 @@ extension SignUpVC{
         //tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
         
-        customMethodManager?.provideShadowAndCornerRadius(self.viewBG, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.darkGrayColor, -1, 1, 1, 3, 0, AppColor.clearColor)
+        customMethodManager?.provideShadowAndCornerRadius(self.viewBG, 3, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.placeholderColor, -1, 1, 1, 3, 0, AppColor.clearColor)
         
         self.registerTable.separatorStyle = .none
         self.registerTable.backgroundColor = AppColor.whiteColor
@@ -48,39 +48,58 @@ extension SignUpVC{
         self.customMethodManager?.provideShadowAndCornerRadius(self.btnRegisterRef, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.darkGrayColor, -1, 1, 1, 3, 0, AppColor.clearColor)
         
         
-        self.btnRegisterRef.setTitle(ConstantTexts.Register_BT, for: .normal)
-        self.btnRegisterRef.titleLabel?.font = UIFont.systemFont(ofSize: 14.0)
+        self.btnRegisterRef.setTitle(ConstantTexts.SendOTP_BT, for: .normal)
+        self.btnRegisterRef.titleLabel?.font = AppFont.Bold.size(AppFontName.OpenSans, size: 12)
         
         self.btnRegisterRef.setTitleColor(AppColor.whiteColor, for: .normal)
         self.btnRegisterRef.backgroundColor = AppColor.themeColor
+        self.lblInstruction.numberOfLines = 0
+        
         
         // *** Create instance of `NSMutableParagraphStyle`
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .center
         
         // *** set LineSpacing property in points ***
-        paragraphStyle.lineSpacing = 5 // Whatever line spacing you want in points
+        paragraphStyle.lineSpacing = 0 // Whatever line spacing you want in points
         
         
         let myMutableString = NSMutableAttributedString()
         let myMutableString_For_Instruction = NSMutableAttributedString()
         
-        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\(ConstantTexts.AlreadyHaveBT)  ", font: UIFont.systemFont(ofSize: 14.0), color: AppColor.textColor) ?? NSMutableAttributedString())
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\(ConstantTexts.AlreadyHaveBT)  ", font: AppFont.Regular.size(AppFontName.OpenSans, size: 11), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
         
-        /*  self.lblInstruction.font = UIFont.systemFont(ofSize: 12)
-         self.lblInstruction.textColor = AppColor.darkGrayColor
-         */
-        
-        self.lblInstruction.numberOfLines = 0
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: ConstantTexts.LogInAsC_BT, font: AppFont.Bold.size(AppFontName.OpenSans, size: 11), color: AppColor.themeColor) ?? NSMutableAttributedString())
         
         
+        // *** Apply attribute to string ***
+        myMutableString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, myMutableString.length))
+        
+        // *** Set Attributed String to your label ***
+        
+        self.lblInstruction_SignIn_Customer.attributedText = myMutableString
+        
+        let lblInstruction_SignIn_Customer_Tap = UITapGestureRecognizer(target: self, action: #selector(self.lblInstruction_SignIn_Customer_Tapped(_:)))
+        self.lblInstruction_SignIn_Customer.isUserInteractionEnabled = true
+        self.lblInstruction_SignIn_Customer.addGestureRecognizer(lblInstruction_SignIn_Customer_Tap)
+        
+        
+        
+        self.lblInstruction_SignIn_Lawyer.font = AppFont.Bold.size(AppFontName.OpenSans, size: 11)
+        self.lblInstruction_SignIn_Lawyer.textAlignment = .center
+        self.lblInstruction_SignIn_Lawyer.textColor = AppColor.themeColor
+        self.lblInstruction_SignIn_Lawyer.text = ConstantTexts.LogInAsL_BT
+        
+        let lblInstruction_SignIn_Lawyer_Tap = UITapGestureRecognizer(target: self, action: #selector(self.lblInstruction_SignIn_Lawyer_Tapped(_:)))
+        self.lblInstruction_SignIn_Lawyer.isUserInteractionEnabled = true
+        self.lblInstruction_SignIn_Lawyer.addGestureRecognizer(lblInstruction_SignIn_Lawyer_Tap)
+        
+  
         if tag == 0{
-            myMutableString.append(customMethodManager?.provideUnderlineAttributedText(text: ConstantTexts.LogInAsC_BT, font:  UIFont.boldSystemFont(ofSize: 14.0), AppColor.themeColor) ?? NSMutableAttributedString())
+           
+            myMutableString_For_Instruction.append(customMethodManager?.provideSimpleAttributedText(text: "\(ConstantTexts.SignUpAsC_New_BT)\n", font:  AppFont.Bold.size(AppFontName.OpenSans, size: 18), color: AppColor.themeColor) ?? NSMutableAttributedString())
             
-            
-            myMutableString_For_Instruction.append(customMethodManager?.provideSimpleAttributedText(text: "\(ConstantTexts.CustomerBT)\n\n", font:  UIFont.boldSystemFont(ofSize: 16.0), color: AppColor.themeColor) ?? NSMutableAttributedString())
-            
-            myMutableString_For_Instruction.append(customMethodManager?.provideSimpleAttributedText(text: ConstantTexts.CustomerIns_LT, font:  UIFont.systemFont(ofSize: 12.0), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
+            myMutableString_For_Instruction.append(customMethodManager?.provideSimpleAttributedText(text: ConstantTexts.CustomerIns_LT, font:  AppFont.Regular.size(AppFontName.OpenSans, size: 11), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
             
             
             // *** Apply attribute to string ***
@@ -92,12 +111,10 @@ extension SignUpVC{
             self.lblInstruction.attributedText = myMutableString_For_Instruction
             
         }else{
-            myMutableString.append(customMethodManager?.provideUnderlineAttributedText(text: ConstantTexts.LogInAsL_BT, font:  UIFont.boldSystemFont(ofSize: 14.0), AppColor.themeColor) ?? NSMutableAttributedString())
+           
+            myMutableString_For_Instruction.append(customMethodManager?.provideSimpleAttributedText(text: "\(ConstantTexts.SignUpAsL_New_BT)\n", font:  AppFont.Bold.size(AppFontName.OpenSans, size: 18), color: AppColor.themeColor) ?? NSMutableAttributedString())
             
-            
-            myMutableString_For_Instruction.append(customMethodManager?.provideSimpleAttributedText(text: "\(ConstantTexts.LawyerBT)\n\n", font:  UIFont.boldSystemFont(ofSize: 16.0), color: AppColor.themeColor) ?? NSMutableAttributedString())
-            
-            myMutableString_For_Instruction.append(customMethodManager?.provideSimpleAttributedText(text: ConstantTexts.LawyerIns_LT, font:  UIFont.systemFont(ofSize: 12.0), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
+            myMutableString_For_Instruction.append(customMethodManager?.provideSimpleAttributedText(text: ConstantTexts.LawyerIns_LT, font:  AppFont.Regular.size(AppFontName.OpenSans, size: 11), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
             
             // *** Apply attribute to string ***
             myMutableString_For_Instruction.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, myMutableString_For_Instruction.length))
@@ -106,21 +123,7 @@ extension SignUpVC{
             
             self.lblInstruction.attributedText = myMutableString_For_Instruction
         }
-        
-        
-        
-        
-        
-        
-        
-        // *** Apply attribute to string ***
-        myMutableString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, myMutableString.length))
-        
-        // *** Set Attributed String to your label ***
-        
-        self.btnLoginRef.setAttributedTitle(myMutableString, for: .normal)
-        
-        
+  
     }
     
     

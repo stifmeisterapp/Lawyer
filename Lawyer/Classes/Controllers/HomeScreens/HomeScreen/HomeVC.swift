@@ -67,7 +67,8 @@ class HomeVC: SBaseViewController {
     //TODO: Implementation viewDidAppear
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        runAnimation()
+        runSimpleAnimation()
+        //runRotateAnimation()
     }
     
 

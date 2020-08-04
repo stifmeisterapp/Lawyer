@@ -17,7 +17,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bQC-uK-141" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextField">
-                        <rect key="frame" x="15" y="5" width="290" height="163"/>
+                        <rect key="frame" x="20" y="5" width="280" height="163"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
@@ -25,8 +25,8 @@
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="bQC-uK-141" secondAttribute="bottom" constant="5" id="KzB-Dk-Qoh"/>
                     <constraint firstItem="bQC-uK-141" firstAttribute="top" secondItem="utR-T1-KnN" secondAttribute="top" constant="5" id="WX1-Vn-rwy"/>
-                    <constraint firstItem="bQC-uK-141" firstAttribute="leading" secondItem="utR-T1-KnN" secondAttribute="leading" constant="15" id="XLH-Yc-5Zy"/>
-                    <constraint firstAttribute="trailing" secondItem="bQC-uK-141" secondAttribute="trailing" constant="15" id="ocx-Wu-w5s"/>
+                    <constraint firstItem="bQC-uK-141" firstAttribute="leading" secondItem="utR-T1-KnN" secondAttribute="leading" constant="20" id="XLH-Yc-5Zy"/>
+                    <constraint firstAttribute="trailing" secondItem="bQC-uK-141" secondAttribute="trailing" constant="20" id="ocx-Wu-w5s"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="jPJ-OS-qO7"/>

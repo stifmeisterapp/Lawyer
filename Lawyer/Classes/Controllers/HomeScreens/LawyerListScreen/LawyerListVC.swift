@@ -12,10 +12,18 @@ class LawyerListVC: SBaseViewController {
     
     //MARK: - IBOutlets
     @IBOutlet weak var lawyerTableView: UITableView!
-   
+    @IBOutlet weak var viewFilterBG: UIView!
+    @IBOutlet weak var txtSearch: UITextField!
+    @IBOutlet weak var btnSearchRef: UIButton!
+    @IBOutlet weak var btnFilterRef: UIButton!
+    @IBOutlet weak var filterCollectionView: UICollectionView!
     //MARK: - Variables
     internal var headerTitle:String = String()
     internal var customMethodManager:CustomMethodProtocol?
+    internal var filterCategoryListDataVM:FilterCategory_List_ViewModel?
+    internal var filterCategoryListVM: FilterCategoryListModeling?
+    
+ 
     
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()

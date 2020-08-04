@@ -69,9 +69,9 @@ class Auth_TextField_TableViewCell: SBaseTableViewCell {
     //TODO: - Setup textFieldFloating
     private func setUpTextField(){
         
-        textFieldFloating.font = UIFont.systemFont(ofSize: 14.0)
+        textFieldFloating.font = AppFont.Regular.size(AppFontName.OpenSans, size: 12)
         textFieldFloating.tintColor = AppColor.themeColor // the color of the blinking cursor
-        textFieldFloating.textColor = AppColor.textColor
+        textFieldFloating.textColor = AppColor.darkGrayColor
         textFieldFloating.lineColor = AppColor.placeholderColor
         textFieldFloating.selectedTitleColor = AppColor.themeColor
         textFieldFloating.selectedLineColor = AppColor.themeColor

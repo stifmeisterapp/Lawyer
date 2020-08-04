@@ -44,21 +44,25 @@ extension OTP_VC{
         otpView.shouldAllowIntermediateEditing = false
         
         otpView.otpFieldTextColor = AppColor.themeColor
-        otpView.otpFieldFont = UIFont.boldSystemFont(ofSize: 18)
+        otpView.otpFieldSize = 45
+        otpView.otpFieldSeparatorSpace = 10
+        otpView.otpFieldFont = AppFont.Regular.size(AppFontName.OpenSans, size: 14)
         otpView.otpFieldDisplayType = .underlinedBottom
         otpView.cursorColor = AppColor.themeColor
-        
+        otpView.placeHolder = ConstantTexts.ZeroLT
         // Create the UI
         otpView.initializeUI()
         
         
         self.customMethodManager?.provideShadowAndCornerRadius(self.btnDoneOTPRef, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.darkGrayColor, -1, 1, 1, 3, 0, AppColor.clearColor)
         
-        self.btnDoneOTPRef.setTitle(ConstantTexts.Done_BT, for: .normal)
-        self.btnDoneOTPRef.titleLabel?.font = UIFont.systemFont(ofSize: 14.0)
+        
+        self.btnDoneOTPRef.setTitle(ConstantTexts.Varify_BT, for: .normal)
+        self.btnDoneOTPRef.titleLabel?.font = AppFont.Bold.size(AppFontName.OpenSans, size: 12)
         
         self.btnDoneOTPRef.setTitleColor(AppColor.whiteColor, for: .normal)
         self.btnDoneOTPRef.backgroundColor = AppColor.themeColor
+        
         
         
         let image = UIImage(systemName: "x.circle.fill") ?? UIImage()
@@ -68,13 +72,7 @@ extension OTP_VC{
         
         
         
-        self.btnResendOTPRef.setTitle(ConstantTexts.ResendOTP_BT, for: .normal)
-        self.btnResendOTPRef.titleLabel?.font = UIFont.systemFont(ofSize: 14.0)
-        
-        self.btnResendOTPRef.setTitleColor(AppColor.themeColor, for: .normal)
-        self.btnResendOTPRef.backgroundColor = AppColor.whiteColor
-        
-        self.lblTimer.font = UIFont.systemFont(ofSize: 14.0)
+        self.lblTimer.font = AppFont.Regular.size(AppFontName.OpenSans, size: 12)
         self.lblTimer.textColor = AppColor.themeColor
         
         
@@ -83,20 +81,20 @@ extension OTP_VC{
         paragraphStyle.alignment = .center
         
         // *** set LineSpacing property in points ***
-        paragraphStyle.lineSpacing = 5 // Whatever line spacing you want in points
+        paragraphStyle.lineSpacing = 1 // Whatever line spacing you want in points
         
         
-        let myMutableString = NSMutableAttributedString()
-        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\(ConstantTexts.VarificationCode_LT)\n\n", font: UIFont.boldSystemFont(ofSize: 20), color: AppColor.themeColor) ?? NSMutableAttributedString())
+        var myMutableString = NSMutableAttributedString()
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\(ConstantTexts.VarificationCode_LT)", font: AppFont.Bold.size(AppFontName.OpenSans, size: 18), color: AppColor.themeColor) ?? NSMutableAttributedString())
         
         
-        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\(ConstantTexts.EnterOTP2_LT)\n", font: UIFont.systemFont(ofSize: 14.0), color: AppColor.textColor) ?? NSMutableAttributedString())
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\n\n\(ConstantTexts.EnterOTP2_LT)\n", font: AppFont.Regular.size(AppFontName.OpenSans, size: 12), color: AppColor.textColor) ?? NSMutableAttributedString())
         
         
-        myMutableString.append(customMethodManager?.provideUnderlineAttributedText(text: "\(ConstantTexts.CountryCodeLT) \(phoneNumber)", font: UIFont.systemFont(ofSize: 14.0), AppColor.themeColor) ?? NSMutableAttributedString())
+        myMutableString.append(customMethodManager?.provideUnderlineAttributedText(text: "\(ConstantTexts.CountryCodeLT) \(phoneNumber)", font: AppFont.Bold.size(AppFontName.OpenSans, size: 12), AppColor.themeColor) ?? NSMutableAttributedString())
         
         
-        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\n\(ConstantTexts.PleaseVarify_LT)", font: UIFont.systemFont(ofSize: 14.0), color: AppColor.textColor) ?? NSMutableAttributedString())
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\n\(ConstantTexts.PleaseVarify_LT)", font: AppFont.Regular.size(AppFontName.OpenSans, size: 12), color: AppColor.textColor) ?? NSMutableAttributedString())
         
         
         // *** Apply attribute to string ***
@@ -105,6 +103,15 @@ extension OTP_VC{
         // *** Set Attributed String to your label ***
         lblInstruction.numberOfLines = 0
         lblInstruction.attributedText = myMutableString
+        
+        
+        myMutableString = NSMutableAttributedString()
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\(ConstantTexts.DidntRecieve_BT) ", font: AppFont.Regular.size(AppFontName.OpenSans, size: 11), color: AppColor.textColor) ?? NSMutableAttributedString())
+        
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\(ConstantTexts.ResendAgain_BT)", font: AppFont.Bold.size(AppFontName.OpenSans, size: 11), color: AppColor.themeColor) ?? NSMutableAttributedString())
+        self.btnResendOTPRef.setAttributedTitle(myMutableString, for: .normal)
+        self.btnResendOTPRef.backgroundColor = AppColor.whiteColor
+        
         
         startTimer()
         

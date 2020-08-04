@@ -34,10 +34,9 @@ extension HomeVC{
         
         self.customMethodManager?.provideShadowAndCornerRadius(self.viewLocationBackground, 0, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.placeholderColor, 2, 2, 2, 2, 0, AppColor.tableBGColor)
         
-        self.labelLoationTitle.font = UIFont.systemFont(ofSize: 15.0)
+        self.labelLoationTitle.font = AppFont.Regular.size(AppFontName.OpenSans, size: 12)
         self.labelLoationTitle.textColor = AppColor.darkGrayColor
         self.labelLoationTitle.text = "\(ConstantTexts.YouAreInLT) \("Delhi")"
-        self.imageViewLoction.setImageTintColor(AppColor.themeColor)
         self.imageViewDropDown.setImageTintColor(AppColor.darkGrayColor)
         
       /* For Tableview
@@ -92,11 +91,10 @@ extension HomeVC{
         } */
         
         self.categoryCollectionView.register(nib: CategoryCollectionViewCellAndXib.className)
-        runAnimation()
     }
     
-    //TODO: Animate collection view
-     internal func runAnimation(){
+    //TODO: Animate simple collection view
+     internal func runSimpleAnimation(){
          categoryCollectionView?.reloadData()
          categoryCollectionView?.performBatchUpdates({
              UIView.animate(views: self.categoryCollectionView!.orderedVisibleCells,
@@ -105,6 +103,16 @@ extension HomeVC{
                  })
          }, completion: nil)
      }
+    
+    
+    //TODO: Animate rotate collection view
+    internal func runRotateAnimation(){
+        let zoomAnimation = AnimationType.zoom(scale: 0.2)
+        let rotateAnimation = AnimationType.rotate(angle: CGFloat.pi/6)
+        UIView.animate(views: self.categoryCollectionView.visibleCells,
+                       animations: [zoomAnimation, rotateAnimation],
+                       duration: 0.5)
+    }
     
     
 }

@@ -47,7 +47,7 @@ extension TabBarVC{
             for index in 0..<tabBarItems.count {
                 
                 tabBarItems[index].setTitleTextAttributes([NSAttributedString.Key.foregroundColor: AppColor.whiteColor], for: .selected)
-                tabBarItems[index].imageInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+                tabBarItems[index].imageInsets = UIEdgeInsets(top: 6, left: 6, bottom: 6, right: 6)
                 
                 let image = images[index].withRenderingMode(.alwaysOriginal).withTintColor(AppColor.whiteColor)
                 

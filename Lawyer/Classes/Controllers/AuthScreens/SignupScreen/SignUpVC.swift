@@ -16,12 +16,15 @@ class SignUpVC: SBaseViewController {
     @IBOutlet weak var registerTable: UITableView!
 
     @IBOutlet weak var btnRegisterRef: UIButton!
-    @IBOutlet weak var btnLoginRef: UIButton!
     @IBOutlet weak var lblInstruction: UILabel!
-
+    @IBOutlet weak var lblInstruction_SignIn_Customer: UILabel!
+    @IBOutlet weak var lblInstruction_SignIn_Lawyer: UILabel!
+    
     
     //MARK: - Variables
     public var tag = Int()
+    public var callBack_SingIn:((Int)->())?
+    
     internal var customMethodManager:CustomMethodProtocol?
     internal var registerListModel: DataStoreStructListModeling?
     internal var dataListVM:DataStoreStruct_List_ViewModel?
@@ -85,9 +88,20 @@ class SignUpVC: SBaseViewController {
     }
     
     
-    @IBAction func btnLoginTapped(_ sender: UIButton) {
+    @objc func lblInstruction_SignIn_Customer_Tapped(_ sender: UITapGestureRecognizer) {
+        self.tag = 0
+        self.callBack_SingIn?(self.tag)
         self.navigationController?.popViewController(animated: true)
     }
+    
+    
+    @objc func lblInstruction_SignIn_Lawyer_Tapped(_ sender: UITapGestureRecognizer) {
+        self.tag = 1
+        self.callBack_SingIn?(self.tag)
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    
     
     
     

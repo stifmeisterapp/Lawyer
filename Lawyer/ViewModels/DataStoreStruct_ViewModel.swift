@@ -10,11 +10,8 @@ import Foundation
 import UIKit
 
 
-
-
 //TODO: Parent view model for showing list of dataStoreStruct
 struct DataStoreStruct_List_ViewModel {
-    
     var dataStoreStructs:[DataStoreStruct]
     
 }

@@ -71,6 +71,10 @@ class VPMOTPView: UIView {
     /// If `shouldRequireCursor` is set to `false`, then this property will not have any effect. If `true`, then the color of cursor can be changed using this property. Defaults to `blue` color.
     var cursorColor: UIColor = UIColor.blue
     
+    
+    /// If `placeHolder` is set to `empty`, then this property will not have any effect. If  has value, then this set place holder to textfieldr.
+    var placeHolder: String = ConstantTexts.empty
+    
     /// Defines the size of OTP field. Defaults to `60`.
     var otpFieldSize: CGFloat = 60
     
@@ -183,7 +187,7 @@ class VPMOTPView: UIView {
         
         // Finally create the fields
         otpField.initalizeUI(forFieldType: otpFieldDisplayType)
-        
+        otpField.placeholder = placeHolder
         return otpField
     }
     
