@@ -92,7 +92,7 @@ struct ConstantTexts{
     static let  VarificationHT                      =      "VERIFICATION"
     
     //TODO: Button Title Text
-    static let  MeetBT                              =      "MEET"
+    static let  MeetBT                              =      "Meeting"
     static let  ClearFiltersBT                      =      "Clear Filters"
     static let  CallBT                              =      "CALL"
     static let  LIST_VIEW_BT                        =      "LIST VIEW"
