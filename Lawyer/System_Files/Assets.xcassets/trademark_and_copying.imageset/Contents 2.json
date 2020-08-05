@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "otpLogo.png",
+      "filename" : "trademark_and_copying.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "otpLogo@2x.png",
+      "filename" : "trademark_and_copying@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "otpLogo@3x.png",
+      "filename" : "trademark_and_copying@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -2,7 +2,7 @@
 //  LawyerNewTableViewCell.swift
 //  Lawyer
 //
-//  Created by Aman Kumar on 30/07/20.
+//  Created by Aman Kumar on 06/08/20.
 //  Copyright © 2020 Hephateus. All rights reserved.
 //
 

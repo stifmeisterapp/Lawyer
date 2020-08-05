@@ -64,10 +64,6 @@
 		9D787D8224C9663300EB22D2 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D787D8124C9663300EB22D2 /* UITextField+Extension.swift */; };
 		9D787D8424C9834E00EB22D2 /* ValidationClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D787D8324C9834E00EB22D2 /* ValidationClass.swift */; };
 		9D787D8624C9848C00EB22D2 /* ValidationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D787D8524C9848C00EB22D2 /* ValidationProtocol.swift */; };
-		9D787D8C24C990D700EB22D2 /* TipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D787D8824C990D700EB22D2 /* TipView.swift */; };
-		9D787D8D24C990D700EB22D2 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D787D8924C990D700EB22D2 /* MessageView.swift */; };
-		9D787D8E24C990D700EB22D2 /* AnchorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D787D8A24C990D700EB22D2 /* AnchorView.swift */; };
-		9D787D8F24C990D700EB22D2 /* TipViewTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D787D8B24C990D700EB22D2 /* TipViewTransition.swift */; };
 		9D87E70424C57C8100EF0870 /* SoundClassTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D87E70324C57C8100EF0870 /* SoundClassTests.swift */; };
 		9D948F2524D5713100AB41F0 /* VPMOTPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D948F2424D5713100AB41F0 /* VPMOTPTextField.swift */; };
 		9D948F2724D5716600AB41F0 /* VPMOTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D948F2624D5716600AB41F0 /* VPMOTPView.swift */; };
@@ -77,10 +73,6 @@
 		9D948F3124D5FB6000AB41F0 /* CategoryCollectionViewCellAndXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D948F2F24D5FB6000AB41F0 /* CategoryCollectionViewCellAndXib.swift */; };
 		9D948F3224D5FB6000AB41F0 /* CategoryCollectionViewCellAndXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D948F3024D5FB6000AB41F0 /* CategoryCollectionViewCellAndXib.xib */; };
 		9D948F3424D5FFF900AB41F0 /* HomeVC+CollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D948F3324D5FFF900AB41F0 /* HomeVC+CollectionViewExtension.swift */; };
-		9D97428F24C34F6D00CF80BD /* Law.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D97428E24C34F6D00CF80BD /* Law.json */; };
-		9D97429124C36AAB00CF80BD /* Judges_Gavel.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9D97429024C36AAB00CF80BD /* Judges_Gavel.mp3 */; };
-		9DB3E93C24D2A0CF0041508D /* LawyerNewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB3E93A24D2A0CF0041508D /* LawyerNewTableViewCell.swift */; };
-		9DB3E93D24D2A0CF0041508D /* LawyerNewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DB3E93B24D2A0CF0041508D /* LawyerNewTableViewCell.xib */; };
 		9DC5455A24C32EF9009AF27A /* TypewriterKeys.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DC5455924C32EF9009AF27A /* TypewriterKeys.ttf */; };
 		9DC5455C24C32F8C009AF27A /* AppFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC5455B24C32F8C009AF27A /* AppFonts.swift */; };
 		9DC5455E24C33170009AF27A /* CustomMethodProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC5455D24C33170009AF27A /* CustomMethodProtocol.swift */; };
@@ -88,16 +80,25 @@
 		9DC5456324C33DAE009AF27A /* AppStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC5456224C33DAE009AF27A /* AppStoryboard.swift */; };
 		9DC5456524C33E9A009AF27A /* ConstantTexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC5456424C33E9A009AF27A /* ConstantTexts.swift */; };
 		9DC5456724C33F55009AF27A /* AppMacros.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC5456624C33F55009AF27A /* AppMacros.swift */; };
-		9DEB6EAC24D966E300ED3FD6 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DEB6EA224D966E200ED3FD6 /* OpenSans-Regular.ttf */; };
-		9DEB6EAD24D966E300ED3FD6 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DEB6EA324D966E200ED3FD6 /* OpenSans-Semibold.ttf */; };
-		9DEB6EAE24D966E300ED3FD6 /* OpenSans-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DEB6EA424D966E200ED3FD6 /* OpenSans-SemiboldItalic.ttf */; };
-		9DEB6EAF24D966E300ED3FD6 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DEB6EA524D966E200ED3FD6 /* OpenSans-Bold.ttf */; };
-		9DEB6EB024D966E300ED3FD6 /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DEB6EA624D966E300ED3FD6 /* OpenSans-ExtraBold.ttf */; };
-		9DEB6EB124D966E300ED3FD6 /* OpenSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DEB6EA724D966E300ED3FD6 /* OpenSans-ExtraBoldItalic.ttf */; };
-		9DEB6EB224D966E300ED3FD6 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DEB6EA824D966E300ED3FD6 /* OpenSans-Light.ttf */; };
-		9DEB6EB324D966E300ED3FD6 /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DEB6EA924D966E300ED3FD6 /* OpenSans-Italic.ttf */; };
-		9DEB6EB424D966E300ED3FD6 /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DEB6EAA24D966E300ED3FD6 /* OpenSans-BoldItalic.ttf */; };
-		9DEB6EB524D966E300ED3FD6 /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DEB6EAB24D966E300ED3FD6 /* OpenSans-LightItalic.ttf */; };
+		9DDC563924DB4486002DD47D /* OpenSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DDC562E24DB4485002DD47D /* OpenSans-ExtraBoldItalic.ttf */; };
+		9DDC563A24DB4486002DD47D /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DDC562F24DB4485002DD47D /* OpenSans-BoldItalic.ttf */; };
+		9DDC563B24DB4486002DD47D /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DDC563024DB4485002DD47D /* OpenSans-ExtraBold.ttf */; };
+		9DDC563C24DB4486002DD47D /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DDC563124DB4485002DD47D /* OpenSans-LightItalic.ttf */; };
+		9DDC563D24DB4486002DD47D /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DDC563224DB4486002DD47D /* OpenSans-Semibold.ttf */; };
+		9DDC563E24DB4486002DD47D /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DDC563324DB4486002DD47D /* OpenSans-Light.ttf */; };
+		9DDC563F24DB4486002DD47D /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DDC563424DB4486002DD47D /* OpenSans-Regular.ttf */; };
+		9DDC564024DB4486002DD47D /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DDC563524DB4486002DD47D /* OpenSans-Bold.ttf */; };
+		9DDC564124DB4486002DD47D /* Apache License.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9DDC563624DB4486002DD47D /* Apache License.txt */; };
+		9DDC564224DB4486002DD47D /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DDC563724DB4486002DD47D /* OpenSans-Italic.ttf */; };
+		9DDC564324DB4486002DD47D /* OpenSans-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DDC563824DB4486002DD47D /* OpenSans-SemiboldItalic.ttf */; };
+		9DDC564624DB44E2002DD47D /* Law.json in Resources */ = {isa = PBXBuildFile; fileRef = 9DDC564524DB44E2002DD47D /* Law.json */; };
+		9DDC564C24DB453B002DD47D /* TipViewTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC564824DB453A002DD47D /* TipViewTransition.swift */; };
+		9DDC564D24DB453B002DD47D /* AnchorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC564924DB453B002DD47D /* AnchorView.swift */; };
+		9DDC564E24DB453B002DD47D /* TipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC564A24DB453B002DD47D /* TipView.swift */; };
+		9DDC564F24DB453B002DD47D /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC564B24DB453B002DD47D /* MessageView.swift */; };
+		9DDC565124DB4601002DD47D /* Judges_Gavel.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9DDC565024DB4601002DD47D /* Judges_Gavel.mp3 */; };
+		9DDC565424DB530D002DD47D /* LawyerNewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC565224DB530D002DD47D /* LawyerNewTableViewCell.swift */; };
+		9DDC565524DB530D002DD47D /* LawyerNewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DDC565324DB530D002DD47D /* LawyerNewTableViewCell.xib */; };
 		9DEB6EB724D9D09D00ED3FD6 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEB6EB624D9D09C00ED3FD6 /* UIView+Extensions.swift */; };
 		9DEB6EBA24D9DB5D00ED3FD6 /* FilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEB6EB824D9DB5D00ED3FD6 /* FilterCollectionViewCell.swift */; };
 		9DEB6EBB24D9DB5D00ED3FD6 /* FilterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DEB6EB924D9DB5D00ED3FD6 /* FilterCollectionViewCell.xib */; };
@@ -206,10 +207,6 @@
 		9D787D8124C9663300EB22D2 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		9D787D8324C9834E00EB22D2 /* ValidationClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationClass.swift; sourceTree = "<group>"; };
 		9D787D8524C9848C00EB22D2 /* ValidationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationProtocol.swift; sourceTree = "<group>"; };
-		9D787D8824C990D700EB22D2 /* TipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipView.swift; sourceTree = "<group>"; };
-		9D787D8924C990D700EB22D2 /* MessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
-		9D787D8A24C990D700EB22D2 /* AnchorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnchorView.swift; sourceTree = "<group>"; };
-		9D787D8B24C990D700EB22D2 /* TipViewTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipViewTransition.swift; sourceTree = "<group>"; };
 		9D87E70324C57C8100EF0870 /* SoundClassTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundClassTests.swift; sourceTree = "<group>"; };
 		9D948F2424D5713100AB41F0 /* VPMOTPTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VPMOTPTextField.swift; sourceTree = "<group>"; };
 		9D948F2624D5716600AB41F0 /* VPMOTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VPMOTPView.swift; sourceTree = "<group>"; };
@@ -219,10 +216,6 @@
 		9D948F2F24D5FB6000AB41F0 /* CategoryCollectionViewCellAndXib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCellAndXib.swift; sourceTree = "<group>"; };
 		9D948F3024D5FB6000AB41F0 /* CategoryCollectionViewCellAndXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCollectionViewCellAndXib.xib; sourceTree = "<group>"; };
 		9D948F3324D5FFF900AB41F0 /* HomeVC+CollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeVC+CollectionViewExtension.swift"; sourceTree = "<group>"; };
-		9D97428E24C34F6D00CF80BD /* Law.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Law.json; sourceTree = "<group>"; };
-		9D97429024C36AAB00CF80BD /* Judges_Gavel.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Judges_Gavel.mp3; sourceTree = "<group>"; };
-		9DB3E93A24D2A0CF0041508D /* LawyerNewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LawyerNewTableViewCell.swift; sourceTree = "<group>"; };
-		9DB3E93B24D2A0CF0041508D /* LawyerNewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LawyerNewTableViewCell.xib; sourceTree = "<group>"; };
 		9DC5455924C32EF9009AF27A /* TypewriterKeys.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TypewriterKeys.ttf; sourceTree = "<group>"; };
 		9DC5455B24C32F8C009AF27A /* AppFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFonts.swift; sourceTree = "<group>"; };
 		9DC5455D24C33170009AF27A /* CustomMethodProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMethodProtocol.swift; sourceTree = "<group>"; };
@@ -230,16 +223,25 @@
 		9DC5456224C33DAE009AF27A /* AppStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoryboard.swift; sourceTree = "<group>"; };
 		9DC5456424C33E9A009AF27A /* ConstantTexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantTexts.swift; sourceTree = "<group>"; };
 		9DC5456624C33F55009AF27A /* AppMacros.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMacros.swift; sourceTree = "<group>"; };
-		9DEB6EA224D966E200ED3FD6 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
-		9DEB6EA324D966E200ED3FD6 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
-		9DEB6EA424D966E200ED3FD6 /* OpenSans-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiboldItalic.ttf"; sourceTree = "<group>"; };
-		9DEB6EA524D966E200ED3FD6 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
-		9DEB6EA624D966E300ED3FD6 /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
-		9DEB6EA724D966E300ED3FD6 /* OpenSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
-		9DEB6EA824D966E300ED3FD6 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
-		9DEB6EA924D966E300ED3FD6 /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
-		9DEB6EAA24D966E300ED3FD6 /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
-		9DEB6EAB24D966E300ED3FD6 /* OpenSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-LightItalic.ttf"; sourceTree = "<group>"; };
+		9DDC562E24DB4485002DD47D /* OpenSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		9DDC562F24DB4485002DD47D /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		9DDC563024DB4485002DD47D /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
+		9DDC563124DB4485002DD47D /* OpenSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-LightItalic.ttf"; sourceTree = "<group>"; };
+		9DDC563224DB4486002DD47D /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
+		9DDC563324DB4486002DD47D /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
+		9DDC563424DB4486002DD47D /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		9DDC563524DB4486002DD47D /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		9DDC563624DB4486002DD47D /* Apache License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Apache License.txt"; sourceTree = "<group>"; };
+		9DDC563724DB4486002DD47D /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
+		9DDC563824DB4486002DD47D /* OpenSans-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiboldItalic.ttf"; sourceTree = "<group>"; };
+		9DDC564524DB44E2002DD47D /* Law.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Law.json; sourceTree = "<group>"; };
+		9DDC564824DB453A002DD47D /* TipViewTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipViewTransition.swift; sourceTree = "<group>"; };
+		9DDC564924DB453B002DD47D /* AnchorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnchorView.swift; sourceTree = "<group>"; };
+		9DDC564A24DB453B002DD47D /* TipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipView.swift; sourceTree = "<group>"; };
+		9DDC564B24DB453B002DD47D /* MessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
+		9DDC565024DB4601002DD47D /* Judges_Gavel.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Judges_Gavel.mp3; sourceTree = "<group>"; };
+		9DDC565224DB530D002DD47D /* LawyerNewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LawyerNewTableViewCell.swift; sourceTree = "<group>"; };
+		9DDC565324DB530D002DD47D /* LawyerNewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LawyerNewTableViewCell.xib; sourceTree = "<group>"; };
 		9DEB6EB624D9D09C00ED3FD6 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		9DEB6EB824D9DB5D00ED3FD6 /* FilterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionViewCell.swift; sourceTree = "<group>"; };
 		9DEB6EB924D9DB5D00ED3FD6 /* FilterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -374,10 +376,10 @@
 				9D25567424C1DCAA006563AC /* AppDelegate.swift */,
 				9D25567624C1DCAA006563AC /* SceneDelegate.swift */,
 				9D25567824C1DCAA006563AC /* ViewController.swift */,
-				9D97429024C36AAB00CF80BD /* Judges_Gavel.mp3 */,
 				9D25567A24C1DCAA006563AC /* Main.storyboard */,
 				9D25567D24C1DCAB006563AC /* Assets.xcassets */,
 				9D25567F24C1DCAB006563AC /* LaunchScreen.storyboard */,
+				9DDC565024DB4601002DD47D /* Judges_Gavel.mp3 */,
 			);
 			path = System_Files;
 			sourceTree = "<group>";
@@ -466,11 +468,11 @@
 		9D554C5924C2D04E00E2080D /* HelperClasses */ = {
 			isa = PBXGroup;
 			children = (
+				9DDC564724DB44ED002DD47D /* ToolTipHelper */,
+				9DDC564424DB44B9002DD47D /* AnimationFiles */,
 				9D948F2324D5711600AB41F0 /* OTP_HelperClasses */,
 				9DFFC28724C9CEFC00A50EA0 /* Enumrations */,
-				9D787D8724C990B600EB22D2 /* ToolTipHelper */,
 				9D5F2B4324C6D26100BA4015 /* Extensions */,
-				9D97428D24C34F3800CF80BD /* AnimationFiles */,
 				9DC5456124C33D8D009AF27A /* CustomStructs */,
 				9DC5455824C32EE7009AF27A /* CustomFontFiles */,
 				9D554C5D24C2D3EE00E2080D /* Helper_ClassesAndProtocols */,
@@ -508,10 +510,10 @@
 				9D5F2B3024C6AF1100BA4015 /* LawyerTableViewCell.xib */,
 				9D5F2B4824C6F81B00BA4015 /* LawyerShortDetailTableViewCell.swift */,
 				9D5F2B4924C6F81B00BA4015 /* LawyerShortDetailTableViewCell.xib */,
-				9DB3E93A24D2A0CF0041508D /* LawyerNewTableViewCell.swift */,
-				9DB3E93B24D2A0CF0041508D /* LawyerNewTableViewCell.xib */,
 				9DFED3D824D48C7F00851570 /* Auth_TextField_TableViewCell.swift */,
 				9DFED3D924D48C7F00851570 /* Auth_TextField_TableViewCell.xib */,
+				9DDC565224DB530D002DD47D /* LawyerNewTableViewCell.swift */,
+				9DDC565324DB530D002DD47D /* LawyerNewTableViewCell.xib */,
 			);
 			path = TableViewCellsAndXibs;
 			sourceTree = "<group>";
@@ -629,17 +631,6 @@
 			path = OTPScreen;
 			sourceTree = "<group>";
 		};
-		9D787D8724C990B600EB22D2 /* ToolTipHelper */ = {
-			isa = PBXGroup;
-			children = (
-				9D787D8A24C990D700EB22D2 /* AnchorView.swift */,
-				9D787D8924C990D700EB22D2 /* MessageView.swift */,
-				9D787D8824C990D700EB22D2 /* TipView.swift */,
-				9D787D8B24C990D700EB22D2 /* TipViewTransition.swift */,
-			);
-			path = ToolTipHelper;
-			sourceTree = "<group>";
-		};
 		9D948F2324D5711600AB41F0 /* OTP_HelperClasses */ = {
 			isa = PBXGroup;
 			children = (
@@ -660,27 +651,20 @@
 			path = CollectionViewCellsAnaXibs;
 			sourceTree = "<group>";
 		};
-		9D97428D24C34F3800CF80BD /* AnimationFiles */ = {
-			isa = PBXGroup;
-			children = (
-				9D97428E24C34F6D00CF80BD /* Law.json */,
-			);
-			path = AnimationFiles;
-			sourceTree = "<group>";
-		};
 		9DC5455824C32EE7009AF27A /* CustomFontFiles */ = {
 			isa = PBXGroup;
 			children = (
-				9DEB6EA524D966E200ED3FD6 /* OpenSans-Bold.ttf */,
-				9DEB6EAA24D966E300ED3FD6 /* OpenSans-BoldItalic.ttf */,
-				9DEB6EA624D966E300ED3FD6 /* OpenSans-ExtraBold.ttf */,
-				9DEB6EA724D966E300ED3FD6 /* OpenSans-ExtraBoldItalic.ttf */,
-				9DEB6EA924D966E300ED3FD6 /* OpenSans-Italic.ttf */,
-				9DEB6EA824D966E300ED3FD6 /* OpenSans-Light.ttf */,
-				9DEB6EAB24D966E300ED3FD6 /* OpenSans-LightItalic.ttf */,
-				9DEB6EA224D966E200ED3FD6 /* OpenSans-Regular.ttf */,
-				9DEB6EA324D966E200ED3FD6 /* OpenSans-Semibold.ttf */,
-				9DEB6EA424D966E200ED3FD6 /* OpenSans-SemiboldItalic.ttf */,
+				9DDC563624DB4486002DD47D /* Apache License.txt */,
+				9DDC563524DB4486002DD47D /* OpenSans-Bold.ttf */,
+				9DDC562F24DB4485002DD47D /* OpenSans-BoldItalic.ttf */,
+				9DDC563024DB4485002DD47D /* OpenSans-ExtraBold.ttf */,
+				9DDC562E24DB4485002DD47D /* OpenSans-ExtraBoldItalic.ttf */,
+				9DDC563724DB4486002DD47D /* OpenSans-Italic.ttf */,
+				9DDC563324DB4486002DD47D /* OpenSans-Light.ttf */,
+				9DDC563124DB4485002DD47D /* OpenSans-LightItalic.ttf */,
+				9DDC563424DB4486002DD47D /* OpenSans-Regular.ttf */,
+				9DDC563224DB4486002DD47D /* OpenSans-Semibold.ttf */,
+				9DDC563824DB4486002DD47D /* OpenSans-SemiboldItalic.ttf */,
 				9DC5455924C32EF9009AF27A /* TypewriterKeys.ttf */,
 				9DC5455B24C32F8C009AF27A /* AppFonts.swift */,
 			);
@@ -695,6 +679,25 @@
 				9D76C04524C8CC51002B400E /* AppColor.swift */,
 			);
 			path = CustomStructs;
+			sourceTree = "<group>";
+		};
+		9DDC564424DB44B9002DD47D /* AnimationFiles */ = {
+			isa = PBXGroup;
+			children = (
+				9DDC564524DB44E2002DD47D /* Law.json */,
+			);
+			path = AnimationFiles;
+			sourceTree = "<group>";
+		};
+		9DDC564724DB44ED002DD47D /* ToolTipHelper */ = {
+			isa = PBXGroup;
+			children = (
+				9DDC564924DB453B002DD47D /* AnchorView.swift */,
+				9DDC564B24DB453B002DD47D /* MessageView.swift */,
+				9DDC564A24DB453B002DD47D /* TipView.swift */,
+				9DDC564824DB453A002DD47D /* TipViewTransition.swift */,
+			);
+			path = ToolTipHelper;
 			sourceTree = "<group>";
 		};
 		9DFFC28724C9CEFC00A50EA0 /* Enumrations */ = {
@@ -829,31 +832,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D76C04824C8D8ED002B400E /* Auth.storyboard in Resources */,
-				9DEB6EB124D966E300ED3FD6 /* OpenSans-ExtraBoldItalic.ttf in Resources */,
+				9DDC563924DB4486002DD47D /* OpenSans-ExtraBoldItalic.ttf in Resources */,
+				9DDC564024DB4486002DD47D /* OpenSans-Bold.ttf in Resources */,
 				9D5F2B2A24C5FB3900BA4015 /* TabBar.storyboard in Resources */,
 				9DFED3DB24D48C7F00851570 /* Auth_TextField_TableViewCell.xib in Resources */,
 				9D25568124C1DCAB006563AC /* LaunchScreen.storyboard in Resources */,
 				9D25567E24C1DCAB006563AC /* Assets.xcassets in Resources */,
-				9DEB6EB424D966E300ED3FD6 /* OpenSans-BoldItalic.ttf in Resources */,
-				9DEB6EAF24D966E300ED3FD6 /* OpenSans-Bold.ttf in Resources */,
-				9DB3E93D24D2A0CF0041508D /* LawyerNewTableViewCell.xib in Resources */,
-				9DEB6EAC24D966E300ED3FD6 /* OpenSans-Regular.ttf in Resources */,
+				9DDC565124DB4601002DD47D /* Judges_Gavel.mp3 in Resources */,
+				9DDC563A24DB4486002DD47D /* OpenSans-BoldItalic.ttf in Resources */,
 				9D4C683024C598180064E935 /* Home.storyboard in Resources */,
 				9D948F3224D5FB6000AB41F0 /* CategoryCollectionViewCellAndXib.xib in Resources */,
-				9DEB6EB324D966E300ED3FD6 /* OpenSans-Italic.ttf in Resources */,
+				9DDC563B24DB4486002DD47D /* OpenSans-ExtraBold.ttf in Resources */,
+				9DDC564124DB4486002DD47D /* Apache License.txt in Resources */,
 				9D5F2B4B24C6F81C00BA4015 /* LawyerShortDetailTableViewCell.xib in Resources */,
-				9DEB6EAE24D966E300ED3FD6 /* OpenSans-SemiboldItalic.ttf in Resources */,
+				9DDC563D24DB4486002DD47D /* OpenSans-Semibold.ttf in Resources */,
 				9D25567C24C1DCAA006563AC /* Main.storyboard in Resources */,
 				9DEB6EBB24D9DB5D00ED3FD6 /* FilterCollectionViewCell.xib in Resources */,
-				9D97428F24C34F6D00CF80BD /* Law.json in Resources */,
+				9DDC564224DB4486002DD47D /* OpenSans-Italic.ttf in Resources */,
+				9DDC564624DB44E2002DD47D /* Law.json in Resources */,
+				9DDC563C24DB4486002DD47D /* OpenSans-LightItalic.ttf in Resources */,
+				9DDC564324DB4486002DD47D /* OpenSans-SemiboldItalic.ttf in Resources */,
 				9DC5455A24C32EF9009AF27A /* TypewriterKeys.ttf in Resources */,
-				9D97429124C36AAB00CF80BD /* Judges_Gavel.mp3 in Resources */,
-				9DEB6EB524D966E300ED3FD6 /* OpenSans-LightItalic.ttf in Resources */,
 				9D5F2B3224C6AF1100BA4015 /* LawyerTableViewCell.xib in Resources */,
+				9DDC565524DB530D002DD47D /* LawyerNewTableViewCell.xib in Resources */,
+				9DDC563E24DB4486002DD47D /* OpenSans-Light.ttf in Resources */,
 				9D554C4F24C2C26300E2080D /* Launch.storyboard in Resources */,
-				9DEB6EAD24D966E300ED3FD6 /* OpenSans-Semibold.ttf in Resources */,
-				9DEB6EB224D966E300ED3FD6 /* OpenSans-Light.ttf in Resources */,
-				9DEB6EB024D966E300ED3FD6 /* OpenSans-ExtraBold.ttf in Resources */,
+				9DDC563F24DB4486002DD47D /* OpenSans-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -989,14 +993,15 @@
 				9D00E1FF24C7E02900F6FC74 /* OnboardingView.swift in Sources */,
 				9DEB6EC524D9E42A00ED3FD6 /* FilterViewModel.swift in Sources */,
 				9D787D7E24C942FF00EB22D2 /* OTP_VC.swift in Sources */,
+				9DDC565424DB530D002DD47D /* LawyerNewTableViewCell.swift in Sources */,
 				9D948F2B24D5BED000AB41F0 /* UIImage+Extensions.swift in Sources */,
-				9D787D8F24C990D700EB22D2 /* TipViewTransition.swift in Sources */,
 				9D787D8224C9663300EB22D2 /* UITextField+Extension.swift in Sources */,
 				9D76C04C24C8DE46002B400E /* LoginVC.swift in Sources */,
 				9D5F2B4524C6D29B00BA4015 /* UITableView+AdditionsExtension.swift in Sources */,
 				9D787D8624C9848C00EB22D2 /* ValidationProtocol.swift in Sources */,
 				9D0B206724CA03180073C3C4 /* SBaseViewController+MethodExtension.swift in Sources */,
 				9DFFC28D24C9D36B00A50EA0 /* UIImageView+Extensions.swift in Sources */,
+				9DDC564E24DB453B002DD47D /* TipView.swift in Sources */,
 				9D00E20324C7E19800F6FC74 /* OnboardingVC+paper_onboardingExtension.swift in Sources */,
 				9DEB6ECD24D9FA8C00ED3FD6 /* LawyerListVC+CollectionViewExtensions.swift in Sources */,
 				9D787D8424C9834E00EB22D2 /* ValidationClass.swift in Sources */,
@@ -1005,7 +1010,6 @@
 				9D554C6124C2D4FB00E2080D /* SoundClass.swift in Sources */,
 				9DFED3E124D495AD00851570 /* DataStoreStruct_ViewModel.swift in Sources */,
 				9D5FE2AE24D4AA60002A94F1 /* LoginVM.swift in Sources */,
-				9DB3E93C24D2A0CF0041508D /* LawyerNewTableViewCell.swift in Sources */,
 				9D5F2B3724C6B15000BA4015 /* HomeVC.swift in Sources */,
 				9DEB6EC124D9E13300ED3FD6 /* FilterCategoryViewModel.swift in Sources */,
 				9D25567924C1DCAA006563AC /* ViewController.swift in Sources */,
@@ -1017,7 +1021,6 @@
 				9D0B58FF24D5390000AACE59 /* SignUpVC+UITextFieldDelegate.swift in Sources */,
 				9DC5456024C331A5009AF27A /* CustomMethodClass.swift in Sources */,
 				9DEB6EB724D9D09D00ED3FD6 /* UIView+Extensions.swift in Sources */,
-				9D787D8C24C990D700EB22D2 /* TipView.swift in Sources */,
 				9DC5455C24C32F8C009AF27A /* AppFonts.swift in Sources */,
 				9D948F2524D5713100AB41F0 /* VPMOTPTextField.swift in Sources */,
 				9DC5456724C33F55009AF27A /* AppMacros.swift in Sources */,
@@ -1026,12 +1029,12 @@
 				9DFFC28624C9CD8300A50EA0 /* SBaseViewController.swift in Sources */,
 				9DFFC28924C9CF2C00A50EA0 /* UINavigationBarButtonType.swift in Sources */,
 				9D5F2B4724C6D4B900BA4015 /* HomeVC+TableViewExtension.swift in Sources */,
+				9DDC564F24DB453B002DD47D /* MessageView.swift in Sources */,
 				9D0B590124D5396400AACE59 /* SignUpVC+TableViewExtension.swift in Sources */,
 				9D5F2B3D24C6C3A500BA4015 /* CategoryViewModel.swift in Sources */,
 				9D76C04624C8CC51002B400E /* AppColor.swift in Sources */,
 				9D948F2924D572F200AB41F0 /* OTP_VC+ VPMOTPViewDelegate.swift in Sources */,
 				9DEB6EBA24D9DB5D00ED3FD6 /* FilterCollectionViewCell.swift in Sources */,
-				9D787D8D24C990D700EB22D2 /* MessageView.swift in Sources */,
 				9D948F3424D5FFF900AB41F0 /* HomeVC+CollectionViewExtension.swift in Sources */,
 				9D25567724C1DCAA006563AC /* SceneDelegate.swift in Sources */,
 				9D787D8024C9437200EB22D2 /* OTP_VC+MethodExtension.swift in Sources */,
@@ -1045,7 +1048,6 @@
 				9DFED3DD24D48F7800851570 /* DataStoreStruct_Model.swift in Sources */,
 				9DEB6EC724D9E73200ED3FD6 /* FilterListModeling.swift in Sources */,
 				9DC5455E24C33170009AF27A /* CustomMethodProtocol.swift in Sources */,
-				9D787D8E24C990D700EB22D2 /* AnchorView.swift in Sources */,
 				9D5F2B3524C6AF9700BA4015 /* SBaseTableViewCell.swift in Sources */,
 				9D0B58FB24D4CCC600AACE59 /* LoginVC+UITextFieldDelegate.swift in Sources */,
 				9D76C05124C8EB4C002B400E /* SignUpVC.swift in Sources */,
@@ -1053,8 +1055,10 @@
 				9DEB6ECB24D9E87300ED3FD6 /* LawyerListCategoryList_VM.swift in Sources */,
 				9D554C5F24C2D41600E2080D /* SoundProtocol.swift in Sources */,
 				9D5F2B5024C7100300BA4015 /* LawyerListVC+MethodExtension.swift in Sources */,
+				9DDC564C24DB453B002DD47D /* TipViewTransition.swift in Sources */,
 				9DEB6EC924D9E7A200ED3FD6 /* FilterCategoryListModeling.swift in Sources */,
 				9DEB6EBD24D9DF8500ED3FD6 /* Filter.swift in Sources */,
+				9DDC564D24DB453B002DD47D /* AnchorView.swift in Sources */,
 				9D5F2B2D24C612BB00BA4015 /* TabBarVC.swift in Sources */,
 				9DC5456324C33DAE009AF27A /* AppStoryboard.swift in Sources */,
 				9D5F2B5424C75DB700BA4015 /* Category.swift in Sources */,
