@@ -40,12 +40,12 @@ extension LoginVC{
         view.addGestureRecognizer(tap)
         
         self.btnLawyerRef.setTitle(ConstantTexts.LawyerBT, for: .normal)
-        self.btnLawyerRef.titleLabel?.font = AppFont.Bold.size(AppFontName.OpenSans, size: 12)
+        self.btnLawyerRef.titleLabel?.font = AppFont.Bold.size(AppFontName.OpenSans, size: 14)
         self.customMethodManager?.provideCornerRadiusTo(self.btnLawyerRef, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
        
         
         self.btnCustomerRef.setTitle(ConstantTexts.CustomerBT, for: .normal)
-        self.btnCustomerRef.titleLabel?.font = AppFont.Bold.size(AppFontName.OpenSans, size: 12)
+        self.btnCustomerRef.titleLabel?.font = AppFont.Bold.size(AppFontName.OpenSans, size: 14)
         self.customMethodManager?.provideCornerRadiusTo(self.btnCustomerRef, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
         
        
@@ -57,7 +57,7 @@ extension LoginVC{
         self.lblInstruction.textAlignment = .center
         
         
-        customMethodManager?.provideShadowAndCornerRadius(self.viewBG, 3, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.placeholderColor, -1, 1, 1, 3, 0, AppColor.clearColor)
+        customMethodManager?.provideShadowAndCornerRadius(self.viewBG, 5, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.placeholderColor, -1, 1, 1, 3, 0, AppColor.clearColor)
         
         self.logInTable.separatorStyle = .none
         self.logInTable.backgroundColor = AppColor.whiteColor
@@ -73,7 +73,7 @@ extension LoginVC{
         
         
         self.btnSendOTPRef.setTitle(ConstantTexts.SendOTP_BT, for: .normal)
-        self.btnSendOTPRef.titleLabel?.font = AppFont.Bold.size(AppFontName.OpenSans, size: 12)
+        self.btnSendOTPRef.titleLabel?.font = AppFont.Bold.size(AppFontName.OpenSans, size: 14)
         
         self.btnSendOTPRef.setTitleColor(AppColor.whiteColor, for: .normal)
         self.btnSendOTPRef.backgroundColor = AppColor.themeColor

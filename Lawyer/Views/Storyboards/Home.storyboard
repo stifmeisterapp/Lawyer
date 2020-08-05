@@ -112,7 +112,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LoQ-ne-3p0">
-                                <rect key="frame" x="0.0" y="214" width="414" height="648"/>
+                                <rect key="frame" x="0.0" y="189" width="414" height="673"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Mmp-vs-fX4" id="uOa-ez-Kcb"/>
@@ -120,10 +120,10 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5fc-z6-eS1">
-                                <rect key="frame" x="20" y="64" width="374" height="140"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="140"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jpC-Wv-73g">
-                                        <rect key="frame" x="10" y="10" width="354" height="40"/>
+                                        <rect key="frame" x="10" y="10" width="394" height="40"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="rvP-zM-Nso"/>
@@ -141,19 +141,19 @@
                                         </connections>
                                     </collectionView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JZ5-Aq-oA8">
-                                        <rect key="frame" x="10" y="60" width="202" height="40"/>
+                                        <rect key="frame" x="10" y="60" width="242" height="40"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fbz-GG-hbD">
-                                        <rect key="frame" x="212" y="60" width="40" height="40"/>
+                                        <rect key="frame" x="252" y="60" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Fbz-GG-hbD" secondAttribute="height" id="zq5-sx-R8b"/>
                                         </constraints>
                                         <state key="normal" image="magnifyingglass" catalog="system"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z3r-3W-SQR">
-                                        <rect key="frame" x="262" y="60" width="102" height="40"/>
+                                        <rect key="frame" x="302" y="60" width="102" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="102" id="LkI-NV-JHn"/>
                                         </constraints>
@@ -183,11 +183,11 @@
                         <constraints>
                             <constraint firstItem="LoQ-ne-3p0" firstAttribute="leading" secondItem="Tif-2p-121" secondAttribute="leading" id="2dr-g0-kag"/>
                             <constraint firstItem="6cl-Xh-lMe" firstAttribute="bottom" secondItem="LoQ-ne-3p0" secondAttribute="bottom" id="2f0-n9-sxp"/>
-                            <constraint firstItem="5fc-z6-eS1" firstAttribute="leading" secondItem="Tif-2p-121" secondAttribute="leading" constant="20" id="Ayu-t1-xnS"/>
+                            <constraint firstItem="5fc-z6-eS1" firstAttribute="leading" secondItem="Tif-2p-121" secondAttribute="leading" id="Ayu-t1-xnS"/>
                             <constraint firstAttribute="trailing" secondItem="LoQ-ne-3p0" secondAttribute="trailing" id="HY2-Mn-jZN"/>
-                            <constraint firstItem="5fc-z6-eS1" firstAttribute="top" secondItem="6cl-Xh-lMe" secondAttribute="top" constant="20" id="cAA-Bk-9pO"/>
-                            <constraint firstAttribute="trailing" secondItem="5fc-z6-eS1" secondAttribute="trailing" constant="20" id="jY3-tV-F8o"/>
-                            <constraint firstItem="LoQ-ne-3p0" firstAttribute="top" secondItem="5fc-z6-eS1" secondAttribute="bottom" constant="10" id="lIq-iT-Ttc"/>
+                            <constraint firstItem="5fc-z6-eS1" firstAttribute="top" secondItem="6cl-Xh-lMe" secondAttribute="top" id="cAA-Bk-9pO"/>
+                            <constraint firstAttribute="trailing" secondItem="5fc-z6-eS1" secondAttribute="trailing" id="jY3-tV-F8o"/>
+                            <constraint firstItem="LoQ-ne-3p0" firstAttribute="top" secondItem="5fc-z6-eS1" secondAttribute="bottom" constant="5" id="lIq-iT-Ttc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6cl-Xh-lMe"/>
                     </view>

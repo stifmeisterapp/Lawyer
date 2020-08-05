@@ -43,6 +43,7 @@ class Auth_TextField_TableViewCell: SBaseTableViewCell {
             textFieldFloating.maxLength = 10
             textFieldFloating.keyboardType = .numberPad
             textFieldFloating.isSecureTextEntry = false
+            textFieldFloating.autocapitalizationType = .none
             
             
         case .FullName:
@@ -50,18 +51,21 @@ class Auth_TextField_TableViewCell: SBaseTableViewCell {
             textFieldFloating.keyboardType = .namePhonePad
             textFieldFloating.isSecureTextEntry = false
             textFieldFloating.iconImage = info.image
+            textFieldFloating.autocapitalizationType = .words
             
             
         case .Email:
             textFieldFloating.maxLength = 30
             textFieldFloating.keyboardType = .emailAddress
             textFieldFloating.isSecureTextEntry = false
+            textFieldFloating.autocapitalizationType = .none
             
             
         case .OTP:
             textFieldFloating.maxLength = 4
             textFieldFloating.keyboardType = .namePhonePad
             textFieldFloating.isSecureTextEntry = false
+            textFieldFloating.autocapitalizationType = .none
         }
         
     }
@@ -69,6 +73,7 @@ class Auth_TextField_TableViewCell: SBaseTableViewCell {
     //TODO: - Setup textFieldFloating
     private func setUpTextField(){
         
+        textFieldFloating.titleFormatter = { $0 }
         textFieldFloating.font = AppFont.Regular.size(AppFontName.OpenSans, size: 12)
         textFieldFloating.tintColor = AppColor.themeColor // the color of the blinking cursor
         textFieldFloating.textColor = AppColor.darkGrayColor

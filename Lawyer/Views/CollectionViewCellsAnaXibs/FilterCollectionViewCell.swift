@@ -32,12 +32,14 @@ class FilterCollectionViewCell: UICollectionViewCell {
         }
         
         
-        self.customMethodManager?.provideShadowAndCornerRadius(self, self.viewBG.frame.height/2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.placeholderColor, 2, 2, 2, 2, 0, AppColor.clearColor)
+        self.customMethodManager?.provideShadowAndCornerRadius(self, (self.viewBG.frame.height/2) - 4, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.placeholderColor, 2, 2, 2, 2, 0, AppColor.clearColor)
+        
+        self.customMethodManager?.provideCornerBorderTo(self, 1, AppColor.textColor)
         
         self.viewBG.backgroundColor = AppColor.themeColor
         
         self.backgroundColor = AppColor.themeColor
-        self.titleFilter.font = AppFont.Regular.size(AppFontName.OpenSans, size: 12)
+        self.titleFilter.font = AppFont.Semibold.size(AppFontName.OpenSans, size: 14)
         self.titleFilter.textColor = AppColor.whiteColor
         self.titleFilter.textAlignment = .center
         self.titleFilter.numberOfLines = 0

@@ -27,7 +27,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HXP-tF-Ghg">
-                                <rect key="frame" x="88.5" y="110.5" width="42" height="20.5"/>
+                                <rect key="frame" x="88.5" y="107.5" width="42" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -38,7 +38,7 @@
                             <constraint firstItem="GpG-LN-KHc" firstAttribute="centerX" secondItem="3RJ-iO-QS2" secondAttribute="centerX" id="ZLj-Cu-5Io"/>
                             <constraint firstItem="GpG-LN-KHc" firstAttribute="centerY" secondItem="3RJ-iO-QS2" secondAttribute="centerY" constant="-15" id="dcX-ps-kAR"/>
                             <constraint firstItem="HXP-tF-Ghg" firstAttribute="centerX" secondItem="GpG-LN-KHc" secondAttribute="centerX" id="eEK-rN-8D3"/>
-                            <constraint firstItem="HXP-tF-Ghg" firstAttribute="top" secondItem="GpG-LN-KHc" secondAttribute="bottom" constant="5" id="tnj-tc-lhK"/>
+                            <constraint firstItem="HXP-tF-Ghg" firstAttribute="top" secondItem="GpG-LN-KHc" secondAttribute="bottom" constant="2" id="tnj-tc-lhK"/>
                         </constraints>
                     </view>
                 </subviews>

@@ -18,7 +18,6 @@ class HomeVC: SBaseViewController {
     @IBOutlet weak var imageViewLoction: UIImageView!
     @IBOutlet weak var labelLoationTitle: UILabel!
     @IBOutlet weak var imageViewDropDown: UIImageView!
-    
     @IBOutlet weak var categoryCollectionView: UICollectionView!
     
    /* For Tableview

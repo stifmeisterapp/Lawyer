@@ -38,7 +38,7 @@ extension SignUpVC{
         //tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
         
-        customMethodManager?.provideShadowAndCornerRadius(self.viewBG, 3, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.placeholderColor, -1, 1, 1, 3, 0, AppColor.clearColor)
+        customMethodManager?.provideShadowAndCornerRadius(self.viewBG, 5, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.placeholderColor, -1, 1, 1, 3, 0, AppColor.clearColor)
         
         self.registerTable.separatorStyle = .none
         self.registerTable.backgroundColor = AppColor.whiteColor
@@ -49,7 +49,7 @@ extension SignUpVC{
         
         
         self.btnRegisterRef.setTitle(ConstantTexts.SendOTP_BT, for: .normal)
-        self.btnRegisterRef.titleLabel?.font = AppFont.Bold.size(AppFontName.OpenSans, size: 12)
+        self.btnRegisterRef.titleLabel?.font = AppFont.Bold.size(AppFontName.OpenSans, size: 14)
         
         self.btnRegisterRef.setTitleColor(AppColor.whiteColor, for: .normal)
         self.btnRegisterRef.backgroundColor = AppColor.themeColor

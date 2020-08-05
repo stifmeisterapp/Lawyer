@@ -58,7 +58,7 @@ extension OTP_VC{
         
         
         self.btnDoneOTPRef.setTitle(ConstantTexts.Varify_BT, for: .normal)
-        self.btnDoneOTPRef.titleLabel?.font = AppFont.Bold.size(AppFontName.OpenSans, size: 12)
+        self.btnDoneOTPRef.titleLabel?.font = AppFont.Bold.size(AppFontName.OpenSans, size: 14)
         
         self.btnDoneOTPRef.setTitleColor(AppColor.whiteColor, for: .normal)
         self.btnDoneOTPRef.backgroundColor = AppColor.themeColor
@@ -91,10 +91,10 @@ extension OTP_VC{
         myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\n\n\(ConstantTexts.EnterOTP2_LT)\n", font: AppFont.Regular.size(AppFontName.OpenSans, size: 12), color: AppColor.textColor) ?? NSMutableAttributedString())
         
         
-        myMutableString.append(customMethodManager?.provideUnderlineAttributedText(text: "\(ConstantTexts.CountryCodeLT) \(phoneNumber)", font: AppFont.Bold.size(AppFontName.OpenSans, size: 12), AppColor.themeColor) ?? NSMutableAttributedString())
+     //   myMutableString.append(customMethodManager?.provideUnderlineAttributedText(text: "\(ConstantTexts.CountryCodeLT) \(phoneNumber)", font: AppFont.Bold.size(AppFontName.OpenSans, size: 12), AppColor.themeColor) ?? NSMutableAttributedString())
         
         
-        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\n\(ConstantTexts.PleaseVarify_LT)", font: AppFont.Regular.size(AppFontName.OpenSans, size: 12), color: AppColor.textColor) ?? NSMutableAttributedString())
+     //   myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\n\(ConstantTexts.PleaseVarify_LT)", font: AppFont.Regular.size(AppFontName.OpenSans, size: 12), color: AppColor.textColor) ?? NSMutableAttributedString())
         
         
         // *** Apply attribute to string ***
@@ -106,9 +106,9 @@ extension OTP_VC{
         
         
         myMutableString = NSMutableAttributedString()
-        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\(ConstantTexts.DidntRecieve_BT) ", font: AppFont.Regular.size(AppFontName.OpenSans, size: 11), color: AppColor.textColor) ?? NSMutableAttributedString())
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\(ConstantTexts.DidntRecieve_BT) ", font: AppFont.Regular.size(AppFontName.OpenSans, size: 12), color: AppColor.textColor) ?? NSMutableAttributedString())
         
-        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\(ConstantTexts.ResendAgain_BT)", font: AppFont.Bold.size(AppFontName.OpenSans, size: 11), color: AppColor.themeColor) ?? NSMutableAttributedString())
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\(ConstantTexts.ResendAgain_BT)", font: AppFont.Bold.size(AppFontName.OpenSans, size: 14), color: AppColor.themeColor) ?? NSMutableAttributedString())
         self.btnResendOTPRef.setAttributedTitle(myMutableString, for: .normal)
         self.btnResendOTPRef.backgroundColor = AppColor.whiteColor
         

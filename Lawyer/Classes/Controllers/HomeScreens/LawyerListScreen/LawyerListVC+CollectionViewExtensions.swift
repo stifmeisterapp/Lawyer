@@ -56,7 +56,7 @@ extension LawyerListVC:UICollectionViewDelegateFlowLayout{
         let text = item.title
         cell.titleFilter.text = text
         
-        return CGSize(width: (cell.titleFilter.intrinsicContentSize.width + 55), height: collectionView.frame.size.height)
+        return CGSize(width: (cell.titleFilter.intrinsicContentSize.width + 65), height: collectionView.frame.size.height)
     }
 }
 

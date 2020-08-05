@@ -8,6 +8,7 @@
 
 import UIKit
 import Foundation
+import ViewAnimator
 
 extension LawyerListVC{
     
@@ -33,6 +34,14 @@ extension LawyerListVC{
     //TODO: Intial setup implementation
     private func initialSetup(){
 
+        
+        //Looks for single or multiple taps.
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        
+        //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
+        //tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+        
         self.view.backgroundColor = AppColor.tableBGColor
         
         self.viewFilterBG.backgroundColor = AppColor.whiteColor
@@ -42,15 +51,23 @@ extension LawyerListVC{
         self.txtSearch.addBorders(edges: [.top,.bottom,.left], color: AppColor.placeholderColor, inset: 0.0, thickness: 1.0)
         self.txtSearch.font = AppFont.Regular.size(AppFontName.OpenSans, size: 12)
         self.txtSearch.placeholder = ConstantTexts.KeywordsPH
-        self.txtSearch.textColor = AppColor.darkGrayColor
+        self.txtSearch.textColor = AppColor.textColor
         self.txtSearch.addPadding(.both(10.0))
+        
+        self.txtSearch.maxLength = 50
+        self.txtSearch.keyboardType = .default
+        self.txtSearch.isSecureTextEntry = false
+        self.txtSearch.autocapitalizationType = .none
+        
+        
+        
         
         self.btnSearchRef.addBorders(edges: [.top,.bottom,.left,.right], color: AppColor.placeholderColor, inset: 0.0, thickness: 1.0)
         self.btnSearchRef.tintColor = AppColor.whiteColor
         self.btnSearchRef.backgroundColor = AppColor.themeColor
         
         self.btnFilterRef.backgroundColor = AppColor.tableBGColor
-        self.btnFilterRef.titleLabel?.font = AppFont.Semibold.size(AppFontName.OpenSans, size: 12)
+        self.btnFilterRef.titleLabel?.font = AppFont.Bold.size(AppFontName.OpenSans, size: 12)
         self.btnFilterRef.setTitle(ConstantTexts.ClearFiltersBT, for: .normal)
         self.btnFilterRef.setTitleColor(AppColor.darkGrayColor, for: .normal)
         
@@ -62,7 +79,12 @@ extension LawyerListVC{
         self.lawyerTableView.addSubview(self.refreshControl)
         
         self.filterCollectionView.showsHorizontalScrollIndicator = false
-        
+        self.filterCollectionView.isHidden = true
+        self.lawyerTableView.isHidden = true
+        self.txtSearch.isHidden = true
+        self.btnFilterRef.isHidden = true
+        self.btnFilterRef.isHidden = true
+        self.viewFilterBG.isHidden = true
         recheckDataModels()
         
     }
@@ -109,6 +131,26 @@ extension LawyerListVC{
         
         self.filterCollectionView.register(nib: FilterCollectionViewCell.className)
         self.lawyerTableView.register(nib: LawyerNewTableViewCell.className)
+        
+    }
+    
+    //TODO: Animate rotate collection view
+    internal func animateView(){
+        self.viewFilterBG.isHidden = false
+        self.txtSearch.isHidden = false
+        self.btnFilterRef.isHidden = false
+        self.btnFilterRef.isHidden = false
+        self.filterCollectionView.isHidden = false
+        self.lawyerTableView.isHidden = false
+        UIView.animate(views: filterCollectionView.visibleCells,
+        animations: [zoomAnimation, rotateAnimation],
+        duration: 0.5)
+        
+        UIView.animate(views: [self.txtSearch,self.btnSearchRef,btnFilterRef], animations: [zoomAnimation, rotateAnimation],
+        duration: 0.5)
+        
+        UIView.animate(views: lawyerTableView.visibleCells,
+        animations: [fromAnimation], delay: 0.5)
         
     }
     

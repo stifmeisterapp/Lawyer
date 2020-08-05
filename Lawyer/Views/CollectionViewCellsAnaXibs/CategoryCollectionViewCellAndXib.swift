@@ -34,11 +34,11 @@ class CategoryCollectionViewCellAndXib: UICollectionViewCell {
         
         
        /* self.customMethodManager?.provideShadowAndCornerRadius(self.viewBG, 0, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.placeholderColor, 2, 2, 2, 2, 0, AppColor.tableBGColor) */
-        self.customMethodManager?.provideCornerBorderTo(self, 1, AppColor.placeholderColor)
+        self.customMethodManager?.provideCornerBorderTo(self, 0.5, AppColor.placeholderColor)
         self.viewBG.backgroundColor = AppColor.whiteColor
         
         self.backgroundColor = AppColor.tableBGColor
-        self.titlelLabelCategory.font = AppFont.Semibold.size(AppFontName.OpenSans, size: 12)
+        self.titlelLabelCategory.font = AppFont.Semibold.size(AppFontName.OpenSans, size: 11)
         self.titlelLabelCategory.textColor = AppColor.darkGrayColor
         self.titlelLabelCategory.textAlignment = .center
         self.titlelLabelCategory.numberOfLines = 0

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ViewAnimator
 
 class LawyerListVC: SBaseViewController {
     
@@ -34,6 +35,12 @@ class LawyerListVC: SBaseViewController {
         
         return refreshControl
     }()
+    
+    //MARK: - Variables for animation
+    // Combined animations example
+    internal let fromAnimation = AnimationType.from(direction: .right, offset: 30.0)
+    internal let zoomAnimation = AnimationType.zoom(scale: 0.2)
+    internal let rotateAnimation = AnimationType.rotate(angle: CGFloat.pi/6)
     
     
     /*  //MARK: - variables for the animate tableview
@@ -66,6 +73,20 @@ class LawyerListVC: SBaseViewController {
         navSetup()
     }
     
+    //TODO: Implementation viewDidAppear
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        animateView()
+        //runRotateAnimation()
+    }
+    
+    
+    //TODO: Implementation viewWillDisappear
+       override func viewWillDisappear(_ animated: Bool) {
+           super.viewWillDisappear(animated)
+           dismissKeyboard()
+       }
+    
    
     
     /*
@@ -85,8 +106,15 @@ class LawyerListVC: SBaseViewController {
     
     //TODO: Selectors
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
-     
+        self.txtSearch.text = ConstantTexts.empty
+        dismissKeyboard()
         refreshControl.endRefreshing()
+    }
+    
+    //Calls this function when the tap is recognized.
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
     
     
