@@ -52,7 +52,7 @@ extension HomeVC:UICollectionViewDelegate{
           }
       },
       completion: { _ in
-          UIView.animate(withDuration: 0.1) {
+          UIView.animate(withDuration: 0.05) {
              if let cell = collectionView.cellForItem(at: indexPath) as? CategoryCollectionViewCellAndXib {
                   cell.viewBG.transform = .identity
                   cell.contentView.backgroundColor = .clear

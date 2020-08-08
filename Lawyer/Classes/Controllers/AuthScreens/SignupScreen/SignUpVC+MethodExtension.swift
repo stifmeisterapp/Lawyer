@@ -49,7 +49,7 @@ extension SignUpVC{
         
         
         self.btnRegisterRef.setTitle(ConstantTexts.SendOTP_BT, for: .normal)
-        self.btnRegisterRef.titleLabel?.font = AppFont.Bold.size(AppFontName.OpenSans, size: 14)
+        self.btnRegisterRef.titleLabel?.font = ConstantFonts.mainBottomButtonFont
         
         self.btnRegisterRef.setTitleColor(AppColor.whiteColor, for: .normal)
         self.btnRegisterRef.backgroundColor = AppColor.themeColor
@@ -97,7 +97,7 @@ extension SignUpVC{
   
         if tag == 0{
            
-            myMutableString_For_Instruction.append(customMethodManager?.provideSimpleAttributedText(text: "\(ConstantTexts.SignUpAsC_New_BT)\n", font:  AppFont.Bold.size(AppFontName.OpenSans, size: 18), color: AppColor.themeColor) ?? NSMutableAttributedString())
+            myMutableString_For_Instruction.append(customMethodManager?.provideSimpleAttributedText(text: "\(ConstantTexts.SignUpAsC_New_BT)\n\n", font:  AppFont.Bold.size(AppFontName.OpenSans, size: 18), color: AppColor.themeColor) ?? NSMutableAttributedString())
             
             myMutableString_For_Instruction.append(customMethodManager?.provideSimpleAttributedText(text: ConstantTexts.CustomerIns_LT, font:  AppFont.Regular.size(AppFontName.OpenSans, size: 11), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
             
@@ -112,7 +112,7 @@ extension SignUpVC{
             
         }else{
            
-            myMutableString_For_Instruction.append(customMethodManager?.provideSimpleAttributedText(text: "\(ConstantTexts.SignUpAsL_New_BT)\n", font:  AppFont.Bold.size(AppFontName.OpenSans, size: 18), color: AppColor.themeColor) ?? NSMutableAttributedString())
+            myMutableString_For_Instruction.append(customMethodManager?.provideSimpleAttributedText(text: "\(ConstantTexts.SignUpAsL_New_BT)\n\n", font:  AppFont.Bold.size(AppFontName.OpenSans, size: 18), color: AppColor.themeColor) ?? NSMutableAttributedString())
             
             myMutableString_For_Instruction.append(customMethodManager?.provideSimpleAttributedText(text: ConstantTexts.LawyerIns_LT, font:  AppFont.Regular.size(AppFontName.OpenSans, size: 11), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
             

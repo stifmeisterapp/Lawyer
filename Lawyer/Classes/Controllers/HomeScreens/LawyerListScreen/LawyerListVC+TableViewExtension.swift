@@ -24,6 +24,9 @@ extension LawyerListVC:UITableViewDataSource{
             fatalError(ConstantTexts.unexpectedIndexPath)
         }
         
+        cell.buttonMeetRef.tag = indexPath.row
+        cell.buttonMeetRef.addTarget(self, action: #selector(self.btnMeetTapped(_:)), for: .touchUpInside)
+        
         return cell
     }
 }
@@ -41,6 +44,8 @@ extension LawyerListVC:UITableViewDelegate{
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
+    
+    
     
    /* func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         // fetch the animation from the TableAnimation enum and initialze the TableViewAnimator class

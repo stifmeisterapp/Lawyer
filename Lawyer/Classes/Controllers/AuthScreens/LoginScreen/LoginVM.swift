@@ -28,7 +28,7 @@ class LoginVM: DataStoreStructListModeling {
     //TODO: Prepare data source implementation
     func prepareDataSource() -> DataStoreStruct_List_ViewModel{
         
-        let dataStores = [DataStoreStruct(title: ConstantTexts.MobileNumberPH, placeholder: ConstantTexts.MobileNumberPH, value: ConstantTexts.empty, type: SignUpType.MobileNumber, image: UIImage(systemName: "phone.fill") ?? UIImage())]
+        let dataStores = [DataStoreStruct(title: ConstantTexts.MobileNumberPH, placeholder: ConstantTexts.MobileNumberPH, value: ConstantTexts.empty, type: SignUpType.MobileNumber, image: UIImage(systemName: "phone") ?? UIImage())]
         
         return DataStoreStruct_List_ViewModel(dataStoreStructs: dataStores)
     }

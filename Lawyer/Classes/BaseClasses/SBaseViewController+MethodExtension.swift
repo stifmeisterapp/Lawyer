@@ -14,7 +14,6 @@ extension SBaseViewController{
     
     //TODO: Main method for setup UIBarButtonItems and title
     internal func setupNavigationBarTitle(_ barColor:UIColor, _ title: String, leftBarButtonsType: [UINavigationBarButtonType], rightBarButtonsType: [UINavigationBarButtonType]) {
-        
         self.navigationItem.title = title
         self.navigationController?.navigationBar.prefersLargeTitles = false
         self.navigationController?.navigationBar.isTranslucent = false

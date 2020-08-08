@@ -67,7 +67,7 @@ extension LoginVC{
         self.customMethodManager?.provideShadowAndCornerRadius(self.btnSendOTPRef, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.darkGrayColor, -1, 1, 1, 3, 0, AppColor.clearColor)
         
         self.btnSendOTPRef.setTitle(ConstantTexts.SendOTP_BT, for: .normal)
-        self.btnSendOTPRef.titleLabel?.font = AppFont.Bold.size(AppFontName.OpenSans, size: 14)
+        self.btnSendOTPRef.titleLabel?.font = ConstantFonts.mainBottomButtonFont
         
         self.btnSendOTPRef.setTitleColor(AppColor.whiteColor, for: .normal)
         self.btnSendOTPRef.backgroundColor = AppColor.themeColor

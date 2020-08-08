@@ -64,34 +64,32 @@ class LawyerNewTableViewCell: SBaseTableViewCell {
         
         
         
-        self.imageLawyer.setImageTintColor(AppColor.darkGrayColor)
-        self.customMethodManager?.provideCornerRadiusTo(self.imageLawyer, 5, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
-        self.customMethodManager?.provideCornerBorderTo(self.imageLawyer, 1, AppColor.darkGrayColor)
+        self.customMethodManager?.provideCornerRadiusTo(self.imageLawyer, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
+        self.customMethodManager?.provideCornerBorderTo(self.imageLawyer, 1, AppColor.tableBGColor)
         
        
         self.viewSeprator1.backgroundColor = AppColor.tableBGColor
         self.viewSeprator1.isHidden = false
         
-        self.customMethodManager?.provideCornerRadiusTo(self.buttonMeetRef, 5, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
-        self.customMethodManager?.provideCornerBorderTo(self.buttonMeetRef, 1, AppColor.themeColor)
-        
-        self.buttonMeetRef.setTitleColor(AppColor.themeColor, for: .normal)
-        self.buttonMeetRef.backgroundColor = AppColor.whiteColor
-        self.buttonMeetRef.setTitle(ConstantTexts.CallLT, for: .normal)
-        self.buttonMeetRef.titleLabel?.font = AppFont.Bold.size(AppFontName.OpenSans, size: 14)
+        self.buttonMeetRef.setTitleColor(AppColor.whiteColor, for: .normal)
+        self.buttonMeetRef.backgroundColor = AppColor.themeColor
+        self.buttonMeetRef.setTitle(ConstantTexts.MeetBT, for: .normal)
+        self.buttonMeetRef.titleLabel?.font = AppFont.Bold.size(AppFontName.OpenSans, size: 12)
+        self.customMethodManager?.provideCornerRadiusTo(self.buttonMeetRef, 3, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
         
         
-        self.customMethodManager?.provideCornerRadiusTo(self.buttonCallRef, 5, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
+        self.buttonCallRef.setTitleColor(AppColor.darkGrayColor, for: .normal)
+        self.buttonCallRef.backgroundColor = AppColor.whiteColor
+        self.buttonCallRef.setTitle(ConstantTexts.CallBT, for: .normal)
+        self.buttonCallRef.titleLabel?.font = AppFont.Bold.size(AppFontName.OpenSans, size: 12)
+        self.customMethodManager?.provideCornerRadiusTo(self.buttonCallRef, 3, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
+        self.customMethodManager?.provideCornerBorderTo(self.buttonCallRef, 1, AppColor.placeholderColor)
         
-        self.buttonCallRef.setTitleColor(AppColor.whiteColor, for: .normal)
-        self.buttonCallRef.backgroundColor = AppColor.themeColor
-        self.buttonCallRef.setTitle(ConstantTexts.MeetBT, for: .normal)
-        self.buttonCallRef.titleLabel?.font = AppFont.Bold.size(AppFontName.OpenSans, size: 14)
         
         //TODO: Values
         
         
-        self.labelNameLayer.font = AppFont.Semibold.size(AppFontName.OpenSans, size: 16)
+        self.labelNameLayer.font = AppFont.Semibold.size(AppFontName.OpenSans, size: 14)
         self.labelNameLayer.textColor = AppColor.themeColor
         self.labelNameLayer.numberOfLines = 0
         
@@ -116,8 +114,8 @@ class LawyerNewTableViewCell: SBaseTableViewCell {
         
         
         var myMutableString = NSMutableAttributedString()
-        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: ConstantTexts.ExperienceLT, font: AppFont.Semibold.size(AppFontName.OpenSans, size: 14), color: AppColor.textColor) ?? NSMutableAttributedString())
-        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\n \(15) \(ConstantTexts.YrsLT)", font: AppFont.Semibold.size(AppFontName.OpenSans, size: 13), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: ConstantTexts.ExperienceLT, font: AppFont.Semibold.size(AppFontName.OpenSans, size: 12), color: AppColor.textColor) ?? NSMutableAttributedString())
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\n \(15) \(ConstantTexts.YrsLT)", font: AppFont.Semibold.size(AppFontName.OpenSans, size: 12), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
         // *** Apply attribute to string ***
         myMutableString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, myMutableString.length))
         // *** Set Attributed String to your label ***
@@ -125,8 +123,8 @@ class LawyerNewTableViewCell: SBaseTableViewCell {
         
       
         myMutableString = NSMutableAttributedString()
-        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: ConstantTexts.CallLT, font: AppFont.Semibold.size(AppFontName.OpenSans, size: 14), color: AppColor.textColor) ?? NSMutableAttributedString())
-        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\n\(ConstantTexts.CurLT)  \(500)", font:AppFont.Semibold.size(AppFontName.OpenSans, size: 13), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: ConstantTexts.CallLT, font: AppFont.Semibold.size(AppFontName.OpenSans, size: 12), color: AppColor.textColor) ?? NSMutableAttributedString())
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\n\(ConstantTexts.CurLT)  \(500)", font:AppFont.Semibold.size(AppFontName.OpenSans, size: 12), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
         // *** Apply attribute to string ***
         myMutableString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, myMutableString.length))
         // *** Set Attributed String to your label ***
@@ -135,8 +133,8 @@ class LawyerNewTableViewCell: SBaseTableViewCell {
         
 
         myMutableString = NSMutableAttributedString()
-        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: ConstantTexts.MeetLT, font: AppFont.Semibold.size(AppFontName.OpenSans, size: 14), color: AppColor.textColor) ?? NSMutableAttributedString())
-        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\n\(ConstantTexts.CurLT)  \(2000)", font: AppFont.Semibold.size(AppFontName.OpenSans, size: 13), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: ConstantTexts.MeetLT, font: AppFont.Semibold.size(AppFontName.OpenSans, size: 12), color: AppColor.textColor) ?? NSMutableAttributedString())
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\n\(ConstantTexts.CurLT)  \(2000)", font: AppFont.Semibold.size(AppFontName.OpenSans, size: 12), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
         // *** Apply attribute to string ***
         myMutableString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, myMutableString.length))
         // *** Set Attributed String to your label ***

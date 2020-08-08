@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="AppointmentFooterView" customModule="Lawyer" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="274"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="agy-dK-nZI">
+                    <rect key="frame" x="20" y="45" width="374" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="TKH-aS-Rwk"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="agy-dK-nZI" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="0lp-dR-ig7"/>
+                <constraint firstItem="agy-dK-nZI" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="45" id="3TT-JZ-Ecr"/>
+                <constraint firstAttribute="trailing" secondItem="agy-dK-nZI" secondAttribute="trailing" constant="20" id="g9R-Tx-FKI"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="btnBookConsultaionRef" destination="agy-dK-nZI" id="MxY-l7-nGa"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="-114.50892857142857"/>
+        </view>
+    </objects>
+</document>

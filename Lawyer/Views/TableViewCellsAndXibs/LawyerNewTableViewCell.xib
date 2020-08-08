@@ -19,15 +19,15 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ly-Vd-b8K">
                         <rect key="frame" x="0.0" y="5" width="450" height="165"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="FZp-wL-Fkp">
-                                <rect key="frame" x="10" y="11.5" width="70" height="67"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imga" translatesAutoresizingMaskIntoConstraints="NO" id="FZp-wL-Fkp">
+                                <rect key="frame" x="10" y="10" width="70" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="dPO-m3-PrI"/>
                                     <constraint firstAttribute="width" secondItem="FZp-wL-Fkp" secondAttribute="height" multiplier="1:1" id="ygf-9W-hLA"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1kA-G3-K8E">
-                                <rect key="frame" x="90" y="10" width="190" height="19.5"/>
+                                <rect key="frame" x="90" y="10" width="220" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -55,22 +55,22 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2uP-5u-MXG">
-                                <rect key="frame" x="285" y="10" width="50" height="40"/>
+                                <rect key="frame" x="315" y="10" width="60" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="uLa-zx-X3e"/>
-                                    <constraint firstAttribute="width" constant="50" id="vWX-gr-rFj"/>
+                                    <constraint firstAttribute="height" constant="30" id="uLa-zx-X3e"/>
+                                    <constraint firstAttribute="width" constant="60" id="vWX-gr-rFj"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KdA-R1-cr4">
-                                <rect key="frame" x="340" y="10" width="100" height="40"/>
+                                <rect key="frame" x="380" y="10" width="60" height="30"/>
                                 <state key="normal" title="Button"/>
                             </button>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UTa-1D-DVI">
-                                <rect key="frame" x="0.0" y="89.5" width="450" height="75.5"/>
+                                <rect key="frame" x="0.0" y="84.5" width="450" height="80.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3F7-VM-Far">
-                                        <rect key="frame" x="0.0" y="10" width="138.5" height="55.5"/>
+                                        <rect key="frame" x="0.0" y="5" width="138.5" height="70.5"/>
                                         <string key="text">Label
 Label</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -78,13 +78,13 @@ Label</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dVN-Ms-HZE">
-                                        <rect key="frame" x="138.5" y="10" width="173" height="55.5"/>
+                                        <rect key="frame" x="138.5" y="5" width="173" height="70.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aco-ku-Ou8">
-                                        <rect key="frame" x="311.5" y="10" width="138.5" height="55.5"/>
+                                        <rect key="frame" x="311.5" y="5" width="138.5" height="70.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -100,14 +100,14 @@ Label</string>
                                     <constraint firstItem="aco-ku-Ou8" firstAttribute="top" secondItem="dVN-Ms-HZE" secondAttribute="top" id="IWW-Nm-TPR"/>
                                     <constraint firstItem="dVN-Ms-HZE" firstAttribute="top" secondItem="3F7-VM-Far" secondAttribute="top" id="S3u-QH-FRy"/>
                                     <constraint firstItem="aco-ku-Ou8" firstAttribute="width" secondItem="dVN-Ms-HZE" secondAttribute="width" multiplier="0.79798" id="SlU-FG-s0R"/>
-                                    <constraint firstAttribute="bottom" secondItem="3F7-VM-Far" secondAttribute="bottom" constant="10" id="jbX-Fq-2Yg"/>
+                                    <constraint firstAttribute="bottom" secondItem="3F7-VM-Far" secondAttribute="bottom" constant="5" id="jbX-Fq-2Yg"/>
                                     <constraint firstItem="dVN-Ms-HZE" firstAttribute="leading" secondItem="3F7-VM-Far" secondAttribute="trailing" id="lc2-Co-Kni"/>
                                     <constraint firstItem="3F7-VM-Far" firstAttribute="leading" secondItem="UTa-1D-DVI" secondAttribute="leading" id="wtl-9k-SaI"/>
-                                    <constraint firstItem="3F7-VM-Far" firstAttribute="top" secondItem="UTa-1D-DVI" secondAttribute="top" constant="10" id="yym-iY-4kO"/>
+                                    <constraint firstItem="3F7-VM-Far" firstAttribute="top" secondItem="UTa-1D-DVI" secondAttribute="top" constant="5" id="yym-iY-4kO"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="1kA-G3-K8E" firstAttribute="top" secondItem="FZp-wL-Fkp" secondAttribute="top" id="0su-Am-Ay7"/>
                             <constraint firstItem="wCd-PC-WmK" firstAttribute="top" secondItem="1kA-G3-K8E" secondAttribute="bottom" constant="5" id="2dI-bc-lWM"/>
@@ -121,12 +121,12 @@ Label</string>
                             <constraint firstItem="wCd-PC-WmK" firstAttribute="trailing" secondItem="KdA-R1-cr4" secondAttribute="trailing" id="GjA-oj-D55"/>
                             <constraint firstItem="UTa-1D-DVI" firstAttribute="leading" secondItem="FZp-wL-Fkp" secondAttribute="leading" constant="-10" id="PPN-jD-3gr"/>
                             <constraint firstAttribute="bottom" secondItem="UTa-1D-DVI" secondAttribute="bottom" id="SBo-Ms-9FI"/>
-                            <constraint firstItem="KdA-R1-cr4" firstAttribute="width" secondItem="2uP-5u-MXG" secondAttribute="width" multiplier="1:0.5" id="SJZ-zh-caC"/>
+                            <constraint firstItem="KdA-R1-cr4" firstAttribute="width" secondItem="2uP-5u-MXG" secondAttribute="width" id="SJZ-zh-caC"/>
                             <constraint firstItem="wCd-PC-WmK" firstAttribute="leading" secondItem="0lW-vD-agF" secondAttribute="trailing" constant="5" id="TaF-ZR-rkD"/>
                             <constraint firstItem="2uP-5u-MXG" firstAttribute="top" secondItem="1kA-G3-K8E" secondAttribute="top" id="TyO-AO-U18"/>
                             <constraint firstItem="KdA-R1-cr4" firstAttribute="height" secondItem="2uP-5u-MXG" secondAttribute="height" id="cPg-4d-zpV"/>
                             <constraint firstItem="Z1q-ON-G1o" firstAttribute="leading" secondItem="EXS-xC-eYe" secondAttribute="trailing" constant="5" id="dhF-uT-7N0"/>
-                            <constraint firstItem="UTa-1D-DVI" firstAttribute="top" secondItem="Z1q-ON-G1o" secondAttribute="bottom" constant="10" id="g44-9n-Gey"/>
+                            <constraint firstItem="UTa-1D-DVI" firstAttribute="top" secondItem="Z1q-ON-G1o" secondAttribute="bottom" constant="5" id="g44-9n-Gey"/>
                             <constraint firstItem="0lW-vD-agF" firstAttribute="top" secondItem="wCd-PC-WmK" secondAttribute="top" id="nt9-SX-47U"/>
                             <constraint firstItem="1kA-G3-K8E" firstAttribute="leading" secondItem="FZp-wL-Fkp" secondAttribute="trailing" constant="10" id="ojl-g7-z3M"/>
                             <constraint firstItem="EXS-xC-eYe" firstAttribute="leading" secondItem="0lW-vD-agF" secondAttribute="leading" id="pnD-bK-cPo"/>
@@ -148,8 +148,8 @@ Label</string>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="hDc-9O-QVI"/>
             <connections>
-                <outlet property="buttonCallRef" destination="KdA-R1-cr4" id="Cgr-eu-WrP"/>
-                <outlet property="buttonMeetRef" destination="2uP-5u-MXG" id="UFC-3Z-mJk"/>
+                <outlet property="buttonCallRef" destination="2uP-5u-MXG" id="azq-4O-PTf"/>
+                <outlet property="buttonMeetRef" destination="KdA-R1-cr4" id="Crg-KL-fQm"/>
                 <outlet property="imageLawyer" destination="FZp-wL-Fkp" id="SjE-sr-Xwe"/>
                 <outlet property="labelCall" destination="dVN-Ms-HZE" id="3E4-hq-7CE"/>
                 <outlet property="labelCityLawyer" destination="wCd-PC-WmK" id="E6n-ei-EpX"/>
@@ -165,7 +165,7 @@ Label</string>
     </objects>
     <resources>
         <image name="global" width="32" height="32"/>
-        <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="imga" width="76" height="70"/>
         <image name="place" width="32" height="32"/>
     </resources>
 </document>

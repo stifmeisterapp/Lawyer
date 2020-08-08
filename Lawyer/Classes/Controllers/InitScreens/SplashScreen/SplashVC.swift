@@ -11,10 +11,7 @@ import AVFoundation
 class SplashVC: SBaseViewController {
     
     //MARK: - IBOutlets
-    @IBOutlet weak var logo_splash_Stack: UIStackView!
-    @IBOutlet weak var view_Animation: UIView!
-    @IBOutlet weak var label_Logo: UILabel!
-    
+    @IBOutlet weak var logo_splash: UIImageView!
     //MARK: - Variables
     internal var soundManager:SoundProtocol?
     internal var customMethodManager:CustomMethodProtocol?

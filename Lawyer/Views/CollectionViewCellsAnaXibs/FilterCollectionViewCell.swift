@@ -13,6 +13,7 @@ class FilterCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageDD: UIImageView!
     @IBOutlet weak var titleFilter: UILabel!
     @IBOutlet weak var viewBG: UIView!
+    @IBOutlet weak var btnSelectRef: UIButton!
     
     //MARK: - Variables
     internal var customMethodManager:CustomMethodProtocol?

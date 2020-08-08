@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+
+//MARK: - Creating fonts
 enum AppFontName: String {
   
     case OpenSans           =        "OpenSans"
@@ -41,5 +43,12 @@ enum AppFont: String {
        
         
     }
+}
+
+
+
+//MARK: - Constant fonts
+struct ConstantFonts{
+    static let  mainBottomButtonFont           =      AppFont.Bold.size(AppFontName.OpenSans, size: 18)
 }
 

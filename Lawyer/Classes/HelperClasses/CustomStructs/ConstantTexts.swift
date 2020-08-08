@@ -25,6 +25,18 @@ struct ConstantTexts{
     static let  Law                                 =      "Law"
     
     //TODO: Label Text
+    static let  Total_LT                            =      "Total"
+    static let  MorningLT                           =      "Morning"
+    static let  AfternoonLT                         =      "Afternoon"
+    static let  EveningLT                           =      "Evening"
+    static let  AM_LT                               =      "AM"
+    static let  PM_LT                               =      "PM"
+    static let  PaySummary_LT                       =      "Payment Summary"
+    static let  OriginalPrice_LT                    =      "Original Price"
+    static let  CouponApplied_LT                    =      "Coupon Applied"
+    static let  Gst_LT                              =      "GST @"
+    static let  ServiceProviders_LT                 =      "Service Provider's GSTIN"
+    static let  Per_LT                              =      "%"
     static let  MoreLT                              =      "More"
     static let  HomeLT                              =      "Home"
     static let  BlogsLT                             =      "Blogs"
@@ -34,6 +46,7 @@ struct ConstantTexts{
     static let  TrademarkLT                         =      "Trademark and copyright"
     static let  SexualAbuseLT                       =      "Sexual Abuse"
     static let  AccidentsLT                         =      "Accidents"
+    static let  BookAppointmentLT                   =      "Book Appointment"
     static let  BankingLT                           =      "Banking"
     static let  BusinessLawyersLT                   =      "Business Law"
     static let  ChildCustodyLT                      =      "Child Custody"
@@ -76,6 +89,8 @@ struct ConstantTexts{
     static let  EnterOTP1_LT                        =      "Enter OTP"
     static let  EnterOTP2_LT                        =      "OTP has been sent send to your mobile number."
     static let  VarificationCode_LT                 =      "Verification Code"
+    static let  HaveGSTIN_LT                        =      "Do you have GSTIN?"
+    static let  HaveGSTIN_Ins_LT                    =      "If you are registered under GST, please provide your GSTIN to clain input TAX Credit under the GST Regulations."
     
     static let  PleaseVarify_LT                     =      "Please Verify"
     
@@ -86,13 +101,14 @@ struct ConstantTexts{
 
     
     //TODO: Header Title Text
-    static let  CategoriesHT                        =      "CATEGORIES"
-    static let  LoginHT                             =      "LOGIN"
-    static let  SignupHT                            =      "SIGNUP"
-    static let  VarificationHT                      =      "VERIFICATION"
+    static let  CategoriesHT                        =      "Categories"
+    static let  PaymentHT                           =      "Payment"
+    static let  LoginHT                             =      "Login"
+    static let  SignupHT                            =      "Signup"
+    static let  VarificationHT                      =      "Verification"
     
     //TODO: Button Title Text
-    static let  MeetBT                              =      "Meeting"
+    static let  MeetBT                              =      "MEET"
     static let  ClearFiltersBT                      =      "Clear Filters"
     static let  CallBT                              =      "CALL"
     static let  LIST_VIEW_BT                        =      "LIST VIEW"
@@ -101,6 +117,8 @@ struct ConstantTexts{
     static let  LawyerBT                            =      "For Lawyer"
     static let  CustomerBT                          =      "For Customer"
     static let  SendOTP_BT                          =      "Send OTP"
+    static let  BookConsul_BT                       =      "Book Consultation"
+    static let  CheckOut_BT                         =      "Checkout"
     static let  Done_BT                             =      "Done"
     static let  ResendOTP_BT                        =      "Resend OTP"
     static let  Register_BT                         =      "Register"
@@ -108,6 +126,8 @@ struct ConstantTexts{
     static let  AlreadyHaveBT                       =      "Already Registered with us?"
     static let  SignUpAsC_BT                        =      "Sign Up as a Customer."
     static let  SignUpAsL_BT                        =      "Sign Up as a Lawyer."
+    static let  Clear_BT                            =      "Clear"
+    static let  Apply_BT                            =      "Apply"
     
     static let  LogInAsC_BT                         =      "Sign In as a Customer."
     static let  LogInAsL_BT                         =      "Sign In as a Lawyer."
@@ -123,9 +143,22 @@ struct ConstantTexts{
     static let  FullNamePH                          =      "Full Name"
     static let  EmailAddressPH                      =      "Email Address"
     static let  KeywordsPH                          =      "Keywords"
+    static let  Search_PH                           =      "Search"
+    static let  GSTIN_PH                            =      "GSTIN*"
+    static let  C_Name_PH                           =      "Company/Firm's Name (as per GSTIN)*"
+    static let  C_Address_PH                        =      "Company/Firm's Address (as per GSTIN)*"
+    static let  CouponCode_PH                       =      "Enter coupon code here"
     
     
     //TODO: Alert Text
+    static let  EnterGSTINNumberALERT               =      "Please enter GSTIN number."
+    static let  SelectGSTIN_DD_ALERT                =      "Please select drop down."
+    static let  EnterCorFNameALERT                  =      "Please enter company/firm's name."
+    static let  EnterValidCorFNameALERT             =      "Please enter valid company/firm's name."
+    static let  EnterCorFAddressALERT               =      "Please enter company/firm's address."
+    static let  EnterValidCorFAddressALERT          =      "Please enter valid company/firm's address."
+    
+    
     static let  EnterMobileNumberALERT              =      "Please enter mobile number."
     static let  EnterValidMobileNumberALERT         =      "Please enter valid mobile number."
     

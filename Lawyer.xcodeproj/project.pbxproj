@@ -65,6 +65,7 @@
 		9D787D8424C9834E00EB22D2 /* ValidationClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D787D8324C9834E00EB22D2 /* ValidationClass.swift */; };
 		9D787D8624C9848C00EB22D2 /* ValidationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D787D8524C9848C00EB22D2 /* ValidationProtocol.swift */; };
 		9D87E70424C57C8100EF0870 /* SoundClassTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D87E70324C57C8100EF0870 /* SoundClassTests.swift */; };
+		9D93CE5424DBF16300CC148E /* FilterPopup_VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D93CE5324DBF16300CC148E /* FilterPopup_VC.swift */; };
 		9D948F2524D5713100AB41F0 /* VPMOTPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D948F2424D5713100AB41F0 /* VPMOTPTextField.swift */; };
 		9D948F2724D5716600AB41F0 /* VPMOTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D948F2624D5716600AB41F0 /* VPMOTPView.swift */; };
 		9D948F2924D572F200AB41F0 /* OTP_VC+ VPMOTPViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D948F2824D572F200AB41F0 /* OTP_VC+ VPMOTPViewDelegate.swift */; };
@@ -73,6 +74,44 @@
 		9D948F3124D5FB6000AB41F0 /* CategoryCollectionViewCellAndXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D948F2F24D5FB6000AB41F0 /* CategoryCollectionViewCellAndXib.swift */; };
 		9D948F3224D5FB6000AB41F0 /* CategoryCollectionViewCellAndXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D948F3024D5FB6000AB41F0 /* CategoryCollectionViewCellAndXib.xib */; };
 		9D948F3424D5FFF900AB41F0 /* HomeVC+CollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D948F3324D5FFF900AB41F0 /* HomeVC+CollectionViewExtension.swift */; };
+		9D9E71F724DC32CB005805D7 /* FilterPopup_VC+CustomMethodExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9E71F624DC32CB005805D7 /* FilterPopup_VC+CustomMethodExtension.swift */; };
+		9D9E71FA24DC3F2A005805D7 /* FilterTableViewCellAndXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9E71F824DC3F2A005805D7 /* FilterTableViewCellAndXib.swift */; };
+		9D9E71FB24DC3F2A005805D7 /* FilterTableViewCellAndXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D9E71F924DC3F2A005805D7 /* FilterTableViewCellAndXib.xib */; };
+		9D9E71FD24DC5D4E005805D7 /* FilterPopup_VC+UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9E71FC24DC5D4E005805D7 /* FilterPopup_VC+UITableViewExtension.swift */; };
+		9D9E720124DC6547005805D7 /* FilterPopup_City_VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9E720024DC6547005805D7 /* FilterPopup_City_VM.swift */; };
+		9D9E720324DC6DAC005805D7 /* FilterPopup_Expertise_VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9E720224DC6DAC005805D7 /* FilterPopup_Expertise_VM.swift */; };
+		9D9E720524DC6F94005805D7 /* FilterPopup_Language_VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9E720424DC6F94005805D7 /* FilterPopup_Language_VM.swift */; };
+		9D9E720724DC724E005805D7 /* FilterPopup_Experience_VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9E720624DC724E005805D7 /* FilterPopup_Experience_VM.swift */; };
+		9D9E720924DC836B005805D7 /* FilterPopup_VC+UISearchExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9E720824DC836B005805D7 /* FilterPopup_VC+UISearchExtension.swift */; };
+		9D9E720B24DC8EF9005805D7 /* FilterPopup_Empty_VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9E720A24DC8EF9005805D7 /* FilterPopup_Empty_VM.swift */; };
+		9D9E720E24DC9551005805D7 /* AppointmentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9E720D24DC9551005805D7 /* AppointmentVC.swift */; };
+		9D9E721024DC95C8005805D7 /* AppointmentVC+MethodsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9E720F24DC95C8005805D7 /* AppointmentVC+MethodsExtension.swift */; };
+		9D9E721524DCA90E005805D7 /* AppointmentHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D9E721424DCA90E005805D7 /* AppointmentHeaderView.xib */; };
+		9D9E721724DCAA25005805D7 /* AppointmentHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9E721624DCAA25005805D7 /* AppointmentHeaderView.swift */; };
+		9D9E721A24DCB2BA005805D7 /* AppointmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9E721924DCB2BA005805D7 /* AppointmentViewModel.swift */; };
+		9D9E721C24DCB7B8005805D7 /* AppointmentVC+TableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9E721B24DCB7B8005805D7 /* AppointmentVC+TableViewExtension.swift */; };
+		9D9E721F24DD24FE005805D7 /* AppointMentTableViewCellAndXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9E721D24DD24FE005805D7 /* AppointMentTableViewCellAndXib.swift */; };
+		9D9E722024DD24FE005805D7 /* AppointMentTableViewCellAndXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D9E721E24DD24FE005805D7 /* AppointMentTableViewCellAndXib.xib */; };
+		9D9E722224DD56B5005805D7 /* AppointMentTableViewCellAndXib+UICollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9E722124DD56B5005805D7 /* AppointMentTableViewCellAndXib+UICollectionViewExtension.swift */; };
+		9D9E722524DD57EA005805D7 /* TimeCollectionViewCellAndXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9E722324DD57EA005805D7 /* TimeCollectionViewCellAndXib.swift */; };
+		9D9E722624DD57EA005805D7 /* TimeCollectionViewCellAndXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D9E722424DD57EA005805D7 /* TimeCollectionViewCellAndXib.xib */; };
+		9D9E722824DD8D00005805D7 /* AppointmentFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D9E722724DD8D00005805D7 /* AppointmentFooterView.xib */; };
+		9D9E722A24DD8D22005805D7 /* AppointmentFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9E722924DD8D22005805D7 /* AppointmentFooterView.swift */; };
+		9D9E722D24DD9E3E005805D7 /* PaymentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9E722C24DD9E3E005805D7 /* PaymentVC.swift */; };
+		9D9E722F24DD9E63005805D7 /* PaymentVC+MethodExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9E722E24DD9E63005805D7 /* PaymentVC+MethodExtension.swift */; };
+		9D9E723124DDAEB5005805D7 /* PaymentHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D9E723024DDAEB5005805D7 /* PaymentHeaderView.xib */; };
+		9D9E723324DDAECB005805D7 /* PaymentHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9E723224DDAECB005805D7 /* PaymentHeaderView.swift */; };
+		9D9E723524DDBB0E005805D7 /* PaymentVC+TableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9E723424DDBB0E005805D7 /* PaymentVC+TableViewExtension.swift */; };
+		9D9E723824DDEA4D005805D7 /* GSTIN_TableViewCellAndXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9E723624DDEA4D005805D7 /* GSTIN_TableViewCellAndXib.swift */; };
+		9D9E723924DDEA4D005805D7 /* GSTIN_TableViewCellAndXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D9E723724DDEA4D005805D7 /* GSTIN_TableViewCellAndXib.xib */; };
+		9D9E723B24DDEC0A005805D7 /* GSTIN_Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9E723A24DDEC0A005805D7 /* GSTIN_Type.swift */; };
+		9D9E723D24DDECD9005805D7 /* DataStoreStruct_GSTIN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9E723C24DDECD9005805D7 /* DataStoreStruct_GSTIN.swift */; };
+		9D9E723F24DDED5D005805D7 /* DataStoreStruct_GSTIN_List_ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9E723E24DDED5D005805D7 /* DataStoreStruct_GSTIN_List_ViewModel.swift */; };
+		9D9E724124DDEE6C005805D7 /* DataStoreStructListModeling_GSTIN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9E724024DDEE6C005805D7 /* DataStoreStructListModeling_GSTIN.swift */; };
+		9D9E724324DDEFD4005805D7 /* PaymentVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9E724224DDEFD4005805D7 /* PaymentVM.swift */; };
+		9D9E724524DDFD4D005805D7 /* PaymentFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D9E724424DDFD4D005805D7 /* PaymentFooterView.xib */; };
+		9D9E724724DDFD69005805D7 /* PaymentFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9E724624DDFD69005805D7 /* PaymentFooterView.swift */; };
+		9D9E724924DE05AE005805D7 /* PaymentVC+UITextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9E724824DE05AE005805D7 /* PaymentVC+UITextFieldDelegate.swift */; };
 		9DC5455A24C32EF9009AF27A /* TypewriterKeys.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DC5455924C32EF9009AF27A /* TypewriterKeys.ttf */; };
 		9DC5455C24C32F8C009AF27A /* AppFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC5455B24C32F8C009AF27A /* AppFonts.swift */; };
 		9DC5455E24C33170009AF27A /* CustomMethodProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC5455D24C33170009AF27A /* CustomMethodProtocol.swift */; };
@@ -208,6 +247,7 @@
 		9D787D8324C9834E00EB22D2 /* ValidationClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationClass.swift; sourceTree = "<group>"; };
 		9D787D8524C9848C00EB22D2 /* ValidationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationProtocol.swift; sourceTree = "<group>"; };
 		9D87E70324C57C8100EF0870 /* SoundClassTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundClassTests.swift; sourceTree = "<group>"; };
+		9D93CE5324DBF16300CC148E /* FilterPopup_VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPopup_VC.swift; sourceTree = "<group>"; };
 		9D948F2424D5713100AB41F0 /* VPMOTPTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VPMOTPTextField.swift; sourceTree = "<group>"; };
 		9D948F2624D5716600AB41F0 /* VPMOTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VPMOTPView.swift; sourceTree = "<group>"; };
 		9D948F2824D572F200AB41F0 /* OTP_VC+ VPMOTPViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OTP_VC+ VPMOTPViewDelegate.swift"; sourceTree = "<group>"; };
@@ -216,6 +256,44 @@
 		9D948F2F24D5FB6000AB41F0 /* CategoryCollectionViewCellAndXib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCellAndXib.swift; sourceTree = "<group>"; };
 		9D948F3024D5FB6000AB41F0 /* CategoryCollectionViewCellAndXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCollectionViewCellAndXib.xib; sourceTree = "<group>"; };
 		9D948F3324D5FFF900AB41F0 /* HomeVC+CollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeVC+CollectionViewExtension.swift"; sourceTree = "<group>"; };
+		9D9E71F624DC32CB005805D7 /* FilterPopup_VC+CustomMethodExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FilterPopup_VC+CustomMethodExtension.swift"; sourceTree = "<group>"; };
+		9D9E71F824DC3F2A005805D7 /* FilterTableViewCellAndXib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTableViewCellAndXib.swift; sourceTree = "<group>"; };
+		9D9E71F924DC3F2A005805D7 /* FilterTableViewCellAndXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterTableViewCellAndXib.xib; sourceTree = "<group>"; };
+		9D9E71FC24DC5D4E005805D7 /* FilterPopup_VC+UITableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FilterPopup_VC+UITableViewExtension.swift"; sourceTree = "<group>"; };
+		9D9E720024DC6547005805D7 /* FilterPopup_City_VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPopup_City_VM.swift; sourceTree = "<group>"; };
+		9D9E720224DC6DAC005805D7 /* FilterPopup_Expertise_VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPopup_Expertise_VM.swift; sourceTree = "<group>"; };
+		9D9E720424DC6F94005805D7 /* FilterPopup_Language_VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPopup_Language_VM.swift; sourceTree = "<group>"; };
+		9D9E720624DC724E005805D7 /* FilterPopup_Experience_VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPopup_Experience_VM.swift; sourceTree = "<group>"; };
+		9D9E720824DC836B005805D7 /* FilterPopup_VC+UISearchExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FilterPopup_VC+UISearchExtension.swift"; sourceTree = "<group>"; };
+		9D9E720A24DC8EF9005805D7 /* FilterPopup_Empty_VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPopup_Empty_VM.swift; sourceTree = "<group>"; };
+		9D9E720D24DC9551005805D7 /* AppointmentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentVC.swift; sourceTree = "<group>"; };
+		9D9E720F24DC95C8005805D7 /* AppointmentVC+MethodsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppointmentVC+MethodsExtension.swift"; sourceTree = "<group>"; };
+		9D9E721424DCA90E005805D7 /* AppointmentHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppointmentHeaderView.xib; sourceTree = "<group>"; };
+		9D9E721624DCAA25005805D7 /* AppointmentHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentHeaderView.swift; sourceTree = "<group>"; };
+		9D9E721924DCB2BA005805D7 /* AppointmentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentViewModel.swift; sourceTree = "<group>"; };
+		9D9E721B24DCB7B8005805D7 /* AppointmentVC+TableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppointmentVC+TableViewExtension.swift"; sourceTree = "<group>"; };
+		9D9E721D24DD24FE005805D7 /* AppointMentTableViewCellAndXib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointMentTableViewCellAndXib.swift; sourceTree = "<group>"; };
+		9D9E721E24DD24FE005805D7 /* AppointMentTableViewCellAndXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppointMentTableViewCellAndXib.xib; sourceTree = "<group>"; };
+		9D9E722124DD56B5005805D7 /* AppointMentTableViewCellAndXib+UICollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppointMentTableViewCellAndXib+UICollectionViewExtension.swift"; sourceTree = "<group>"; };
+		9D9E722324DD57EA005805D7 /* TimeCollectionViewCellAndXib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCollectionViewCellAndXib.swift; sourceTree = "<group>"; };
+		9D9E722424DD57EA005805D7 /* TimeCollectionViewCellAndXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeCollectionViewCellAndXib.xib; sourceTree = "<group>"; };
+		9D9E722724DD8D00005805D7 /* AppointmentFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppointmentFooterView.xib; sourceTree = "<group>"; };
+		9D9E722924DD8D22005805D7 /* AppointmentFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentFooterView.swift; sourceTree = "<group>"; };
+		9D9E722C24DD9E3E005805D7 /* PaymentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentVC.swift; sourceTree = "<group>"; };
+		9D9E722E24DD9E63005805D7 /* PaymentVC+MethodExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PaymentVC+MethodExtension.swift"; sourceTree = "<group>"; };
+		9D9E723024DDAEB5005805D7 /* PaymentHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentHeaderView.xib; sourceTree = "<group>"; };
+		9D9E723224DDAECB005805D7 /* PaymentHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentHeaderView.swift; sourceTree = "<group>"; };
+		9D9E723424DDBB0E005805D7 /* PaymentVC+TableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PaymentVC+TableViewExtension.swift"; sourceTree = "<group>"; };
+		9D9E723624DDEA4D005805D7 /* GSTIN_TableViewCellAndXib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSTIN_TableViewCellAndXib.swift; sourceTree = "<group>"; };
+		9D9E723724DDEA4D005805D7 /* GSTIN_TableViewCellAndXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GSTIN_TableViewCellAndXib.xib; sourceTree = "<group>"; };
+		9D9E723A24DDEC0A005805D7 /* GSTIN_Type.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSTIN_Type.swift; sourceTree = "<group>"; };
+		9D9E723C24DDECD9005805D7 /* DataStoreStruct_GSTIN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStoreStruct_GSTIN.swift; sourceTree = "<group>"; };
+		9D9E723E24DDED5D005805D7 /* DataStoreStruct_GSTIN_List_ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStoreStruct_GSTIN_List_ViewModel.swift; sourceTree = "<group>"; };
+		9D9E724024DDEE6C005805D7 /* DataStoreStructListModeling_GSTIN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStoreStructListModeling_GSTIN.swift; sourceTree = "<group>"; };
+		9D9E724224DDEFD4005805D7 /* PaymentVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentVM.swift; sourceTree = "<group>"; };
+		9D9E724424DDFD4D005805D7 /* PaymentFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentFooterView.xib; sourceTree = "<group>"; };
+		9D9E724624DDFD69005805D7 /* PaymentFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentFooterView.swift; sourceTree = "<group>"; };
+		9D9E724824DE05AE005805D7 /* PaymentVC+UITextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PaymentVC+UITextFieldDelegate.swift"; sourceTree = "<group>"; };
 		9DC5455924C32EF9009AF27A /* TypewriterKeys.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TypewriterKeys.ttf; sourceTree = "<group>"; };
 		9DC5455B24C32F8C009AF27A /* AppFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFonts.swift; sourceTree = "<group>"; };
 		9DC5455D24C33170009AF27A /* CustomMethodProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMethodProtocol.swift; sourceTree = "<group>"; };
@@ -387,8 +465,11 @@
 		9D4C683124C59DF30064E935 /* HomeScreens */ = {
 			isa = PBXGroup;
 			children = (
+				9D9E722B24DD9E14005805D7 /* PaymentScreen */,
+				9D9E720C24DC951B005805D7 /* AppointmentScreen */,
 				9D4C683324C59E180064E935 /* HomeScreen */,
 				9D5F2B4C24C70CDA00BA4015 /* LawyerListScreen */,
+				9D93CE5224DBF0FF00CC148E /* FilterPopScreen */,
 			);
 			path = HomeScreens;
 			sourceTree = "<group>";
@@ -417,6 +498,7 @@
 		9D554C4C24C2C20300E2080D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9D9E721324DCA8E0005805D7 /* CustomView */,
 				9D554C4D24C2C21A00E2080D /* Storyboards */,
 				9D5F2B2E24C6ADA500BA4015 /* TableViewCellsAndXibs */,
 				9D948F2C24D5F4DF00AB41F0 /* CollectionViewCellsAnaXibs */,
@@ -514,6 +596,13 @@
 				9DFED3D924D48C7F00851570 /* Auth_TextField_TableViewCell.xib */,
 				9DDC565224DB530D002DD47D /* LawyerNewTableViewCell.swift */,
 				9DDC565324DB530D002DD47D /* LawyerNewTableViewCell.xib */,
+				9D9E71F824DC3F2A005805D7 /* FilterTableViewCellAndXib.swift */,
+				9D9E71F924DC3F2A005805D7 /* FilterTableViewCellAndXib.xib */,
+				9D9E721D24DD24FE005805D7 /* AppointMentTableViewCellAndXib.swift */,
+				9D9E721E24DD24FE005805D7 /* AppointMentTableViewCellAndXib.xib */,
+				9D9E722124DD56B5005805D7 /* AppointMentTableViewCellAndXib+UICollectionViewExtension.swift */,
+				9D9E723624DDEA4D005805D7 /* GSTIN_TableViewCellAndXib.swift */,
+				9D9E723724DDEA4D005805D7 /* GSTIN_TableViewCellAndXib.xib */,
 			);
 			path = TableViewCellsAndXibs;
 			sourceTree = "<group>";
@@ -531,10 +620,12 @@
 		9D5F2B3824C6C27F00BA4015 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9D9E721824DCB299005805D7 /* TemporaryModels */,
 				9D5F2B5324C75DB700BA4015 /* Category.swift */,
 				9DFED3DC24D48F7800851570 /* DataStoreStruct_Model.swift */,
 				9DEB6EBC24D9DF8500ED3FD6 /* Filter.swift */,
 				9DEB6EBE24D9E02300ED3FD6 /* FilterCategory.swift */,
+				9D9E723C24DDECD9005805D7 /* DataStoreStruct_GSTIN.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -546,6 +637,7 @@
 				9DFED3E024D495AD00851570 /* DataStoreStruct_ViewModel.swift */,
 				9DEB6EC024D9E13300ED3FD6 /* FilterCategoryViewModel.swift */,
 				9DEB6EC424D9E42A00ED3FD6 /* FilterViewModel.swift */,
+				9D9E723E24DDED5D005805D7 /* DataStoreStruct_GSTIN_List_ViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -557,6 +649,7 @@
 				9DFED3E224D49F3D00851570 /* DataStoreStructListModeling.swift */,
 				9DEB6EC624D9E73200ED3FD6 /* FilterListModeling.swift */,
 				9DEB6EC824D9E7A200ED3FD6 /* FilterCategoryListModeling.swift */,
+				9D9E724024DDEE6C005805D7 /* DataStoreStructListModeling_GSTIN.swift */,
 			);
 			path = DipendenciesInjections;
 			sourceTree = "<group>";
@@ -631,6 +724,22 @@
 			path = OTPScreen;
 			sourceTree = "<group>";
 		};
+		9D93CE5224DBF0FF00CC148E /* FilterPopScreen */ = {
+			isa = PBXGroup;
+			children = (
+				9D93CE5324DBF16300CC148E /* FilterPopup_VC.swift */,
+				9D9E71F624DC32CB005805D7 /* FilterPopup_VC+CustomMethodExtension.swift */,
+				9D9E71FC24DC5D4E005805D7 /* FilterPopup_VC+UITableViewExtension.swift */,
+				9D9E720824DC836B005805D7 /* FilterPopup_VC+UISearchExtension.swift */,
+				9D9E720024DC6547005805D7 /* FilterPopup_City_VM.swift */,
+				9D9E720224DC6DAC005805D7 /* FilterPopup_Expertise_VM.swift */,
+				9D9E720424DC6F94005805D7 /* FilterPopup_Language_VM.swift */,
+				9D9E720624DC724E005805D7 /* FilterPopup_Experience_VM.swift */,
+				9D9E720A24DC8EF9005805D7 /* FilterPopup_Empty_VM.swift */,
+			);
+			path = FilterPopScreen;
+			sourceTree = "<group>";
+		};
 		9D948F2324D5711600AB41F0 /* OTP_HelperClasses */ = {
 			isa = PBXGroup;
 			children = (
@@ -647,8 +756,55 @@
 				9D948F3024D5FB6000AB41F0 /* CategoryCollectionViewCellAndXib.xib */,
 				9DEB6EB824D9DB5D00ED3FD6 /* FilterCollectionViewCell.swift */,
 				9DEB6EB924D9DB5D00ED3FD6 /* FilterCollectionViewCell.xib */,
+				9D9E722324DD57EA005805D7 /* TimeCollectionViewCellAndXib.swift */,
+				9D9E722424DD57EA005805D7 /* TimeCollectionViewCellAndXib.xib */,
 			);
 			path = CollectionViewCellsAnaXibs;
+			sourceTree = "<group>";
+		};
+		9D9E720C24DC951B005805D7 /* AppointmentScreen */ = {
+			isa = PBXGroup;
+			children = (
+				9D9E720D24DC9551005805D7 /* AppointmentVC.swift */,
+				9D9E720F24DC95C8005805D7 /* AppointmentVC+MethodsExtension.swift */,
+				9D9E721B24DCB7B8005805D7 /* AppointmentVC+TableViewExtension.swift */,
+			);
+			path = AppointmentScreen;
+			sourceTree = "<group>";
+		};
+		9D9E721324DCA8E0005805D7 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				9D9E721424DCA90E005805D7 /* AppointmentHeaderView.xib */,
+				9D9E721624DCAA25005805D7 /* AppointmentHeaderView.swift */,
+				9D9E722724DD8D00005805D7 /* AppointmentFooterView.xib */,
+				9D9E722924DD8D22005805D7 /* AppointmentFooterView.swift */,
+				9D9E723024DDAEB5005805D7 /* PaymentHeaderView.xib */,
+				9D9E723224DDAECB005805D7 /* PaymentHeaderView.swift */,
+				9D9E724424DDFD4D005805D7 /* PaymentFooterView.xib */,
+				9D9E724624DDFD69005805D7 /* PaymentFooterView.swift */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
+		9D9E721824DCB299005805D7 /* TemporaryModels */ = {
+			isa = PBXGroup;
+			children = (
+				9D9E721924DCB2BA005805D7 /* AppointmentViewModel.swift */,
+			);
+			path = TemporaryModels;
+			sourceTree = "<group>";
+		};
+		9D9E722B24DD9E14005805D7 /* PaymentScreen */ = {
+			isa = PBXGroup;
+			children = (
+				9D9E722C24DD9E3E005805D7 /* PaymentVC.swift */,
+				9D9E722E24DD9E63005805D7 /* PaymentVC+MethodExtension.swift */,
+				9D9E723424DDBB0E005805D7 /* PaymentVC+TableViewExtension.swift */,
+				9D9E724824DE05AE005805D7 /* PaymentVC+UITextFieldDelegate.swift */,
+				9D9E724224DDEFD4005805D7 /* PaymentVM.swift */,
+			);
+			path = PaymentScreen;
 			sourceTree = "<group>";
 		};
 		9DC5455824C32EE7009AF27A /* CustomFontFiles */ = {
@@ -705,6 +861,7 @@
 			children = (
 				9DFFC28824C9CF2C00A50EA0 /* UINavigationBarButtonType.swift */,
 				9DFED3D224D48B2D00851570 /* SignUpType.swift */,
+				9D9E723A24DDEC0A005805D7 /* GSTIN_Type.swift */,
 			);
 			path = Enumrations;
 			sourceTree = "<group>";
@@ -834,21 +991,27 @@
 				9D76C04824C8D8ED002B400E /* Auth.storyboard in Resources */,
 				9DDC563924DB4486002DD47D /* OpenSans-ExtraBoldItalic.ttf in Resources */,
 				9DDC564024DB4486002DD47D /* OpenSans-Bold.ttf in Resources */,
+				9D9E722824DD8D00005805D7 /* AppointmentFooterView.xib in Resources */,
 				9D5F2B2A24C5FB3900BA4015 /* TabBar.storyboard in Resources */,
 				9DFED3DB24D48C7F00851570 /* Auth_TextField_TableViewCell.xib in Resources */,
 				9D25568124C1DCAB006563AC /* LaunchScreen.storyboard in Resources */,
+				9D9E723924DDEA4D005805D7 /* GSTIN_TableViewCellAndXib.xib in Resources */,
 				9D25567E24C1DCAB006563AC /* Assets.xcassets in Resources */,
+				9D9E722024DD24FE005805D7 /* AppointMentTableViewCellAndXib.xib in Resources */,
 				9DDC565124DB4601002DD47D /* Judges_Gavel.mp3 in Resources */,
 				9DDC563A24DB4486002DD47D /* OpenSans-BoldItalic.ttf in Resources */,
 				9D4C683024C598180064E935 /* Home.storyboard in Resources */,
+				9D9E724524DDFD4D005805D7 /* PaymentFooterView.xib in Resources */,
 				9D948F3224D5FB6000AB41F0 /* CategoryCollectionViewCellAndXib.xib in Resources */,
 				9DDC563B24DB4486002DD47D /* OpenSans-ExtraBold.ttf in Resources */,
 				9DDC564124DB4486002DD47D /* Apache License.txt in Resources */,
 				9D5F2B4B24C6F81C00BA4015 /* LawyerShortDetailTableViewCell.xib in Resources */,
 				9DDC563D24DB4486002DD47D /* OpenSans-Semibold.ttf in Resources */,
 				9D25567C24C1DCAA006563AC /* Main.storyboard in Resources */,
+				9D9E721524DCA90E005805D7 /* AppointmentHeaderView.xib in Resources */,
 				9DEB6EBB24D9DB5D00ED3FD6 /* FilterCollectionViewCell.xib in Resources */,
 				9DDC564224DB4486002DD47D /* OpenSans-Italic.ttf in Resources */,
+				9D9E722624DD57EA005805D7 /* TimeCollectionViewCellAndXib.xib in Resources */,
 				9DDC564624DB44E2002DD47D /* Law.json in Resources */,
 				9DDC563C24DB4486002DD47D /* OpenSans-LightItalic.ttf in Resources */,
 				9DDC564324DB4486002DD47D /* OpenSans-SemiboldItalic.ttf in Resources */,
@@ -856,6 +1019,8 @@
 				9D5F2B3224C6AF1100BA4015 /* LawyerTableViewCell.xib in Resources */,
 				9DDC565524DB530D002DD47D /* LawyerNewTableViewCell.xib in Resources */,
 				9DDC563E24DB4486002DD47D /* OpenSans-Light.ttf in Resources */,
+				9D9E71FB24DC3F2A005805D7 /* FilterTableViewCellAndXib.xib in Resources */,
+				9D9E723124DDAEB5005805D7 /* PaymentHeaderView.xib in Resources */,
 				9D554C4F24C2C26300E2080D /* Launch.storyboard in Resources */,
 				9DDC563F24DB4486002DD47D /* OpenSans-Regular.ttf in Resources */,
 			);
@@ -989,6 +1154,8 @@
 				9DC5456524C33E9A009AF27A /* ConstantTexts.swift in Sources */,
 				9D948F3124D5FB6000AB41F0 /* CategoryCollectionViewCellAndXib.swift in Sources */,
 				9D948F2724D5716600AB41F0 /* VPMOTPView.swift in Sources */,
+				9D9E723524DDBB0E005805D7 /* PaymentVC+TableViewExtension.swift in Sources */,
+				9D9E723324DDAECB005805D7 /* PaymentHeaderView.swift in Sources */,
 				9D5F2B4224C6C7FD00BA4015 /* HomeVM.swift in Sources */,
 				9D00E1FF24C7E02900F6FC74 /* OnboardingView.swift in Sources */,
 				9DEB6EC524D9E42A00ED3FD6 /* FilterViewModel.swift in Sources */,
@@ -996,13 +1163,22 @@
 				9DDC565424DB530D002DD47D /* LawyerNewTableViewCell.swift in Sources */,
 				9D948F2B24D5BED000AB41F0 /* UIImage+Extensions.swift in Sources */,
 				9D787D8224C9663300EB22D2 /* UITextField+Extension.swift in Sources */,
+				9D9E71FA24DC3F2A005805D7 /* FilterTableViewCellAndXib.swift in Sources */,
+				9D9E71F724DC32CB005805D7 /* FilterPopup_VC+CustomMethodExtension.swift in Sources */,
+				9D9E723824DDEA4D005805D7 /* GSTIN_TableViewCellAndXib.swift in Sources */,
 				9D76C04C24C8DE46002B400E /* LoginVC.swift in Sources */,
+				9D9E722A24DD8D22005805D7 /* AppointmentFooterView.swift in Sources */,
 				9D5F2B4524C6D29B00BA4015 /* UITableView+AdditionsExtension.swift in Sources */,
 				9D787D8624C9848C00EB22D2 /* ValidationProtocol.swift in Sources */,
+				9D93CE5424DBF16300CC148E /* FilterPopup_VC.swift in Sources */,
 				9D0B206724CA03180073C3C4 /* SBaseViewController+MethodExtension.swift in Sources */,
 				9DFFC28D24C9D36B00A50EA0 /* UIImageView+Extensions.swift in Sources */,
+				9D9E720324DC6DAC005805D7 /* FilterPopup_Expertise_VM.swift in Sources */,
+				9D9E724924DE05AE005805D7 /* PaymentVC+UITextFieldDelegate.swift in Sources */,
 				9DDC564E24DB453B002DD47D /* TipView.swift in Sources */,
+				9D9E720724DC724E005805D7 /* FilterPopup_Experience_VM.swift in Sources */,
 				9D00E20324C7E19800F6FC74 /* OnboardingVC+paper_onboardingExtension.swift in Sources */,
+				9D9E721F24DD24FE005805D7 /* AppointMentTableViewCellAndXib.swift in Sources */,
 				9DEB6ECD24D9FA8C00ED3FD6 /* LawyerListVC+CollectionViewExtensions.swift in Sources */,
 				9D787D8424C9834E00EB22D2 /* ValidationClass.swift in Sources */,
 				9DFED3D324D48B2D00851570 /* SignUpType.swift in Sources */,
@@ -1010,10 +1186,15 @@
 				9D554C6124C2D4FB00E2080D /* SoundClass.swift in Sources */,
 				9DFED3E124D495AD00851570 /* DataStoreStruct_ViewModel.swift in Sources */,
 				9D5FE2AE24D4AA60002A94F1 /* LoginVM.swift in Sources */,
+				9D9E721724DCAA25005805D7 /* AppointmentHeaderView.swift in Sources */,
+				9D9E722D24DD9E3E005805D7 /* PaymentVC.swift in Sources */,
 				9D5F2B3724C6B15000BA4015 /* HomeVC.swift in Sources */,
+				9D9E720B24DC8EF9005805D7 /* FilterPopup_Empty_VM.swift in Sources */,
 				9DEB6EC124D9E13300ED3FD6 /* FilterCategoryViewModel.swift in Sources */,
 				9D25567924C1DCAA006563AC /* ViewController.swift in Sources */,
+				9D9E723B24DDEC0A005805D7 /* GSTIN_Type.swift in Sources */,
 				9D5F2B5224C7172600BA4015 /* LawyerListVC+TableViewExtension.swift in Sources */,
+				9D9E722F24DD9E63005805D7 /* PaymentVC+MethodExtension.swift in Sources */,
 				9D76C05324C8EBD2002B400E /* SignUpVC+MethodExtension.swift in Sources */,
 				9D5FE2B024D4B59D002A94F1 /* LoginVC+TableViewExtension.swift in Sources */,
 				9D554C5524C2C8D300E2080D /* SplashVC.swift in Sources */,
@@ -1025,21 +1206,31 @@
 				9D948F2524D5713100AB41F0 /* VPMOTPTextField.swift in Sources */,
 				9DC5456724C33F55009AF27A /* AppMacros.swift in Sources */,
 				9D25567524C1DCAA006563AC /* AppDelegate.swift in Sources */,
+				9D9E71FD24DC5D4E005805D7 /* FilterPopup_VC+UITableViewExtension.swift in Sources */,
 				9D5F2B4024C6C73600BA4015 /* CategoryListModeling.swift in Sources */,
 				9DFFC28624C9CD8300A50EA0 /* SBaseViewController.swift in Sources */,
+				9D9E720524DC6F94005805D7 /* FilterPopup_Language_VM.swift in Sources */,
 				9DFFC28924C9CF2C00A50EA0 /* UINavigationBarButtonType.swift in Sources */,
 				9D5F2B4724C6D4B900BA4015 /* HomeVC+TableViewExtension.swift in Sources */,
+				9D9E721C24DCB7B8005805D7 /* AppointmentVC+TableViewExtension.swift in Sources */,
 				9DDC564F24DB453B002DD47D /* MessageView.swift in Sources */,
 				9D0B590124D5396400AACE59 /* SignUpVC+TableViewExtension.swift in Sources */,
 				9D5F2B3D24C6C3A500BA4015 /* CategoryViewModel.swift in Sources */,
+				9D9E721A24DCB2BA005805D7 /* AppointmentViewModel.swift in Sources */,
+				9D9E721024DC95C8005805D7 /* AppointmentVC+MethodsExtension.swift in Sources */,
 				9D76C04624C8CC51002B400E /* AppColor.swift in Sources */,
+				9D9E723D24DDECD9005805D7 /* DataStoreStruct_GSTIN.swift in Sources */,
 				9D948F2924D572F200AB41F0 /* OTP_VC+ VPMOTPViewDelegate.swift in Sources */,
+				9D9E720924DC836B005805D7 /* FilterPopup_VC+UISearchExtension.swift in Sources */,
+				9D9E724324DDEFD4005805D7 /* PaymentVM.swift in Sources */,
 				9DEB6EBA24D9DB5D00ED3FD6 /* FilterCollectionViewCell.swift in Sources */,
 				9D948F3424D5FFF900AB41F0 /* HomeVC+CollectionViewExtension.swift in Sources */,
+				9D9E724724DDFD69005805D7 /* PaymentFooterView.swift in Sources */,
 				9D25567724C1DCAA006563AC /* SceneDelegate.swift in Sources */,
 				9D787D8024C9437200EB22D2 /* OTP_VC+MethodExtension.swift in Sources */,
 				9DEB6EBF24D9E02300ED3FD6 /* FilterCategory.swift in Sources */,
 				9D5F2B3124C6AF1100BA4015 /* LawyerTableViewCell.swift in Sources */,
+				9D9E724124DDEE6C005805D7 /* DataStoreStructListModeling_GSTIN.swift in Sources */,
 				9D0B58FD24D52FE800AACE59 /* SignUpVM.swift in Sources */,
 				9D5F2B4A24C6F81B00BA4015 /* LawyerShortDetailTableViewCell.swift in Sources */,
 				9D5F2B4E24C70D0600BA4015 /* LawyerListVC.swift in Sources */,
@@ -1052,16 +1243,21 @@
 				9D0B58FB24D4CCC600AACE59 /* LoginVC+UITextFieldDelegate.swift in Sources */,
 				9D76C05124C8EB4C002B400E /* SignUpVC.swift in Sources */,
 				9DFED3E324D49F3D00851570 /* DataStoreStructListModeling.swift in Sources */,
+				9D9E723F24DDED5D005805D7 /* DataStoreStruct_GSTIN_List_ViewModel.swift in Sources */,
+				9D9E720E24DC9551005805D7 /* AppointmentVC.swift in Sources */,
 				9DEB6ECB24D9E87300ED3FD6 /* LawyerListCategoryList_VM.swift in Sources */,
 				9D554C5F24C2D41600E2080D /* SoundProtocol.swift in Sources */,
 				9D5F2B5024C7100300BA4015 /* LawyerListVC+MethodExtension.swift in Sources */,
 				9DDC564C24DB453B002DD47D /* TipViewTransition.swift in Sources */,
+				9D9E722224DD56B5005805D7 /* AppointMentTableViewCellAndXib+UICollectionViewExtension.swift in Sources */,
 				9DEB6EC924D9E7A200ED3FD6 /* FilterCategoryListModeling.swift in Sources */,
 				9DEB6EBD24D9DF8500ED3FD6 /* Filter.swift in Sources */,
 				9DDC564D24DB453B002DD47D /* AnchorView.swift in Sources */,
 				9D5F2B2D24C612BB00BA4015 /* TabBarVC.swift in Sources */,
 				9DC5456324C33DAE009AF27A /* AppStoryboard.swift in Sources */,
 				9D5F2B5424C75DB700BA4015 /* Category.swift in Sources */,
+				9D9E722524DD57EA005805D7 /* TimeCollectionViewCellAndXib.swift in Sources */,
+				9D9E720124DC6547005805D7 /* FilterPopup_City_VM.swift in Sources */,
 				9DFED3DA24D48C7F00851570 /* Auth_TextField_TableViewCell.swift in Sources */,
 				9D00E20124C7E0F500F6FC74 /* OnboardingVC+MethodExtension.swift in Sources */,
 				9D76C04E24C8E011002B400E /* LoginVC+MethodExtension.swift in Sources */,

@@ -63,7 +63,7 @@ class Auth_TextField_TableViewCell: SBaseTableViewCell {
             
         case .OTP:
             textFieldFloating.maxLength = 4
-            textFieldFloating.keyboardType = .namePhonePad
+            textFieldFloating.keyboardType = .numberPad
             textFieldFloating.isSecureTextEntry = false
             textFieldFloating.autocapitalizationType = .none
         }

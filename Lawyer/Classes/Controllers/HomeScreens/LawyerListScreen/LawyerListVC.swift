@@ -18,13 +18,13 @@ class LawyerListVC: SBaseViewController {
     @IBOutlet weak var btnSearchRef: UIButton!
     @IBOutlet weak var btnFilterRef: UIButton!
     @IBOutlet weak var filterCollectionView: UICollectionView!
+    
+    
     //MARK: - Variables
     internal var headerTitle:String = String()
     internal var customMethodManager:CustomMethodProtocol?
     internal var filterCategoryListDataVM:FilterCategory_List_ViewModel?
     internal var filterCategoryListVM: FilterCategoryListModeling?
-    
- 
     
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -82,12 +82,12 @@ class LawyerListVC: SBaseViewController {
     
     
     //TODO: Implementation viewWillDisappear
-       override func viewWillDisappear(_ animated: Bool) {
-           super.viewWillDisappear(animated)
-           dismissKeyboard()
-       }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        dismissKeyboard()
+    }
     
-   
+    
     
     /*
      // MARK: - Navigation
@@ -110,6 +110,66 @@ class LawyerListVC: SBaseViewController {
         dismissKeyboard()
         refreshControl.endRefreshing()
     }
+    
+    @objc func btnSelectedCell(_ sender: UIButton) {
+        print("Button selected...")
+        let indexPath = IndexPath(item: sender.tag, section: 0)
+        
+        UIView.animate(withDuration: 0.1,
+                       animations: {
+                        if let cell = self.filterCollectionView.cellForItem(at: indexPath) as? FilterCollectionViewCell {
+                            cell.transform = .init(scaleX: 0.95, y: 0.95)
+                            cell.contentView.backgroundColor = AppColor.highLightColor
+                        }
+        },
+                       completion: { _ in
+                        UIView.animate(withDuration: 0.1) {
+                            if let cell = self.filterCollectionView.cellForItem(at: indexPath) as? FilterCollectionViewCell {
+                                cell.transform = .identity
+                                cell.contentView.backgroundColor = .clear
+                                
+                                let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: FilterPopup_VC.className) as! FilterPopup_VC
+                                
+                                if let headerTitle = self.filterCategoryListDataVM?.filterCategories[sender.tag].title{
+                                    vc.headerTitle = headerTitle
+                                }
+                                vc.index = sender.tag
+                                vc.modalPresentationStyle = .automatic //or .overFullScreen for transparency
+                                self.present(vc, animated: true, completion: nil)
+                                
+                            }
+                        }
+        })
+    }
+    
+    
+    
+    @objc func btnMeetTapped(_ sender: UIButton) {
+        print("Button selected...")
+        let indexPath = IndexPath(item: sender.tag, section: 0)
+        
+        UIView.animate(withDuration: 0.1,
+                       animations: {
+                        if let cell = self.lawyerTableView.cellForRow(at: indexPath) as? LawyerNewTableViewCell {
+                            cell.buttonMeetRef.transform = .init(scaleX: 0.95, y: 0.95)
+                            
+                        }
+        },
+                       completion: { _ in
+                        UIView.animate(withDuration: 0.1) {
+                            if let cell = self.lawyerTableView.cellForRow(at: indexPath) as? LawyerNewTableViewCell {
+                                cell.buttonMeetRef.transform = .identity
+                                
+                                let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: AppointmentVC.className) as! AppointmentVC
+                                
+                                self.navigationController?.pushViewController(vc, animated: true)
+                                
+                            }
+                        }
+        })
+    }
+    
+    
     
     //Calls this function when the tap is recognized.
     @objc func dismissKeyboard() {

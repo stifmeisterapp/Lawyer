@@ -11,9 +11,6 @@ import Foundation
 import ViewAnimator
 
 extension HomeVC{
-    
-    
-    
     //TODO: Init values
     internal func initValues(){
         if customMethodManager == nil {

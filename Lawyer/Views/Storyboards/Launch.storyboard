@@ -15,42 +15,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="RS2-1n-C7d">
-                                <rect key="frame" x="82" y="293" width="250" height="310"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vRl-3X-jEb">
-                                        <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
-                                        <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="250" id="0jr-GS-Igs"/>
-                                        </constraints>
-                                    </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wdK-s7-XPP">
-                                        <rect key="frame" x="0.0" y="260" width="250" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="D9G-mR-e4A"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_white" translatesAutoresizingMaskIntoConstraints="NO" id="2U1-HC-cNF">
+                                <rect key="frame" x="88.5" y="423" width="237" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="250" id="1ud-ED-4Er"/>
+                                    <constraint firstAttribute="width" secondItem="2U1-HC-cNF" secondAttribute="height" multiplier="109:23" id="Bwq-IT-i6K"/>
+                                    <constraint firstAttribute="height" constant="50" id="hb0-ss-Feq"/>
                                 </constraints>
-                            </stackView>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="RS2-1n-C7d" firstAttribute="centerY" secondItem="ahr-nJ-oNX" secondAttribute="centerY" id="A11-Ih-mcy"/>
-                            <constraint firstItem="RS2-1n-C7d" firstAttribute="centerX" secondItem="ahr-nJ-oNX" secondAttribute="centerX" id="mPp-94-3uJ"/>
+                            <constraint firstItem="2U1-HC-cNF" firstAttribute="centerY" secondItem="ahr-nJ-oNX" secondAttribute="centerY" id="bWI-wl-Bjg"/>
+                            <constraint firstItem="2U1-HC-cNF" firstAttribute="centerX" secondItem="ahr-nJ-oNX" secondAttribute="centerX" id="h25-7k-pdZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZyD-ID-Ug7"/>
                     </view>
                     <connections>
-                        <outlet property="label_Logo" destination="wdK-s7-XPP" id="fBI-Dr-exQ"/>
-                        <outlet property="logo_splash_Stack" destination="RS2-1n-C7d" id="nRU-QP-fmP"/>
-                        <outlet property="view_Animation" destination="vRl-3X-jEb" id="ghQ-Fh-NMA"/>
+                        <outlet property="logo_splash" destination="2U1-HC-cNF" id="koK-5F-IKU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wAi-cq-8PM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -101,4 +82,7 @@
             <point key="canvasLocation" x="844.92753623188412" y="134.59821428571428"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logo_white" width="109" height="23.5"/>
+    </resources>
 </document>

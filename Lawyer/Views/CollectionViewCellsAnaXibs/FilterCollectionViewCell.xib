@@ -31,15 +31,22 @@
                                     <constraint firstAttribute="width" secondItem="bFe-cu-aOR" secondAttribute="height" id="FJ3-vt-qEO"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aHz-nG-0bv">
+                                <rect key="frame" x="0.0" y="0.0" width="184" height="49"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="08a-aa-BSJ" firstAttribute="leading" secondItem="Irj-IK-dC3" secondAttribute="leading" constant="15" id="Fye-Qa-skb"/>
+                            <constraint firstAttribute="trailing" secondItem="aHz-nG-0bv" secondAttribute="trailing" id="PZ3-fe-Qjq"/>
                             <constraint firstItem="bFe-cu-aOR" firstAttribute="bottom" secondItem="08a-aa-BSJ" secondAttribute="bottom" id="YHQ-gT-NyN"/>
+                            <constraint firstItem="aHz-nG-0bv" firstAttribute="top" secondItem="Irj-IK-dC3" secondAttribute="top" id="YN1-Hs-KNp"/>
                             <constraint firstItem="08a-aa-BSJ" firstAttribute="top" secondItem="Irj-IK-dC3" secondAttribute="top" id="cGe-1s-Uyf"/>
                             <constraint firstAttribute="bottom" secondItem="08a-aa-BSJ" secondAttribute="bottom" id="dgJ-xT-nYv"/>
+                            <constraint firstAttribute="bottom" secondItem="aHz-nG-0bv" secondAttribute="bottom" id="ef4-Qk-uY4"/>
                             <constraint firstAttribute="trailing" secondItem="bFe-cu-aOR" secondAttribute="trailing" id="iX5-gY-Rdn"/>
                             <constraint firstItem="bFe-cu-aOR" firstAttribute="top" secondItem="08a-aa-BSJ" secondAttribute="top" id="lLE-Cu-3zv"/>
+                            <constraint firstItem="aHz-nG-0bv" firstAttribute="leading" secondItem="Irj-IK-dC3" secondAttribute="leading" id="mCZ-cX-H6Q"/>
                             <constraint firstItem="bFe-cu-aOR" firstAttribute="leading" secondItem="08a-aa-BSJ" secondAttribute="trailing" id="uhh-Ws-ukB"/>
                         </constraints>
                     </view>
@@ -54,6 +61,7 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="184" height="63"/>
             <connections>
+                <outlet property="btnSelectRef" destination="aHz-nG-0bv" id="Ox2-WS-Inc"/>
                 <outlet property="imageDD" destination="bFe-cu-aOR" id="YTH-bS-kkQ"/>
                 <outlet property="titleFilter" destination="08a-aa-BSJ" id="WCl-uP-ltq"/>
                 <outlet property="viewBG" destination="Irj-IK-dC3" id="RYf-qU-c8D"/>

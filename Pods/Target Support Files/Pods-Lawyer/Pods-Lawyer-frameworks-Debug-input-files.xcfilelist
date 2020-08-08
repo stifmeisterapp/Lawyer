@@ -1,0 +1,7 @@
+${PODS_ROOT}/Target Support Files/Pods-Lawyer/Pods-Lawyer-frameworks.sh
+${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework
+${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework
+${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework
+${BUILT_PRODUCTS_DIR}/ViewAnimator/ViewAnimator.framework
+${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework
+${BUILT_PRODUCTS_DIR}/paper-onboarding/paper_onboarding.framework

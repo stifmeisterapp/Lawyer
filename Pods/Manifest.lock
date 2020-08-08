@@ -1,0 +1,36 @@
+PODS:
+  - DropDown (2.3.4)
+  - IQKeyboardManagerSwift (6.5.5)
+  - lottie-ios (3.1.8)
+  - paper-onboarding (6.1.5)
+  - SkyFloatingLabelTextField (3.8.0)
+  - ViewAnimator (2.7.0)
+
+DEPENDENCIES:
+  - DropDown (= 2.3.4)
+  - IQKeyboardManagerSwift
+  - lottie-ios
+  - paper-onboarding
+  - SkyFloatingLabelTextField (~> 3.0)
+  - ViewAnimator
+
+SPEC REPOS:
+  trunk:
+    - DropDown
+    - IQKeyboardManagerSwift
+    - lottie-ios
+    - paper-onboarding
+    - SkyFloatingLabelTextField
+    - ViewAnimator
+
+SPEC CHECKSUMS:
+  DropDown: f225ff0fd09dde064d17aa03db7e4d4e4ff40b6b
+  IQKeyboardManagerSwift: 0fb93310284665245591f50f7a5e38de615960b7
+  lottie-ios: 48fac6be217c76937e36e340e2d09cf7b10b7f5f
+  paper-onboarding: fede1799b1da6988f3788e3b71654583c6f3bce1
+  SkyFloatingLabelTextField: 5a338412114808e961fe2d14ea2c5452c8b6e4aa
+  ViewAnimator: 5af1c6f3b310f012bf081259c43717aa54fbae73
+
+PODFILE CHECKSUM: e4610b7f256bbb0f47105c14b4b24f6bd311dbf6
+
+COCOAPODS: 1.8.4

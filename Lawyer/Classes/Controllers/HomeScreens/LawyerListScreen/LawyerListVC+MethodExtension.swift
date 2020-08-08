@@ -73,14 +73,15 @@ extension LawyerListVC{
         
         self.lawyerTableView.separatorStyle = .none
         self.lawyerTableView.hideEmptyCells()
-        self.lawyerTableView.isHidden = false
+        self.lawyerTableView.isHidden = true
         self.lawyerTableView.isScrollEnabled = true
         self.lawyerTableView.backgroundColor = AppColor.tableBGColor
         self.lawyerTableView.addSubview(self.refreshControl)
         
         self.filterCollectionView.showsHorizontalScrollIndicator = false
         self.filterCollectionView.isHidden = true
-        self.lawyerTableView.isHidden = true
+        self.filterCollectionView.isUserInteractionEnabled = true
+        
         self.txtSearch.isHidden = true
         self.btnFilterRef.isHidden = true
         self.btnFilterRef.isHidden = true
@@ -131,6 +132,8 @@ extension LawyerListVC{
         
         self.filterCollectionView.register(nib: FilterCollectionViewCell.className)
         self.lawyerTableView.register(nib: LawyerNewTableViewCell.className)
+        
+        
         
     }
     

@@ -34,7 +34,7 @@ class CategoryCollectionViewCellAndXib: UICollectionViewCell {
         
         
        /* self.customMethodManager?.provideShadowAndCornerRadius(self.viewBG, 0, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.placeholderColor, 2, 2, 2, 2, 0, AppColor.tableBGColor) */
-        self.customMethodManager?.provideCornerBorderTo(self, 0.5, AppColor.placeholderColor)
+        self.customMethodManager?.provideCornerBorderTo(self, 0.25, AppColor.placeholderColor)
         self.viewBG.backgroundColor = AppColor.whiteColor
         
         self.backgroundColor = AppColor.tableBGColor

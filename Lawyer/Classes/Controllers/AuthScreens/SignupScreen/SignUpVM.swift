@@ -28,11 +28,11 @@ class SignUpVM: DataStoreStructListModeling {
     //TODO: Prepare data source implementation
     func prepareDataSource() -> DataStoreStruct_List_ViewModel{
         
-        let dataStores = [DataStoreStruct(title: ConstantTexts.FullNamePH, placeholder: ConstantTexts.FullNamePH, value: ConstantTexts.empty, type: SignUpType.FullName, image: UIImage(systemName: "person.fill") ?? UIImage()),
+        let dataStores = [DataStoreStruct(title: ConstantTexts.FullNamePH, placeholder: ConstantTexts.FullNamePH, value: ConstantTexts.empty, type: SignUpType.FullName, image: UIImage(systemName: "person") ?? UIImage()),
                           
-                          DataStoreStruct(title: ConstantTexts.MobileNumberPH, placeholder: ConstantTexts.MobileNumberPH, value: ConstantTexts.empty, type: SignUpType.MobileNumber, image: UIImage(systemName: "phone.fill") ?? UIImage()),
+                          DataStoreStruct(title: ConstantTexts.MobileNumberPH, placeholder: ConstantTexts.MobileNumberPH, value: ConstantTexts.empty, type: SignUpType.MobileNumber, image: UIImage(systemName: "phone") ?? UIImage()),
                           
-                          DataStoreStruct(title: ConstantTexts.EmailAddressPH, placeholder: ConstantTexts.EmailAddressPH, value: ConstantTexts.empty, type: SignUpType.Email, image: UIImage(systemName: "envelope.fill") ?? UIImage())]
+                          DataStoreStruct(title: ConstantTexts.EmailAddressPH, placeholder: ConstantTexts.EmailAddressPH, value: ConstantTexts.empty, type: SignUpType.Email, image: UIImage(systemName: "envelope") ?? UIImage())]
         
         return DataStoreStruct_List_ViewModel(dataStoreStructs: dataStores)
     }

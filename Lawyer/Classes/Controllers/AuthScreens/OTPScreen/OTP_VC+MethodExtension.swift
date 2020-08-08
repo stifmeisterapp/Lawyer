@@ -58,7 +58,7 @@ extension OTP_VC{
         
         
         self.btnDoneOTPRef.setTitle(ConstantTexts.Varify_BT, for: .normal)
-        self.btnDoneOTPRef.titleLabel?.font = AppFont.Bold.size(AppFontName.OpenSans, size: 14)
+        self.btnDoneOTPRef.titleLabel?.font = ConstantFonts.mainBottomButtonFont
         
         self.btnDoneOTPRef.setTitleColor(AppColor.whiteColor, for: .normal)
         self.btnDoneOTPRef.backgroundColor = AppColor.themeColor
