@@ -116,7 +116,7 @@ extension PaymentVC:UITableViewDelegate{
         
         self.footer.btnCheckOutRef.setTitleColor(AppColor.whiteColor, for: .normal)
         self.footer.btnCheckOutRef.backgroundColor = AppColor.themeColor
-        // self.footer.btnBookConsultaionRef.addTarget(self, action: #selector(btnBookConsultationTapped), for: .touchUpInside)
+         self.footer.btnCheckOutRef.addTarget(self, action: #selector(btnCheckOutTapped), for: .touchUpInside)
         
         return footer
     }
@@ -128,5 +128,13 @@ extension PaymentVC:UITableViewDelegate{
     func tableView(_ tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat {
         return 195
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        // fetch the animation from the TableAnimation enum and initialze the TableViewAnimator class
+        let animation = currentTableAnimation.getAnimation()
+        let animator = TableViewAnimator(animation: animation)
+        animator.animate(cell: cell, at: indexPath, in: tableView)
+    }
+    
 }
 

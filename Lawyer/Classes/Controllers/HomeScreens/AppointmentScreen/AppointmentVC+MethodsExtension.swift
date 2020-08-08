@@ -71,20 +71,20 @@ extension AppointmentVC{
         
         //TODO: Temp static code (Needs to be removed)
         
-        self.data.append(AppointmentViewModel(UIImage(systemName: "sunrise") ?? UIImage(), ConstantTexts.MorningLT, [AppointmentTimeDataModel("09:00 \(ConstantTexts.AM_LT)", Bool()),
+        self.data.append(AppointmentViewModel(#imageLiteral(resourceName: "morning"), ConstantTexts.MorningLT, [AppointmentTimeDataModel("09:00 \(ConstantTexts.AM_LT)", Bool()),
         AppointmentTimeDataModel("09:30 \(ConstantTexts.AM_LT)", Bool()),
         AppointmentTimeDataModel("10:00 \(ConstantTexts.AM_LT)", Bool()),
         AppointmentTimeDataModel("10:30 \(ConstantTexts.AM_LT)", true),
         AppointmentTimeDataModel("11:00 \(ConstantTexts.AM_LT)", Bool()),
         AppointmentTimeDataModel("11:30 \(ConstantTexts.AM_LT)", Bool())]))
         
-        self.data.append(AppointmentViewModel(UIImage(systemName: "sun.max") ?? UIImage(), ConstantTexts.AfternoonLT, [AppointmentTimeDataModel("12:30 \(ConstantTexts.PM_LT)", Bool()),
+        self.data.append(AppointmentViewModel(#imageLiteral(resourceName: "afternoon"), ConstantTexts.AfternoonLT, [AppointmentTimeDataModel("12:30 \(ConstantTexts.PM_LT)", Bool()),
         AppointmentTimeDataModel("01:00 \(ConstantTexts.PM_LT)", Bool()),
         AppointmentTimeDataModel("01:30 \(ConstantTexts.PM_LT)", Bool()),
         AppointmentTimeDataModel("02:00 \(ConstantTexts.PM_LT)", true),
         AppointmentTimeDataModel("02:30 \(ConstantTexts.PM_LT)", Bool())]))
         
-        self.data.append(AppointmentViewModel(UIImage(systemName: "moon") ?? UIImage(), ConstantTexts.EveningLT, [AppointmentTimeDataModel("03:00 \(ConstantTexts.PM_LT)", Bool()),
+        self.data.append(AppointmentViewModel(#imageLiteral(resourceName: "evening"), ConstantTexts.EveningLT, [AppointmentTimeDataModel("03:00 \(ConstantTexts.PM_LT)", Bool()),
         AppointmentTimeDataModel("03:30 \(ConstantTexts.PM_LT)", true),
         AppointmentTimeDataModel("04:00 \(ConstantTexts.PM_LT)", Bool()),
         AppointmentTimeDataModel("04:30 \(ConstantTexts.PM_LT)", Bool()),

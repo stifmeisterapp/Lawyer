@@ -152,10 +152,10 @@
             </objects>
             <point key="canvasLocation" x="398" y="368"/>
         </scene>
-        <!--HomeVC-->
+        <!--MoreVC-->
         <scene sceneID="HsH-Yx-hZF">
             <objects>
-                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="HomeVC" id="6PY-sg-aNQ" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="MoreVC" id="6PY-sg-aNQ" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="OWe-xU-QYZ"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UHf-Zh-mGV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

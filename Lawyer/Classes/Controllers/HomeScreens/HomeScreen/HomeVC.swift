@@ -11,17 +11,22 @@ import DropDown
 import ViewAnimator
 
 class HomeVC: SBaseViewController {
-
+    
     //MARK: - IBOutlets
     
     @IBOutlet weak var viewLocationBackground: UIView!
     @IBOutlet weak var imageViewLoction: UIImageView!
     @IBOutlet weak var labelLoationTitle: UILabel!
     @IBOutlet weak var imageViewDropDown: UIImageView!
-    @IBOutlet weak var categoryCollectionView: UICollectionView!
     
-   /* For Tableview
- @IBOutlet weak var categoryTableView: UITableView! */
+    
+     
+    /*
+     For Collection view
+     @IBOutlet weak var categoryCollectionView: UICollectionView! */
+    
+    // For Tableview
+    @IBOutlet weak var categoryTableView: UITableView!
     
     //MARK: - Variables
     internal var categoryListVM:CategoryListViewModel?
@@ -29,22 +34,25 @@ class HomeVC: SBaseViewController {
     internal var customMethodManager:CustomMethodProtocol?
     internal let dropDown = DropDown()
     
+    
+    
+    // For Collection view
     internal let animations = [AnimationType.from(direction: .bottom, offset: 30.0)]
     
     
-    /* For Tableview
-    //MARK: - variables for the animate tableview
-   
-   internal var animationName = String()
     
-    /// an enum of type TableAnimation - determines the animation to be applied to the tableViewCells
-   internal var currentTableAnimation: TableAnimation = .fadeIn(duration: 0.85, delay: 0.03) {
-        didSet {
-            self.animationName = currentTableAnimation.getTitle()
-        }
-    }
-   internal var animationDuration: TimeInterval = 0.85
-   internal var delay: TimeInterval = 0.05 */
+  /*   //MARK: - variables for the animate tableview
+     
+     internal var animationName = String()
+     
+     /// an enum of type TableAnimation - determines the animation to be applied to the tableViewCells
+     internal var currentTableAnimation: TableAnimation = .fadeIn(duration: 0.85, delay: 0.03) {
+     didSet {
+     self.animationName = currentTableAnimation.getTitle()
+     }
+     }
+     internal var animationDuration: TimeInterval = 0.85
+     internal var delay: TimeInterval = 0.05 */
     
     
     
@@ -52,7 +60,7 @@ class HomeVC: SBaseViewController {
     //TODO: Implementation viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         initValues()
     }
@@ -66,11 +74,10 @@ class HomeVC: SBaseViewController {
     //TODO: Implementation viewDidAppear
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        runSimpleAnimation()
-        //runRotateAnimation()
+        animateView()
     }
     
-
+    
     
     //MARK: - Actions, Gestures, Selectors
     //TODO: Actions
@@ -90,21 +97,21 @@ class HomeVC: SBaseViewController {
             
             
         })
-
+        
     }
     
     
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
- 
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     
+     */
+    
 }

@@ -25,6 +25,21 @@ class PaymentVC: SBaseViewController {
     internal let footer: PaymentFooterView  = Bundle.main.loadNibNamed(PaymentFooterView.className, owner: self, options: nil)?.last as! PaymentFooterView
     
     
+    //MARK: - variables for the animate tableview
+    internal var animationName = String()
+    
+    /// an enum of type TableAnimation - determines the animation to be applied to the tableViewCells
+    internal var currentTableAnimation: TableAnimation = .fadeIn(duration: 0.85, delay: 0.03) {
+        didSet {
+            self.animationName = currentTableAnimation.getTitle()
+        }
+    }
+    internal var animationDuration: TimeInterval = 0.85
+    internal var delay: TimeInterval = 0.05
+    
+    
+    
+    
    //MARK: - View life cycle methods
     //TODO: Implementation viewDidLoad
     override func viewDidLoad() {
@@ -90,5 +105,32 @@ class PaymentVC: SBaseViewController {
         self.tblPayment.reloadData()
         // Do something
     }
+    
+    
+    @objc func btnCheckOutTapped(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.1,
+                       animations: {
+                        self.customMethodManager?.provideShadowAndCornerRadius(self.footer.btnCheckOutRef, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.textColor, 0, 0, 0, 0, 0, AppColor.clearColor)
+                        self.footer.btnCheckOutRef.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+        },
+                       completion: { _ in
+                        UIView.animate(withDuration: 0.1) {
+                            self.customMethodManager?.provideShadowAndCornerRadius(self.footer.btnCheckOutRef, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.textColor, -1, 1, 1, 3, 0, AppColor.clearColor)
+                            self.footer.btnCheckOutRef.transform = CGAffineTransform.identity
+                            //TODO: Temp code need to remove
+                            if self.header.switch_Ref.isOn{
+                                self.isValidate()
+                            }else{
+                                
+                            }
+                            
+                            
+                        }
+        })
+        
+    }
+
+    
+    
 
 }

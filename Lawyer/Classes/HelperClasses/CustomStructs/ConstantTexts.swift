@@ -23,8 +23,21 @@ struct ConstantTexts{
     
     //TODO: Animation
     static let  Law                                 =      "Law"
+    static let  construction                        =      "construction"
     
     //TODO: Label Text
+    
+    static let  Link_LT                             =    "\(APP_NAME) app link"
+    static let  FAQs_LT                             =      "FAQ's"
+    static let  Share_LT                            =      "Share"
+    static let  Custom_Payment_LT                   =      "Custom Payment"
+    static let  RateUs_LT                           =      "Rate Us"
+    static let  AboutUs_LT                          =      "About Us"
+    static let  UnderConstruction_LT                =      "Our app is in under construction."
+    static let  WeBackSoon_LT                       =      "We'll be back soon."
+    static let  ContactUs_LT                        =      "Contact Us"
+    static let  LogOut_LT                           =      "Logout"
+    
     static let  Total_LT                            =      "Total"
     static let  MorningLT                           =      "Morning"
     static let  AfternoonLT                         =      "Afternoon"
@@ -106,8 +119,12 @@ struct ConstantTexts{
     static let  LoginHT                             =      "Login"
     static let  SignupHT                            =      "Signup"
     static let  VarificationHT                      =      "Verification"
+    static let  MoreHT                              =      "More"
+    static let  UnderCHT                            =      "Under construction"
     
     //TODO: Button Title Text
+    static let  OkBT                                =      "Ok"
+    static let  CancelBT                            =      "Cancel"
     static let  MeetBT                              =      "MEET"
     static let  ClearFiltersBT                      =      "Clear Filters"
     static let  CallBT                              =      "CALL"
@@ -157,6 +174,7 @@ struct ConstantTexts{
     static let  EnterValidCorFNameALERT             =      "Please enter valid company/firm's name."
     static let  EnterCorFAddressALERT               =      "Please enter company/firm's address."
     static let  EnterValidCorFAddressALERT          =      "Please enter valid company/firm's address."
+    static let  WantToLogoutALERT                   =      "Are you sure?\nYou want to Log out!"
     
     
     static let  EnterMobileNumberALERT              =      "Please enter mobile number."

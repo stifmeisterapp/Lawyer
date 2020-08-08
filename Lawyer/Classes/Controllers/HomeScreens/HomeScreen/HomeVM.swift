@@ -10,6 +10,9 @@ import Foundation
 import UIKit
 class HomeVM: CategoryListModeling {
     
+    //TODO: Singleton object
+    static let shared = HomeVM()
+    private init() {}
     
     //TODO: Prepare data source implementation
     func prepareDataSource() -> CategoryListViewModel {

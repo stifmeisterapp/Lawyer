@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import ViewAnimator
 
 //MARK: - UITableViewDataSource extension
 extension HomeVC:UITableViewDataSource{
@@ -35,11 +36,38 @@ extension HomeVC:UITableViewDataSource{
 extension HomeVC:UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: LawyerListVC.className) as! LawyerListVC
-        if let categoryVM = categoryListVM?.categoryAtIndex(indexPath.row){
-            vc.headerTitle = categoryVM.title
-        }
-        self.navigationController?.pushViewController(vc, animated: true)
+      UIView.animate(withDuration: 0.1,
+      animations: {
+          if let cell = tableView.cellForRow(at: indexPath) as? LawyerTableViewCell {
+              cell.viewBG.transform = .init(scaleX: 0.95, y: 0.95)
+             cell.contentView.backgroundColor = AppColor.highLightColor
+          }
+      },
+      completion: { _ in
+          UIView.animate(withDuration: 0.05) {
+             if let cell = tableView.cellForRow(at: indexPath) as? LawyerTableViewCell {
+                  cell.viewBG.transform = .identity
+                  cell.contentView.backgroundColor = .clear
+                UIView.animate(views: tableView.visibleCells,
+                               animations: self.animations, reversed: true,
+                               initialAlpha: 1.0,
+                               finalAlpha: 0.0,
+                               completion: {
+                              
+                                let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: LawyerListVC.className) as! LawyerListVC
+                                if let categoryVM = self.categoryListVM?.categoryAtIndex(indexPath.row){
+                                    vc.headerTitle = categoryVM.title
+                                }
+                                self.navigationController?.pushViewController(vc, animated: true)
+                                
+                })
+                
+                  
+                  
+                  
+              }
+          }
+      })
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

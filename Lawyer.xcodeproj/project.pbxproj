@@ -19,6 +19,10 @@
 		9D0B58FD24D52FE800AACE59 /* SignUpVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0B58FC24D52FE800AACE59 /* SignUpVM.swift */; };
 		9D0B58FF24D5390000AACE59 /* SignUpVC+UITextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0B58FE24D5390000AACE59 /* SignUpVC+UITextFieldDelegate.swift */; };
 		9D0B590124D5396400AACE59 /* SignUpVC+TableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0B590024D5396400AACE59 /* SignUpVC+TableViewExtension.swift */; };
+		9D233DEA24DEFB7400B2F1C9 /* SweetAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D233DE924DEFB7400B2F1C9 /* SweetAlert.swift */; };
+		9D233DED24DF0BF500B2F1C9 /* UnderConstructionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D233DEC24DF0BF500B2F1C9 /* UnderConstructionVC.swift */; };
+		9D233DEF24DF0CF300B2F1C9 /* UnderConstructionVC+CustomMethodsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D233DEE24DF0CF300B2F1C9 /* UnderConstructionVC+CustomMethodsExtension.swift */; };
+		9D233DF124DF0F0E00B2F1C9 /* construction.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D233DF024DF0F0E00B2F1C9 /* construction.json */; };
 		9D25567524C1DCAA006563AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D25567424C1DCAA006563AC /* AppDelegate.swift */; };
 		9D25567724C1DCAA006563AC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D25567624C1DCAA006563AC /* SceneDelegate.swift */; };
 		9D25567924C1DCAA006563AC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D25567824C1DCAA006563AC /* ViewController.swift */; };
@@ -53,6 +57,17 @@
 		9D5F2B5424C75DB700BA4015 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5F2B5324C75DB700BA4015 /* Category.swift */; };
 		9D5FE2AE24D4AA60002A94F1 /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5FE2AD24D4AA60002A94F1 /* LoginVM.swift */; };
 		9D5FE2B024D4B59D002A94F1 /* LoginVC+TableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5FE2AF24D4B59D002A94F1 /* LoginVC+TableViewExtension.swift */; };
+		9D645B8C24DF316B00A2B0F6 /* FAQ_VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D645B8B24DF316B00A2B0F6 /* FAQ_VC.swift */; };
+		9D645B8E24DF31B400A2B0F6 /* FAQ_VC+CustomMethodsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D645B8D24DF31B400A2B0F6 /* FAQ_VC+CustomMethodsExtension.swift */; };
+		9D645B9024DF332900A2B0F6 /* FAQView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D645B8F24DF332900A2B0F6 /* FAQView.swift */; };
+		9D645B9224DF368500A2B0F6 /* FAQ_DataModeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D645B9124DF368500A2B0F6 /* FAQ_DataModeling.swift */; };
+		9D645B9424DF36BC00A2B0F6 /* FAQ_VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D645B9324DF36BC00A2B0F6 /* FAQ_VM.swift */; };
+		9D645B9724DF3E6D00A2B0F6 /* AboutUsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D645B9624DF3E6D00A2B0F6 /* AboutUsVC.swift */; };
+		9D645B9924DF3F1A00A2B0F6 /* AboutUsVC+CustomMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D645B9824DF3F1A00A2B0F6 /* AboutUsVC+CustomMethods.swift */; };
+		9D6FED1624DEC28E00232A7A /* MoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6FED1524DEC28E00232A7A /* MoreVC.swift */; };
+		9D6FED1824DEC3D900232A7A /* MoreVC+CustomMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6FED1724DEC3D900232A7A /* MoreVC+CustomMethods.swift */; };
+		9D6FED1A24DEC5FF00232A7A /* MoreVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6FED1924DEC5FF00232A7A /* MoreVM.swift */; };
+		9D6FED1C24DECFF200232A7A /* MoreVC+TableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6FED1B24DECFF200232A7A /* MoreVC+TableViewExtension.swift */; };
 		9D76C04624C8CC51002B400E /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D76C04524C8CC51002B400E /* AppColor.swift */; };
 		9D76C04824C8D8ED002B400E /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D76C04724C8D8ED002B400E /* Auth.storyboard */; };
 		9D76C04C24C8DE46002B400E /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D76C04B24C8DE46002B400E /* LoginVC.swift */; };
@@ -195,6 +210,10 @@
 		9D0B58FC24D52FE800AACE59 /* SignUpVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVM.swift; sourceTree = "<group>"; };
 		9D0B58FE24D5390000AACE59 /* SignUpVC+UITextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpVC+UITextFieldDelegate.swift"; sourceTree = "<group>"; };
 		9D0B590024D5396400AACE59 /* SignUpVC+TableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpVC+TableViewExtension.swift"; sourceTree = "<group>"; };
+		9D233DE924DEFB7400B2F1C9 /* SweetAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SweetAlert.swift; sourceTree = "<group>"; };
+		9D233DEC24DF0BF500B2F1C9 /* UnderConstructionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderConstructionVC.swift; sourceTree = "<group>"; };
+		9D233DEE24DF0CF300B2F1C9 /* UnderConstructionVC+CustomMethodsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UnderConstructionVC+CustomMethodsExtension.swift"; sourceTree = "<group>"; };
+		9D233DF024DF0F0E00B2F1C9 /* construction.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = construction.json; sourceTree = "<group>"; };
 		9D25567124C1DCAA006563AC /* Lawyer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lawyer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D25567424C1DCAA006563AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D25567624C1DCAA006563AC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -235,6 +254,17 @@
 		9D5F2B5324C75DB700BA4015 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		9D5FE2AD24D4AA60002A94F1 /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
 		9D5FE2AF24D4B59D002A94F1 /* LoginVC+TableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginVC+TableViewExtension.swift"; sourceTree = "<group>"; };
+		9D645B8B24DF316B00A2B0F6 /* FAQ_VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQ_VC.swift; sourceTree = "<group>"; };
+		9D645B8D24DF31B400A2B0F6 /* FAQ_VC+CustomMethodsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FAQ_VC+CustomMethodsExtension.swift"; sourceTree = "<group>"; };
+		9D645B8F24DF332900A2B0F6 /* FAQView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQView.swift; sourceTree = "<group>"; };
+		9D645B9124DF368500A2B0F6 /* FAQ_DataModeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQ_DataModeling.swift; sourceTree = "<group>"; };
+		9D645B9324DF36BC00A2B0F6 /* FAQ_VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQ_VM.swift; sourceTree = "<group>"; };
+		9D645B9624DF3E6D00A2B0F6 /* AboutUsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsVC.swift; sourceTree = "<group>"; };
+		9D645B9824DF3F1A00A2B0F6 /* AboutUsVC+CustomMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AboutUsVC+CustomMethods.swift"; sourceTree = "<group>"; };
+		9D6FED1524DEC28E00232A7A /* MoreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreVC.swift; sourceTree = "<group>"; };
+		9D6FED1724DEC3D900232A7A /* MoreVC+CustomMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoreVC+CustomMethods.swift"; sourceTree = "<group>"; };
+		9D6FED1924DEC5FF00232A7A /* MoreVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreVM.swift; sourceTree = "<group>"; };
+		9D6FED1B24DECFF200232A7A /* MoreVC+TableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoreVC+TableViewExtension.swift"; sourceTree = "<group>"; };
 		9D76C04524C8CC51002B400E /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
 		9D76C04724C8D8ED002B400E /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		9D76C04B24C8DE46002B400E /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -393,6 +423,23 @@
 			path = OnboardingScreen;
 			sourceTree = "<group>";
 		};
+		9D233DE824DEFB4D00B2F1C9 /* SweetAleart */ = {
+			isa = PBXGroup;
+			children = (
+				9D233DE924DEFB7400B2F1C9 /* SweetAlert.swift */,
+			);
+			path = SweetAleart;
+			sourceTree = "<group>";
+		};
+		9D233DEB24DF0BAA00B2F1C9 /* UnderConstructionScreen */ = {
+			isa = PBXGroup;
+			children = (
+				9D233DEC24DF0BF500B2F1C9 /* UnderConstructionVC.swift */,
+				9D233DEE24DF0CF300B2F1C9 /* UnderConstructionVC+CustomMethodsExtension.swift */,
+			);
+			path = UnderConstructionScreen;
+			sourceTree = "<group>";
+		};
 		9D25566824C1DCAA006563AC = {
 			isa = PBXGroup;
 			children = (
@@ -465,6 +512,10 @@
 		9D4C683124C59DF30064E935 /* HomeScreens */ = {
 			isa = PBXGroup;
 			children = (
+				9D645B9524DF3E3D00A2B0F6 /* AboutUsSCreen */,
+				9D645B8A24DF314100A2B0F6 /* FAQScreen */,
+				9D233DEB24DF0BAA00B2F1C9 /* UnderConstructionScreen */,
+				9D6FED1424DEC26600232A7A /* MoreScreen */,
 				9D9E722B24DD9E14005805D7 /* PaymentScreen */,
 				9D9E720C24DC951B005805D7 /* AppointmentScreen */,
 				9D4C683324C59E180064E935 /* HomeScreen */,
@@ -550,6 +601,7 @@
 		9D554C5924C2D04E00E2080D /* HelperClasses */ = {
 			isa = PBXGroup;
 			children = (
+				9D233DE824DEFB4D00B2F1C9 /* SweetAleart */,
 				9DDC564724DB44ED002DD47D /* ToolTipHelper */,
 				9DDC564424DB44B9002DD47D /* AnimationFiles */,
 				9D948F2324D5711600AB41F0 /* OTP_HelperClasses */,
@@ -650,6 +702,7 @@
 				9DEB6EC624D9E73200ED3FD6 /* FilterListModeling.swift */,
 				9DEB6EC824D9E7A200ED3FD6 /* FilterCategoryListModeling.swift */,
 				9D9E724024DDEE6C005805D7 /* DataStoreStructListModeling_GSTIN.swift */,
+				9D645B9124DF368500A2B0F6 /* FAQ_DataModeling.swift */,
 			);
 			path = DipendenciesInjections;
 			sourceTree = "<group>";
@@ -678,6 +731,37 @@
 				9DEB6ECA24D9E87300ED3FD6 /* LawyerListCategoryList_VM.swift */,
 			);
 			path = LawyerListScreen;
+			sourceTree = "<group>";
+		};
+		9D645B8A24DF314100A2B0F6 /* FAQScreen */ = {
+			isa = PBXGroup;
+			children = (
+				9D645B8B24DF316B00A2B0F6 /* FAQ_VC.swift */,
+				9D645B8D24DF31B400A2B0F6 /* FAQ_VC+CustomMethodsExtension.swift */,
+				9D645B9324DF36BC00A2B0F6 /* FAQ_VM.swift */,
+				9D645B8F24DF332900A2B0F6 /* FAQView.swift */,
+			);
+			path = FAQScreen;
+			sourceTree = "<group>";
+		};
+		9D645B9524DF3E3D00A2B0F6 /* AboutUsSCreen */ = {
+			isa = PBXGroup;
+			children = (
+				9D645B9624DF3E6D00A2B0F6 /* AboutUsVC.swift */,
+				9D645B9824DF3F1A00A2B0F6 /* AboutUsVC+CustomMethods.swift */,
+			);
+			path = AboutUsSCreen;
+			sourceTree = "<group>";
+		};
+		9D6FED1424DEC26600232A7A /* MoreScreen */ = {
+			isa = PBXGroup;
+			children = (
+				9D6FED1524DEC28E00232A7A /* MoreVC.swift */,
+				9D6FED1724DEC3D900232A7A /* MoreVC+CustomMethods.swift */,
+				9D6FED1B24DECFF200232A7A /* MoreVC+TableViewExtension.swift */,
+				9D6FED1924DEC5FF00232A7A /* MoreVM.swift */,
+			);
+			path = MoreScreen;
 			sourceTree = "<group>";
 		};
 		9D76C04924C8DDFC002B400E /* AuthScreens */ = {
@@ -841,6 +925,7 @@
 			isa = PBXGroup;
 			children = (
 				9DDC564524DB44E2002DD47D /* Law.json */,
+				9D233DF024DF0F0E00B2F1C9 /* construction.json */,
 			);
 			path = AnimationFiles;
 			sourceTree = "<group>";
@@ -994,6 +1079,7 @@
 				9D9E722824DD8D00005805D7 /* AppointmentFooterView.xib in Resources */,
 				9D5F2B2A24C5FB3900BA4015 /* TabBar.storyboard in Resources */,
 				9DFED3DB24D48C7F00851570 /* Auth_TextField_TableViewCell.xib in Resources */,
+				9D233DF124DF0F0E00B2F1C9 /* construction.json in Resources */,
 				9D25568124C1DCAB006563AC /* LaunchScreen.storyboard in Resources */,
 				9D9E723924DDEA4D005805D7 /* GSTIN_TableViewCellAndXib.xib in Resources */,
 				9D25567E24C1DCAB006563AC /* Assets.xcassets in Resources */,
@@ -1153,6 +1239,7 @@
 				9D00E1FB24C7625900F6FC74 /* OnboardingVC.swift in Sources */,
 				9DC5456524C33E9A009AF27A /* ConstantTexts.swift in Sources */,
 				9D948F3124D5FB6000AB41F0 /* CategoryCollectionViewCellAndXib.swift in Sources */,
+				9D6FED1624DEC28E00232A7A /* MoreVC.swift in Sources */,
 				9D948F2724D5716600AB41F0 /* VPMOTPView.swift in Sources */,
 				9D9E723524DDBB0E005805D7 /* PaymentVC+TableViewExtension.swift in Sources */,
 				9D9E723324DDAECB005805D7 /* PaymentHeaderView.swift in Sources */,
@@ -1160,6 +1247,7 @@
 				9D00E1FF24C7E02900F6FC74 /* OnboardingView.swift in Sources */,
 				9DEB6EC524D9E42A00ED3FD6 /* FilterViewModel.swift in Sources */,
 				9D787D7E24C942FF00EB22D2 /* OTP_VC.swift in Sources */,
+				9D645B8C24DF316B00A2B0F6 /* FAQ_VC.swift in Sources */,
 				9DDC565424DB530D002DD47D /* LawyerNewTableViewCell.swift in Sources */,
 				9D948F2B24D5BED000AB41F0 /* UIImage+Extensions.swift in Sources */,
 				9D787D8224C9663300EB22D2 /* UITextField+Extension.swift in Sources */,
@@ -1169,6 +1257,7 @@
 				9D76C04C24C8DE46002B400E /* LoginVC.swift in Sources */,
 				9D9E722A24DD8D22005805D7 /* AppointmentFooterView.swift in Sources */,
 				9D5F2B4524C6D29B00BA4015 /* UITableView+AdditionsExtension.swift in Sources */,
+				9D233DEF24DF0CF300B2F1C9 /* UnderConstructionVC+CustomMethodsExtension.swift in Sources */,
 				9D787D8624C9848C00EB22D2 /* ValidationProtocol.swift in Sources */,
 				9D93CE5424DBF16300CC148E /* FilterPopup_VC.swift in Sources */,
 				9D0B206724CA03180073C3C4 /* SBaseViewController+MethodExtension.swift in Sources */,
@@ -1177,10 +1266,12 @@
 				9D9E724924DE05AE005805D7 /* PaymentVC+UITextFieldDelegate.swift in Sources */,
 				9DDC564E24DB453B002DD47D /* TipView.swift in Sources */,
 				9D9E720724DC724E005805D7 /* FilterPopup_Experience_VM.swift in Sources */,
+				9D233DEA24DEFB7400B2F1C9 /* SweetAlert.swift in Sources */,
 				9D00E20324C7E19800F6FC74 /* OnboardingVC+paper_onboardingExtension.swift in Sources */,
 				9D9E721F24DD24FE005805D7 /* AppointMentTableViewCellAndXib.swift in Sources */,
 				9DEB6ECD24D9FA8C00ED3FD6 /* LawyerListVC+CollectionViewExtensions.swift in Sources */,
 				9D787D8424C9834E00EB22D2 /* ValidationClass.swift in Sources */,
+				9D233DED24DF0BF500B2F1C9 /* UnderConstructionVC.swift in Sources */,
 				9DFED3D324D48B2D00851570 /* SignUpType.swift in Sources */,
 				9D4C683924C5A3EB0064E935 /* HomeVC+MethodExtension.swift in Sources */,
 				9D554C6124C2D4FB00E2080D /* SoundClass.swift in Sources */,
@@ -1222,13 +1313,16 @@
 				9D9E723D24DDECD9005805D7 /* DataStoreStruct_GSTIN.swift in Sources */,
 				9D948F2924D572F200AB41F0 /* OTP_VC+ VPMOTPViewDelegate.swift in Sources */,
 				9D9E720924DC836B005805D7 /* FilterPopup_VC+UISearchExtension.swift in Sources */,
+				9D645B9224DF368500A2B0F6 /* FAQ_DataModeling.swift in Sources */,
 				9D9E724324DDEFD4005805D7 /* PaymentVM.swift in Sources */,
 				9DEB6EBA24D9DB5D00ED3FD6 /* FilterCollectionViewCell.swift in Sources */,
 				9D948F3424D5FFF900AB41F0 /* HomeVC+CollectionViewExtension.swift in Sources */,
 				9D9E724724DDFD69005805D7 /* PaymentFooterView.swift in Sources */,
+				9D6FED1C24DECFF200232A7A /* MoreVC+TableViewExtension.swift in Sources */,
 				9D25567724C1DCAA006563AC /* SceneDelegate.swift in Sources */,
 				9D787D8024C9437200EB22D2 /* OTP_VC+MethodExtension.swift in Sources */,
 				9DEB6EBF24D9E02300ED3FD6 /* FilterCategory.swift in Sources */,
+				9D645B8E24DF31B400A2B0F6 /* FAQ_VC+CustomMethodsExtension.swift in Sources */,
 				9D5F2B3124C6AF1100BA4015 /* LawyerTableViewCell.swift in Sources */,
 				9D9E724124DDEE6C005805D7 /* DataStoreStructListModeling_GSTIN.swift in Sources */,
 				9D0B58FD24D52FE800AACE59 /* SignUpVM.swift in Sources */,
@@ -1238,6 +1332,7 @@
 				9D948F2E24D5F9AD00AB41F0 /* UICollectionView+Extensions.swift in Sources */,
 				9DFED3DD24D48F7800851570 /* DataStoreStruct_Model.swift in Sources */,
 				9DEB6EC724D9E73200ED3FD6 /* FilterListModeling.swift in Sources */,
+				9D645B9424DF36BC00A2B0F6 /* FAQ_VM.swift in Sources */,
 				9DC5455E24C33170009AF27A /* CustomMethodProtocol.swift in Sources */,
 				9D5F2B3524C6AF9700BA4015 /* SBaseTableViewCell.swift in Sources */,
 				9D0B58FB24D4CCC600AACE59 /* LoginVC+UITextFieldDelegate.swift in Sources */,
@@ -1245,13 +1340,16 @@
 				9DFED3E324D49F3D00851570 /* DataStoreStructListModeling.swift in Sources */,
 				9D9E723F24DDED5D005805D7 /* DataStoreStruct_GSTIN_List_ViewModel.swift in Sources */,
 				9D9E720E24DC9551005805D7 /* AppointmentVC.swift in Sources */,
+				9D645B9924DF3F1A00A2B0F6 /* AboutUsVC+CustomMethods.swift in Sources */,
 				9DEB6ECB24D9E87300ED3FD6 /* LawyerListCategoryList_VM.swift in Sources */,
 				9D554C5F24C2D41600E2080D /* SoundProtocol.swift in Sources */,
 				9D5F2B5024C7100300BA4015 /* LawyerListVC+MethodExtension.swift in Sources */,
 				9DDC564C24DB453B002DD47D /* TipViewTransition.swift in Sources */,
 				9D9E722224DD56B5005805D7 /* AppointMentTableViewCellAndXib+UICollectionViewExtension.swift in Sources */,
 				9DEB6EC924D9E7A200ED3FD6 /* FilterCategoryListModeling.swift in Sources */,
+				9D645B9724DF3E6D00A2B0F6 /* AboutUsVC.swift in Sources */,
 				9DEB6EBD24D9DF8500ED3FD6 /* Filter.swift in Sources */,
+				9D6FED1A24DEC5FF00232A7A /* MoreVM.swift in Sources */,
 				9DDC564D24DB453B002DD47D /* AnchorView.swift in Sources */,
 				9D5F2B2D24C612BB00BA4015 /* TabBarVC.swift in Sources */,
 				9DC5456324C33DAE009AF27A /* AppStoryboard.swift in Sources */,
@@ -1259,8 +1357,10 @@
 				9D9E722524DD57EA005805D7 /* TimeCollectionViewCellAndXib.swift in Sources */,
 				9D9E720124DC6547005805D7 /* FilterPopup_City_VM.swift in Sources */,
 				9DFED3DA24D48C7F00851570 /* Auth_TextField_TableViewCell.swift in Sources */,
+				9D6FED1824DEC3D900232A7A /* MoreVC+CustomMethods.swift in Sources */,
 				9D00E20124C7E0F500F6FC74 /* OnboardingVC+MethodExtension.swift in Sources */,
 				9D76C04E24C8E011002B400E /* LoginVC+MethodExtension.swift in Sources */,
+				9D645B9024DF332900A2B0F6 /* FAQView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

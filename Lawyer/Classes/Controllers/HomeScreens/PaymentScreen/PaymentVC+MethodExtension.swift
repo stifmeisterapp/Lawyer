@@ -188,7 +188,16 @@ extension PaymentVC{
     //TODO: register nib file
     private func registerNib(){
         self.tblPayment.register(nib: GSTIN_TableViewCellAndXib.className)
-        self.tblPayment.reloadData()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
+            self.tblPayment.isHidden = false
+            
+           /* self.currentTableAnimation =  TableAnimation.fadeIn(duration: self.animationDuration, delay: self.delay) */
+            
+             self.currentTableAnimation = TableAnimation.moveUpWithFade(rowHeight: 55,duration: self.animationDuration, delay: self.delay)
+            
+            self.tblPayment.reloadData()
+        }
     }
     
     

@@ -376,7 +376,7 @@
     </scenes>
     <resources>
         <image name="AuthHeader" width="256.5" height="154.5"/>
-        <image name="logo_white" width="109" height="23.5"/>
+        <image name="logo_white" width="250" height="53.5"/>
         <image name="otpLogo" width="65" height="73.5"/>
         <image name="x.circle.fill" catalog="system" width="128" height="121"/>
     </resources>

@@ -17,24 +17,24 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P5Z-JS-AYt">
-                        <rect key="frame" x="0.0" y="5" width="458" height="175"/>
+                        <rect key="frame" x="0.0" y="0.0" width="458" height="185"/>
                         <subviews>
                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="b2h-rJ-pOL">
-                                <rect key="frame" x="408" y="69.5" width="40" height="36.5"/>
+                                <rect key="frame" x="408" y="74.5" width="40" height="36.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="B61-Mw-zW7"/>
                                     <constraint firstAttribute="width" constant="40" id="JAE-k0-Ple"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sIl-Ib-qUk">
-                                <rect key="frame" x="20" y="67.5" width="40" height="40"/>
+                                <rect key="frame" x="20" y="72.5" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="dtJ-HS-aae"/>
                                     <constraint firstAttribute="height" constant="40" id="kKV-JF-Nui"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bcz-8h-HHX">
-                                <rect key="frame" x="80" y="0.0" width="323" height="175"/>
+                                <rect key="frame" x="70" y="0.0" width="333" height="185"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -43,7 +43,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Bcz-8h-HHX" firstAttribute="top" secondItem="P5Z-JS-AYt" secondAttribute="top" id="2qj-lf-pxz"/>
-                            <constraint firstItem="Bcz-8h-HHX" firstAttribute="leading" secondItem="sIl-Ib-qUk" secondAttribute="trailing" constant="20" id="4Dn-XU-2eR"/>
+                            <constraint firstItem="Bcz-8h-HHX" firstAttribute="leading" secondItem="sIl-Ib-qUk" secondAttribute="trailing" constant="10" id="4Dn-XU-2eR"/>
                             <constraint firstAttribute="trailing" secondItem="b2h-rJ-pOL" secondAttribute="trailing" constant="10" id="8fY-eP-Szs"/>
                             <constraint firstItem="sIl-Ib-qUk" firstAttribute="leading" secondItem="P5Z-JS-AYt" secondAttribute="leading" constant="20" id="MNw-6o-5Wa"/>
                             <constraint firstItem="b2h-rJ-pOL" firstAttribute="leading" secondItem="Bcz-8h-HHX" secondAttribute="trailing" constant="5" id="SDv-OP-VOR"/>
@@ -54,8 +54,8 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="P5Z-JS-AYt" firstAttribute="top" secondItem="Mi9-n1-16x" secondAttribute="top" constant="5" id="NS1-3x-rT2"/>
-                    <constraint firstAttribute="bottom" secondItem="P5Z-JS-AYt" secondAttribute="bottom" constant="5" id="hWP-Oi-r9h"/>
+                    <constraint firstItem="P5Z-JS-AYt" firstAttribute="top" secondItem="Mi9-n1-16x" secondAttribute="top" id="NS1-3x-rT2"/>
+                    <constraint firstAttribute="bottom" secondItem="P5Z-JS-AYt" secondAttribute="bottom" id="hWP-Oi-r9h"/>
                     <constraint firstAttribute="trailing" secondItem="P5Z-JS-AYt" secondAttribute="trailing" id="kLg-0h-Qpa"/>
                     <constraint firstItem="P5Z-JS-AYt" firstAttribute="leading" secondItem="Mi9-n1-16x" secondAttribute="leading" id="lWo-s5-yeg"/>
                 </constraints>

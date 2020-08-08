@@ -38,7 +38,8 @@ let kNoInterNet = "No internet"
 //TODO: Application informations
 
 let APP_BUNDLE_NAME = MAIN_BUNDLE.infoDictionary?[kCFBundleNameKey as String]
-let APP_NAME = "LAWYER"
+let APP_NAME = "All India Legal"
+let APP_LINK = "https://www.hackingwithswift.com/articles/118/uiactivityviewcontroller-by-example"
 let APP_VERSION = MAIN_BUNDLE.object(forInfoDictionaryKey: "CFBundleVersion")
 let IN_SIMULATOR = (TARGET_IPHONE_SIMULATOR != 0)
 let IS_NEW_CODE = false

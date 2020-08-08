@@ -44,11 +44,12 @@ class LawyerTableViewCell: SBaseTableViewCell {
         self.viewBG.backgroundColor = AppColor.whiteColor
         
         self.backgroundColor = AppColor.tableBGColor
-        self.titlelLabelCategory.font = AppFont.Semibold.size(AppFontName.OpenSans, size: 14)
+        self.titlelLabelCategory.font = AppFont.Semibold.size(AppFontName.OpenSans, size: 12)
         self.titlelLabelCategory.textColor = AppColor.darkGrayColor
-        
+       /*
         self.imageCategory.setImageTintColor(AppColor.darkGrayColor)
         self.imageRightArrow.setImageTintColor(AppColor.darkGrayColor)
+         */
     }
     
     

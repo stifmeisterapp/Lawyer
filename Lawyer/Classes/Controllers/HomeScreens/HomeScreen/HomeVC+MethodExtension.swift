@@ -31,19 +31,24 @@ extension HomeVC{
         
         self.customMethodManager?.provideShadowAndCornerRadius(self.viewLocationBackground, 0, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.placeholderColor, 2, 2, 2, 2, 0, AppColor.tableBGColor)
         
+        self.imageViewLoction.setImageTintColor(AppColor.darkGrayColor)
+        
         self.labelLoationTitle.font = AppFont.Regular.size(AppFontName.OpenSans, size: 12)
         self.labelLoationTitle.textColor = AppColor.darkGrayColor
         self.labelLoationTitle.text = "\(ConstantTexts.YouAreInLT) \("Delhi")"
         self.imageViewDropDown.setImageTintColor(AppColor.darkGrayColor)
         
-      /* For Tableview
-         self.categoryTableView.backgroundColor = AppColor.tableBGColor
-        self.categoryTableView.separatorStyle = .none
+        // For Tableview
+        self.categoryTableView.backgroundColor = AppColor.tableBGColor
+        self.categoryTableView.separatorStyle = .singleLine
+        self.categoryTableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         self.categoryTableView.hideEmptyCells()
         self.categoryTableView.isHidden = true
-        self.categoryTableView.isScrollEnabled = true */
+        self.categoryTableView.isScrollEnabled = true
         
-        self.categoryCollectionView.backgroundColor = AppColor.tableBGColor
+        
+        /* For Collection view
+        self.categoryCollectionView.backgroundColor = AppColor.tableBGColor */
         
         recheckDataModels()
         
@@ -61,7 +66,7 @@ extension HomeVC{
     //TODO: Recheck data models implenemtation
     private func recheckDataModels(){
         if  self.homeVM == nil{
-            self.homeVM = HomeVM()
+            self.homeVM = HomeVM.shared
         }
         
         if  self.categoryListVM == nil{
@@ -74,10 +79,12 @@ extension HomeVC{
     
     //TODO: register nib file
     private func registerNib(){
-        /* For Tableview
+        // For Tableview
         self.categoryTableView.register(nib: LawyerTableViewCell.className)
-        
-        DispatchQueue.main.asyncAfter(deadline: .now()) {
+        animateView()
+     /* For Tableview
+         
+         DispatchQueue.main.asyncAfter(deadline: .now()) {
             self.categoryTableView.isHidden = false
             
             self.currentTableAnimation =  TableAnimation.fadeIn(duration: self.animationDuration, delay: self.delay)
@@ -87,9 +94,29 @@ extension HomeVC{
             self.categoryTableView.reloadData()
         } */
         
-        self.categoryCollectionView.register(nib: CategoryCollectionViewCellAndXib.className)
+        
+        
+        
+        /* For Collection view
+        self.categoryCollectionView.register(nib: CategoryCollectionViewCellAndXib.className) */
     }
     
+    //TODO: Animate rotate table view
+       internal func animateView(){
+           self.categoryTableView.isHidden = false
+           self.categoryTableView.reloadData()
+           let fromAnimation = AnimationType.from(direction: .right, offset: 30.0)
+           UIView.animate(views: categoryTableView.visibleCells,
+                          animations: [fromAnimation], delay: 0.5)
+           
+           
+           
+       }
+    
+    
+    
+    
+    /* For Collection view
     //TODO: Animate simple collection view
      internal func runSimpleAnimation(){
          categoryCollectionView?.reloadData()
@@ -109,7 +136,7 @@ extension HomeVC{
         UIView.animate(views: self.categoryCollectionView.visibleCells,
                        animations: [zoomAnimation, rotateAnimation],
                        duration: 0.5)
-    }
+    } */
     
     
 }

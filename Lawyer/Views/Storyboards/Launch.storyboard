@@ -83,6 +83,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo_white" width="109" height="23.5"/>
+        <image name="logo_white" width="250" height="53.5"/>
     </resources>
 </document>
