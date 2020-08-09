@@ -10,6 +10,12 @@ import Foundation
 import UIKit
 
 extension LoginVC{
+    
+    //TODO: Navigation setup implenemtation
+    internal func navSetup(){
+        super.isHiddenNavigationBar(true)
+    }
+    
     //TODO: Init values
     internal func initValues(){
         if self.customMethodManager == nil {
@@ -157,12 +163,7 @@ extension LoginVC{
         
         
     }
-    
-    
-    //TODO: Navigation setup implenemtation
-    internal func navSetup(){
-        super.isHiddenNavigationBar(true)
-    }
+
     
     //TODO: setup validation
     internal func isValidate(){

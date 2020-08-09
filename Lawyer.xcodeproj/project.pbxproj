@@ -64,6 +64,12 @@
 		9D645B9424DF36BC00A2B0F6 /* FAQ_VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D645B9324DF36BC00A2B0F6 /* FAQ_VM.swift */; };
 		9D645B9724DF3E6D00A2B0F6 /* AboutUsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D645B9624DF3E6D00A2B0F6 /* AboutUsVC.swift */; };
 		9D645B9924DF3F1A00A2B0F6 /* AboutUsVC+CustomMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D645B9824DF3F1A00A2B0F6 /* AboutUsVC+CustomMethods.swift */; };
+		9D67B11F24E074880074B3F2 /* ContactUs.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D67B11E24E074880074B3F2 /* ContactUs.json */; };
+		9D67B12224E0759F0074B3F2 /* ContactUsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D67B12124E0759F0074B3F2 /* ContactUsVC.swift */; };
+		9D67B12424E075E70074B3F2 /* ContactUsVC+CustomMethodsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D67B12324E075E70074B3F2 /* ContactUsVC+CustomMethodsExtension.swift */; };
+		9D67B12624E08B160074B3F2 /* ContactUsVC+TableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D67B12524E08B160074B3F2 /* ContactUsVC+TableViewExtension.swift */; };
+		9D67B12824E08B890074B3F2 /* ContactUsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D67B12724E08B890074B3F2 /* ContactUsVM.swift */; };
+		9D67B12A24E08FC80074B3F2 /* ContactUsVC+UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D67B12924E08FC80074B3F2 /* ContactUsVC+UITextFieldExtension.swift */; };
 		9D6FED1624DEC28E00232A7A /* MoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6FED1524DEC28E00232A7A /* MoreVC.swift */; };
 		9D6FED1824DEC3D900232A7A /* MoreVC+CustomMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6FED1724DEC3D900232A7A /* MoreVC+CustomMethods.swift */; };
 		9D6FED1A24DEC5FF00232A7A /* MoreVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6FED1924DEC5FF00232A7A /* MoreVM.swift */; };
@@ -261,6 +267,12 @@
 		9D645B9324DF36BC00A2B0F6 /* FAQ_VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQ_VM.swift; sourceTree = "<group>"; };
 		9D645B9624DF3E6D00A2B0F6 /* AboutUsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsVC.swift; sourceTree = "<group>"; };
 		9D645B9824DF3F1A00A2B0F6 /* AboutUsVC+CustomMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AboutUsVC+CustomMethods.swift"; sourceTree = "<group>"; };
+		9D67B11E24E074880074B3F2 /* ContactUs.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ContactUs.json; sourceTree = "<group>"; };
+		9D67B12124E0759F0074B3F2 /* ContactUsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsVC.swift; sourceTree = "<group>"; };
+		9D67B12324E075E70074B3F2 /* ContactUsVC+CustomMethodsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContactUsVC+CustomMethodsExtension.swift"; sourceTree = "<group>"; };
+		9D67B12524E08B160074B3F2 /* ContactUsVC+TableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContactUsVC+TableViewExtension.swift"; sourceTree = "<group>"; };
+		9D67B12724E08B890074B3F2 /* ContactUsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsVM.swift; sourceTree = "<group>"; };
+		9D67B12924E08FC80074B3F2 /* ContactUsVC+UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContactUsVC+UITextFieldExtension.swift"; sourceTree = "<group>"; };
 		9D6FED1524DEC28E00232A7A /* MoreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreVC.swift; sourceTree = "<group>"; };
 		9D6FED1724DEC3D900232A7A /* MoreVC+CustomMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoreVC+CustomMethods.swift"; sourceTree = "<group>"; };
 		9D6FED1924DEC5FF00232A7A /* MoreVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreVM.swift; sourceTree = "<group>"; };
@@ -512,7 +524,8 @@
 		9D4C683124C59DF30064E935 /* HomeScreens */ = {
 			isa = PBXGroup;
 			children = (
-				9D645B9524DF3E3D00A2B0F6 /* AboutUsSCreen */,
+				9D67B12024E075670074B3F2 /* ContactUsScreen */,
+				9D645B9524DF3E3D00A2B0F6 /* AboutUsScreen */,
 				9D645B8A24DF314100A2B0F6 /* FAQScreen */,
 				9D233DEB24DF0BAA00B2F1C9 /* UnderConstructionScreen */,
 				9D6FED1424DEC26600232A7A /* MoreScreen */,
@@ -744,13 +757,25 @@
 			path = FAQScreen;
 			sourceTree = "<group>";
 		};
-		9D645B9524DF3E3D00A2B0F6 /* AboutUsSCreen */ = {
+		9D645B9524DF3E3D00A2B0F6 /* AboutUsScreen */ = {
 			isa = PBXGroup;
 			children = (
 				9D645B9624DF3E6D00A2B0F6 /* AboutUsVC.swift */,
 				9D645B9824DF3F1A00A2B0F6 /* AboutUsVC+CustomMethods.swift */,
 			);
-			path = AboutUsSCreen;
+			path = AboutUsScreen;
+			sourceTree = "<group>";
+		};
+		9D67B12024E075670074B3F2 /* ContactUsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				9D67B12124E0759F0074B3F2 /* ContactUsVC.swift */,
+				9D67B12324E075E70074B3F2 /* ContactUsVC+CustomMethodsExtension.swift */,
+				9D67B12524E08B160074B3F2 /* ContactUsVC+TableViewExtension.swift */,
+				9D67B12924E08FC80074B3F2 /* ContactUsVC+UITextFieldExtension.swift */,
+				9D67B12724E08B890074B3F2 /* ContactUsVM.swift */,
+			);
+			path = ContactUsScreen;
 			sourceTree = "<group>";
 		};
 		9D6FED1424DEC26600232A7A /* MoreScreen */ = {
@@ -924,6 +949,7 @@
 		9DDC564424DB44B9002DD47D /* AnimationFiles */ = {
 			isa = PBXGroup;
 			children = (
+				9D67B11E24E074880074B3F2 /* ContactUs.json */,
 				9DDC564524DB44E2002DD47D /* Law.json */,
 				9D233DF024DF0F0E00B2F1C9 /* construction.json */,
 			);
@@ -1099,6 +1125,7 @@
 				9DDC564224DB4486002DD47D /* OpenSans-Italic.ttf in Resources */,
 				9D9E722624DD57EA005805D7 /* TimeCollectionViewCellAndXib.xib in Resources */,
 				9DDC564624DB44E2002DD47D /* Law.json in Resources */,
+				9D67B11F24E074880074B3F2 /* ContactUs.json in Resources */,
 				9DDC563C24DB4486002DD47D /* OpenSans-LightItalic.ttf in Resources */,
 				9DDC564324DB4486002DD47D /* OpenSans-SemiboldItalic.ttf in Resources */,
 				9DC5455A24C32EF9009AF27A /* TypewriterKeys.ttf in Resources */,
@@ -1243,6 +1270,7 @@
 				9D948F2724D5716600AB41F0 /* VPMOTPView.swift in Sources */,
 				9D9E723524DDBB0E005805D7 /* PaymentVC+TableViewExtension.swift in Sources */,
 				9D9E723324DDAECB005805D7 /* PaymentHeaderView.swift in Sources */,
+				9D67B12624E08B160074B3F2 /* ContactUsVC+TableViewExtension.swift in Sources */,
 				9D5F2B4224C6C7FD00BA4015 /* HomeVM.swift in Sources */,
 				9D00E1FF24C7E02900F6FC74 /* OnboardingView.swift in Sources */,
 				9DEB6EC524D9E42A00ED3FD6 /* FilterViewModel.swift in Sources */,
@@ -1313,6 +1341,7 @@
 				9D9E723D24DDECD9005805D7 /* DataStoreStruct_GSTIN.swift in Sources */,
 				9D948F2924D572F200AB41F0 /* OTP_VC+ VPMOTPViewDelegate.swift in Sources */,
 				9D9E720924DC836B005805D7 /* FilterPopup_VC+UISearchExtension.swift in Sources */,
+				9D67B12224E0759F0074B3F2 /* ContactUsVC.swift in Sources */,
 				9D645B9224DF368500A2B0F6 /* FAQ_DataModeling.swift in Sources */,
 				9D9E724324DDEFD4005805D7 /* PaymentVM.swift in Sources */,
 				9DEB6EBA24D9DB5D00ED3FD6 /* FilterCollectionViewCell.swift in Sources */,
@@ -1351,14 +1380,17 @@
 				9DEB6EBD24D9DF8500ED3FD6 /* Filter.swift in Sources */,
 				9D6FED1A24DEC5FF00232A7A /* MoreVM.swift in Sources */,
 				9DDC564D24DB453B002DD47D /* AnchorView.swift in Sources */,
+				9D67B12A24E08FC80074B3F2 /* ContactUsVC+UITextFieldExtension.swift in Sources */,
 				9D5F2B2D24C612BB00BA4015 /* TabBarVC.swift in Sources */,
 				9DC5456324C33DAE009AF27A /* AppStoryboard.swift in Sources */,
+				9D67B12824E08B890074B3F2 /* ContactUsVM.swift in Sources */,
 				9D5F2B5424C75DB700BA4015 /* Category.swift in Sources */,
 				9D9E722524DD57EA005805D7 /* TimeCollectionViewCellAndXib.swift in Sources */,
 				9D9E720124DC6547005805D7 /* FilterPopup_City_VM.swift in Sources */,
 				9DFED3DA24D48C7F00851570 /* Auth_TextField_TableViewCell.swift in Sources */,
 				9D6FED1824DEC3D900232A7A /* MoreVC+CustomMethods.swift in Sources */,
 				9D00E20124C7E0F500F6FC74 /* OnboardingVC+MethodExtension.swift in Sources */,
+				9D67B12424E075E70074B3F2 /* ContactUsVC+CustomMethodsExtension.swift in Sources */,
 				9D76C04E24C8E011002B400E /* LoginVC+MethodExtension.swift in Sources */,
 				9D645B9024DF332900A2B0F6 /* FAQView.swift in Sources */,
 			);

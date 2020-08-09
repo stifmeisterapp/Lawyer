@@ -9,7 +9,16 @@
 import Foundation
 import UIKit
 import ViewAnimator
+import Cosmos
 extension MoreVC{
+    
+    //TODO: Navigation setup implenemtation
+    internal func navSetup(){
+        self.tabBarController?.tabBar.isHidden = false
+        super.setupNavigationBarTitle(AppColor.themeColor,ConstantTexts.MoreHT, leftBarButtonsType: [.empty], rightBarButtonsType: [])
+        
+    }
+    
     
     //TODO: Init values
     internal func initValues(){
@@ -33,6 +42,16 @@ extension MoreVC{
          self.tblMore.sectionHeaderHeight = 0.0;
          self.tblMore.sectionFooterHeight = 0.0; */
         
+         self.customMethodManager?.provideShadowAndCornerRadius(self.imgPopUP, 5, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.placeholderColor, 2, 2, 2, 2, 1, AppColor.placeholderColor)
+        
+        self.lblPopUPInstruction.font = AppFont.Semibold.size(AppFontName.OpenSans, size: 12)
+        self.lblPopUPInstruction.textColor = AppColor.whiteColor
+        self.lblPopUPInstruction.textAlignment = .center
+        self.lblPopUPInstruction.numberOfLines = 0
+        self.lblPopUPInstruction.text = ConstantTexts.RateUsInstruction_LT
+        self.viewRating.sizeToFit()
+        self.viewRating.rating = 0
+        self.viewRating.backgroundColor = AppColor.clearColor
         
         self.initalHideBlurView()
         
@@ -42,6 +61,12 @@ extension MoreVC{
         self.tblMore.hideEmptyCells()
         self.tblMore.isHidden = true
         self.tblMore.isScrollEnabled = true
+        
+        self.btnSubmitRef.titleLabel?.font = AppFont.Semibold.size(AppFontName.OpenSans, size: 12)
+        self.btnSubmitRef.setTitleColor(AppColor.darkGrayColor, for: .normal)
+        self.btnSubmitRef.backgroundColor = AppColor.whiteColor
+        self.btnSubmitRef.setTitle(ConstantTexts.Submit_BT, for: .normal)
+        self.customMethodManager?.provideCornerRadiusTo(self.btnSubmitRef, 3, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
         
         self.customMethodManager?.provideShadowAndCornerRadius(self.viewBG, 5, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.placeholderColor, 2, 2, 2, 2, 1, AppColor.placeholderColor)
         
@@ -69,7 +94,7 @@ extension MoreVC{
     }
     
     
-   
+    
     
     
     //TODO: Recheck data models implenemtation
@@ -116,17 +141,6 @@ extension MoreVC{
     }
     
     
-   
-    
-    
-    //TODO: Navigation setup implenemtation
-    internal func navSetup(){
-        self.tabBarController?.tabBar.isHidden = false
-        super.setupNavigationBarTitle(AppColor.themeColor,ConstantTexts.MoreHT, leftBarButtonsType: [.empty], rightBarButtonsType: [])
-        
-    }
-    
-    
     //TODO: Perform table actions
     internal func perforAction(Index:Int){
         switch Index{
@@ -168,7 +182,7 @@ extension MoreVC{
             self.navigationController?.pushViewController(vc, animated: true)
             
         case 6:
-            let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: UnderConstructionVC.className) as! UnderConstructionVC
+            let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: ContactUsVC.className) as! ContactUsVC
             self.navigationController?.pushViewController(vc, animated: true)
             
         case 7:
@@ -208,22 +222,35 @@ extension MoreVC{
     
     //TODO: Implementation initail hide blur view
     internal func initalHideBlurView(){
-           self.blurView.isHidden = true
-           self.blurView.alpha = 0
-       }
+        self.blurView.isHidden = true
+        self.blurView.alpha = 0
+    }
     
     //TODO: Implementation hide blur view
-       internal func hideBlurView(){
-           self.blurView.isHidden = true
-           UIView.animate(withDuration: 0.3, animations: {
-               self.blurView.alpha = 0
-           }) { (status) in
-               self.blurView.alpha = 0
-               
-           }
-           
-       }
+    internal func hideBlurView(){
+        UIView.animate(withDuration: 0.3, animations: {
+            self.blurView.alpha = 0
+        }) { (status) in
+            self.blurView.alpha = 0
+            self.blurView.isHidden = true
+            
+        }
+        
+    }
     
-   
+    //TODO: Implementation successfully hide blur view
+    internal func hideSuccessfullyBlurView(){
+        UIView.animate(withDuration: 0.3, animations: {
+            self.blurView.alpha = 0
+        }) { (status) in
+            self.blurView.alpha = 0
+            self.blurView.isHidden = true
+            _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: ConstantTexts.RatedSuccessfullyALERT, style: .success)
+            
+        }
+        
+    }
+    
+    
     
 }

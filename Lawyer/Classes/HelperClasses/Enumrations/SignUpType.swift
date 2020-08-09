@@ -13,6 +13,7 @@ enum SignUpType {
     case FullName
     case Email
     case OTP
+    case Comment
 }
 
 

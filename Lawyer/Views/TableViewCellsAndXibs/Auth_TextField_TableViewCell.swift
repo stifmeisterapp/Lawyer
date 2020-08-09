@@ -66,6 +66,15 @@ class Auth_TextField_TableViewCell: SBaseTableViewCell {
             textFieldFloating.keyboardType = .numberPad
             textFieldFloating.isSecureTextEntry = false
             textFieldFloating.autocapitalizationType = .none
+            
+            
+        case .Comment:
+            textFieldFloating.maxLength = 200
+            textFieldFloating.keyboardType = .default
+            textFieldFloating.isSecureTextEntry = false
+            textFieldFloating.iconImage = info.image
+            textFieldFloating.autocapitalizationType = .words
+            
         }
         
     }
@@ -87,7 +96,7 @@ class Auth_TextField_TableViewCell: SBaseTableViewCell {
         textFieldFloating.lineHeight = 1.0 // bottom line height in points
         textFieldFloating.selectedLineHeight = 1.0
         
-      
+        
     }
     
     

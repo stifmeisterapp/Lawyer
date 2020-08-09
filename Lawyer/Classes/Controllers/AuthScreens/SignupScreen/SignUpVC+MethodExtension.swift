@@ -9,6 +9,13 @@
 import Foundation
 import UIKit
 extension SignUpVC{
+    
+    //TODO: Navigation setup implenemtation
+    internal func navSetup(){
+        super.isHiddenNavigationBar(true)
+    }
+    
+    
     //TODO: Init values
     internal func initValues(){
         if self.customMethodManager == nil {
@@ -53,9 +60,10 @@ extension SignUpVC{
         
         self.btnRegisterRef.setTitleColor(AppColor.whiteColor, for: .normal)
         self.btnRegisterRef.backgroundColor = AppColor.themeColor
+        
+        
+        
         self.lblInstruction.numberOfLines = 0
-        
-        
         // *** Create instance of `NSMutableParagraphStyle`
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .center
@@ -144,14 +152,7 @@ extension SignUpVC{
         
         
     }
-    
-    
-    
-    //TODO: Navigation setup implenemtation
-    internal func navSetup(){
-        super.isHiddenNavigationBar(true)
-    }
-    
+
     //TODO: setup validation
     internal func isValidate(){
         dismissKeyboard()

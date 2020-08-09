@@ -9,6 +9,12 @@
 import Foundation
 import UIKit
 extension PaymentVC{
+    //TODO: Navigation setup implenemtation
+    internal func navSetup(){
+        self.tabBarController?.tabBar.isHidden = true
+        super.setupNavigationBarTitle(AppColor.themeColor,ConstantTexts.PaymentHT, leftBarButtonsType: [.back], rightBarButtonsType: [])
+        
+    }
     
     
     //TODO: Init values
@@ -178,12 +184,6 @@ extension PaymentVC{
     }
     
     
-    //TODO: Navigation setup implenemtation
-    internal func navSetup(){
-        self.tabBarController?.tabBar.isHidden = true
-        super.setupNavigationBarTitle(AppColor.themeColor,ConstantTexts.PaymentHT, leftBarButtonsType: [.back], rightBarButtonsType: [])
-        
-    }
     
     //TODO: register nib file
     private func registerNib(){

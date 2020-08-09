@@ -8,6 +8,7 @@
 
 import UIKit
 import ViewAnimator
+import Cosmos
 class MoreVC: SBaseViewController {
     
     //MARK: - IBOutlets
@@ -16,7 +17,10 @@ class MoreVC: SBaseViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var viewBG: UIView!
     @IBOutlet weak var blurView: UIVisualEffectView!
-    
+    @IBOutlet weak var imgPopUP: UIImageView!
+    @IBOutlet weak var lblPopUPInstruction: UILabel!
+    @IBOutlet weak var viewRating: CosmosView!
+    @IBOutlet weak var btnSubmitRef: UIButton!
     //MARK: - Variables
     internal var customMethodManager:CustomMethodProtocol?
     internal var categoryListVM:CategoryListViewModel?
@@ -66,10 +70,27 @@ class MoreVC: SBaseViewController {
      */
     
     
+    //MARK: - Actions, Gestures, Selectors
+    //TODO: Actions
+    
     @IBAction func hideRatingAction(_ sender: Any) {
         
         self.hideBlurView()
     }
     
+    
+    @IBAction func submitTapped(_ sender: Any) {
+        UIView.animate(withDuration: 0.1,
+                       animations: {
+                        self.btnSubmitRef.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+        },
+                       completion: { _ in
+                        UIView.animate(withDuration: 0.1) {
+                            self.btnSubmitRef.transform = CGAffineTransform.identity
+                            //TODO: Temp code need to remove
+                            self.hideSuccessfullyBlurView()
+                        }
+        })
+    }
     
 }

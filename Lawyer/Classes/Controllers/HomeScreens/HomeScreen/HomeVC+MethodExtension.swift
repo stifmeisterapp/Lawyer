@@ -11,6 +11,14 @@ import Foundation
 import ViewAnimator
 
 extension HomeVC{
+    
+    //TODO: Navigation setup implenemtation
+    internal func navSetup(){
+        self.tabBarController?.tabBar.isHidden = false
+        super.setupNavigationBarTitle(AppColor.themeColor,ConstantTexts.CategoriesHT, leftBarButtonsType: [.empty], rightBarButtonsType: [])
+        
+    }
+    
     //TODO: Init values
     internal func initValues(){
         if customMethodManager == nil {
@@ -54,13 +62,6 @@ extension HomeVC{
         
     }
     
-    
-    //TODO: Navigation setup implenemtation
-    internal func navSetup(){
-        self.tabBarController?.tabBar.isHidden = false
-        super.setupNavigationBarTitle(AppColor.themeColor,ConstantTexts.CategoriesHT, leftBarButtonsType: [.empty], rightBarButtonsType: [])
-        
-    }
     
     
     //TODO: Recheck data models implenemtation

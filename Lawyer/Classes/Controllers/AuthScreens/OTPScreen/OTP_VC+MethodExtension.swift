@@ -9,6 +9,13 @@
 import Foundation
 import UIKit
 extension OTP_VC{
+    
+    //TODO: Navigation setup implenemtation
+       internal func navSetup(){
+           super.isHiddenNavigationBar(true)
+           //  super.setupNavigationBarTitle(AppColor.themeColor, ConstantTexts.VarificationHT, leftBarButtonsType: [.back], rightBarButtonsType: [.empty])
+       }
+    
     //TODO: Init values
     internal func initValues(){
         if self.customMethodManager == nil {
@@ -117,16 +124,7 @@ extension OTP_VC{
         
     }
     
-    
-    
-    //TODO: Navigation setup implenemtation
-    internal func navSetup(){
-        super.isHiddenNavigationBar(true)
-        //  super.setupNavigationBarTitle(AppColor.themeColor, ConstantTexts.VarificationHT, leftBarButtonsType: [.back], rightBarButtonsType: [.empty])
-    }
-    
-    
-    
+
     //TODO: setup validation
     internal func isValidate(){
         if !validationMethodManager!.checkEmptyField(enteredOtp.trimmingCharacters(in: .whitespaces)){

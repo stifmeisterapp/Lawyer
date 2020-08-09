@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 extension AboutUsVC{
+    
     //TODO: Navigation setup implenemtation
        internal func navSetup(){
            self.tabBarController?.tabBar.isHidden = true

@@ -9,6 +9,12 @@
 import Foundation
 import UIKit
 extension OnboardingVC{
+    
+    //TODO: Navigation setup implenemtation
+    internal func navSetup(){
+        super.isHiddenNavigationBar(true)
+    }
+    
     //TODO: Intial setup implementation
     internal func initialSetup(){
         self.buttonProceedRef.isHidden = true
@@ -20,11 +26,5 @@ extension OnboardingVC{
         self.onboardingView.dataSource = self
         self.onboardingView.delegate = self
     }
-    
-    
-    //TODO: Navigation setup implenemtation
-    internal func navSetup(){
-        super.isHiddenNavigationBar(true)
-    }
-    
+ 
 }

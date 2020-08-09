@@ -20,13 +20,21 @@ struct ConstantTexts{
     static let  deviceType                          =      "iOS"
     static let  blankSpace                          =      " "
     static let  newLineBreak                        =      "\n"
+    static let  supportLink                         =      "support@allindialegal.com"
+    static let  supportConta                        =      "1800-419-9661"
+    
     
     //TODO: Animation
     static let  Law                                 =      "Law"
-    static let  construction                        =      "construction"
+    static let  Construction                        =      "construction"
+    static let  ContactUs                           =      "ContactUs"
     
     //TODO: Label Text
+    static let  NeedHelp_LT                         =      "Need Help?\nTalk to an Expert."
+    static let  MailUsTitle_LT                      =      "For enquiries, mail us"
+    static let  CallUsTitle_LT                      =      "For enquiries, call us on"
     
+    static let  RateUsInstruction_LT                =      "Rate\n\nWould you mind stopping for a moment to rate us?"
     static let  Link_LT                             =    "\(APP_NAME) app link"
     static let  FAQs_LT                             =      "FAQ's"
     static let  Share_LT                            =      "Share"
@@ -145,6 +153,8 @@ struct ConstantTexts{
     static let  SignUpAsL_BT                        =      "Sign Up as a Lawyer."
     static let  Clear_BT                            =      "Clear"
     static let  Apply_BT                            =      "Apply"
+    static let  Submit_BT                           =      "Submit"
+    static let  RequestCallBack_BT                  =      "Request a Callback"
     
     static let  LogInAsC_BT                         =      "Sign In as a Customer."
     static let  LogInAsL_BT                         =      "Sign In as a Lawyer."
@@ -157,14 +167,19 @@ struct ConstantTexts{
 
     //TODO: Placeholder Text
     static let  MobileNumberPH                      =      "Mobile Number"
+    static let  ContactNumberPH                     =      "Contact Number"
     static let  FullNamePH                          =      "Full Name"
+    static let  NamePH                              =      "Name"
     static let  EmailAddressPH                      =      "Email Address"
+    static let  EmailPH                             =      "Email"
+    static let  CommentPH                           =      "Comment"
     static let  KeywordsPH                          =      "Keywords"
     static let  Search_PH                           =      "Search"
     static let  GSTIN_PH                            =      "GSTIN*"
     static let  C_Name_PH                           =      "Company/Firm's Name (as per GSTIN)*"
     static let  C_Address_PH                        =      "Company/Firm's Address (as per GSTIN)*"
     static let  CouponCode_PH                       =      "Enter coupon code here"
+    static let  AddNoteHere_PH                      =      "Add a note here"
     
     
     //TODO: Alert Text
@@ -175,6 +190,8 @@ struct ConstantTexts{
     static let  EnterCorFAddressALERT               =      "Please enter company/firm's address."
     static let  EnterValidCorFAddressALERT          =      "Please enter valid company/firm's address."
     static let  WantToLogoutALERT                   =      "Are you sure?\nYou want to Log out!"
+    static let  RatedSuccessfullyALERT              =      "Thanks for you rating."
+    static let  ContactYouSoonALERT                 =      "We'll contact you soon."
     
     
     static let  EnterMobileNumberALERT              =      "Please enter mobile number."
@@ -188,6 +205,8 @@ struct ConstantTexts{
     
     static let  EnterOTPALERT                       =      "Please enter OTP."
     static let  EnterValidOTPALERT                  =      "Please enter valid OTP."
+    
+    static let  EnterCommentALERT                   =      "Please write a comment."
     
     
     //TODO: User defaults key

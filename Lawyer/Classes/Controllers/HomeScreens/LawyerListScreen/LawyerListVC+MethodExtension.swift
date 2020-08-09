@@ -12,6 +12,13 @@ import ViewAnimator
 
 extension LawyerListVC{
     
+       //TODO: Navigation setup implenemtation
+       internal func navSetup(){
+           self.tabBarController?.tabBar.isHidden = true
+           super.setupNavigationBarTitle(AppColor.themeColor,self.headerTitle, leftBarButtonsType: [.back], rightBarButtonsType: [])
+
+       }
+       
     
     //TODO: Init values
     internal func initValues(){
@@ -90,14 +97,7 @@ extension LawyerListVC{
         
     }
     
-    
-    //TODO: Navigation setup implenemtation
-    internal func navSetup(){
-        self.tabBarController?.tabBar.isHidden = true
-        super.setupNavigationBarTitle(AppColor.themeColor,self.headerTitle, leftBarButtonsType: [.back], rightBarButtonsType: [])
-
-    }
-    
+   
     
     //TODO: Recheck data models implenemtation
     private func recheckDataModels(){

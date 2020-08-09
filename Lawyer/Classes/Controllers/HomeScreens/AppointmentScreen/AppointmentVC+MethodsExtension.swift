@@ -11,14 +11,6 @@ import UIKit
 import ViewAnimator
 extension AppointmentVC{
     
-    //TODO: Init values
-    internal func initValues(){
-        if customMethodManager == nil {
-            customMethodManager = CustomMethodClass.shared
-        }
-        initialSetup()
-    }
-    
     
     //TODO: Navigation setup implenemtation
     internal func navSetup(){
@@ -27,8 +19,15 @@ extension AppointmentVC{
         
     }
     
+    //TODO: Init values
+    internal func initValues(){
+        if customMethodManager == nil {
+            customMethodManager = CustomMethodClass.shared
+        }
+        initialSetup()
+    }
     
-    
+
     //TODO: Intial setup implementation
     private func initialSetup(){
         

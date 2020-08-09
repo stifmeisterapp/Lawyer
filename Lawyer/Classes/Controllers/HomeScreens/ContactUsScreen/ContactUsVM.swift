@@ -1,18 +1,18 @@
 //
-//  SignUpVM.swift
+//  ContactUsVM.swift
 //  Lawyer
 //
-//  Created by Aman Kumar on 01/08/20.
+//  Created by Aman Kumar on 10/08/20.
 //  Copyright © 2020 Hephateus. All rights reserved.
 //
 
 import Foundation
 import UIKit
-class SignUpVM: DataStoreStructListModeling {
+class ContactUsVM: DataStoreStructListModeling {
     
     internal var validationMethodManager:ValidationProtocol?
     //TODO: Singleton object
-    static let shared = SignUpVM()
+    static let shared = ContactUsVM()
     private init() {}
     
     //TODO: Init values implementation
@@ -28,11 +28,13 @@ class SignUpVM: DataStoreStructListModeling {
     //TODO: Prepare data source implementation
     func prepareDataSource() -> DataStoreStruct_List_ViewModel{
         
-        let dataStores = [DataStoreStruct(title: ConstantTexts.FullNamePH, placeholder: ConstantTexts.FullNamePH, value: ConstantTexts.empty, type: SignUpType.FullName, image: UIImage(systemName: "person") ?? UIImage()),
+        let dataStores = [DataStoreStruct(title: ConstantTexts.NamePH, placeholder: ConstantTexts.NamePH, value: ConstantTexts.empty, type: SignUpType.FullName, image: UIImage(systemName: "person") ?? UIImage()),
                           
-                          DataStoreStruct(title: ConstantTexts.MobileNumberPH, placeholder: ConstantTexts.MobileNumberPH, value: ConstantTexts.empty, type: SignUpType.MobileNumber, image: UIImage(systemName: "phone") ?? UIImage()),
+                          DataStoreStruct(title: ConstantTexts.EmailPH, placeholder: ConstantTexts.EmailPH, value: ConstantTexts.empty, type: SignUpType.Email, image: UIImage(systemName: "envelope") ?? UIImage()),
                           
-                          DataStoreStruct(title: ConstantTexts.EmailAddressPH, placeholder: ConstantTexts.EmailAddressPH, value: ConstantTexts.empty, type: SignUpType.Email, image: UIImage(systemName: "envelope") ?? UIImage())]
+                          DataStoreStruct(title: ConstantTexts.ContactNumberPH, placeholder: ConstantTexts.ContactNumberPH, value: ConstantTexts.empty, type: SignUpType.MobileNumber, image: UIImage(systemName: "phone") ?? UIImage()),
+                          
+                          DataStoreStruct(title: ConstantTexts.AddNoteHere_PH, placeholder: ConstantTexts.CommentPH, value: ConstantTexts.empty, type: SignUpType.Comment, image: UIImage(systemName: "quote.bubble") ?? UIImage())]
         
         return DataStoreStruct_List_ViewModel(dataStoreStructs: dataStores)
     }
@@ -93,14 +95,12 @@ class SignUpVM: DataStoreStructListModeling {
                     validHandler( ConstantTexts.EnterValidOTPALERT, false, index, Int())
                     return
                 }
-                
             case .Comment:
                 if !validationMethodManager!.checkEmptyField(dataStore.dataStoreStructAtIndex(index).value.trimmingCharacters(in: .whitespaces)){
                     validHandler( ConstantTexts.EnterCommentALERT, false, index, Int())
                     return
                     
                 }
-                
             }
             
         }

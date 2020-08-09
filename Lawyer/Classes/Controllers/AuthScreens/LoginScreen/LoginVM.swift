@@ -86,6 +86,14 @@ class LoginVM: DataStoreStructListModeling {
                     validHandler( ConstantTexts.EnterValidOTPALERT, false, index, Int())
                     return
                 }
+                
+                case .Comment:
+                if !validationMethodManager!.checkEmptyField(dataStore.dataStoreStructAtIndex(index).value.trimmingCharacters(in: .whitespaces)){
+                    validHandler( ConstantTexts.EnterCommentALERT, false, index, Int())
+                    return
+                    
+                }
+                
             }
             
         }
