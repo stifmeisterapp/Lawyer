@@ -13,6 +13,7 @@ pod 'lottie-ios'
 pod 'DropDown','2.3.4'
 pod 'paper-onboarding'
 pod 'ViewAnimator'
+pod 'Cosmos', '~> 22.1'
 
   target 'LawyerTests' do
     inherit! :search_paths

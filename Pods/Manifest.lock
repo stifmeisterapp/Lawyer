@@ -1,4 +1,5 @@
 PODS:
+  - Cosmos (22.1.0)
   - DropDown (2.3.4)
   - IQKeyboardManagerSwift (6.5.5)
   - lottie-ios (3.1.8)
@@ -7,6 +8,7 @@ PODS:
   - ViewAnimator (2.7.0)
 
 DEPENDENCIES:
+  - Cosmos (~> 22.1)
   - DropDown (= 2.3.4)
   - IQKeyboardManagerSwift
   - lottie-ios
@@ -16,6 +18,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - Cosmos
     - DropDown
     - IQKeyboardManagerSwift
     - lottie-ios
@@ -24,6 +27,7 @@ SPEC REPOS:
     - ViewAnimator
 
 SPEC CHECKSUMS:
+  Cosmos: 2795b36ad4bbea1af3050d6d65576ed63875f86a
   DropDown: f225ff0fd09dde064d17aa03db7e4d4e4ff40b6b
   IQKeyboardManagerSwift: 0fb93310284665245591f50f7a5e38de615960b7
   lottie-ios: 48fac6be217c76937e36e340e2d09cf7b10b7f5f
@@ -31,6 +35,6 @@ SPEC CHECKSUMS:
   SkyFloatingLabelTextField: 5a338412114808e961fe2d14ea2c5452c8b6e4aa
   ViewAnimator: 5af1c6f3b310f012bf081259c43717aa54fbae73
 
-PODFILE CHECKSUM: e4610b7f256bbb0f47105c14b4b24f6bd311dbf6
+PODFILE CHECKSUM: 4fea6db1fbd047bebf5d4665da6c1d43a5e3f5c1
 
 COCOAPODS: 1.8.4
