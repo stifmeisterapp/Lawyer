@@ -69,10 +69,7 @@ extension MoreVC{
     }
     
     
-    internal func initalHideBlurView(){
-        self.blurView.isHidden = true
-        self.blurView.alpha = 0
-    }
+   
     
     
     //TODO: Recheck data models implenemtation
@@ -119,18 +116,7 @@ extension MoreVC{
     }
     
     
-    //TODO: Implementation hide blur view
-    internal func hideBlurView(){
-        self.blurView.isHidden = true
-        animateView()
-        UIView.animate(withDuration: 0.3, animations: {
-            self.blurView.alpha = 0
-        }) { (status) in
-            self.blurView.alpha = 0
-            
-        }
-        
-    }
+   
     
     
     //TODO: Navigation setup implenemtation
@@ -210,14 +196,33 @@ extension MoreVC{
     
     //TODO: Show blurr view
     internal func rateUs() {
-        
+        animateView()
+        self.blurView.isHidden = false
         UIView.animate(withDuration: 0.3, animations: {
-            self.blurView.alpha = 0.95
+            self.blurView.alpha = 0.85
         }) { (status) in
-            self.blurView.alpha = 0.95
+            self.blurView.alpha = 0.85
         }
         
     }
+    
+    //TODO: Implementation initail hide blur view
+    internal func initalHideBlurView(){
+           self.blurView.isHidden = true
+           self.blurView.alpha = 0
+       }
+    
+    //TODO: Implementation hide blur view
+       internal func hideBlurView(){
+           self.blurView.isHidden = true
+           UIView.animate(withDuration: 0.3, animations: {
+               self.blurView.alpha = 0
+           }) { (status) in
+               self.blurView.alpha = 0
+               
+           }
+           
+       }
     
    
     
