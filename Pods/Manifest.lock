@@ -2,61 +2,73 @@ PODS:
   - Alamofire (5.2.2)
   - Cosmos (22.1.0)
   - DropDown (2.3.4)
+  - FullMaterialLoader (0.2.3)
   - IQKeyboardManagerSwift (6.5.6)
   - lottie-ios (3.1.8)
+  - ObjcExceptionBridging (1.0.1):
+    - ObjcExceptionBridging/ObjcExceptionBridging (= 1.0.1)
+  - ObjcExceptionBridging/ObjcExceptionBridging (1.0.1)
   - paper-onboarding (6.1.5)
   - ReachabilitySwift (5.0.0)
   - SDWebImage (5.8.4):
     - SDWebImage/Core (= 5.8.4)
   - SDWebImage/Core (5.8.4)
   - SkyFloatingLabelTextField (3.8.0)
-  - SVProgressHUD (2.2.5)
   - SwiftyJSON (5.0.0)
   - ViewAnimator (2.7.0)
+  - XCGLogger (7.0.1):
+    - XCGLogger/Core (= 7.0.1)
+  - XCGLogger/Core (7.0.1):
+    - ObjcExceptionBridging
 
 DEPENDENCIES:
   - Alamofire (~> 5.2)
   - Cosmos (~> 22.1)
   - DropDown (= 2.3.4)
+  - FullMaterialLoader (~> 0.2.3)
   - IQKeyboardManagerSwift
   - lottie-ios
   - paper-onboarding
   - ReachabilitySwift
   - SDWebImage (~> 5.0)
   - SkyFloatingLabelTextField (~> 3.0)
-  - SVProgressHUD
   - SwiftyJSON
   - ViewAnimator
+  - XCGLogger (~> 7.0.1)
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - Cosmos
     - DropDown
+    - FullMaterialLoader
     - IQKeyboardManagerSwift
     - lottie-ios
+    - ObjcExceptionBridging
     - paper-onboarding
     - ReachabilitySwift
     - SDWebImage
     - SkyFloatingLabelTextField
-    - SVProgressHUD
     - SwiftyJSON
     - ViewAnimator
+    - XCGLogger
 
 SPEC CHECKSUMS:
   Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
   Cosmos: 2795b36ad4bbea1af3050d6d65576ed63875f86a
   DropDown: f225ff0fd09dde064d17aa03db7e4d4e4ff40b6b
+  FullMaterialLoader: e42901936b13600524f590e740ef359b72a4693f
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   lottie-ios: 48fac6be217c76937e36e340e2d09cf7b10b7f5f
+  ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
   paper-onboarding: fede1799b1da6988f3788e3b71654583c6f3bce1
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   SDWebImage: cf6922231e95550934da2ada0f20f2becf2ceba9
   SkyFloatingLabelTextField: 5a338412114808e961fe2d14ea2c5452c8b6e4aa
-  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   ViewAnimator: 5af1c6f3b310f012bf081259c43717aa54fbae73
+  XCGLogger: 1943831ef907df55108b0b18657953f868de973b
 
-PODFILE CHECKSUM: 276df12026711e35f6a1b2f69cc2e2aa58f01fff
+PODFILE CHECKSUM: bf036843c08ec02fab23a88a4b5dea2a8f13d77b
 
 COCOAPODS: 1.8.4

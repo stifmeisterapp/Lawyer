@@ -12,17 +12,23 @@ class FilterPopup_Language_VM: FilterListModeling {
     static let shared = FilterPopup_Language_VM()
     private init() {}
     
+    internal var customMethodManager:CustomMethodProtocol?
+    //TODO: Init values implementation
+    func initValue(){
+        if self.customMethodManager == nil {
+            self.customMethodManager = CustomMethodClass.shared
+        }
+    }
     
     //TODO: Prepare data source implementation
     func prepareDataSource() -> Filter_List_ViewModel {
-        let filterCategoryList = Filter_List_ViewModel([Filter(title: "Assamese (অসমীয়া)", isSelected: Bool()),
-        Filter(title: "Bengali (বাংলা)", isSelected: Bool()),
-        Filter(title: "English (UK)", isSelected: Bool()),
-        Filter(title: "Bodo", isSelected: Bool()),
-        Filter(title: "Dogri", isSelected: Bool()),
-        Filter(title: "Gujrati (ગુજરાતી)", isSelected: Bool()),
-        Filter(title: "Hindi (हिन्दी)", isSelected: Bool()),
-        Filter(title: "Kashmiri", isSelected: Bool())])
+        self.initValue()
+        guard  let filters = customMethodManager?.retrive_filter(entity: "Language", keyName: "language_name", keyId: "language_id") else {
+            print("No language filters found...")
+            fatalError("No language filters found...")
+        }
+        
+        let filterCategoryList = Filter_List_ViewModel(filters)
         return filterCategoryList
     }
     

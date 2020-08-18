@@ -26,6 +26,9 @@ class LawyerListVC: SBaseViewController {
     internal var filterCategoryListDataVM:FilterCategory_List_ViewModel?
     internal var filterCategoryListVM: FilterCategoryListModeling?
     
+    //TODO: Variables for manage filters
+    internal var filters = [Filter]()
+    
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action:
@@ -134,6 +137,10 @@ class LawyerListVC: SBaseViewController {
                                     vc.headerTitle = headerTitle
                                 }
                                 vc.index = sender.tag
+                                vc.callBackFilter = {  (filter,entity) in
+                                    print(entity)
+                                }
+
                                 vc.modalPresentationStyle = .automatic //or .overFullScreen for transparency
                                 self.present(vc, animated: true, completion: nil)
                                 

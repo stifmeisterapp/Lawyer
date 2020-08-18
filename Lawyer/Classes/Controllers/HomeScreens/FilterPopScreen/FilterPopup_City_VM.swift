@@ -8,22 +8,28 @@
 
 import Foundation
 class FilterPopup_City_VM: FilterListModeling {
-    
+  
     static let shared = FilterPopup_City_VM()
     private init() {}
+    
+    internal var customMethodManager:CustomMethodProtocol?
+    //TODO: Init values implementation
+    func initValue(){
+        if self.customMethodManager == nil {
+            self.customMethodManager = CustomMethodClass.shared
+        }
+    }
     
     
     //TODO: Prepare data source implementation
     func prepareDataSource() -> Filter_List_ViewModel {
-        let filterCategoryList = Filter_List_ViewModel([Filter(title: "Gurugram", isSelected: Bool()),
-        Filter(title: "Amadalavalasa (Amudalavalasa)", isSelected: Bool()),
-        Filter(title: "Alipur", isSelected: Bool()),
-        Filter(title: "Akkarampalle", isSelected: Bool()),
-        Filter(title: "Anantapur", isSelected: Bool()),
-        Filter(title: "Ambicapur Pt VI", isSelected: Bool()),
-        Filter(title: "Abango", isSelected: Bool()),
-        Filter(title: "Along", isSelected: Bool()),
-        Filter(title: "Alinye", isSelected: Bool())])
+        self.initValue()
+        guard  let filters = customMethodManager?.retrive_filter(entity: "City", keyName: "city_name", keyId: "city_id") else {
+            print("No city filters found...")
+            fatalError("No city filters found...")
+        }
+        
+        let filterCategoryList = Filter_List_ViewModel(filters)
         return filterCategoryList
     }
     

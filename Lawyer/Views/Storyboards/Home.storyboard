@@ -256,6 +256,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kPD-tl-gil">
                                                     <rect key="frame" x="202" y="497.5" width="182" height="50"/>
                                                     <state key="normal" title="Clear Filters"/>
+                                                    <connections>
+                                                        <action selector="btnApplyTapped:" destination="8Yc-2Y-wyh" eventType="touchUpInside" id="G8X-VZ-Tac"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ov2-86-FhI">
                                                     <rect key="frame" x="10" y="497.5" width="182" height="50"/>
@@ -263,6 +266,9 @@
                                                         <constraint firstAttribute="height" constant="50" id="d8A-sq-08J"/>
                                                     </constraints>
                                                     <state key="normal" title="Clear Filters"/>
+                                                    <connections>
+                                                        <action selector="btnClearTapped:" destination="8Yc-2Y-wyh" eventType="touchUpInside" id="h8B-jh-OEP"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -516,6 +522,7 @@
                                             <rect key="frame" x="97" y="342" width="220" height="40"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                             <constraints>
+                                                <constraint firstAttribute="width" constant="220" id="KEp-vk-AdX"/>
                                                 <constraint firstAttribute="height" constant="40" id="hdy-Bw-tUx"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>

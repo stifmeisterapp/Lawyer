@@ -16,10 +16,10 @@ target 'Lawyer' do
   pod 'Cosmos', '~> 22.1'
   pod 'Alamofire', '~> 5.2'
   pod 'SwiftyJSON'
-  pod 'SVProgressHUD'
+  pod 'FullMaterialLoader', '~> 0.2.3'
   pod 'SDWebImage', '~> 5.0'
   pod 'ReachabilitySwift'
-  # pod 'XCGLogger', '~> 7.0.1'
+  pod 'XCGLogger', '~> 7.0.1'
   # pod 'RealmSwift'
   # pod 'ObjectMapper', '~> 3.5'
   

@@ -70,17 +70,23 @@ extension MoreVC{
         
         self.customMethodManager?.provideShadowAndCornerRadius(self.viewBG, 5, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.placeholderColor, 2, 2, 2, 2, 1, AppColor.placeholderColor)
         
+        guard let user = customMethodManager?.getUser(entity: "User_Data") else{
+            print("No user found...")
+            return
+        }
+        
         // *** Create instance of `NSMutableParagraphStyle`
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .left
         // *** set LineSpacing property in points ***
         paragraphStyle.lineSpacing = 2 // Whatever line spacing you want in points
+    
         
         let myMutableString = NSMutableAttributedString()
-        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "Jack Shukla", font: AppFont.Semibold.size(AppFontName.OpenSans, size: 16), color: AppColor.textColor) ?? NSMutableAttributedString())
-        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\njack@gmail.com", font: AppFont.Semibold.size(AppFontName.OpenSans, size: 12), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\(user.Fullname)", font: AppFont.Semibold.size(AppFontName.OpenSans, size: 16), color: AppColor.textColor) ?? NSMutableAttributedString())
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\n\(user.Email)", font: AppFont.Semibold.size(AppFontName.OpenSans, size: 12), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
         
-        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\n+91-8445577995", font: AppFont.Semibold.size(AppFontName.OpenSans, size: 12), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\n+91-\(user.Mobile)", font: AppFont.Semibold.size(AppFontName.OpenSans, size: 12), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
         
         // *** Apply attribute to string ***
         myMutableString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, myMutableString.length))
@@ -196,7 +202,12 @@ extension MoreVC{
                 }
                 else
                 {
-                    super.moveToNextViewCViaRoot(name: ConstantTexts.AuthSBT, withIdentifier: LoginVC.className)
+                    
+                    self.customMethodManager?.deleteAllData(entity: "User_Data", success: {
+                        super.moveToNextViewCViaRoot(name: ConstantTexts.AuthSBT, withIdentifier: LoginVC.className)
+                    })
+                    
+                    
                 }
                 
             }

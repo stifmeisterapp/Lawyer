@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import Lottie
 import DropDown
+import FullMaterialLoader
 protocol CustomMethodProtocol {
     
     //TODO: Show ToolTip
@@ -41,5 +42,33 @@ protocol CustomMethodProtocol {
     
     //TODO: Get indexPath for collectionview cell
     func getIndexPathForCollectionView(view: UIView, collectionView: UICollectionView) -> IndexPath?
+    
+    //TODO: configViews progressview
+    func configViews(view: UIView) -> MaterialLoadingIndicator
+    
+    //TODO: startLoader
+    func startLoader(view:UIView,indicator:MaterialLoadingIndicator)
+    
+    //TODO: stopLoader
+    func stopLoader(view:UIView,indicator:MaterialLoadingIndicator)
+    
+    //TODO: Check entity is empty
+    func entityIsEmpty(entity: String) -> Bool
+    
+    //TODO: Delete all data
+    func deleteAllData( entity:String,success: @escaping () -> ())
+    
+    //TODO: Get user from data base
+    func getUser(entity: String) -> User_Data_Model
+    
+    
+    //TODO: Delete all data filters
+    func deleteAllDataFilters( entity:String)
+    
+    //TODO: Get filter from data base
+    func retrive_filter(entity: String,keyName:String,keyId:String) -> [Filter]
+    
+    //TODO: Update is_select value for filter
+    func updateIsSelect(entity: String,primary_key:String,primary_value:String,key:String,value:Bool)
     
 }

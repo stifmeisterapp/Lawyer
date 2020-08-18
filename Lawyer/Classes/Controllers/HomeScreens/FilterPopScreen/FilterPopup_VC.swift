@@ -23,6 +23,10 @@ class FilterPopup_VC: SBaseViewController {
     
     
     //MARK: - Variables
+    
+    
+    internal var callBackFilter:((_ filters:[Filter],_ headerTitle:String)->())?
+    
     internal var index:Int = Int()
     internal var headerTitle:String = String()
     internal var searchActive = Bool()
@@ -77,6 +81,90 @@ class FilterPopup_VC: SBaseViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    
+    @IBAction func btnApplyTapped(_ sender: UIButton) {
+        dismissKeyboard()
+        self.searchActive = false
+        self.searchBar.text = ConstantTexts.empty
+        
+        UIView.animate(withDuration: 0.1,
+                       animations: {
+                        
+                        self.btnDoneRef.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+        },
+                       completion: { _ in
+                        UIView.animate(withDuration: 0.1) {
+                            self.btnDoneRef.transform = CGAffineTransform.identity
+                            
+                            var filters = [Filter]()
+                            guard let count = self.filterList?.filters.count else{
+                                print("No count found...")
+                                return
+                            }
+                            
+                            for index in 0..<count{
+                                if let isSelected = self.filterList?.filters[index].isSelected{
+                                    if isSelected{
+                                        if let filterItem = self.filterList?.filters[index]{
+                                            filters.append(filterItem)
+                                            self.customMethodManager?.updateIsSelect(entity: self.headerTitle, primary_key: self.getTableAndKeys(entity: self.headerTitle), primary_value: filterItem.id, key: "is_selected", value: isSelected)
+                                        }
+                                    }
+                                }
+                            }
+                            
+                            if filters.count == 0{
+                                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: ConstantTexts.SelectFilterALERT, style: .warning)
+                                return
+                            }
+                            
+                            self.callBackFilter?(filters, self.headerTitle)
+                            self.dismiss(animated: true, completion: nil)
+                        }
+        })
+    }
+    
+    @IBAction func btnClearTapped(_ sender: UIButton) {
+        dismissKeyboard()
+        self.searchActive = false
+        self.searchBar.text = ConstantTexts.empty
+        
+        UIView.animate(withDuration: 0.1,
+                       animations: {
+                        
+                        self.btnClearRef.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+        },
+                       completion: { _ in
+                        UIView.animate(withDuration: 0.1) {
+                            self.btnClearRef.transform = CGAffineTransform.identity
+                            
+                            guard let count = self.filterList?.filters.count else{
+                                print("No count found...")
+                                return
+                            }
+                            
+                            for index in 0..<count{
+                                if let isSelected = self.filterList?.filters[index].isSelected{
+                                    if isSelected{
+                                        
+                                        if let filterItem = self.filterList?.filters[index]{
+                                            filterItem.isSelected = Bool()
+                                            self.customMethodManager?.updateIsSelect(entity: self.headerTitle, primary_key: self.getTableAndKeys(entity: self.headerTitle), primary_value: filterItem.id, key: "is_selected", value: filterItem.isSelected)
+                                        }
+                                    }
+                                }
+                            }
+                            
+                            
+                            self.filterTableView.reloadData()
+                            
+                        }
+        })
+        
+        
+    }
+    
+    
     //TODO: Selectors
     @objc func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
@@ -100,6 +188,10 @@ class FilterPopup_VC: SBaseViewController {
                 fatalError("No Filter found...")
             }
             item.filter.isSelected = !item.filter.isSelected
+            /* let dbValue = self.getTableAndKeys(entity: self.headerTitle)
+             
+             self.customMethodManager?.updateIsSelect(entity: headerTitle, primary_key: dbValue, primary_value: item.filter.id, key: "is_selected", value: item.filter.isSelected) */
+            
             if let cell = self.filterTableView.cellForRow(at: indexPath) as? FilterTableViewCellAndXib{
                 cell.configure(with: item)
             }
@@ -108,6 +200,11 @@ class FilterPopup_VC: SBaseViewController {
                 fatalError("No Filter found...")
             }
             item.filter.isSelected = !item.filter.isSelected
+            
+            /*  let dbValue = self.getTableAndKeys(entity: self.headerTitle)
+             
+             self.customMethodManager?.updateIsSelect(entity: headerTitle, primary_key: dbValue, primary_value: item.filter.id, key: "is_selected", value: item.filter.isSelected) */
+            
             if let cell = self.filterTableView.cellForRow(at: indexPath) as? FilterTableViewCellAndXib{
                 cell.configure(with: item)
             }

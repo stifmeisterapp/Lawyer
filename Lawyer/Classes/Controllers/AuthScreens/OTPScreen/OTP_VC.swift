@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FullMaterialLoader
 
 class OTP_VC: SBaseViewController {
     //MARK: - IBOutlets
@@ -20,6 +21,7 @@ class OTP_VC: SBaseViewController {
     
     
     //MARK: - Variables
+    internal var indicator: MaterialLoadingIndicator!
     internal var enteredOtp: String = String()
     internal var customMethodManager:CustomMethodProtocol?
     internal var validationMethodManager:ValidationProtocol?
@@ -27,6 +29,7 @@ class OTP_VC: SBaseViewController {
     internal var timer: Timer?
     internal var time: Int = 30
     internal var phoneNumber: String = String()
+    internal var type: String = String()
     //MARK: - View life cycle methods
     //TODO: Implementation viewDidLoad
     override func viewDidLoad() {
@@ -95,7 +98,7 @@ class OTP_VC: SBaseViewController {
     }
     
     @IBAction func btnResendTapped(_ sender: UIButton) {
-        startTimer()
+        hitResendOTP_Service()
     }
     
     

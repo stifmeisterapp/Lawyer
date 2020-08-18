@@ -45,7 +45,20 @@ extension SplashVC{
                 //Move Forward
                 
                 if (USER_DEFAULTS.value(forKey: ConstantTexts.tourOverUDK) as? Bool) != nil{
-                    super.moveToNextViewCViaRoot(name: ConstantTexts.AuthSBT, withIdentifier: LoginVC.className)
+                    
+                    if let isEmpty = self.customMethodManager?.entityIsEmpty(entity: "User_Data"){
+                        if isEmpty{
+                            super.moveToNextViewCViaRoot(name: ConstantTexts.AuthSBT, withIdentifier: LoginVC.className)
+                        }else{
+                            let vc = AppStoryboard.tabBarSB.instantiateViewController(withIdentifier: TabBarVC.className) as! TabBarVC
+                            UIApplication.shared.windows.first?.rootViewController = vc
+                            UIApplication.shared.windows.first?.makeKeyAndVisible()
+                        }
+                    }else{
+                      super.moveToNextViewCViaRoot(name: ConstantTexts.AuthSBT, withIdentifier: LoginVC.className)
+                    }
+                    
+                    
                 }else{
                     super.moveToNextViewCViaRoot(name: ConstantTexts.LaunchSBT, withIdentifier: OnboardingVC.className)
                 }

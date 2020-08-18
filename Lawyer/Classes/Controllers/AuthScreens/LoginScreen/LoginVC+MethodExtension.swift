@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import FullMaterialLoader
+
 
 extension LoginVC{
     
@@ -115,10 +117,9 @@ extension LoginVC{
         self.lblSignUpRef_Lawyer.isUserInteractionEnabled = true
         self.lblSignUpRef_Lawyer.addGestureRecognizer(lblSignUpRef_Lawyer_Tap)
         
-        
-        
+        self.indicator = customMethodManager?.configViews(view:self.view)
     }
-    
+
     
     //TODO: IntialSetup
     internal func setUpUpperButtonLawyerCustomer(tag:Int){
@@ -172,10 +173,7 @@ extension LoginVC{
         if let dataListVM_T = self.dataListVM{
             self.logInModel?.validateFields(dataStore: dataListVM_T, validHandler: { (strMsg, status, row, section) in
                 if status{
-                    let vc = AppStoryboard.authSB.instantiateViewController(withIdentifier: OTP_VC.className) as! OTP_VC
-                    vc.phoneNumber = dataListVM_T.dataStoreStructAtIndex(row).value
-                    vc.modalPresentationStyle = .automatic //or .overFullScreen for transparency
-                    self.present(vc, animated: true, completion: nil)
+                    self.hitLoginService()
                 }else{
                     let indexPath = IndexPath(row: row, section: section)
                     
@@ -190,6 +188,76 @@ extension LoginVC{
                 }
             })
         }
+        
+    }
+    
+    
+    
+    //MARK: - Web services
+    //TODO: Login Service
+    private func hitLoginService(){
+        
+        
+        guard let dataListVM_T = self.dataListVM else{
+            print("No dataListVM_T found...")
+            return
+        }
+        
+      
+        let parameters = [Api_keys_model.FirebaseId:"sadasdsadsadsad",
+                          Api_keys_model.Mobile:dataListVM_T.dataStoreStructAtIndex(0).value,
+                          Api_keys_model.type:self.tag == 0 ? "1" : "2"] as [String:AnyObject]
+        
+        
+        
+        
+        self.customMethodManager?.startLoader(view:self.view, indicator: self.indicator)
+        
+        ServiceClass.shared.webServiceBasicMethod(url: SAuthApi.siginin, method: .post, parameters: parameters, header: nil, success: { (result) in
+            self.customMethodManager?.stopLoader(view:self.view, indicator: self.indicator)
+            print(result)
+            if let result_Dict = result as? NSDictionary{
+                if let code = result_Dict.value(forKey: "code") as? Int{
+                    if code == 200{
+                        
+                        if let message = result_Dict.value(forKey: "message") as? String{
+                            
+                            _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style: .success, buttonTitle: ConstantTexts.OkBT, action: { (success) in
+                                if success{
+                                    let vc = AppStoryboard.authSB.instantiateViewController(withIdentifier: OTP_VC.className) as! OTP_VC
+                                    vc.phoneNumber = dataListVM_T.dataStoreStructAtIndex(0).value
+                                    vc.type = self.tag == 0 ? "1" : "2"
+                                    vc.modalPresentationStyle = .automatic //or .overFullScreen for transparency
+                                    self.present(vc, animated: true, completion: nil)
+                                }
+                            })
+                            
+                        }
+                        
+                        
+                    }else{
+                        
+                        if let message = result_Dict.value(forKey: "message") as? String{
+                            _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style:.error)
+                        }
+                        
+                    }
+                }
+            }
+            
+        }) { (error) in
+            print(error)
+            self.customMethodManager?.stopLoader(view:self.view, indicator: self.indicator)
+            if let errorString = (error as NSError).userInfo[ConstantTexts.errorMessage_Key] as? String{
+                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: errorString, style:.error)
+            }else{
+                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: ConstantTexts.errorMessage, style:.error)
+            }
+            
+            
+            
+        }
+        
         
     }
     

@@ -10,11 +10,13 @@ import Foundation
 // MARK: - Filter Struct
 class Filter{
     var title:String = String()
+    var id:String = String()
     var isSelected:Bool = Bool()
     
     //TODO: For custom methods
-    init(title:String,isSelected:Bool) {
+    init(title:String,id:String,isSelected:Bool) {
         self.title = title
+        self.id = id
         self.isSelected = isSelected
     }
     

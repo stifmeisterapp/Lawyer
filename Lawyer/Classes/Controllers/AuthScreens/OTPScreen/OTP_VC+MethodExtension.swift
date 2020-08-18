@@ -8,13 +8,14 @@
 
 import Foundation
 import UIKit
+import CoreData
 extension OTP_VC{
     
     //TODO: Navigation setup implenemtation
-       internal func navSetup(){
-           super.isHiddenNavigationBar(true)
-           //  super.setupNavigationBarTitle(AppColor.themeColor, ConstantTexts.VarificationHT, leftBarButtonsType: [.back], rightBarButtonsType: [.empty])
-       }
+    internal func navSetup(){
+        super.isHiddenNavigationBar(true)
+        //  super.setupNavigationBarTitle(AppColor.themeColor, ConstantTexts.VarificationHT, leftBarButtonsType: [.back], rightBarButtonsType: [.empty])
+    }
     
     //TODO: Init values
     internal func initValues(){
@@ -41,6 +42,7 @@ extension OTP_VC{
         //tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
         
+        self.indicator = customMethodManager?.configViews(view:self.view)
         
         otpView.otpFieldsCount = 4
         otpView.otpFieldDefaultBorderColor = AppColor.darkGrayColor
@@ -98,10 +100,10 @@ extension OTP_VC{
         myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\n\n\(ConstantTexts.EnterOTP2_LT)\n", font: AppFont.Regular.size(AppFontName.OpenSans, size: 12), color: AppColor.textColor) ?? NSMutableAttributedString())
         
         
-     //   myMutableString.append(customMethodManager?.provideUnderlineAttributedText(text: "\(ConstantTexts.CountryCodeLT) \(phoneNumber)", font: AppFont.Bold.size(AppFontName.OpenSans, size: 12), AppColor.themeColor) ?? NSMutableAttributedString())
+        //   myMutableString.append(customMethodManager?.provideUnderlineAttributedText(text: "\(ConstantTexts.CountryCodeLT) \(phoneNumber)", font: AppFont.Bold.size(AppFontName.OpenSans, size: 12), AppColor.themeColor) ?? NSMutableAttributedString())
         
         
-     //   myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\n\(ConstantTexts.PleaseVarify_LT)", font: AppFont.Regular.size(AppFontName.OpenSans, size: 12), color: AppColor.textColor) ?? NSMutableAttributedString())
+        //   myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\n\(ConstantTexts.PleaseVarify_LT)", font: AppFont.Regular.size(AppFontName.OpenSans, size: 12), color: AppColor.textColor) ?? NSMutableAttributedString())
         
         
         // *** Apply attribute to string ***
@@ -119,12 +121,13 @@ extension OTP_VC{
         self.btnResendOTPRef.setAttributedTitle(myMutableString, for: .normal)
         self.btnResendOTPRef.backgroundColor = AppColor.whiteColor
         
+       
         
         startTimer()
         
     }
     
-
+    
     //TODO: setup validation
     internal func isValidate(){
         if !validationMethodManager!.checkEmptyField(enteredOtp.trimmingCharacters(in: .whitespaces)){
@@ -136,15 +139,8 @@ extension OTP_VC{
             return
         }else{
             dismissKeyboard()
-            
-            self.dismiss(animated: true) {
-                let vc = AppStoryboard.tabBarSB.instantiateViewController(withIdentifier: TabBarVC.className) as! TabBarVC
-                UIApplication.shared.windows.first?.rootViewController = vc
-                UIApplication.shared.windows.first?.makeKeyAndVisible()
-            }
-            
-            
-            
+            self.hitVerificationService()
+     
         }
         
     }
@@ -167,5 +163,208 @@ extension OTP_VC{
         timer?.invalidate()
         time = 30
     }
+    
+    
+    
+    
+    //MARK: - Web services
+    //TODO: Verification Service
+    private func hitVerificationService(){
+        
+        
+        let parameters = [Api_keys_model.OtpVerification:enteredOtp,
+                          Api_keys_model.Mobile:self.phoneNumber,
+                          Api_keys_model.type:self.type] as [String:AnyObject]
+        
+        
+        
+        self.customMethodManager?.startLoader(view:self.view, indicator: self.indicator)
+        
+        ServiceClass.shared.webServiceBasicMethod(url: SAuthApi.verify_otp, method: .post, parameters: parameters, header: nil, success: { (result) in
+            print(result)
+            self.customMethodManager?.stopLoader(view:self.view, indicator: self.indicator)
+            if let result_Dict = result as? NSDictionary{
+                if let code = result_Dict.value(forKey: "code") as? Int{
+                    if code == 200{
+                        
+                        
+                        if let data = result_Dict.value(forKey: "data") as? NSDictionary{
+                            
+                            let DeviceId = data.value(forKey: "DeviceId") as? String ?? String()
+                            
+                            var DeviceType = String()
+                            if let DeviceType_Parse = data.value(forKey: "DeviceType") as? String{
+                                DeviceType = DeviceType_Parse
+                            }
+                            
+                            if let DeviceType_Parse = data.value(forKey: "DeviceType") as? Int{
+                                DeviceType = "\(DeviceType_Parse)"
+                            }
+                            
+                            let Email = data.value(forKey: "Email") as? String ?? String()
+                            
+                            let FirebaseId = data.value(forKey: "FirebaseId") as? String ?? String()
+                            
+                            let Fullname = data.value(forKey: "Fullname") as? String ?? String()
+                            
+                            var Id = String()
+                            if let Id_Parse = data.value(forKey: "Id") as? String{
+                                Id = Id_Parse
+                            }
+                            
+                            if let Id_Parse = data.value(forKey: "Id") as? Int{
+                                Id = "\(Id_Parse)"
+                            }
+                            
+                            let IpAddress = data.value(forKey: "IpAddress") as? String ?? String()
+                            
+                            var Mobile = String()
+                            if let Mobile_Parse = data.value(forKey: "Mobile") as? String{
+                                Mobile = Mobile_Parse
+                            }
+                            
+                            if let Mobile_Parse = data.value(forKey: "Mobile") as? Int{
+                                Mobile = "\(Mobile_Parse)"
+                            }
+                            
+                            
+                            var Type = String()
+                            if let Type_Parse = data.value(forKey: "Type") as? String{
+                                Type = Type_Parse
+                            }
+                            
+                            if let Type_Parse = data.value(forKey: "Type") as? Int{
+                                Type = "\(Type_Parse)"
+                            }
+                            
+                            let Uuid = data.value(forKey: "Uuid") as? String ?? String()
+                            
+                            let token = result_Dict.value(forKey: "token") as? String ?? String()
+                            
+                            self.saveDataToLocal_DB(DeviceId: DeviceId, DeviceType: DeviceType, Email: Email, FirebaseId: FirebaseId, Fullname: Fullname, Id: Id, IpAddress: IpAddress, Mobile: Mobile, Type: Type, Uuid: Uuid, token: token)
+                            
+                        }
+                        
+                        
+                        
+                        
+                        
+                        /*  if let message = result_Dict.value(forKey: "message") as? String{
+                         
+                         _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style: .success, buttonTitle: ConstantTexts.OkBT, action: { (success) in
+                         if success{
+                         let vc = AppStoryboard.tabBarSB.instantiateViewController(withIdentifier: TabBarVC.className) as! TabBarVC
+                         UIApplication.shared.windows.first?.rootViewController = vc
+                         UIApplication.shared.windows.first?.makeKeyAndVisible()
+                         }
+                         })
+                         
+                         } */
+                        
+                        
+                    }else{
+                        if let message = result_Dict.value(forKey: "message") as? String{
+                            _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style:.error)
+                        }
+                        
+                    }
+                }
+            }
+            
+        }) { (error) in
+            print(error)
+            self.customMethodManager?.stopLoader(view:self.view, indicator: self.indicator)
+            if let errorString = (error as NSError).userInfo[ConstantTexts.errorMessage_Key] as? String{
+                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: errorString, style:.error)
+            }else{
+                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: ConstantTexts.errorMessage, style:.error)
+            }
+            
+            
+            
+        }
+        
+        
+    }
+    
+    
+    //TODO: Resend OTP Service
+    internal func hitResendOTP_Service(){
+        
+        
+        let parameters = [Api_keys_model.FirebaseId:"sadasdsadsadsad",
+                          Api_keys_model.Mobile:self.phoneNumber,
+                          Api_keys_model.type:self.type] as [String:AnyObject]
+        
+        
+        
+        
+        self.customMethodManager?.startLoader(view:self.view, indicator: self.indicator)
+        
+        ServiceClass.shared.webServiceBasicMethod(url: SAuthApi.resend_otp, method: .post, parameters: parameters, header: nil, success: { (result) in
+            print(result)
+            self.customMethodManager?.stopLoader(view:self.view, indicator: self.indicator)
+            if let result_Dict = result as? NSDictionary{
+                if let code = result_Dict.value(forKey: "code") as? Int{
+                    if code == 200{
+                        self.startTimer()
+                    }else{
+                        if let message = result_Dict.value(forKey: "message") as? String{
+                            _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style:.error)
+                        }
+                        
+                    }
+                }
+            }
+            
+        }) { (error) in
+            print(error)
+            self.customMethodManager?.stopLoader(view:self.view, indicator: self.indicator)
+            if let errorString = (error as NSError).userInfo[ConstantTexts.errorMessage_Key] as? String{
+                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: errorString, style:.error)
+            }else{
+                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: ConstantTexts.errorMessage, style:.error)
+            }
+            
+            
+            
+        }
+        
+        
+    }
+    
+    //TODO: Save data to local database
+    private func saveDataToLocal_DB(DeviceId:String,DeviceType:String,Email:String,FirebaseId:String,Fullname:String,Id:String,IpAddress:String,Mobile:String,Type:String,Uuid:String,token:String){
+        let context = kAppDelegate.persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "User_Data", in: context)
+        let user = NSManagedObject(entity: entity!, insertInto: context)
+        user.setValue(DeviceId, forKey: "device_id")
+        user.setValue(DeviceType, forKey: "device_type")
+        user.setValue(Email, forKey: "email")
+        user.setValue(FirebaseId, forKey: "firebase_id")
+        user.setValue(Fullname, forKey: "full_name")
+        user.setValue(Id, forKey: "id")
+        user.setValue(IpAddress, forKey: "ip_address")
+        user.setValue(Mobile, forKey: "mobile")
+        user.setValue(Type, forKey: "type")
+        user.setValue(Uuid, forKey: "uuid")
+        user.setValue(token, forKey: "token")
+        
+        do {
+           try context.save()
+          } catch {
+           print("Failed saving: - \(error)")
+        }
+        
+        
+        self.dismiss(animated: true) {
+            let vc = AppStoryboard.tabBarSB.instantiateViewController(withIdentifier: TabBarVC.className) as! TabBarVC
+            UIApplication.shared.windows.first?.rootViewController = vc
+            UIApplication.shared.windows.first?.makeKeyAndVisible()
+        }
+  
+    }
+    
+    
     
 }

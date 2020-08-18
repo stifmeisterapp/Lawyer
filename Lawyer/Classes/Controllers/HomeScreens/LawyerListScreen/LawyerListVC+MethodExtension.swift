@@ -157,4 +157,31 @@ extension LawyerListVC{
         
     }
     
+    
+    //TODO: Animate rotate collection view
+    internal func setFilterArray(filter:[Filter],entity:String){
+        
+        for item in filter{
+            var flag = Bool()
+            for mainItem in self.filters{
+                if item.id == mainItem.id{
+                   flag = true
+                    break
+                }
+            }
+            
+            if flag{
+                self.filters.append(item)
+            }
+            
+        }
+        
+        //Neeche wala collectionview update kar dena
+        
+        
+        
+        
+    }
+    
+    
 }

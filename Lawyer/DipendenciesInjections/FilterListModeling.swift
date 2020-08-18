@@ -8,6 +8,10 @@
 
 import Foundation
 protocol FilterListModeling {
+    
+    //TODO: Init values implementation
+    func initValue()
+    
     //TODO: Prepare data source implementation
     func prepareDataSource() -> Filter_List_ViewModel
     

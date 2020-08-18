@@ -158,4 +158,28 @@ extension FilterPopup_VC{
         
     }
     
+    
+    //TODO: Get table and keys for update
+    internal func getTableAndKeys(entity:String)->String{
+        
+        switch entity {
+        case ConstantTexts.CityLT:
+            return "city_id"
+            
+        case ConstantTexts.ExpertiseLT:
+            return "expertise_id"
+            
+        case ConstantTexts.LanguageLT:
+            return "language_id"
+            
+        case ConstantTexts.ExperienceLT:
+            return "experience_id"
+            
+        default:
+            return String()
+        }
+        
+        
+    }
+    
 }

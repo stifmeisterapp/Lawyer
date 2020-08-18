@@ -12,13 +12,23 @@ class FilterPopup_Experience_VM: FilterListModeling {
     static let shared = FilterPopup_Experience_VM()
     private init() {}
     
+    internal var customMethodManager:CustomMethodProtocol?
+    //TODO: Init values implementation
+    func initValue(){
+        if self.customMethodManager == nil {
+            self.customMethodManager = CustomMethodClass.shared
+        }
+    }
     
     //TODO: Prepare data source implementation
     func prepareDataSource() -> Filter_List_ViewModel {
-        let filterCategoryList = Filter_List_ViewModel([Filter(title: "6 months", isSelected: Bool()),
-        Filter(title: "1-2 years", isSelected: Bool()),
-        Filter(title: "3-5 years", isSelected: Bool()),
-        Filter(title: "5-7 years", isSelected: Bool())])
+        self.initValue()
+        guard  let filters = customMethodManager?.retrive_filter(entity: "Experience", keyName: "experience_name", keyId: "experience_id") else {
+            print("No experience filters found...")
+            fatalError("No experience filters found...")
+        }
+        
+        let filterCategoryList = Filter_List_ViewModel(filters)
         return filterCategoryList
     }
     

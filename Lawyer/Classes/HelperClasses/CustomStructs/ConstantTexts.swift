@@ -13,11 +13,12 @@ struct ConstantTexts{
     static let  AppName                             =      APP_NAME
     static let  requestTimedOut                     =      "Request timed out"
     static let  noInterNet                          =      "No Internet Connection"
+    static let  Invalid_URL                         =      "Invalid URL"
     static let  errorMessage                        =      "There is some error occured. Please try again later."
     static let  authToken                           =      "authToken"
     static let  unexpectedIndexPath                 =      "Unexpected Index Path"
     static let  empty                               =      String()
-    static let  deviceType                          =      "iOS"
+    static let  deviceType                          =      "2"
     static let  blankSpace                          =      " "
     static let  newLineBreak                        =      "\n"
     static let  supportLink                         =      "support@allindialegal.com"
@@ -92,7 +93,7 @@ struct ConstantTexts{
     static let  CountryCodeLT                       =      "+91"
     static let  SelectCityLT                        =      "Select city :-"
     static let  ResendInLT                          =      "Resend in"
-    
+    static let  LoadingLT                           =      "Loading..."
     static let  ChooseLT                            =      "Choose"
     static let  ChooseDecLT                         =      "A specialist lawyer of chartered accountant based on your case or requirement."
     static let  CityLT                              =      "City"
@@ -207,10 +208,15 @@ struct ConstantTexts{
     static let  EnterValidOTPALERT                  =      "Please enter valid OTP."
     
     static let  EnterCommentALERT                   =      "Please write a comment."
+    static let  SelectFilterALERT                   =      "Please select atleast one filter."
     
     
     //TODO: User defaults key
     static let tourOverUDK                          =      "TOUR_OVER"
+    
+    //TODO: Static values for api keys
+    static let IpAddress_Key                         =      "0.0.0.0"
+    
     
     //TODO: Storyboard Title
     static let  AuthSBT                             =      "Auth"
@@ -218,4 +224,11 @@ struct ConstantTexts{
     static let  TabBarSBT                           =      "TabBar"
     static let  HomeSBT                             =      "Home"
     
+    
+    //TODO: Errors domain
+    static let  Network_Error                       =      "Network Error"
+    static let  URL_Error                           =      "URL Error"
+    
+    //TODO: Errors keys
+    static let  errorMessage_Key                    =      "errorMessage"
 }
