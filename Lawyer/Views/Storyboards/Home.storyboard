@@ -104,7 +104,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LoQ-ne-3p0">
-                                <rect key="frame" x="0.0" y="189" width="414" height="673"/>
+                                <rect key="frame" x="0.0" y="194" width="414" height="668"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Mmp-vs-fX4" id="uOa-ez-Kcb"/>
@@ -112,7 +112,7 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5fc-z6-eS1">
-                                <rect key="frame" x="0.0" y="44" width="414" height="140"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="145"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jpC-Wv-73g">
                                         <rect key="frame" x="10" y="10" width="394" height="40"/>
@@ -150,21 +150,45 @@
                                             <constraint firstAttribute="width" constant="102" id="LkI-NV-JHn"/>
                                         </constraints>
                                         <state key="normal" title="Clear Filters"/>
+                                        <connections>
+                                            <action selector="btnClearFilterTapped:" destination="Mmp-vs-fX4" eventType="touchUpInside" id="7S6-IM-yHy"/>
+                                        </connections>
                                     </button>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rlo-aL-Pb0">
+                                        <rect key="frame" x="10" y="107.5" width="394" height="30"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="giA-08-wCT"/>
+                                        </constraints>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="10" id="jcO-FD-nL2">
+                                            <size key="itemSize" width="128" height="128"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="Mmp-vs-fX4" id="8Qu-fU-nfb"/>
+                                            <outlet property="delegate" destination="Mmp-vs-fX4" id="IWO-oD-C3k"/>
+                                        </connections>
+                                    </collectionView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="jpC-Wv-73g" secondAttribute="trailing" constant="10" id="5Ev-QP-W52"/>
+                                    <constraint firstItem="rlo-aL-Pb0" firstAttribute="top" secondItem="JZ5-Aq-oA8" secondAttribute="bottom" constant="7.5" id="GWl-0z-uib"/>
                                     <constraint firstItem="Fbz-GG-hbD" firstAttribute="height" secondItem="JZ5-Aq-oA8" secondAttribute="height" id="KP8-by-dcA"/>
                                     <constraint firstItem="jpC-Wv-73g" firstAttribute="top" secondItem="5fc-z6-eS1" secondAttribute="top" constant="10" id="MHY-Nn-NKz"/>
+                                    <constraint firstItem="rlo-aL-Pb0" firstAttribute="trailing" secondItem="z3r-3W-SQR" secondAttribute="trailing" id="N7m-64-jhM"/>
                                     <constraint firstItem="z3r-3W-SQR" firstAttribute="centerY" secondItem="Fbz-GG-hbD" secondAttribute="centerY" id="NJw-La-kY4"/>
+                                    <constraint firstAttribute="bottom" secondItem="rlo-aL-Pb0" secondAttribute="bottom" constant="7.5" id="O7q-Vu-5ao"/>
                                     <constraint firstItem="z3r-3W-SQR" firstAttribute="leading" secondItem="Fbz-GG-hbD" secondAttribute="trailing" constant="10" id="Pxe-w0-MJI"/>
                                     <constraint firstItem="z3r-3W-SQR" firstAttribute="height" secondItem="Fbz-GG-hbD" secondAttribute="height" id="Qna-6l-ZD1"/>
-                                    <constraint firstAttribute="height" constant="140" id="Ta2-Z0-AWN"/>
                                     <constraint firstItem="jpC-Wv-73g" firstAttribute="leading" secondItem="5fc-z6-eS1" secondAttribute="leading" constant="10" id="U3G-QR-pYY"/>
                                     <constraint firstItem="Fbz-GG-hbD" firstAttribute="leading" secondItem="JZ5-Aq-oA8" secondAttribute="trailing" id="f9h-Qq-5ij"/>
                                     <constraint firstItem="JZ5-Aq-oA8" firstAttribute="height" secondItem="jpC-Wv-73g" secondAttribute="height" id="kKn-Ev-c5b"/>
                                     <constraint firstItem="JZ5-Aq-oA8" firstAttribute="top" secondItem="jpC-Wv-73g" secondAttribute="bottom" constant="10" id="lmg-Uj-r7u"/>
                                     <constraint firstItem="z3r-3W-SQR" firstAttribute="trailing" secondItem="jpC-Wv-73g" secondAttribute="trailing" id="rbV-Ns-MWU"/>
+                                    <constraint firstItem="rlo-aL-Pb0" firstAttribute="leading" secondItem="JZ5-Aq-oA8" secondAttribute="leading" id="wjs-x1-nF8"/>
                                     <constraint firstItem="JZ5-Aq-oA8" firstAttribute="leading" secondItem="jpC-Wv-73g" secondAttribute="leading" id="z6n-s4-V9b"/>
                                     <constraint firstItem="Fbz-GG-hbD" firstAttribute="centerY" secondItem="JZ5-Aq-oA8" secondAttribute="centerY" id="zOP-vj-4aj"/>
                                 </constraints>
@@ -186,6 +210,8 @@
                         <outlet property="btnFilterRef" destination="z3r-3W-SQR" id="RlG-X2-eWF"/>
                         <outlet property="btnSearchRef" destination="Fbz-GG-hbD" id="jWM-Qf-Us0"/>
                         <outlet property="filterCollectionView" destination="jpC-Wv-73g" id="8rt-Bw-1JP"/>
+                        <outlet property="filterItemCollectionView" destination="rlo-aL-Pb0" id="Tll-2w-14j"/>
+                        <outlet property="heightFilterItemCollectionView" destination="giA-08-wCT" id="Xe1-37-SXm"/>
                         <outlet property="lawyerTableView" destination="LoQ-ne-3p0" id="Cjn-IR-fcX"/>
                         <outlet property="txtSearch" destination="JZ5-Aq-oA8" id="wLy-GU-YRN"/>
                         <outlet property="viewFilterBG" destination="5fc-z6-eS1" id="Zp6-ag-xQb"/>
@@ -193,7 +219,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bd4-48-ska" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="219" y="76"/>
+            <point key="canvasLocation" x="218.84057971014494" y="75.669642857142847"/>
         </scene>
         <!--Filter PopupVC-->
         <scene sceneID="jhc-I5-cN8">

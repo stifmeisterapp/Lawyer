@@ -133,6 +133,7 @@ struct ConstantTexts{
     
     //TODO: Button Title Text
     static let  OkBT                                =      "Ok"
+    static let  XBT                                 =      "x"
     static let  CancelBT                            =      "Cancel"
     static let  MeetBT                              =      "MEET"
     static let  ClearFiltersBT                      =      "Clear Filters"

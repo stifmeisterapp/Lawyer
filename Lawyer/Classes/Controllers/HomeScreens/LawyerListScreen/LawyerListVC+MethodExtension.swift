@@ -89,6 +89,10 @@ extension LawyerListVC{
         self.filterCollectionView.isHidden = true
         self.filterCollectionView.isUserInteractionEnabled = true
         
+        self.filterItemCollectionView.showsHorizontalScrollIndicator = false
+        self.filterItemCollectionView.isUserInteractionEnabled = true
+        self.getHeightAndIsHiddenForFilterItemCollectionViewWithAnimation(entity: String())
+        
         self.txtSearch.isHidden = true
         self.btnFilterRef.isHidden = true
         self.btnFilterRef.isHidden = true
@@ -131,6 +135,7 @@ extension LawyerListVC{
         } */
         
         self.filterCollectionView.register(nib: FilterCollectionViewCell.className)
+        self.filterItemCollectionView.register(nib: FilterItemCollectionViewCell.className)
         self.lawyerTableView.register(nib: LawyerNewTableViewCell.className)
         
         
@@ -158,30 +163,65 @@ extension LawyerListVC{
     }
     
     
-    //TODO: Animate rotate collection view
+    
+    
+    //TODO: Set filter array collection view
     internal func setFilterArray(filter:[Filter],entity:String){
         
-        for item in filter{
-            var flag = Bool()
-            for mainItem in self.filters{
-                if item.id == mainItem.id{
-                   flag = true
-                    break
-                }
+        if self.filters.count == 0{
+            
+            for item in filter{
+                self.filters.append(item)
             }
             
-            if flag{
-                self.filters.append(item)
+        }else{
+            
+            for item in filter{
+                var flag = Bool()
+                for mainItem in self.filters{
+                    if item.id == mainItem.id && item.title == mainItem.title{
+                       flag = true
+                        break
+                    }
+                }
+               
+                if flag == false{
+                    self.filters.append(item)
+                }
+                
             }
             
         }
         
+        self.getHeightAndIsHiddenForFilterItemCollectionViewWithAnimation(entity: entity)
+        
+       
         //Neeche wala collectionview update kar dena
-        
-        
-        
-        
+    
     }
+    
+    
+    //TODO: Set height and isHidden for filterItemCollectionView
+    internal func getHeightAndIsHiddenForFilterItemCollectionViewWithAnimation(entity:String){
+        
+        if self.filters.count > 0{
+            self.filterItemCollectionView.isHidden = false
+            self.heightFilterItemCollectionView.constant = 30
+        }else{
+            self.filterItemCollectionView.isHidden = true
+            self.heightFilterItemCollectionView.constant = 0
+           
+        }
+        
+        DispatchQueue.main.async {
+            self.filterItemCollectionView.reloadData()
+        }
+         
+    }
+    
+    
+   
+    
     
     
 }

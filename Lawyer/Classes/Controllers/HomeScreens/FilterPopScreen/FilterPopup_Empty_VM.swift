@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 class FilterPopup_Empty_VM: FilterListModeling {
     
     static let shared = FilterPopup_Empty_VM()
@@ -23,7 +24,7 @@ class FilterPopup_Empty_VM: FilterListModeling {
     //TODO: Prepare data source implementation
     func prepareDataSource() -> Filter_List_ViewModel {
         self.initValue()
-        let filterCategoryList = Filter_List_ViewModel([Filter(title: String(),id: String(), isSelected: Bool())])
+        let filterCategoryList = Filter_List_ViewModel([Filter(entity: String(), title: String(),id: String(), isSelected: Bool())])
         return filterCategoryList
     }
     

@@ -13,6 +13,7 @@ struct AppColor {
     
 //    public static let themeColor               = #colorLiteral(red: 0.2784313725, green: 0.7019607843, blue: 0.5529411765, alpha: 1)
     
+    public static let tintColor                = #colorLiteral(red: 0.0824733749, green: 0.4592084885, blue: 0.9240823984, alpha: 1)
     public static let themeColor               = #colorLiteral(red: 0.231372549, green: 0.3411764706, blue: 0.6235294118, alpha: 1)
     public static let textColor                = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
     public static let cyanColor                = #colorLiteral(red: 0, green: 0.9921568627, blue: 1, alpha: 1)

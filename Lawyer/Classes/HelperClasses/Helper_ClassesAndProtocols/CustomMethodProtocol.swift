@@ -71,4 +71,7 @@ protocol CustomMethodProtocol {
     //TODO: Update is_select value for filter
     func updateIsSelect(entity: String,primary_key:String,primary_value:String,key:String,value:Bool)
     
+    //TODO: Get table and keys for update
+    func getTableAndKeys(entity:String)->String
+    
 }

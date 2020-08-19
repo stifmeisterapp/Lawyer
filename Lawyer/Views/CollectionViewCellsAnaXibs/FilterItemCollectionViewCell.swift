@@ -1,14 +1,14 @@
 //
-//  FilterCollectionViewCell.swift
+//  FilterItemCollectionViewCell.swift
 //  Lawyer
 //
-//  Created by Aman Kumar on 04/08/20.
+//  Created by Aman Kumar on 18/08/20.
 //  Copyright © 2020 Hephateus. All rights reserved.
 //
 
 import UIKit
 
-class FilterCollectionViewCell: UICollectionViewCell {
+class FilterItemCollectionViewCell: UICollectionViewCell {
     //MARK: - IBOutlets
     @IBOutlet weak var imageDD: UIImageView!
     @IBOutlet weak var titleFilter: UILabel!
@@ -33,11 +33,10 @@ class FilterCollectionViewCell: UICollectionViewCell {
         }
         
         
-        self.customMethodManager?.provideShadowAndCornerRadius(self, (self.viewBG.frame.height/2) - 4, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.placeholderColor, 2, 2, 2, 2, 0, AppColor.clearColor)
+        self.customMethodManager?.provideShadowAndCornerRadius(self, (self.viewBG.frame.height/2) - 8, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.placeholderColor, 2, 2, 2, 2, 0, AppColor.clearColor)
         
-        self.customMethodManager?.provideCornerBorderTo(self, 1, AppColor.textColor)
         
-        self.viewBG.backgroundColor = AppColor.themeColor
+        self.viewBG.backgroundColor = AppColor.tintColor
         
         self.backgroundColor = AppColor.themeColor
         self.titleFilter.font = AppFont.Semibold.size(AppFontName.OpenSans, size: 14)
@@ -51,10 +50,6 @@ class FilterCollectionViewCell: UICollectionViewCell {
     
     
     //TODO: Configure with info
-    public func configure(with info: FilterCategoryViewModel){
-        self.titleFilter.text = info.title
-    }
-    
     public func configure(with info: Filter){
         self.titleFilter.text = info.title
     }

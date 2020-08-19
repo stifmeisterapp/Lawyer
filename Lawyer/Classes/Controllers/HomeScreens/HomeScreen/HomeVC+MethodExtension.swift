@@ -85,7 +85,6 @@ extension HomeVC{
     private func registerNib(){
         // For Tableview
         self.categoryTableView.register(nib: LawyerTableViewCell.className)
-        animateView()
         /* For Tableview
          
          DispatchQueue.main.asyncAfter(deadline: .now()) {
@@ -179,7 +178,7 @@ extension HomeVC{
                                 for city in City{
                                     if let cityDict = city as? NSDictionary{
                                         
-                                        let cityItem = Filter(title: String(),id: String(), isSelected: Bool())
+                                        let cityItem = Filter(entity: ConstantTexts.CityLT, title: String(),id: String(), isSelected: Bool())
                                         
                                         if let CityName = cityDict.value(forKey: "CityName") as? String{
                                             self.cityNameArray.append(CityName)
@@ -219,7 +218,7 @@ extension HomeVC{
                                 for experience in Experience{
                                     if let experienceDict = experience as? NSDictionary{
                                         
-                                        let experienceItem = Filter(title: String(),id: String(), isSelected: Bool())
+                                        let experienceItem = Filter(entity: ConstantTexts.ExperienceLT, title: String(),id: String(), isSelected: Bool())
                                         
                                         if let ExperienceName = experienceDict.value(forKey: "ExperienceName") as? String{
                                             experienceItem.title = ExperienceName
@@ -256,7 +255,7 @@ extension HomeVC{
                                 for expertise in Expertise{
                                     if let expertiseDict = expertise as? NSDictionary{
                                         
-                                        let expertiseItem = Filter(title: String(),id: String(), isSelected: Bool())
+                                        let expertiseItem = Filter(entity: ConstantTexts.ExpertiseLT, title: String(),id: String(), isSelected: Bool())
                                         
                                         if let ExpertiseName = expertiseDict.value(forKey: "ExpertiseName") as? String{
                                             expertiseItem.title = ExpertiseName
@@ -294,7 +293,7 @@ extension HomeVC{
                                 for language in Language{
                                     if let languageDict = language as? NSDictionary{
                                         
-                                        let languageItem = Filter(title: String(),id: String(), isSelected: Bool())
+                                        let languageItem = Filter(entity: ConstantTexts.LanguageLT, title: String(),id: String(), isSelected: Bool())
                                         
                                         if let LanguageName = languageDict.value(forKey: "LanguageName") as? String{
                                             languageItem.title = LanguageName

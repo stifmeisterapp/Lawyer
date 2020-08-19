@@ -242,7 +242,7 @@ class CustomMethodClass: CustomMethodProtocol {
         do {
             let result = try context.fetch(request)
             for data in result as! [NSManagedObject] {
-                let filter = Filter(title: String(), id: String(), isSelected: Bool())
+                let filter = Filter(entity: entity, title: String(), id: String(), isSelected: Bool())
                 filter.title = data.value(forKey: keyName) as? String ?? String()
                 filter.id = data.value(forKey: keyId) as? String ?? String()
                 filter.isSelected = data.value(forKey: "is_selected") as? Bool ?? Bool()
@@ -278,6 +278,30 @@ class CustomMethodClass: CustomMethodProtocol {
             
             print("Failed")
         }
+        
+    }
+    
+    
+    //TODO: Get table and keys for update
+    func getTableAndKeys(entity:String)->String{
+        
+        switch entity {
+        case ConstantTexts.CityLT:
+            return "city_id"
+            
+        case ConstantTexts.ExpertiseLT:
+            return "expertise_id"
+            
+        case ConstantTexts.LanguageLT:
+            return "language_id"
+            
+        case ConstantTexts.ExperienceLT:
+            return "experience_id"
+            
+        default:
+            return String()
+        }
+        
         
     }
     

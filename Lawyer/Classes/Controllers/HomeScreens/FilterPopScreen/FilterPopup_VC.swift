@@ -95,31 +95,26 @@ class FilterPopup_VC: SBaseViewController {
                        completion: { _ in
                         UIView.animate(withDuration: 0.1) {
                             self.btnDoneRef.transform = CGAffineTransform.identity
-                            
-                            var filters = [Filter]()
-                            guard let count = self.filterList?.filters.count else{
-                                print("No count found...")
-                                return
-                            }
-                            
-                            for index in 0..<count{
-                                if let isSelected = self.filterList?.filters[index].isSelected{
-                                    if isSelected{
-                                        if let filterItem = self.filterList?.filters[index]{
-                                            filters.append(filterItem)
-                                            self.customMethodManager?.updateIsSelect(entity: self.headerTitle, primary_key: self.getTableAndKeys(entity: self.headerTitle), primary_value: filterItem.id, key: "is_selected", value: isSelected)
+                            self.dismiss(animated: true) {
+                                var filters = [Filter]()
+                                guard let count = self.filterList?.filters.count else{
+                                    print("No count found...")
+                                    return
+                                }
+                                
+                                for index in 0..<count{
+                                    if let isSelected = self.filterList?.filters[index].isSelected{
+                                        if isSelected{
+                                            if let filterItem = self.filterList?.filters[index]{
+                                                filters.append(filterItem)
+                                                self.customMethodManager?.updateIsSelect(entity: self.headerTitle, primary_key: self.customMethodManager?.getTableAndKeys(entity: self.headerTitle) ?? String(), primary_value: filterItem.id, key: "is_selected", value: isSelected)
+                                            }
                                         }
                                     }
                                 }
+                                
+                                self.callBackFilter?(filters, self.headerTitle)
                             }
-                            
-                            if filters.count == 0{
-                                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: ConstantTexts.SelectFilterALERT, style: .warning)
-                                return
-                            }
-                            
-                            self.callBackFilter?(filters, self.headerTitle)
-                            self.dismiss(animated: true, completion: nil)
                         }
         })
     }
@@ -149,7 +144,8 @@ class FilterPopup_VC: SBaseViewController {
                                         
                                         if let filterItem = self.filterList?.filters[index]{
                                             filterItem.isSelected = Bool()
-                                            self.customMethodManager?.updateIsSelect(entity: self.headerTitle, primary_key: self.getTableAndKeys(entity: self.headerTitle), primary_value: filterItem.id, key: "is_selected", value: filterItem.isSelected)
+                                            
+                                            self.customMethodManager?.updateIsSelect(entity: self.headerTitle, primary_key: self.customMethodManager?.getTableAndKeys(entity: self.headerTitle) ?? String(), primary_value: filterItem.id, key: "is_selected", value: filterItem.isSelected)
                                         }
                                     }
                                 }

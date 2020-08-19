@@ -7,14 +7,17 @@
 //
 
 import Foundation
+import UIKit
 // MARK: - Filter Struct
 class Filter{
+    var entity:String = String()
     var title:String = String()
     var id:String = String()
     var isSelected:Bool = Bool()
     
     //TODO: For custom methods
-    init(title:String,id:String,isSelected:Bool) {
+    init(entity:String,title:String,id:String,isSelected:Bool) {
+        self.entity = entity
         self.title = title
         self.id = id
         self.isSelected = isSelected

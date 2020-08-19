@@ -19,6 +19,8 @@ class LawyerListVC: SBaseViewController {
     @IBOutlet weak var btnFilterRef: UIButton!
     @IBOutlet weak var filterCollectionView: UICollectionView!
     
+    @IBOutlet weak var filterItemCollectionView: UICollectionView!
+    @IBOutlet weak var heightFilterItemCollectionView: NSLayoutConstraint!
     
     //MARK: - Variables
     internal var headerTitle:String = String()
@@ -68,6 +70,9 @@ class LawyerListVC: SBaseViewController {
         
         // Do any additional setup after loading the view.
         initValues()
+        
+        
+        // https://www.allindialegal.com/v1/lawyer-list?CityId=134,2,133&CityName=alipur&ExpertiseId=1&LanguageId=1,2,3,4,5&ExperienceId=4,1,2&Keyword=asdnakjsdhjksadhkjahsdj&OffSet=
     }
     
     //TODO: Implementation viewWillAppear
@@ -106,6 +111,29 @@ class LawyerListVC: SBaseViewController {
     //MARK: - Actions, Gestures, Selectors
     //TODO: Actions
     
+    @IBAction func btnClearFilterTapped(_ sender: UIButton) {
+        dismissKeyboard()
+        
+        
+        UIView.animate(withDuration: 0.1,
+                       animations: {
+                        
+                        self.btnFilterRef.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+        },
+                       completion: { _ in
+                        UIView.animate(withDuration: 0.1) {
+                            self.btnFilterRef.transform = CGAffineTransform.identity
+                            for item in self.filters{
+                                self.customMethodManager?.updateIsSelect(entity: item.entity, primary_key: self.customMethodManager?.getTableAndKeys(entity: item.entity) ?? String(), primary_value: item.id, key: "is_selected", value: Bool())
+                            }
+                            
+                            self.filters.removeAll()
+                            self.getHeightAndIsHiddenForFilterItemCollectionViewWithAnimation(entity: String())
+                        }
+        })
+        
+    }
+    
     
     //TODO: Selectors
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
@@ -138,11 +166,40 @@ class LawyerListVC: SBaseViewController {
                                 }
                                 vc.index = sender.tag
                                 vc.callBackFilter = {  (filter,entity) in
-                                    print(entity)
+                                    self.setFilterArray(filter: filter, entity: entity)
                                 }
 
                                 vc.modalPresentationStyle = .automatic //or .overFullScreen for transparency
                                 self.present(vc, animated: true, completion: nil)
+                                
+                            }
+                        }
+        })
+    }
+    
+    
+    
+    @objc func btnDeleteCell(_ sender: UIButton) {
+        print("Button selected...")
+        let indexPath = IndexPath(item: sender.tag, section: 0)
+        
+        UIView.animate(withDuration: 0.1,
+                       animations: {
+                        if let cell = self.filterItemCollectionView.cellForItem(at: indexPath) as? FilterItemCollectionViewCell {
+                            cell.transform = .init(scaleX: 0.95, y: 0.95)
+                            cell.contentView.backgroundColor = AppColor.highLightColor
+                        }
+        },
+                       completion: { _ in
+                        UIView.animate(withDuration: 0.1) {
+                            if let cell = self.filterItemCollectionView.cellForItem(at: indexPath) as? FilterItemCollectionViewCell {
+                                cell.transform = .identity
+                                cell.contentView.backgroundColor = .clear
+                                
+                                self.customMethodManager?.updateIsSelect(entity: self.filters[sender.tag].entity, primary_key: self.customMethodManager?.getTableAndKeys(entity: self.filters[sender.tag].entity) ?? String(), primary_value: self.filters[sender.tag].id, key: "is_selected", value: Bool())
+                                
+                                self.filters.remove(at: sender.tag)
+                                self.getHeightAndIsHiddenForFilterItemCollectionViewWithAnimation(entity: String())
                                 
                             }
                         }
