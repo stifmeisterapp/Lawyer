@@ -12,13 +12,13 @@ import ViewAnimator
 
 extension LawyerListVC{
     
-       //TODO: Navigation setup implenemtation
-       internal func navSetup(){
-           self.tabBarController?.tabBar.isHidden = true
-           super.setupNavigationBarTitle(AppColor.themeColor,self.headerTitle, leftBarButtonsType: [.back], rightBarButtonsType: [])
-
-       }
-       
+    //TODO: Navigation setup implenemtation
+    internal func navSetup(){
+        self.tabBarController?.tabBar.isHidden = true
+        super.setupNavigationBarTitle(AppColor.themeColor,self.headerTitle, leftBarButtonsType: [.back], rightBarButtonsType: [])
+        
+    }
+    
     
     //TODO: Init values
     internal func initValues(){
@@ -33,14 +33,23 @@ extension LawyerListVC{
         if filterCategoryListDataVM == nil {
             filterCategoryListDataVM = filterCategoryListVM?.prepareDataSource()
         }
-      
+        
+        if lawyerListVM_protocol == nil {
+            lawyerListVM_protocol = LawyerList_VM.shared
+        }
+        
+        if lawyerListVM == nil{
+            lawyerListVM = lawyerListVM_protocol?.initDataSource()
+        }
+        
+        
         initialSetup()
         
     }
     
     //TODO: Intial setup implementation
     private func initialSetup(){
-
+        
         
         //Looks for single or multiple taps.
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
@@ -52,6 +61,8 @@ extension LawyerListVC{
         self.view.backgroundColor = AppColor.tableBGColor
         
         self.viewFilterBG.backgroundColor = AppColor.whiteColor
+        
+        self.indicator = customMethodManager?.configViews(view:self.view)
         
         self.customMethodManager?.provideShadowAndCornerRadius(self.viewFilterBG, 3, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.placeholderColor, 2, 2, 2, 2, 0, AppColor.clearColor)
         
@@ -97,24 +108,34 @@ extension LawyerListVC{
         self.btnFilterRef.isHidden = true
         self.btnFilterRef.isHidden = true
         self.viewFilterBG.isHidden = true
+        
         recheckDataModels()
+        
+        self.cityName = self.cityName.replacingOccurrences(of: ConstantTexts.blankSpace, with: ConstantTexts.mod20)
+        
+        self.service_url = "CityId=\(String())&CityName=\(self.cityName)&ExpertiseId=\(String())&LanguageId=\(String())&ExperienceId=\(String())&Keyword="
+        
+        self.lawyerListService(serviceURL:service_url, keyword: self.txtSearch.text!.trimmingCharacters(in: .whitespaces), offset: self.offset, isRefresh: Bool(), isFilterApplied: Bool(), isSearchActive: Bool())
+        
+        
+        
         
     }
     
-   
+    
     
     //TODO: Recheck data models implenemtation
     private func recheckDataModels(){
         registerNib()
         
         
-       /* DispatchQueue.main.asyncAfter(deadline: .now()) {
-            self.lawyerTableView.isHidden = false
-            
-            self.currentTableAnimation = TableAnimation.moveUpWithFade(rowHeight: 260,duration: self.animationDuration, delay: self.delay)
-            
-            self.lawyerTableView.reloadData()
-        } */
+        /* DispatchQueue.main.asyncAfter(deadline: .now()) {
+         self.lawyerTableView.isHidden = false
+         
+         self.currentTableAnimation = TableAnimation.moveUpWithFade(rowHeight: 260,duration: self.animationDuration, delay: self.delay)
+         
+         self.lawyerTableView.reloadData()
+         } */
         
         
     }
@@ -122,21 +143,23 @@ extension LawyerListVC{
     //TODO: register nib file
     private func registerNib(){
         /* For Tableview
-        self.categoryTableView.register(nib: LawyerTableViewCell.className)
-        
-        DispatchQueue.main.asyncAfter(deadline: .now()) {
-            self.categoryTableView.isHidden = false
-            
-            self.currentTableAnimation =  TableAnimation.fadeIn(duration: self.animationDuration, delay: self.delay)
-            
-            /* self.currentTableAnimation = TableAnimation.moveUpWithFade(rowHeight: 60,duration: self.animationDuration, delay: self.delay) */
-            
-            self.categoryTableView.reloadData()
-        } */
+         self.categoryTableView.register(nib: LawyerTableViewCell.className)
+         
+         DispatchQueue.main.asyncAfter(deadline: .now()) {
+         self.categoryTableView.isHidden = false
+         
+         self.currentTableAnimation =  TableAnimation.fadeIn(duration: self.animationDuration, delay: self.delay)
+         
+         /* self.currentTableAnimation = TableAnimation.moveUpWithFade(rowHeight: 60,duration: self.animationDuration, delay: self.delay) */
+         
+         self.categoryTableView.reloadData()
+         } */
         
         self.filterCollectionView.register(nib: FilterCollectionViewCell.className)
         self.filterItemCollectionView.register(nib: FilterItemCollectionViewCell.className)
         self.lawyerTableView.register(nib: LawyerNewTableViewCell.className)
+        
+        self.animateView()
         
         
         
@@ -149,22 +172,29 @@ extension LawyerListVC{
         self.btnFilterRef.isHidden = false
         self.btnFilterRef.isHidden = false
         self.filterCollectionView.isHidden = false
+        
         self.lawyerTableView.isHidden = false
+        
         UIView.animate(views: filterCollectionView.visibleCells,
-        animations: [zoomAnimation, rotateAnimation],
-        duration: 0.5)
+                       animations: [zoomAnimation, rotateAnimation],
+                       duration: 0.5)
         
         UIView.animate(views: [self.txtSearch,self.btnSearchRef,btnFilterRef], animations: [zoomAnimation, rotateAnimation],
-        duration: 0.5)
+                       duration: 0.5)
         
         UIView.animate(views: lawyerTableView.visibleCells,
-        animations: [fromAnimation], delay: 0.5)
+                       animations: [fromAnimation], delay: 0.5)
+        
+        //
+        
+        
+        
         
     }
     
     
     
-    
+    //MARK: - Filter methods
     //TODO: Set filter array collection view
     internal func setFilterArray(filter:[Filter],entity:String){
         
@@ -180,11 +210,11 @@ extension LawyerListVC{
                 var flag = Bool()
                 for mainItem in self.filters{
                     if item.id == mainItem.id && item.title == mainItem.title{
-                       flag = true
+                        flag = true
                         break
                     }
                 }
-               
+                
                 if flag == false{
                     self.filters.append(item)
                 }
@@ -194,10 +224,46 @@ extension LawyerListVC{
         }
         
         self.getHeightAndIsHiddenForFilterItemCollectionViewWithAnimation(entity: entity)
+        self.applyFilters()
         
-       
-        //Neeche wala collectionview update kar dena
+        
+        
+    }
     
+    //TODO: Reset filter array collection view
+    internal func resetFilters(){
+        for item in self.filters{
+            self.customMethodManager?.updateIsSelect(entity: item.entity, primary_key: self.customMethodManager?.getTableAndKeys(entity: item.entity) ?? String(), primary_value: item.id, key: "is_selected", value: Bool())
+        }
+        
+        self.filters.removeAll()
+        self.getHeightAndIsHiddenForFilterItemCollectionViewWithAnimation(entity: String())
+       
+    }
+    
+    //TODO: Apply filters
+    internal func applyFilters(){
+        var cityArray = [String]()
+         var expertiseArray = [String]()
+         var languageArray = [String]()
+         var experienceArray = [String]()
+         
+         for item in self.filters{
+             if item.entity == ConstantTexts.CityLT{
+                 cityArray.append(item.id)
+             }else if item.entity == ConstantTexts.ExpertiseLT{
+                 expertiseArray.append(item.id)
+             }else if item.entity == ConstantTexts.LanguageLT{
+                 languageArray.append(item.id)
+             }else{
+                 experienceArray.append(item.id)
+             }
+         }
+         
+         self.service_url = "CityId=\(cityArray.joined(separator: ","))&CityName=\(self.cityName)&ExpertiseId=\(expertiseArray.joined(separator: ","))&LanguageId=\(languageArray.joined(separator: ","))&ExperienceId=\(experienceArray.joined(separator: ","))&Keyword="
+         
+        
+        self.lawyerListService(serviceURL:service_url, keyword: self.txtSearch.text!.trimmingCharacters(in: .whitespaces), offset: self.offset, isRefresh: Bool(), isFilterApplied: true, isSearchActive: Bool())
     }
     
     
@@ -210,17 +276,96 @@ extension LawyerListVC{
         }else{
             self.filterItemCollectionView.isHidden = true
             self.heightFilterItemCollectionView.constant = 0
-           
+            
         }
         
         DispatchQueue.main.async {
             self.filterItemCollectionView.reloadData()
         }
-         
+        
     }
     
     
-   
+    
+    //TODO: Filter web service
+    internal func lawyerListService(serviceURL:String,keyword:String,offset:Int,isRefresh:Bool,isFilterApplied:Bool,isSearchActive:Bool){
+        
+        self.customMethodManager?.startLoader(view:self.view, indicator: self.indicator)
+        
+        ServiceClass.shared.webServiceBasicMethod(url: "\(SCustomerApi.lawyer_list)\(serviceURL)\(keyword)&OffSet=\(self.offset)", method: .get, parameters: nil, header: nil, success: { (result) in
+            print(result)
+            self.customMethodManager?.stopLoader(view:self.view, indicator: self.indicator)
+            if let result_Dict = result as? NSDictionary{
+                if let code = result_Dict.value(forKey: "code") as? Int{
+                    if code == 200{
+                        
+                        if let data = result_Dict.value(forKey: "data") as? NSDictionary{
+                            
+                            if let lawyer = data.value(forKey: "lawyer") as? NSArray{
+                            
+                                //For table refresh
+                                if isRefresh{
+                                    self.resetFilters()
+                                    if let count = self.lawyerListVM?.lawyers.count{
+                                        if count > 0{
+                                            self.lawyerListVM?.lawyers.removeAll()
+                                        }
+                                    }
+                                }
+                                
+                                //For apply new filters
+                                if isFilterApplied == true || isSearchActive == true{
+                                    if let count = self.lawyerListVM?.lawyers.count{
+                                        if count > 0{
+                                            self.lawyerListVM?.lawyers.removeAll()
+                                        }
+                                    }
+                                }
+                                
+                                if lawyer.count > 0{
+                                    self.isPagination = false
+                                    if let lawyers = self.lawyerListVM_protocol?.prepareDataSource(dataArray: lawyer).lawyers{
+                                        self.lawyerListVM?.lawyers.append(contentsOf: lawyers)
+                                    }
+                                }else{
+                                   self.isPagination = true
+                                }
+                            }
+                        }
+                        
+                        DispatchQueue.main.async {
+                            self.lawyerTableView.reloadData()
+                        }
+                        
+                        
+                        
+                        
+                        
+                    }else{
+                        if let message = result_Dict.value(forKey: "message") as? String{
+                            _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style:.error)
+                        }
+                        
+                    }
+                }
+            }
+            
+            
+        }) { (error) in
+            print(error)
+            self.customMethodManager?.stopLoader(view:self.view, indicator: self.indicator)
+            if let errorString = (error as NSError).userInfo[ConstantTexts.errorMessage_Key] as? String{
+                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: errorString, style:.error)
+            }else{
+                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: ConstantTexts.errorMessage, style:.error)
+            }
+            
+            
+            
+        }
+        
+        
+    }
     
     
     

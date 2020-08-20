@@ -13,6 +13,9 @@ import DropDown
 import FullMaterialLoader
 protocol CustomMethodProtocol {
     
+    //TODO: Set url image on imageview
+    func setImage(imageView:UIImageView,url:String)
+    
     //TODO: Show ToolTip
     func showToolTip(msg:String,anchorView:UIView,sourceView:UIView)
     

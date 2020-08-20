@@ -46,7 +46,9 @@ extension HomeVC{
         
         self.labelLoationTitle.font = AppFont.Regular.size(AppFontName.OpenSans, size: 12)
         self.labelLoationTitle.textColor = AppColor.darkGrayColor
-        self.labelLoationTitle.text = "\(ConstantTexts.YouAreInLT) \("Delhi")"
+        self.labelLoationTitle.text = "\(ConstantTexts.YouAreInLT) \(self.cityName)"
+        
+       
         self.imageViewDropDown.setImageTintColor(AppColor.darkGrayColor)
         
         // For Tableview

@@ -90,6 +90,10 @@
 		9D80F43824EAB176004F64D1 /* All_India_Legal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9D80F43624EAB176004F64D1 /* All_India_Legal.xcdatamodeld */; };
 		9D80F43A24EB05EF004F64D1 /* User_Data_Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80F43924EB05EF004F64D1 /* User_Data_Model.swift */; };
 		9D87E70424C57C8100EF0870 /* SoundClassTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D87E70324C57C8100EF0870 /* SoundClassTests.swift */; };
+		9D9148A024ED70B0003A3E37 /* Lawyer_View_Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D91489F24ED70B0003A3E37 /* Lawyer_View_Model.swift */; };
+		9D9148A224ED732B003A3E37 /* Lawyer_Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9148A124ED732B003A3E37 /* Lawyer_Model.swift */; };
+		9D9148A424ED772A003A3E37 /* LawyerDataModeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9148A324ED772A003A3E37 /* LawyerDataModeling.swift */; };
+		9D9148A624ED77D6003A3E37 /* LawyerList_VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9148A524ED77D6003A3E37 /* LawyerList_VM.swift */; };
 		9D93CE5424DBF16300CC148E /* FilterPopup_VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D93CE5324DBF16300CC148E /* FilterPopup_VC.swift */; };
 		9D948F2524D5713100AB41F0 /* VPMOTPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D948F2424D5713100AB41F0 /* VPMOTPTextField.swift */; };
 		9D948F2724D5716600AB41F0 /* VPMOTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D948F2624D5716600AB41F0 /* VPMOTPView.swift */; };
@@ -305,6 +309,10 @@
 		9D80F43724EAB176004F64D1 /* All_India_Legal.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = All_India_Legal.xcdatamodel; sourceTree = "<group>"; };
 		9D80F43924EB05EF004F64D1 /* User_Data_Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User_Data_Model.swift; sourceTree = "<group>"; };
 		9D87E70324C57C8100EF0870 /* SoundClassTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundClassTests.swift; sourceTree = "<group>"; };
+		9D91489F24ED70B0003A3E37 /* Lawyer_View_Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lawyer_View_Model.swift; sourceTree = "<group>"; };
+		9D9148A124ED732B003A3E37 /* Lawyer_Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lawyer_Model.swift; sourceTree = "<group>"; };
+		9D9148A324ED772A003A3E37 /* LawyerDataModeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LawyerDataModeling.swift; sourceTree = "<group>"; };
+		9D9148A524ED77D6003A3E37 /* LawyerList_VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LawyerList_VM.swift; sourceTree = "<group>"; };
 		9D93CE5324DBF16300CC148E /* FilterPopup_VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPopup_VC.swift; sourceTree = "<group>"; };
 		9D948F2424D5713100AB41F0 /* VPMOTPTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VPMOTPTextField.swift; sourceTree = "<group>"; };
 		9D948F2624D5716600AB41F0 /* VPMOTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VPMOTPView.swift; sourceTree = "<group>"; };
@@ -718,6 +726,7 @@
 				9DEB6EBE24D9E02300ED3FD6 /* FilterCategory.swift */,
 				9D9E723C24DDECD9005805D7 /* DataStoreStruct_GSTIN.swift */,
 				9D80F43924EB05EF004F64D1 /* User_Data_Model.swift */,
+				9D9148A124ED732B003A3E37 /* Lawyer_Model.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -730,6 +739,7 @@
 				9DEB6EC024D9E13300ED3FD6 /* FilterCategoryViewModel.swift */,
 				9DEB6EC424D9E42A00ED3FD6 /* FilterViewModel.swift */,
 				9D9E723E24DDED5D005805D7 /* DataStoreStruct_GSTIN_List_ViewModel.swift */,
+				9D91489F24ED70B0003A3E37 /* Lawyer_View_Model.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -743,6 +753,7 @@
 				9DEB6EC824D9E7A200ED3FD6 /* FilterCategoryListModeling.swift */,
 				9D9E724024DDEE6C005805D7 /* DataStoreStructListModeling_GSTIN.swift */,
 				9D645B9124DF368500A2B0F6 /* FAQ_DataModeling.swift */,
+				9D9148A324ED772A003A3E37 /* LawyerDataModeling.swift */,
 			);
 			path = DipendenciesInjections;
 			sourceTree = "<group>";
@@ -769,6 +780,7 @@
 				9D5F2B5124C7172600BA4015 /* LawyerListVC+TableViewExtension.swift */,
 				9DEB6ECC24D9FA8C00ED3FD6 /* LawyerListVC+CollectionViewExtensions.swift */,
 				9DEB6ECA24D9E87300ED3FD6 /* LawyerListCategoryList_VM.swift */,
+				9D9148A524ED77D6003A3E37 /* LawyerList_VM.swift */,
 			);
 			path = LawyerListScreen;
 			sourceTree = "<group>";
@@ -1356,12 +1368,14 @@
 				9D5F2B3724C6B15000BA4015 /* HomeVC.swift in Sources */,
 				9D9E720B24DC8EF9005805D7 /* FilterPopup_Empty_VM.swift in Sources */,
 				9DEB6EC124D9E13300ED3FD6 /* FilterCategoryViewModel.swift in Sources */,
+				9D9148A424ED772A003A3E37 /* LawyerDataModeling.swift in Sources */,
 				9D25567924C1DCAA006563AC /* ViewController.swift in Sources */,
 				9D9E723B24DDEC0A005805D7 /* GSTIN_Type.swift in Sources */,
 				9D5F2B5224C7172600BA4015 /* LawyerListVC+TableViewExtension.swift in Sources */,
 				9DDD4A0E24E9B43E003CC77F /* Api_keys_model.swift in Sources */,
 				9D9E722F24DD9E63005805D7 /* PaymentVC+MethodExtension.swift in Sources */,
 				9D389BB524EC49C40089CDB3 /* FilterItemCollectionViewCell.swift in Sources */,
+				9D9148A024ED70B0003A3E37 /* Lawyer_View_Model.swift in Sources */,
 				9D76C05324C8EBD2002B400E /* SignUpVC+MethodExtension.swift in Sources */,
 				9D5FE2B024D4B59D002A94F1 /* LoginVC+TableViewExtension.swift in Sources */,
 				9D554C5524C2C8D300E2080D /* SplashVC.swift in Sources */,
@@ -1422,6 +1436,7 @@
 				9D5F2B3524C6AF9700BA4015 /* SBaseTableViewCell.swift in Sources */,
 				9D0B58FB24D4CCC600AACE59 /* LoginVC+UITextFieldDelegate.swift in Sources */,
 				9D76C05124C8EB4C002B400E /* SignUpVC.swift in Sources */,
+				9D9148A224ED732B003A3E37 /* Lawyer_Model.swift in Sources */,
 				9DFED3E324D49F3D00851570 /* DataStoreStructListModeling.swift in Sources */,
 				9D9E723F24DDED5D005805D7 /* DataStoreStruct_GSTIN_List_ViewModel.swift in Sources */,
 				9D9E720E24DC9551005805D7 /* AppointmentVC.swift in Sources */,
@@ -1438,6 +1453,7 @@
 				9DDC564D24DB453B002DD47D /* AnchorView.swift in Sources */,
 				9D67B12A24E08FC80074B3F2 /* ContactUsVC+UITextFieldExtension.swift in Sources */,
 				9D5F2B2D24C612BB00BA4015 /* TabBarVC.swift in Sources */,
+				9D9148A624ED77D6003A3E37 /* LawyerList_VM.swift in Sources */,
 				9DC5456324C33DAE009AF27A /* AppStoryboard.swift in Sources */,
 				9D67B12824E08B890074B3F2 /* ContactUsVM.swift in Sources */,
 				9D5F2B5424C75DB700BA4015 /* Category.swift in Sources */,

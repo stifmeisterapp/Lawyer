@@ -12,11 +12,19 @@ import Lottie
 import DropDown
 import FullMaterialLoader
 import CoreData
+import SDWebImage
 class CustomMethodClass: CustomMethodProtocol {
     
     //TODO: Singleton object
     static let shared = CustomMethodClass()
     private init() {}
+    
+    
+    //TODO: Set url image on imageview
+    func setImage(imageView:UIImageView,url:String){
+        imageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
+        imageView.sd_setImage(with: URL(string: url))
+    }
     
     
     //TODO: Show ToolTip

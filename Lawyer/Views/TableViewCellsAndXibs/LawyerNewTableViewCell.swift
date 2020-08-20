@@ -9,29 +9,29 @@
 import UIKit
 
 class LawyerNewTableViewCell: SBaseTableViewCell {
-
+    
     
     //MARK: - IBOutlets
-      
-      @IBOutlet weak var viewBG: UIView!
-      
-      @IBOutlet weak var imageLawyer: UIImageView!
-      @IBOutlet weak var labelNameLayer: UILabel!
-      @IBOutlet weak var labelCityLawyer: UILabel!
-      @IBOutlet weak var labelLangLawyer: UILabel!
-      
-      @IBOutlet weak var viewSeprator1: UIView!
-      
-      @IBOutlet weak var labelExperience: UILabel!
-      @IBOutlet weak var labelCall: UILabel!
-      @IBOutlet weak var labelMeet: UILabel!
-      
-      
-      @IBOutlet weak var buttonMeetRef: UIButton!
-      @IBOutlet weak var buttonCallRef: UIButton!
-      
-      //MARK: - Variables
-      internal var customMethodManager:CustomMethodProtocol?
+    
+    @IBOutlet weak var viewBG: UIView!
+    
+    @IBOutlet weak var imageLawyer: UIImageView!
+    @IBOutlet weak var labelNameLayer: UILabel!
+    @IBOutlet weak var labelCityLawyer: UILabel!
+    @IBOutlet weak var labelLangLawyer: UILabel!
+    
+    @IBOutlet weak var viewSeprator1: UIView!
+    
+    @IBOutlet weak var labelExperience: UILabel!
+    @IBOutlet weak var labelCall: UILabel!
+    @IBOutlet weak var labelMeet: UILabel!
+    
+    
+    @IBOutlet weak var buttonMeetRef: UIButton!
+    @IBOutlet weak var buttonCallRef: UIButton!
+    
+    //MARK: - Variables
+    internal var customMethodManager:CustomMethodProtocol?
     
     
     override func awakeFromNib() {
@@ -39,14 +39,63 @@ class LawyerNewTableViewCell: SBaseTableViewCell {
         // Initialization code
         setUpCell()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
+    //MARK: - User Define Functions
+    //TODO: Config TableViewCell
     
+    public func configure(with info: Lawyer_View_Model) {
+        
+        self.customMethodManager?.setImage(imageView: self.imageLawyer, url: info.ProfilePhoto)
+        
+        self.labelNameLayer.text = info.FullName
+        self.labelCityLawyer.text = info.CityName
+        self.labelLangLawyer.text = info.Language_String
+        
+        
+        // *** Create instance of `NSMutableParagraphStyle`
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = .center
+        // *** set LineSpacing property in points ***
+        paragraphStyle.lineSpacing = 2 // Whatever line spacing you want in points
+        
+        
+        var myMutableString = NSMutableAttributedString()
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: ConstantTexts.ExperienceLT, font: AppFont.Semibold.size(AppFontName.OpenSans, size: 12), color: AppColor.textColor) ?? NSMutableAttributedString())
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\n\(info.Experience_Name)", font: AppFont.Semibold.size(AppFontName.OpenSans, size: 12), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
+        // *** Apply attribute to string ***
+        myMutableString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, myMutableString.length))
+        // *** Set Attributed String to your label ***
+        self.labelExperience.attributedText = myMutableString
+        
+        
+        myMutableString = NSMutableAttributedString()
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: ConstantTexts.CallLT, font: AppFont.Semibold.size(AppFontName.OpenSans, size: 12), color: AppColor.textColor) ?? NSMutableAttributedString())
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\n\(ConstantTexts.CurLT)  \(info.ConsulationType_Call_Fee)", font:AppFont.Semibold.size(AppFontName.OpenSans, size: 12), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
+        // *** Apply attribute to string ***
+        myMutableString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, myMutableString.length))
+        // *** Set Attributed String to your label ***
+        self.labelCall.attributedText = myMutableString
+        
+        
+        
+        myMutableString = NSMutableAttributedString()
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: ConstantTexts.MeetLT, font: AppFont.Semibold.size(AppFontName.OpenSans, size: 12), color: AppColor.textColor) ?? NSMutableAttributedString())
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\n\(ConstantTexts.CurLT)  \(info.ConsulationType_Meet_Fee)", font: AppFont.Semibold.size(AppFontName.OpenSans, size: 12), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
+        // *** Apply attribute to string ***
+        myMutableString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, myMutableString.length))
+        // *** Set Attributed String to your label ***
+        self.labelMeet.attributedText = myMutableString
+        
+        
+        
+        
+    }
     
     //TODO: Setup cell implementation
     private func setUpCell(){
@@ -58,7 +107,7 @@ class LawyerNewTableViewCell: SBaseTableViewCell {
         
         self.backgroundColor = AppColor.tableBGColor
         self.viewBG.backgroundColor = AppColor.whiteColor
-       /* self.customMethodManager?.provideShadowAndCornerRadius(self.viewBG, 10, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.placeholderColor, 2, 2, 2, 2, 0, AppColor.tableBGColor) */
+        /* self.customMethodManager?.provideShadowAndCornerRadius(self.viewBG, 10, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.placeholderColor, 2, 2, 2, 2, 0, AppColor.tableBGColor) */
         
         self.customMethodManager?.provideShadowAndCornerRadius(self.viewBG, 0, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.placeholderColor, 2, 2, 2, 2, 0, AppColor.clearColor)
         
@@ -67,7 +116,7 @@ class LawyerNewTableViewCell: SBaseTableViewCell {
         self.customMethodManager?.provideCornerRadiusTo(self.imageLawyer, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
         self.customMethodManager?.provideCornerBorderTo(self.imageLawyer, 1, AppColor.tableBGColor)
         
-       
+        
         self.viewSeprator1.backgroundColor = AppColor.tableBGColor
         self.viewSeprator1.isHidden = false
         
@@ -101,48 +150,11 @@ class LawyerNewTableViewCell: SBaseTableViewCell {
         self.labelLangLawyer.textColor = AppColor.darkGrayColor
         self.labelLangLawyer.numberOfLines = 0
         
-        self.labelNameLayer.text = "Kesari Narayana Shukla"
-        self.labelCityLawyer.text = "Delhi, Noida"
-        self.labelLangLawyer.text = "Hindi, English"
-        
- 
-        // *** Create instance of `NSMutableParagraphStyle`
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.alignment = .center
-        // *** set LineSpacing property in points ***
-        paragraphStyle.lineSpacing = 2 // Whatever line spacing you want in points
-        
-        
-        var myMutableString = NSMutableAttributedString()
-        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: ConstantTexts.ExperienceLT, font: AppFont.Semibold.size(AppFontName.OpenSans, size: 12), color: AppColor.textColor) ?? NSMutableAttributedString())
-        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\n\(15) \(ConstantTexts.YrsLT)", font: AppFont.Semibold.size(AppFontName.OpenSans, size: 12), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
-        // *** Apply attribute to string ***
-        myMutableString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, myMutableString.length))
-        // *** Set Attributed String to your label ***
-        self.labelExperience.attributedText = myMutableString
-        
-      
-        myMutableString = NSMutableAttributedString()
-        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: ConstantTexts.CallLT, font: AppFont.Semibold.size(AppFontName.OpenSans, size: 12), color: AppColor.textColor) ?? NSMutableAttributedString())
-        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\n\(ConstantTexts.CurLT)  \(500)", font:AppFont.Semibold.size(AppFontName.OpenSans, size: 12), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
-        // *** Apply attribute to string ***
-        myMutableString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, myMutableString.length))
-        // *** Set Attributed String to your label ***
-        self.labelCall.attributedText = myMutableString
-        
-        
-
-        myMutableString = NSMutableAttributedString()
-        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: ConstantTexts.MeetLT, font: AppFont.Semibold.size(AppFontName.OpenSans, size: 12), color: AppColor.textColor) ?? NSMutableAttributedString())
-        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\n\(ConstantTexts.CurLT)  \(2000)", font: AppFont.Semibold.size(AppFontName.OpenSans, size: 12), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
-        // *** Apply attribute to string ***
-        myMutableString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, myMutableString.length))
-        // *** Set Attributed String to your label ***
-        self.labelMeet.attributedText = myMutableString
-        
         
         
     }
+    
+    
     
     
 }

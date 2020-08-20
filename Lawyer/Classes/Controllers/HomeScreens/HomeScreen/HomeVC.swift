@@ -37,6 +37,7 @@ class HomeVC: SBaseViewController {
     
     internal var cityNameArray = [String]()
     internal var cityIdArray = [String]()
+    internal var cityName:String = "Gurgaon"
     
     
     
@@ -93,8 +94,10 @@ class HomeVC: SBaseViewController {
                 print("Selected item: \(item) at index: \(index)")
                 
                 if item == ConstantTexts.SelectCityLT{
-                    self.labelLoationTitle.text = "\(ConstantTexts.YouAreInLT) \("Delhi")"
+                    self.cityName = "Gurgaon"
+                    self.labelLoationTitle.text = "\(ConstantTexts.YouAreInLT) \(self.cityName)"
                 }else{
+                    self.cityName = item
                     self.labelLoationTitle.text = "\(ConstantTexts.YouAreInLT) \(item)"
                 }
             }

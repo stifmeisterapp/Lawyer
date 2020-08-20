@@ -12,11 +12,11 @@ import UIKit
 //MARK: - UITableViewDataSource extension
 extension LawyerListVC:UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return (self.lawyerListVM == nil) ? 0 : self.lawyerListVM?.numberOfSections ?? 0
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return  10
+        return  self.lawyerListVM?.numberOfRowsInSection(section) ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -27,6 +27,10 @@ extension LawyerListVC:UITableViewDataSource{
         cell.buttonMeetRef.tag = indexPath.row
         cell.buttonMeetRef.addTarget(self, action: #selector(self.btnMeetTapped(_:)), for: .touchUpInside)
         
+        guard let item = self.lawyerListVM?.lawyerAtIndex(indexPath.row) else {
+            fatalError("No FilterCategoryViewModel found...")
+        }
+        cell.configure(with: item)
         return cell
     }
 }
@@ -55,4 +59,22 @@ extension LawyerListVC:UITableViewDelegate{
     } */
     
     
+}
+
+
+
+//MARK: - UIScrollView Delegate
+extension LawyerListVC:UIScrollViewDelegate{
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView){
+        if self.lawyerTableView.contentOffset.y != 0{
+            
+            if ((lawyerTableView.contentOffset.y + lawyerTableView.frame.size.height) >= lawyerTableView.contentSize.height){
+                if self.isPagination == false{
+                    self.offset += 1
+                    self.lawyerListService(serviceURL:service_url, keyword: self.txtSearch.text!.trimmingCharacters(in: .whitespaces), offset: self.offset, isRefresh: Bool(), isFilterApplied: Bool(), isSearchActive: Bool())
+                }
+            }
+        }
+        
+    }
 }

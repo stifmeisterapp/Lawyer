@@ -8,6 +8,7 @@
 
 import UIKit
 import ViewAnimator
+import FullMaterialLoader
 
 class LawyerListVC: SBaseViewController {
     
@@ -23,10 +24,14 @@ class LawyerListVC: SBaseViewController {
     @IBOutlet weak var heightFilterItemCollectionView: NSLayoutConstraint!
     
     //MARK: - Variables
+    internal var indicator: MaterialLoadingIndicator!
     internal var headerTitle:String = String()
     internal var customMethodManager:CustomMethodProtocol?
     internal var filterCategoryListDataVM:FilterCategory_List_ViewModel?
     internal var filterCategoryListVM: FilterCategoryListModeling?
+    
+    
+    
     
     //TODO: Variables for manage filters
     internal var filters = [Filter]()
@@ -47,6 +52,14 @@ class LawyerListVC: SBaseViewController {
     internal let zoomAnimation = AnimationType.zoom(scale: 0.2)
     internal let rotateAnimation = AnimationType.rotate(angle: CGFloat.pi/6)
     
+    
+    //MARK: - Variables for api
+    internal var service_url:String = String()
+    internal var cityName:String = String()
+    internal var offset:Int = 1
+    internal var isPagination: Bool = Bool()
+    internal var lawyerListVM_protocol: LawyerDataModeling?
+    internal var lawyerListVM:Lawyer_List_View_Model?
     
     /*  //MARK: - variables for the animate tableview
      
@@ -70,9 +83,6 @@ class LawyerListVC: SBaseViewController {
         
         // Do any additional setup after loading the view.
         initValues()
-        
-        
-        // https://www.allindialegal.com/v1/lawyer-list?CityId=134,2,133&CityName=alipur&ExpertiseId=1&LanguageId=1,2,3,4,5&ExperienceId=4,1,2&Keyword=asdnakjsdhjksadhkjahsdj&OffSet=
     }
     
     //TODO: Implementation viewWillAppear
@@ -84,7 +94,7 @@ class LawyerListVC: SBaseViewController {
     //TODO: Implementation viewDidAppear
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        animateView()
+        //animateView()
         //runRotateAnimation()
     }
     
@@ -123,23 +133,51 @@ class LawyerListVC: SBaseViewController {
                        completion: { _ in
                         UIView.animate(withDuration: 0.1) {
                             self.btnFilterRef.transform = CGAffineTransform.identity
-                            for item in self.filters{
-                                self.customMethodManager?.updateIsSelect(entity: item.entity, primary_key: self.customMethodManager?.getTableAndKeys(entity: item.entity) ?? String(), primary_value: item.id, key: "is_selected", value: Bool())
-                            }
+                            self.isPagination = false
+                            self.offset = 1
+                            self.resetFilters()
+                            self.service_url = "CityId=\(String())&CityName=\(self.cityName)&ExpertiseId=\(String())&LanguageId=\(String())&ExperienceId=\(String())&Keyword="
                             
-                            self.filters.removeAll()
-                            self.getHeightAndIsHiddenForFilterItemCollectionViewWithAnimation(entity: String())
+                            self.lawyerListService(serviceURL:self.service_url, keyword: self.txtSearch.text!.trimmingCharacters(in: .whitespaces), offset: self.offset, isRefresh: Bool(), isFilterApplied: true, isSearchActive: Bool())
                         }
         })
         
     }
     
     
+    @IBAction func btnSearchTapped(_ sender: UIButton) {
+        dismissKeyboard()
+        
+        
+        UIView.animate(withDuration: 0.1,
+                       animations: {
+                        
+                        self.btnSearchRef.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+        },
+                       completion: { _ in
+                        UIView.animate(withDuration: 0.1) {
+                            self.btnSearchRef.transform = CGAffineTransform.identity
+
+                            self.lawyerListService(serviceURL:self.service_url, keyword: self.txtSearch.text!.trimmingCharacters(in: .whitespaces), offset: self.offset, isRefresh: Bool(), isFilterApplied: Bool(), isSearchActive: true)
+                        }
+        })
+        
+    }
+    
+    
+    
+    
     //TODO: Selectors
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        self.isPagination = false
+        self.offset = 1
         self.txtSearch.text = ConstantTexts.empty
         dismissKeyboard()
+        self.service_url = "CityId=\(String())&CityName=\(self.cityName)&ExpertiseId=\(String())&LanguageId=\(String())&ExperienceId=\(String())&Keyword="
+        
+        self.lawyerListService(serviceURL:service_url, keyword: self.txtSearch.text!.trimmingCharacters(in: .whitespaces), offset: self.offset, isRefresh: true, isFilterApplied: Bool(), isSearchActive: Bool())
         refreshControl.endRefreshing()
+       
     }
     
     @objc func btnSelectedCell(_ sender: UIButton) {
@@ -195,11 +233,13 @@ class LawyerListVC: SBaseViewController {
                             if let cell = self.filterItemCollectionView.cellForItem(at: indexPath) as? FilterItemCollectionViewCell {
                                 cell.transform = .identity
                                 cell.contentView.backgroundColor = .clear
-                                
+                                self.isPagination = false
+                                self.offset = 1
                                 self.customMethodManager?.updateIsSelect(entity: self.filters[sender.tag].entity, primary_key: self.customMethodManager?.getTableAndKeys(entity: self.filters[sender.tag].entity) ?? String(), primary_value: self.filters[sender.tag].id, key: "is_selected", value: Bool())
                                 
                                 self.filters.remove(at: sender.tag)
                                 self.getHeightAndIsHiddenForFilterItemCollectionViewWithAnimation(entity: String())
+                                self.applyFilters()
                                 
                             }
                         }

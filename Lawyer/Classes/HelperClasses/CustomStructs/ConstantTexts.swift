@@ -23,6 +23,7 @@ struct ConstantTexts{
     static let  newLineBreak                        =      "\n"
     static let  supportLink                         =      "support@allindialegal.com"
     static let  supportConta                        =      "1800-419-9661"
+    static let  mod20                               =      "%20"
     
     
     //TODO: Animation
@@ -81,6 +82,8 @@ struct ConstantTexts{
     static let  PropertyLT                          =      "Property"
     static let  DishonourOfChequesLT                =      "Dishonour of Cheques"
     static let  DivorceLT                           =      "Divorce"
+    static let  DefaultFeeValueLT                   =      "0"
+    static let  DefaultOffsetValueLT                =      "10"
     static let  DomesticVoilenceLT                  =      "Domestic Voilence"
     static let  NALT                                =      "NA"
     static let  AnyLT                               =      "Any"
