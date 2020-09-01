@@ -26,6 +26,71 @@ class CustomMethodClass: CustomMethodProtocol {
         imageView.sd_setImage(with: URL(string: url))
     }
     
+    //MARK: - Alert Methods
+    //TODO: Show alert simple
+    func showAlert(_ message: String, okButtonTitle: String? = nil, target: UIViewController? = nil) {
+        let topViewController: UIViewController? = self.topMostViewController(rootViewController: self.rootViewController())
+        
+        if let _ = topViewController {
+            let alert = UIAlertController(title:APP_NAME, message: message, preferredStyle: UIAlertController.Style.alert);
+            let okBtnTitle = okButtonTitle
+            let okAction = UIAlertAction(title:okBtnTitle, style: UIAlertAction.Style.default, handler: nil);
+            
+            alert.addAction(okAction);
+            if UIApplication.shared.applicationState != .background{
+                topViewController?.present(alert, animated:true, completion:nil);
+            }
+        }
+    }
+    
+    
+   //TODO: Show alert with cancel
+    func showAlertWithCancel(title:String,message:String,btnOkTitle:String,btnCancelTitle:String,callBack:@escaping ((Bool)->())){
+        
+        let topViewController: UIViewController? = self.topMostViewController(rootViewController: self.rootViewController())
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+
+        alert.addAction(UIAlertAction(title: btnOkTitle, style: .default, handler: { action in
+            callBack(true)
+        }))
+        alert.addAction(UIAlertAction(title: btnCancelTitle, style: .cancel, handler: { action in
+            callBack(false)
+        }))
+
+        topViewController?.present(alert, animated: true)
+    }
+
+    //TODO: Get root view controller
+    func rootViewController() -> UIViewController
+    {
+        return UIApplication.shared.windows.first!.rootViewController ?? UIViewController()
+    }
+    
+    
+    
+    //TODO - Get topmost view controller
+    func topMostViewController(rootViewController: UIViewController) -> UIViewController? {
+        if let navigationController = rootViewController as? UINavigationController
+        {
+            return topMostViewController(rootViewController: navigationController.visibleViewController!)
+        }
+        
+        if let tabBarController = rootViewController as? UITabBarController
+        {
+            if let selectedTabBarController = tabBarController.selectedViewController
+            {
+                return topMostViewController(rootViewController: selectedTabBarController)
+            }
+        }
+        
+        if let presentedViewController = rootViewController.presentedViewController
+        {
+            return topMostViewController(rootViewController: presentedViewController)
+        }
+        return rootViewController
+    }
+    
     
     //TODO: Show ToolTip
     func showToolTip(msg:String,anchorView:UIView,sourceView:UIView){
@@ -97,7 +162,7 @@ class CustomMethodClass: CustomMethodProtocol {
         /* dropDown.backgroundColor = AppColor.bgColor
          dropDown.textColor = AppColor.whiteColor */
         dropDown.bottomOffset = CGPoint(x: 0, y:anchor.bounds.height)
-        dropDown.direction = .bottom
+        dropDown.direction = .any
         dropDown.show()
         
         callBack(dropDown)
@@ -332,6 +397,59 @@ extension CustomMethodClass {
         animationViewLottie.loopMode = loopMode
         view.addSubview(animationViewLottie)
         animationViewLottie.play()
+    }
+    
+    
+    //TODO: Setup error view
+    func setupError(chidView:ErrorView,animationName:String,message:String){
+        chidView.backgroundColor = AppColor.clearColor
+        chidView.viewLottie.backgroundColor = AppColor.clearColor
+        chidView.lblDescription.backgroundColor = AppColor.clearColor
+        
+        chidView.lblDescription.font = AppFont.Bold.size(AppFontName.OpenSans, size: 18)
+        chidView.lblDescription.textColor = AppColor.tanColor
+        chidView.lblDescription.textAlignment = .center
+        chidView.lblDescription.numberOfLines = 0
+        chidView.lblDescription.text = message
+     
+        chidView.viewLottie.subviews.forEach({ $0.removeFromSuperview() }) // this gets things done
+        _ = chidView.viewLottie.subviews.map({ $0.removeFromSuperview() }) // this returns modified array
+        self.showLottieAnimation(chidView.viewLottie, animationName, .loop)
+    }
+    
+    
+    
+    //TODO: Check subview is available or not
+    func isSubviewAdded(parentView:UIView,childView:UIView) -> Bool{
+        return childView.isDescendant(of: parentView) ? true : false
+    }
+    
+    //TODO: Add subview
+    func addSubView(parentView:UIView,childView:UIView){
+        parentView.addSubview(childView)
+    }
+    
+    
+    //TODO: Remove subview
+    func removeSubView(childView:UIView){
+        childView.removeFromSuperview()
+    }
+    
+    
+    //TODO: Get animation name and message
+    func getAnimationNameAndMessage(errorCode:Int)->(String,String){
+        switch errorCode {
+        case 1009:
+            return (ConstantTexts.NoInternetConnectionEmptyState,ConstantTexts.noInterNet)
+            
+        case 400:
+            return (ConstantTexts.Invalid_URLA,ConstantTexts.Invalid_URL)
+       
+        default:
+            return (ConstantTexts.SomeThingWentWrong,ConstantTexts.somethingWentMessage)
+        }
+        
+        
     }
     
     

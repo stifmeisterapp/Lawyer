@@ -70,7 +70,7 @@ extension LawyerListVC:UIScrollViewDelegate{
             
             if ((lawyerTableView.contentOffset.y + lawyerTableView.frame.size.height) >= lawyerTableView.contentSize.height){
                 if self.isPagination == false{
-                    self.offset += 1
+                   // self.offset += 10
                     self.lawyerListService(serviceURL:service_url, keyword: self.txtSearch.text!.trimmingCharacters(in: .whitespaces), offset: self.offset, isRefresh: Bool(), isFilterApplied: Bool(), isSearchActive: Bool())
                 }
             }

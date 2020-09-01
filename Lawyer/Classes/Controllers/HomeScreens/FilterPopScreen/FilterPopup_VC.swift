@@ -26,6 +26,7 @@ class FilterPopup_VC: SBaseViewController {
     
     
     internal var callBackFilter:((_ filters:[Filter],_ headerTitle:String)->())?
+    internal var callBackClearFilter:((_ isClearActivate:Bool,_ headerTitle:String)->())?
     
     internal var index:Int = Int()
     internal var headerTitle:String = String()
@@ -38,6 +39,8 @@ class FilterPopup_VC: SBaseViewController {
     
     internal var search_filterListVM:FilterListModeling?
     internal var search_filterList:Filter_List_ViewModel?
+    
+    internal var isClearActivated:Bool = Bool()
     
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -71,6 +74,7 @@ class FilterPopup_VC: SBaseViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         dismissKeyboard()
+        self.callBackClearFilter?(self.isClearActivated, self.headerTitle)
     }
     
     
@@ -95,26 +99,47 @@ class FilterPopup_VC: SBaseViewController {
                        completion: { _ in
                         UIView.animate(withDuration: 0.1) {
                             self.btnDoneRef.transform = CGAffineTransform.identity
-                            self.dismiss(animated: true) {
-                                var filters = [Filter]()
-                                guard let count = self.filterList?.filters.count else{
-                                    print("No count found...")
-                                    return
-                                }
-                                
-                                for index in 0..<count{
-                                    if let isSelected = self.filterList?.filters[index].isSelected{
-                                        if isSelected{
-                                            if let filterItem = self.filterList?.filters[index]{
-                                                filters.append(filterItem)
-                                                self.customMethodManager?.updateIsSelect(entity: self.headerTitle, primary_key: self.customMethodManager?.getTableAndKeys(entity: self.headerTitle) ?? String(), primary_value: filterItem.id, key: "is_selected", value: isSelected)
-                                            }
-                                        }
+                            
+                            guard let count = self.filterList?.filters.count else{
+                                print("No count found...")
+                                return
+                            }
+                            
+                            var isAnySelected = Bool()
+                            for index in 0..<count{
+                                if let isSelected = self.filterList?.filters[index].isSelected{
+                                    if isSelected{
+                                        isAnySelected = true
+                                        break
                                     }
                                 }
                                 
-                                self.callBackFilter?(filters, self.headerTitle)
                             }
+                            
+                            
+                            if isAnySelected{
+                                self.dismiss(animated: true) {
+                                    var filters = [Filter]()
+                                    
+                                    for index in 0..<count{
+                                        if let isSelected = self.filterList?.filters[index].isSelected{
+                                            if isSelected{
+                                                if let filterItem = self.filterList?.filters[index]{
+                                                    filters.append(filterItem)
+                                                    self.customMethodManager?.updateIsSelect(entity: self.headerTitle, primary_key: self.customMethodManager?.getTableAndKeys(entity: self.headerTitle) ?? String(), primary_value: filterItem.id, key: "is_selected", value: isSelected)
+                                                }
+                                            }
+                                        }
+                                    }
+                                    
+                                    self.callBackFilter?(filters, self.headerTitle)
+                                }
+                            }else{
+                                
+                                
+                                self.customMethodManager?.showAlert(ConstantTexts.SelectFilterALERT, okButtonTitle: ConstantTexts.OkBT, target: self)
+                            }
+                            
                         }
         })
     }
@@ -131,33 +156,21 @@ class FilterPopup_VC: SBaseViewController {
         },
                        completion: { _ in
                         UIView.animate(withDuration: 0.1) {
+                            
                             self.btnClearRef.transform = CGAffineTransform.identity
                             
-                            guard let count = self.filterList?.filters.count else{
-                                print("No count found...")
-                                return
-                            }
-                            
-                            for index in 0..<count{
-                                if let isSelected = self.filterList?.filters[index].isSelected{
-                                    if isSelected{
-                                        
-                                        if let filterItem = self.filterList?.filters[index]{
-                                            filterItem.isSelected = Bool()
-                                            
-                                            self.customMethodManager?.updateIsSelect(entity: self.headerTitle, primary_key: self.customMethodManager?.getTableAndKeys(entity: self.headerTitle) ?? String(), primary_value: filterItem.id, key: "is_selected", value: filterItem.isSelected)
-                                        }
-                                    }
+                            self.customMethodManager?.showAlertWithCancel(title: ConstantTexts.AppName, message: ConstantTexts.ClearFiltersStateBT, btnOkTitle: ConstantTexts.OkBT, btnCancelTitle: ConstantTexts.CancelBT, callBack: { (status) in
+                                if status{
+                                    self.resetFilters(callBack: {
+                                        self.isClearActivated = true
+                                        self.filterTableView.reloadData()
+                                    })
+                                }else{
+                                    print("Do nothing...")
                                 }
-                            }
-                            
-                            
-                            self.filterTableView.reloadData()
-                            
+                            })
                         }
         })
-        
-        
     }
     
     

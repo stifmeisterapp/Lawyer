@@ -11,7 +11,16 @@ import UIKit
 class AppointmentFooterView: UIView {
 
     //MARK: - IBOutlet
-       @IBOutlet weak var btnBookConsultaionRef: UIButton!
+    @IBOutlet weak var imgHammer: UIImageView!
+    @IBOutlet weak var btnBookConsultaionRef: UIButton!
+    @IBOutlet weak var lblHeading: UILabel!
+    
+    @IBOutlet weak var lblValue: UILabel!
+    @IBOutlet weak var imgDD: UIImageView!
+    @IBOutlet weak var btnDropDown: UIButton!
+    @IBOutlet weak var viewLine: UIView!
+    @IBOutlet weak var viewBG: UIView!
+    
     
     /*
     // Only override draw() if you perform custom drawing.

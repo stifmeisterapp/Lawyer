@@ -29,6 +29,7 @@ class LawyerListVC: SBaseViewController {
     internal var customMethodManager:CustomMethodProtocol?
     internal var filterCategoryListDataVM:FilterCategory_List_ViewModel?
     internal var filterCategoryListVM: FilterCategoryListModeling?
+    internal let errorView: ErrorView  = Bundle.main.loadNibNamed(ErrorView.className, owner: self, options: nil)?.first as! ErrorView
     
     
     
@@ -56,7 +57,9 @@ class LawyerListVC: SBaseViewController {
     //MARK: - Variables for api
     internal var service_url:String = String()
     internal var cityName:String = String()
-    internal var offset:Int = 1
+    internal var cityId:String = String()
+    internal var offset:Int = 0
+    internal var dataCount:Int = Int()
     internal var isPagination: Bool = Bool()
     internal var lawyerListVM_protocol: LawyerDataModeling?
     internal var lawyerListVM:Lawyer_List_View_Model?
@@ -94,8 +97,8 @@ class LawyerListVC: SBaseViewController {
     //TODO: Implementation viewDidAppear
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        //animateView()
-        //runRotateAnimation()
+        /*  animateView()
+         runRotateAnimation() */
     }
     
     
@@ -133,12 +136,7 @@ class LawyerListVC: SBaseViewController {
                        completion: { _ in
                         UIView.animate(withDuration: 0.1) {
                             self.btnFilterRef.transform = CGAffineTransform.identity
-                            self.isPagination = false
-                            self.offset = 1
-                            self.resetFilters()
-                            self.service_url = "CityId=\(String())&CityName=\(self.cityName)&ExpertiseId=\(String())&LanguageId=\(String())&ExperienceId=\(String())&Keyword="
-                            
-                            self.lawyerListService(serviceURL:self.service_url, keyword: self.txtSearch.text!.trimmingCharacters(in: .whitespaces), offset: self.offset, isRefresh: Bool(), isFilterApplied: true, isSearchActive: Bool())
+                            self.actionOnClearFilter()
                         }
         })
         
@@ -157,7 +155,8 @@ class LawyerListVC: SBaseViewController {
                        completion: { _ in
                         UIView.animate(withDuration: 0.1) {
                             self.btnSearchRef.transform = CGAffineTransform.identity
-
+                            self.isPagination = false
+                            self.offset = Int()
                             self.lawyerListService(serviceURL:self.service_url, keyword: self.txtSearch.text!.trimmingCharacters(in: .whitespaces), offset: self.offset, isRefresh: Bool(), isFilterApplied: Bool(), isSearchActive: true)
                         }
         })
@@ -170,14 +169,13 @@ class LawyerListVC: SBaseViewController {
     //TODO: Selectors
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
         self.isPagination = false
-        self.offset = 1
+        self.offset = Int()
         self.txtSearch.text = ConstantTexts.empty
         dismissKeyboard()
-        self.service_url = "CityId=\(String())&CityName=\(self.cityName)&ExpertiseId=\(String())&LanguageId=\(String())&ExperienceId=\(String())&Keyword="
         
         self.lawyerListService(serviceURL:service_url, keyword: self.txtSearch.text!.trimmingCharacters(in: .whitespaces), offset: self.offset, isRefresh: true, isFilterApplied: Bool(), isSearchActive: Bool())
         refreshControl.endRefreshing()
-       
+        
     }
     
     @objc func btnSelectedCell(_ sender: UIButton) {
@@ -206,7 +204,18 @@ class LawyerListVC: SBaseViewController {
                                 vc.callBackFilter = {  (filter,entity) in
                                     self.setFilterArray(filter: filter, entity: entity)
                                 }
-
+                                
+                                vc.callBackClearFilter = {(isClearActivated,entity) in
+                                    
+                                    if isClearActivated{
+                                        self.filters.removeAll(where: { $0.entity == entity })
+                                        self.getHeightAndIsHiddenForFilterItemCollectionViewWithAnimation(entity: entity)
+                                        self.applyFilters()
+                                        
+                                    }
+                                }
+                                
+                                
                                 vc.modalPresentationStyle = .automatic //or .overFullScreen for transparency
                                 self.present(vc, animated: true, completion: nil)
                                 
@@ -234,7 +243,7 @@ class LawyerListVC: SBaseViewController {
                                 cell.transform = .identity
                                 cell.contentView.backgroundColor = .clear
                                 self.isPagination = false
-                                self.offset = 1
+                                self.offset = Int()
                                 self.customMethodManager?.updateIsSelect(entity: self.filters[sender.tag].entity, primary_key: self.customMethodManager?.getTableAndKeys(entity: self.filters[sender.tag].entity) ?? String(), primary_value: self.filters[sender.tag].id, key: "is_selected", value: Bool())
                                 
                                 self.filters.remove(at: sender.tag)
@@ -265,6 +274,12 @@ class LawyerListVC: SBaseViewController {
                                 cell.buttonMeetRef.transform = .identity
                                 
                                 let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: AppointmentVC.className) as! AppointmentVC
+                                
+                                guard let item = self.lawyerListVM?.lawyerAtIndex(sender.tag) else {
+                                    fatalError("No FilterCategoryViewModel found...")
+                                }
+                                
+                                vc.Uuid = item.Uuid
                                 
                                 self.navigationController?.pushViewController(vc, animated: true)
                                 

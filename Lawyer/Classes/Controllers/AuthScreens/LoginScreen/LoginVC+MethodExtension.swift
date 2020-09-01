@@ -179,7 +179,7 @@ extension LoginVC{
                     
                     if let cell = self.logInTable.cellForRow(at: indexPath) as? Auth_TextField_TableViewCell{
                         
-                        self.customMethodManager!.showToolTip(msg: strMsg, anchorView: cell.textFieldFloating, sourceView: self.view)
+                        self.customMethodManager?.showToolTip(msg: strMsg, anchorView: cell.textFieldFloating, sourceView: self.view)
                         cell.textFieldFloating.becomeFirstResponder()
                         
                     }

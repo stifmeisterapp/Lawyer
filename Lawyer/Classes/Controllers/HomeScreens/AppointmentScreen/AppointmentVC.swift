@@ -8,6 +8,8 @@
 
 import UIKit
 import ViewAnimator
+import FullMaterialLoader
+import DropDown
 
 class AppointmentVC: SBaseViewController {
 
@@ -19,8 +21,8 @@ class AppointmentVC: SBaseViewController {
     @IBOutlet weak var tblAppointment: UITableView!
     
     //MARK: - Variables
+    internal let dropDown = DropDown()
     internal var customMethodManager:CustomMethodProtocol?
-    
     internal let footer: AppointmentFooterView  = Bundle.main.loadNibNamed(AppointmentFooterView.className, owner: self, options: nil)?.last as! AppointmentFooterView
     
     
@@ -36,8 +38,29 @@ class AppointmentVC: SBaseViewController {
     }()
     
     
-    //MARK: - Temp static variables (Needs to be removed)
-    internal var data = [AppointmentViewModel]()
+    //TODO: Variables for api
+    internal let errorView: ErrorView  = Bundle.main.loadNibNamed(ErrorView.className, owner: self, options: nil)?.first as! ErrorView
+    internal var Uuid:String = String()
+    internal var current_date = String()
+    internal var prev_date = String()
+    internal var next_date = String()
+    
+    internal var expertise_idArray = [String]()
+    internal var expertise_nameArray = [String]()
+    
+    internal var indicator: MaterialLoadingIndicator!
+    
+    //MARK: - For hitting api...
+    internal var appointMentVM:AppointmentDataModeling?
+    internal var appointMentListVM:AppointmentTimeDataViewModelList?
+    internal var validationMethodManager:ValidationProtocol?
+    
+    internal var expID:String = String()
+    internal var expName:String = String()
+    internal var selectedSlot:String = String()
+    
+    
+   // internal var data = [AppointmentViewModel]()
     
     //MARK: - View life cycle methods
     //TODO: Implementation viewDidLoad
@@ -72,21 +95,15 @@ class AppointmentVC: SBaseViewController {
     @IBAction func btnPrevTapped(_ sender: UIButton) {
         UIView.animate(withDuration: 0.1,
                        animations: {
-                        
+                        self.setuserBtnIteraction()
                         self.btnBackRef.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
         },
                        completion: { _ in
                         UIView.animate(withDuration: 0.1) {
                             
                             self.btnBackRef.transform = CGAffineTransform.identity
-                            if self.count_Tapped <= 1{
-                                self.btnBackRef.isHidden = true
-                                self.count_Tapped = 0
-                            }else{
-                                self.count_Tapped -= 1
-                                self.btnBackRef.isHidden = false
-                                self.btnForwardRef.isHidden = false
-                            }
+                            self.appointmentListService(current_date:self.current_date,another_date:"prev_date",isRefresh:Bool(), btnIdentity: "PREV")
+                            
                         }
         })
         
@@ -97,23 +114,16 @@ class AppointmentVC: SBaseViewController {
         
         UIView.animate(withDuration: 0.1,
                        animations: {
-                        
+                        self.setuserBtnIteraction()
+                        self.btnForwardRef.isUserInteractionEnabled = false
                         self.btnForwardRef.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
         },
                        completion: { _ in
                         UIView.animate(withDuration: 0.1) {
                             
                             self.btnForwardRef.transform = CGAffineTransform.identity
-                            
-                            if self.count_Tapped >= 14{
-                                self.btnForwardRef.isHidden = true
-                                self.count_Tapped = 15
-                            }else{
-                                self.count_Tapped += 1
-                                self.btnForwardRef.isHidden = false
-                                self.btnBackRef.isHidden = false
-                            }
-                            
+                            self.appointmentListService(current_date:self.current_date,another_date:"next_date",isRefresh:Bool(), btnIdentity: "NEXT")
+                          
                         }
         })
         
@@ -122,6 +132,10 @@ class AppointmentVC: SBaseViewController {
     
     //TODO: Selectors
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        self.count_Tapped = 0
+        self.btnBackRef.isHidden = self.count_Tapped <= 0 ? true : false
+        self.setuserBtnIteraction()
+        self.appointmentListService(current_date:self.current_date,another_date:self.next_date,isRefresh:Bool(), btnIdentity: String())
         refreshControl.endRefreshing()
     }
     
@@ -139,14 +153,50 @@ class AppointmentVC: SBaseViewController {
                             self.footer.btnBookConsultaionRef.transform = CGAffineTransform.identity
                             //TODO: Temp code need to remove
                             
-                            let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: PaymentVC.className) as! PaymentVC
                             
-                            self.navigationController?.pushViewController(vc, animated: true)
-                            
+                            self.validateFields { (msg, status, isSlot) in
+                                if status{
+                                    let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: PaymentVC.className) as! PaymentVC
+                                    self.navigationController?.pushViewController(vc, animated: true)
+                                }else{
+                                    if isSlot{
+                                        
+                                        self.customMethodManager?.showAlert(msg, okButtonTitle: ConstantTexts.OkBT, target: self)
+                        
+                                    }else{
+                                        self.customMethodManager?.showToolTip(msg: msg, anchorView: self.footer.lblValue, sourceView: self.view)
+                                    }
+                                }
+                            }
                         }
         })
         
     }
+    
+    
+    @objc func btnDropDownTapped(_ sender: UIButton) {
+        self.customMethodManager?.openDownOnView(dropDown: self.dropDown, array: self.expertise_nameArray, anchor: self.footer.viewLine, callBack: { (dropDown) in
+            
+            dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
+                print("Selected item: \(item) at index: \(index)")
+                
+                if item == ConstantTexts.SelectLT{
+                    self.expName = String()
+                    self.expID = String()
+                    self.footer.lblValue.text = ConstantTexts.SelectLT
+                }else{
+                    self.expName = item
+                    self.expID = self.expertise_idArray[index]
+                    self.footer.lblValue.text = item
+                    
+                }
+            }
+            
+            
+        })
+        
+    }
+    
     
     
 

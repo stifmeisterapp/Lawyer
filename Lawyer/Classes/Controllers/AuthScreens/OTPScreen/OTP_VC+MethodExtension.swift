@@ -131,10 +131,10 @@ extension OTP_VC{
     //TODO: setup validation
     internal func isValidate(){
         if !validationMethodManager!.checkEmptyField(enteredOtp.trimmingCharacters(in: .whitespaces)){
-            self.customMethodManager!.showToolTip(msg: ConstantTexts.EnterOTPALERT, anchorView: self.otpView, sourceView: self.view)
+            self.customMethodManager?.showToolTip(msg: ConstantTexts.EnterOTPALERT, anchorView: self.otpView, sourceView: self.view)
             return
         } else if !validationMethodManager!.isValidOTPCount(enteredOtp.trimmingCharacters(in: .whitespaces)){
-            self.customMethodManager!.showToolTip(msg: ConstantTexts.EnterValidOTPALERT, anchorView: self.otpView, sourceView: self.view)
+            self.customMethodManager?.showToolTip(msg: ConstantTexts.EnterValidOTPALERT, anchorView: self.otpView, sourceView: self.view)
             
             return
         }else{

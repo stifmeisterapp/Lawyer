@@ -83,6 +83,35 @@ extension FilterPopup_VC{
     }
     
     
+    //TODO: Rreset filters
+    internal func resetFilters(callBack:@escaping (()->())){
+        
+        
+        guard let count = self.filterList?.filters.count else{
+            print("No count found...")
+            return
+        }
+        
+        
+        
+        for index in 0..<count{
+            if let isSelected = self.filterList?.filters[index].isSelected{
+                if isSelected{
+                    
+                    if let filterItem = self.filterList?.filters[index]{
+                        filterItem.isSelected = Bool()
+                        
+                        self.customMethodManager?.updateIsSelect(entity: self.headerTitle, primary_key: self.customMethodManager?.getTableAndKeys(entity: self.headerTitle) ?? String(), primary_value: filterItem.id, key: "is_selected", value: filterItem.isSelected)
+                    }
+                }
+            }
+        }
+        
+        callBack()
+        
+    }
+    
+    
     //TODO: Recheck data models implenemtation
     private func recheckDataModels(){
         setViewModels()
@@ -152,10 +181,7 @@ extension FilterPopup_VC{
         self.filterTableView.reloadData()
         let fromAnimation = AnimationType.from(direction: .right, offset: 30.0)
         UIView.animate(views: filterTableView.visibleCells,
-                       animations: [fromAnimation], delay: 0.5)
-        
-        
-        
+                       animations: [fromAnimation], delay: 0.5)  
     }
 
 }

@@ -46,7 +46,7 @@ extension HomeVC{
         
         self.labelLoationTitle.font = AppFont.Regular.size(AppFontName.OpenSans, size: 12)
         self.labelLoationTitle.textColor = AppColor.darkGrayColor
-        self.labelLoationTitle.text = "\(ConstantTexts.YouAreInLT) \(self.cityName)"
+        self.labelLoationTitle.text = ConstantTexts.SelectCityLT
         
        
         self.imageViewDropDown.setImageTintColor(AppColor.darkGrayColor)
@@ -58,6 +58,7 @@ extension HomeVC{
         self.categoryTableView.hideEmptyCells()
         self.categoryTableView.isHidden = true
         self.categoryTableView.isScrollEnabled = true
+        self.categoryTableView.addSubview(self.refreshControl)
         
         
         /* For Collection view

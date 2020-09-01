@@ -8,19 +8,6 @@
 
 import Foundation
 import UIKit
-class AppointmentViewModel{
-    var image:UIImage = UIImage()
-    var headerTitle:String = String()
-    var list:[AppointmentTimeDataModel] = [AppointmentTimeDataModel]()
-    
-    init(_ image: UIImage, _ headerTitle: String, _ list: [AppointmentTimeDataModel]){
-        self.image = image
-        self.headerTitle = headerTitle
-        self.list = list
-        
-    }
-    
-}
 
 class AppointmentTimeDataModel{
     var title: String = String()

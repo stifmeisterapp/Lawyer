@@ -77,4 +77,32 @@ protocol CustomMethodProtocol {
     //TODO: Get table and keys for update
     func getTableAndKeys(entity:String)->String
     
+    //TODO: Setup error view
+    func setupError(chidView:ErrorView,animationName:String,message:String)
+    
+    //TODO: Check subview is available or not
+    func isSubviewAdded(parentView:UIView,childView:UIView) -> Bool
+    
+    //TODO: Add subview
+    func addSubView(parentView:UIView,childView:UIView)
+    
+    //TODO: Remove subview
+    func removeSubView(childView:UIView)
+    
+    //TODO: Get animation name and message
+    func getAnimationNameAndMessage(errorCode:Int)->(String,String)
+    
+    //TODO: Show alert simple
+    func showAlert(_ message: String, okButtonTitle: String?, target: UIViewController?)
+    
+    //TODO: Show alert with cancel
+    func showAlertWithCancel(title:String,message:String,btnOkTitle:String,btnCancelTitle:String,callBack:@escaping ((Bool)->()))
+    
+   
+    //TODO - Get topmost view controller
+    func topMostViewController(rootViewController: UIViewController) -> UIViewController?
+    
+    //TODO: Get root view controller
+    func rootViewController() -> UIViewController
+    
 }

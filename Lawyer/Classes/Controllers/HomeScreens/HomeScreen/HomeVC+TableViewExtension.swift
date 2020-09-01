@@ -58,14 +58,20 @@ extension HomeVC:UITableViewDelegate{
                                                 if let categoryVM = self.categoryListVM?.categoryAtIndex(indexPath.row){
                                                     vc.headerTitle = categoryVM.title
                                                 }
-                                                vc.cityName = self.cityName
+                                                if self.cityIdArray.count > 0{
+                                                    
+                                                    if self.cityId == String(){
+                                                        // yaha name wala code karna hai
+                                                    }else{
+                                                        self.customMethodManager?.updateIsSelect(entity: ConstantTexts.CityLT, primary_key: self.customMethodManager?.getTableAndKeys(entity: ConstantTexts.CityLT) ?? String(), primary_value: self.cityId, key: "is_selected", value: true)
+                                                        
+                                                        vc.filters.append(Filter(entity: ConstantTexts.CityLT, title: self.cityName, id: self.cityId, isSelected: true))
+                                                    }
+                                                }
+                                                vc.cityId = self.cityId
+                                                print(self.cityId)
                                                 self.navigationController?.pushViewController(vc, animated: true)
-                                                
                                 })
-                                
-                                
-                                
-                                
                             }
                         }
         })

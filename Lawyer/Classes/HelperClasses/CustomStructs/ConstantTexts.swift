@@ -15,6 +15,7 @@ struct ConstantTexts{
     static let  noInterNet                          =      "No Internet Connection"
     static let  Invalid_URL                         =      "Invalid URL"
     static let  errorMessage                        =      "There is some error occured. Please try again later."
+    static let  somethingWentMessage                =      "Something went wrong!"
     static let  authToken                           =      "authToken"
     static let  unexpectedIndexPath                 =      "Unexpected Index Path"
     static let  empty                               =      String()
@@ -31,13 +32,20 @@ struct ConstantTexts{
     static let  Construction                        =      "construction"
     static let  ContactUs                           =      "ContactUs"
     
+    static let  EmptyBox                            =      "EmptyBox"
+    static let  NoInternetConnectionEmptyState      =      "NoInternetConnectionEmptyState"
+    static let  NoConnection                        =      "NoConnection"
+    static let  EmptyBoxNew                         =      "EmptyBoxNew"
+    static let  SomeThingWentWrong                  =      "SomeThingWentWrong"
+    static let  Invalid_URLA                        =      "Invalid_URL"
+    
     //TODO: Label Text
     static let  NeedHelp_LT                         =      "Need Help?\nTalk to an Expert."
     static let  MailUsTitle_LT                      =      "For enquiries, mail us"
     static let  CallUsTitle_LT                      =      "For enquiries, call us on"
     
     static let  RateUsInstruction_LT                =      "Rate\n\nWould you mind stopping for a moment to rate us?"
-    static let  Link_LT                             =    "\(APP_NAME) app link"
+    static let  Link_LT                             =      "\(APP_NAME) app link"
     static let  FAQs_LT                             =      "FAQ's"
     static let  Share_LT                            =      "Share"
     static let  Custom_Payment_LT                   =      "Custom Payment"
@@ -78,7 +86,7 @@ struct ConstantTexts{
     static let  ConsumerGrivancesLT                 =      "Consumer Grivances"
     static let  CriminalLawyersLT                   =      "Criminal Law"
     static let  FinanceLawLT                        =      "Finance Law"
-    static let  MerrigeRegistrationLT               =      "Merrige Registration"
+    static let  MerrigeRegistrationLT               =      "Marriage Registration"
     static let  PropertyLT                          =      "Property"
     static let  DishonourOfChequesLT                =      "Dishonour of Cheques"
     static let  DivorceLT                           =      "Divorce"
@@ -89,12 +97,15 @@ struct ConstantTexts{
     static let  AnyLT                               =      "Any"
     static let  ZeroLT                              =      "0"
     static let  ExperienceLT                        =      "Experience"
+    static let  CaseTypeLT                          =      "Case Type"
+    static let  StarLT                              =      "*"
     static let  YrsLT                               =      "yrs"
     static let  CallLT                              =      "Call"
     static let  MeetLT                              =      "Meet"
     static let  CurLT                               =      "₹"
     static let  CountryCodeLT                       =      "+91"
     static let  SelectCityLT                        =      "Select city :-"
+    static let  SelectLT                            =      "Select :-"
     static let  ResendInLT                          =      "Resend in"
     static let  LoadingLT                           =      "Loading..."
     static let  ChooseLT                            =      "Choose"
@@ -140,6 +151,7 @@ struct ConstantTexts{
     static let  CancelBT                            =      "Cancel"
     static let  MeetBT                              =      "MEET"
     static let  ClearFiltersBT                      =      "Clear Filters"
+    static let  ClearFiltersStateBT                 =      "Are you sure?\nyou want to clear all filters!"
     static let  CallBT                              =      "CALL"
     static let  LIST_VIEW_BT                        =      "LIST VIEW"
     static let  MAP_VIEW_BT                         =      "MAP VIEW"
@@ -197,6 +209,7 @@ struct ConstantTexts{
     static let  WantToLogoutALERT                   =      "Are you sure?\nYou want to Log out!"
     static let  RatedSuccessfullyALERT              =      "Thanks for you rating."
     static let  ContactYouSoonALERT                 =      "We'll contact you soon."
+    static let  NoDataFoundALERT                    =      "No data found!"
     
     
     static let  EnterMobileNumberALERT              =      "Please enter mobile number."
@@ -213,6 +226,8 @@ struct ConstantTexts{
     
     static let  EnterCommentALERT                   =      "Please write a comment."
     static let  SelectFilterALERT                   =      "Please select atleast one filter."
+    static let  SelectTimeSlotALERT                 =      "Please select time slot."
+    static let  SelectCaseTypeALERT                 =      "Please select case type."
     
     
     //TODO: User defaults key

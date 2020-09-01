@@ -33,6 +33,7 @@ final class ServiceClass: SBaseService {
             return
         }
         
+        
         let manager = Alamofire.Session.default
         manager.session.configuration.timeoutIntervalForRequest = 300
         

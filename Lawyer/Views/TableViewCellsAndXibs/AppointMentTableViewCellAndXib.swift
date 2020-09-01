@@ -15,9 +15,8 @@ class AppointMentTableViewCellAndXib: UITableViewCell {
     
     //MARK: - Variables
     internal let spacing:CGFloat = 16.0
-
-
     internal var arrayTiming = [AppointmentTimeDataModel]()
+    internal var cellCollectionCallBack:((Int)->())?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,6 +28,7 @@ class AppointMentTableViewCellAndXib: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+        
     }
     
     
@@ -61,9 +61,10 @@ class AppointMentTableViewCellAndXib: UITableViewCell {
     //TODO: register nib file
     private func registerNib(){
         self.timeCollectionView.register(nib: TimeCollectionViewCellAndXib.className)
-        self.timeCollectionView.reloadData()
-       
-        
+        DispatchQueue.main.async {
+            self.timeCollectionView.reloadData()
+        }
+  
     }
     
 }

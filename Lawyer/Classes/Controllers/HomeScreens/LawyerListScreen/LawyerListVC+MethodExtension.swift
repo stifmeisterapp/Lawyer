@@ -113,7 +113,7 @@ extension LawyerListVC{
         
         self.cityName = self.cityName.replacingOccurrences(of: ConstantTexts.blankSpace, with: ConstantTexts.mod20)
         
-        self.service_url = "CityId=\(String())&CityName=\(self.cityName)&ExpertiseId=\(String())&LanguageId=\(String())&ExperienceId=\(String())&Keyword="
+        self.service_url = "CityId=\(self.cityId)&CityName=\(self.cityName)&ExpertiseId=\(String())&LanguageId=\(String())&ExperienceId=\(String())&Keyword="
         
         self.lawyerListService(serviceURL:service_url, keyword: self.txtSearch.text!.trimmingCharacters(in: .whitespaces), offset: self.offset, isRefresh: Bool(), isFilterApplied: Bool(), isSearchActive: Bool())
         
@@ -185,11 +185,6 @@ extension LawyerListVC{
         UIView.animate(views: lawyerTableView.visibleCells,
                        animations: [fromAnimation], delay: 0.5)
         
-        //
-        
-        
-        
-        
     }
     
     
@@ -238,30 +233,43 @@ extension LawyerListVC{
         
         self.filters.removeAll()
         self.getHeightAndIsHiddenForFilterItemCollectionViewWithAnimation(entity: String())
-       
+        
     }
+    
+    
+    //TODO: Apply clear filters and all data
+    internal func actionOnClearFilter(){
+        self.isPagination = false
+        self.offset = Int()
+        self.resetFilters()
+        self.service_url = "CityId=\(String())&CityName=\(String())&ExpertiseId=\(String())&LanguageId=\(String())&ExperienceId=\(String())&Keyword="
+        
+        self.lawyerListService(serviceURL:self.service_url, keyword: self.txtSearch.text!.trimmingCharacters(in: .whitespaces), offset: self.offset, isRefresh: Bool(), isFilterApplied: true, isSearchActive: Bool())
+    }
+    
     
     //TODO: Apply filters
     internal func applyFilters(){
+        self.offset = 0
         var cityArray = [String]()
-         var expertiseArray = [String]()
-         var languageArray = [String]()
-         var experienceArray = [String]()
-         
-         for item in self.filters{
-             if item.entity == ConstantTexts.CityLT{
-                 cityArray.append(item.id)
-             }else if item.entity == ConstantTexts.ExpertiseLT{
-                 expertiseArray.append(item.id)
-             }else if item.entity == ConstantTexts.LanguageLT{
-                 languageArray.append(item.id)
-             }else{
-                 experienceArray.append(item.id)
-             }
-         }
-         
-         self.service_url = "CityId=\(cityArray.joined(separator: ","))&CityName=\(self.cityName)&ExpertiseId=\(expertiseArray.joined(separator: ","))&LanguageId=\(languageArray.joined(separator: ","))&ExperienceId=\(experienceArray.joined(separator: ","))&Keyword="
-         
+        var expertiseArray = [String]()
+        var languageArray = [String]()
+        var experienceArray = [String]()
+        
+        for item in self.filters{
+            if item.entity == ConstantTexts.CityLT{
+                cityArray.append(item.id)
+            }else if item.entity == ConstantTexts.ExpertiseLT{
+                expertiseArray.append(item.id)
+            }else if item.entity == ConstantTexts.LanguageLT{
+                languageArray.append(item.id)
+            }else{
+                experienceArray.append(item.id)
+            }
+        }
+        
+        self.service_url = "CityId=\(cityArray.joined(separator: ","))&CityName=\(self.cityName)&ExpertiseId=\(expertiseArray.joined(separator: ","))&LanguageId=\(languageArray.joined(separator: ","))&ExperienceId=\(experienceArray.joined(separator: ","))&Keyword="
+        
         
         self.lawyerListService(serviceURL:service_url, keyword: self.txtSearch.text!.trimmingCharacters(in: .whitespaces), offset: self.offset, isRefresh: Bool(), isFilterApplied: true, isSearchActive: Bool())
     }
@@ -301,11 +309,31 @@ extension LawyerListVC{
                         
                         if let data = result_Dict.value(forKey: "data") as? NSDictionary{
                             
-                            if let lawyer = data.value(forKey: "lawyer") as? NSArray{
                             
+                            
+                            DispatchQueue.main.async {
+                                if let isAddedSubview = self.customMethodManager?.isSubviewAdded(parentView: self.lawyerTableView, childView: self.errorView){
+                                    if isAddedSubview{
+                                        self.customMethodManager?.removeSubView(childView: self.errorView)
+                                    }
+                                }
+                            }
+                            
+                            
+                            if let count = data.value(forKey: "count") as? Int{
+                                self.dataCount = count
+                            }
+                            
+                            if let count = data.value(forKey: "count") as? String{
+                                self.dataCount = Int(count) ?? 0
+                            }
+                            
+                            
+                            if let lawyer = data.value(forKey: "lawyer") as? NSArray{
+                                
                                 //For table refresh
                                 if isRefresh{
-                                    self.resetFilters()
+                                    /*  self.resetFilters() */
                                     if let count = self.lawyerListVM?.lawyers.count{
                                         if count > 0{
                                             self.lawyerListVM?.lawyers.removeAll()
@@ -322,14 +350,63 @@ extension LawyerListVC{
                                     }
                                 }
                                 
-                                if lawyer.count > 0{
-                                    self.isPagination = false
-                                    if let lawyers = self.lawyerListVM_protocol?.prepareDataSource(dataArray: lawyer).lawyers{
-                                        self.lawyerListVM?.lawyers.append(contentsOf: lawyers)
+                                
+                                
+                                //For checking pagination and append data
+                                if let count = self.lawyerListVM?.lawyers.count{
+                                    
+                                    if count == 0{
+                                        
+                                        self.isPagination = false
+                                        if let lawyers = self.lawyerListVM_protocol?.prepareDataSource(dataArray: lawyer).lawyers{
+                                            self.lawyerListVM?.lawyers.append(contentsOf: lawyers)
+                                        }
+                                    }else{
+                                        if count >= self.dataCount{
+                                            self.isPagination = true
+                                            
+                                        }else{
+                                            
+                                            self.isPagination = false
+                                            if let lawyers = self.lawyerListVM_protocol?.prepareDataSource(dataArray: lawyer).lawyers{
+                                                self.lawyerListVM?.lawyers.append(contentsOf: lawyers)
+                                            }
+                                        }
+                                        
                                     }
-                                }else{
-                                   self.isPagination = true
+                                    
                                 }
+                                
+                                
+                                
+                                
+                                
+                                //For checking pagination...
+                                if let count = self.lawyerListVM?.lawyers.count{
+                                    self.offset = count
+                                    
+                                    if count == 0{
+                                        self.isPagination = false
+                                        
+                                        DispatchQueue.main.async {
+                                            if let isAddedSubview = self.customMethodManager?.isSubviewAdded(parentView: self.lawyerTableView, childView: self.errorView){
+                                                if isAddedSubview{
+                                                }else{
+                                                    self.customMethodManager?.setupError(chidView: self.errorView, animationName: ConstantTexts.EmptyBoxNew, message: ConstantTexts.NoDataFoundALERT)
+                                                    
+                                                    self.customMethodManager?.addSubView(parentView: self.lawyerTableView, childView: self.errorView)
+                                                }
+                                            }
+                                        }
+                                        
+                                        
+                                    }else if count >= self.dataCount{
+                                        self.isPagination = true
+                                        
+                                    }
+                                }
+                                
+                                
                             }
                         }
                         
@@ -353,20 +430,54 @@ extension LawyerListVC{
             
         }) { (error) in
             print(error)
-            self.customMethodManager?.stopLoader(view:self.view, indicator: self.indicator)
-            if let errorString = (error as NSError).userInfo[ConstantTexts.errorMessage_Key] as? String{
-                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: errorString, style:.error)
-            }else{
-                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: ConstantTexts.errorMessage, style:.error)
+            
+            if let count = self.lawyerListVM?.lawyers.count{
+                if count > 0{
+                    self.lawyerListVM?.lawyers.removeAll()
+                }
             }
             
+            DispatchQueue.main.async {
+                self.lawyerTableView.reloadData()
+            }
             
-            
+            self.customMethodManager?.stopLoader(view:self.view, indicator: self.indicator)
+            if let _ = (error as NSError).userInfo[ConstantTexts.errorMessage_Key] as? String{
+                
+                let errorCode = (error as NSError).code
+                if let animationDetail = self.customMethodManager?.getAnimationNameAndMessage(errorCode: errorCode){
+                    DispatchQueue.main.async {
+                        if let isAddedSubview = self.customMethodManager?.isSubviewAdded(parentView: self.lawyerTableView, childView: self.errorView){
+                            if isAddedSubview{
+                                
+                                self.customMethodManager?.setupError(chidView: self.errorView, animationName: animationDetail.0, message: animationDetail.1)
+                                
+                            }else{
+                                self.customMethodManager?.setupError(chidView: self.errorView, animationName: animationDetail.0, message: animationDetail.1)
+                                
+                                self.customMethodManager?.addSubView(parentView: self.lawyerTableView, childView: self.errorView)
+                            }
+                        }
+                    }
+                    
+                    
+                }
+                
+            }else{
+                DispatchQueue.main.async {
+                    if let isAddedSubview = self.customMethodManager?.isSubviewAdded(parentView: self.lawyerTableView, childView: self.errorView){
+                        if isAddedSubview{
+                            
+                            self.customMethodManager?.setupError(chidView: self.errorView, animationName: ConstantTexts.SomeThingWentWrong, message: ConstantTexts.errorMessage)
+                            
+                        }else{
+                            self.customMethodManager?.setupError(chidView: self.errorView, animationName: ConstantTexts.SomeThingWentWrong, message: ConstantTexts.errorMessage)
+                            
+                            self.customMethodManager?.addSubView(parentView: self.lawyerTableView, childView: self.errorView)
+                        }
+                    }
+                }
+            }
         }
-        
-        
     }
-    
-    
-    
 }

@@ -113,7 +113,7 @@ class LawyerNewTableViewCell: SBaseTableViewCell {
         
         
         
-        self.customMethodManager?.provideCornerRadiusTo(self.imageLawyer, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
+        self.customMethodManager?.provideCornerRadiusTo(self.imageLawyer, 2.5, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
         self.customMethodManager?.provideCornerBorderTo(self.imageLawyer, 1, AppColor.tableBGColor)
         
         

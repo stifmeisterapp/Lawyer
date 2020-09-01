@@ -37,9 +37,19 @@ class HomeVC: SBaseViewController {
     
     internal var cityNameArray = [String]()
     internal var cityIdArray = [String]()
-    internal var cityName:String = "Gurgaon"
+    internal var cityId:String = String()
+    internal var cityName:String = String()
     
     
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:
+            #selector(self.handleRefresh(_:)),
+                                 for: UIControl.Event.valueChanged)
+        refreshControl.tintColor = AppColor.themeColor
+        
+        return refreshControl
+    }()
     
     // For Collection view
     internal let animations = [AnimationType.from(direction: .bottom, offset: 30.0)]
@@ -85,6 +95,16 @@ class HomeVC: SBaseViewController {
     
     
     //MARK: - Actions, Gestures, Selectors
+    
+    
+    //TODO: Selectors
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        self.filter_Service()
+        refreshControl.endRefreshing()
+       
+    }
+    
+    
     //TODO: Actions
     
     @IBAction func btnCountryTapped(_ sender: UIButton) {
@@ -94,10 +114,12 @@ class HomeVC: SBaseViewController {
                 print("Selected item: \(item) at index: \(index)")
                 
                 if item == ConstantTexts.SelectCityLT{
-                    self.cityName = "Gurgaon"
-                    self.labelLoationTitle.text = "\(ConstantTexts.YouAreInLT) \(self.cityName)"
+                    self.cityName = String()
+                    self.cityId = String()
+                    self.labelLoationTitle.text = ConstantTexts.SelectCityLT
                 }else{
                     self.cityName = item
+                    self.cityId = self.cityIdArray[index]
                     self.labelLoationTitle.text = "\(ConstantTexts.YouAreInLT) \(item)"
                 }
             }

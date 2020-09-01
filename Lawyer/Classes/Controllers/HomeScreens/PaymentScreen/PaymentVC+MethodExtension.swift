@@ -215,7 +215,7 @@ extension PaymentVC{
                     
                     if let cell = self.tblPayment.cellForRow(at: indexPath) as? GSTIN_TableViewCellAndXib{
                         
-                        self.customMethodManager!.showToolTip(msg: strMsg, anchorView: cell.textField, sourceView: self.view)
+                        self.customMethodManager?.showToolTip(msg: strMsg, anchorView: cell.textField, sourceView: self.view)
                         cell.textField.becomeFirstResponder()
                         
                     }
