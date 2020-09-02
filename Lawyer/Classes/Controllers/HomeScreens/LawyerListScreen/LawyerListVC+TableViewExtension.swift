@@ -27,6 +27,11 @@ extension LawyerListVC:UITableViewDataSource{
         cell.buttonMeetRef.tag = indexPath.row
         cell.buttonMeetRef.addTarget(self, action: #selector(self.btnMeetTapped(_:)), for: .touchUpInside)
         
+        cell.btnLawyerSelectedRef.tag = indexPath.row
+        cell.btnLawyerSelectedRef.addTarget(self, action: #selector(self.btnLawyerSelectedRef(_:)), for: .touchUpInside)
+        
+        
+        
         guard let item = self.lawyerListVM?.lawyerAtIndex(indexPath.row) else {
             fatalError("No FilterCategoryViewModel found...")
         }
@@ -49,7 +54,7 @@ extension LawyerListVC:UITableViewDelegate{
         return UITableView.automaticDimension
     }
     
-    
+   
     
    /* func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         // fetch the animation from the TableAnimation enum and initialze the TableViewAnimator class
@@ -69,6 +74,8 @@ extension LawyerListVC:UIScrollViewDelegate{
         if self.lawyerTableView.contentOffset.y != 0{
             
             if ((lawyerTableView.contentOffset.y + lawyerTableView.frame.size.height) >= lawyerTableView.contentSize.height){
+                
+                print(self.isPagination)
                 if self.isPagination == false{
                    // self.offset += 10
                     self.lawyerListService(serviceURL:service_url, keyword: self.txtSearch.text!.trimmingCharacters(in: .whitespaces), offset: self.offset, isRefresh: Bool(), isFilterApplied: Bool(), isSearchActive: Bool())

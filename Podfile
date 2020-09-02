@@ -20,6 +20,8 @@ target 'Lawyer' do
   pod 'SDWebImage', '~> 5.0'
   pod 'ReachabilitySwift'
   pod 'XCGLogger', '~> 7.0.1'
+  pod 'TagListView', '~> 1.0'
+  pod 'SkeletonView'
   # pod 'RealmSwift'
   # pod 'ObjectMapper', '~> 3.5'
   

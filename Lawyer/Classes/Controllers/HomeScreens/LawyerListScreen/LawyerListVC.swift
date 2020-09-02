@@ -280,13 +280,52 @@ class LawyerListVC: SBaseViewController {
                                 }
                                 
                                 vc.Uuid = item.Uuid
-                                
+                               
                                 self.navigationController?.pushViewController(vc, animated: true)
                                 
                             }
                         }
         })
     }
+    
+    
+    
+    @objc func btnLawyerSelectedRef(_ sender: UIButton) {
+        print("Button selected...")
+        let indexPath = IndexPath(item: sender.tag, section: 0)
+        
+        UIView.animate(withDuration: 0.1,
+                       animations: {
+                        if let cell = self.lawyerTableView.cellForRow(at: indexPath) as? LawyerNewTableViewCell {
+                            cell.viewBG.transform = .init(scaleX: 0.95, y: 0.95)
+                            
+                            self.customMethodManager?.provideShadowAndCornerRadius(cell.viewBG, 0, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.tableBGColor, 2, 2, 2, 2, 0, AppColor.clearColor)
+                            
+                        }
+        },
+                       completion: { _ in
+                        UIView.animate(withDuration: 0.1) {
+                            if let cell = self.lawyerTableView.cellForRow(at: indexPath) as? LawyerNewTableViewCell {
+                                cell.viewBG.transform = .identity
+                                
+                               self.customMethodManager?.provideShadowAndCornerRadius(cell.viewBG, 0, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.placeholderColor, 2, 2, 2, 2, 0, AppColor.clearColor)
+                                
+                                let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: LawyerProfileVC.className) as! LawyerProfileVC
+                                
+                                guard let item = self.lawyerListVM?.lawyerAtIndex(indexPath.row) else {
+                                    fatalError("No FilterCategoryViewModel found...")
+                                }
+                                vc.Uuid = item.Uuid
+                                vc.name_Lawyer = item.FullName
+                                vc.Id = item.Id
+                                vc.imageURL = item.ProfilePhoto
+                                                               
+                                self.navigationController?.pushViewController(vc, animated: true)
+                            }
+                        }
+        })
+    }
+    
     
     
     

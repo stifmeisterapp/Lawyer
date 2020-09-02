@@ -41,6 +41,13 @@ struct ConstantTexts{
     
     //TODO: Label Text
     static let  NeedHelp_LT                         =      "Need Help?\nTalk to an Expert."
+    static let  Education_LT                        =      "Education"
+    static let  CallCharges_LT                      =      "Call charges"
+    static let  ConsultationCharges_LT              =      "Consultation charges"
+    static let  ConsultationFees_LT                 =      "Consultation fees"
+    static let  ProfessionalHistory_LT              =      "Professional history"
+
+    static let  NotAvaila_LT                        =      "Not available"
     static let  MailUsTitle_LT                      =      "For enquiries, mail us"
     static let  CallUsTitle_LT                      =      "For enquiries, call us on"
     
@@ -144,6 +151,8 @@ struct ConstantTexts{
     static let  VarificationHT                      =      "Verification"
     static let  MoreHT                              =      "More"
     static let  UnderCHT                            =      "Under construction"
+    static let  LawyerDetailsHT                     =      "Lawyer details"
+
     
     //TODO: Button Title Text
     static let  OkBT                                =      "Ok"

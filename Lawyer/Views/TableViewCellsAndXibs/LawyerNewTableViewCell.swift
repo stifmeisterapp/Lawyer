@@ -30,6 +30,7 @@ class LawyerNewTableViewCell: SBaseTableViewCell {
     @IBOutlet weak var buttonMeetRef: UIButton!
     @IBOutlet weak var buttonCallRef: UIButton!
     
+    @IBOutlet weak var btnLawyerSelectedRef: UIButton!
     //MARK: - Variables
     internal var customMethodManager:CustomMethodProtocol?
     

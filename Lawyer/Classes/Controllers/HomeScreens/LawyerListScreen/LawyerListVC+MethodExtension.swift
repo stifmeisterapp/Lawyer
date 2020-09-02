@@ -95,6 +95,11 @@ extension LawyerListVC{
         self.lawyerTableView.isScrollEnabled = true
         self.lawyerTableView.backgroundColor = AppColor.tableBGColor
         self.lawyerTableView.addSubview(self.refreshControl)
+        self.lawyerTableView.dataSource = self
+        self.lawyerTableView.delegate = self
+        DispatchQueue.main.async {
+            self.lawyerTableView.reloadData()
+        }
         
         self.filterCollectionView.showsHorizontalScrollIndicator = false
         self.filterCollectionView.isHidden = true
@@ -400,9 +405,13 @@ extension LawyerListVC{
                                         }
                                         
                                         
-                                    }else if count >= self.dataCount{
-                                        self.isPagination = true
-                                        
+                                    }else{
+                                        if count >= self.dataCount{
+                                            self.isPagination = true
+                                            
+                                        }else{
+                                            self.isPagination = false
+                                        }
                                     }
                                 }
                                 
