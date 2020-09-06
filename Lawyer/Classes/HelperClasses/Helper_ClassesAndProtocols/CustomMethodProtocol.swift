@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 import Lottie
 import DropDown
-import FullMaterialLoader
 protocol CustomMethodProtocol {
     
     //TODO: Set url image on imageview
@@ -46,14 +45,12 @@ protocol CustomMethodProtocol {
     //TODO: Get indexPath for collectionview cell
     func getIndexPathForCollectionView(view: UIView, collectionView: UICollectionView) -> IndexPath?
     
-    //TODO: configViews progressview
-    func configViews(view: UIView) -> MaterialLoadingIndicator
     
     //TODO: startLoader
-    func startLoader(view:UIView,indicator:MaterialLoadingIndicator)
+    func startLoader(view:UIView)
     
     //TODO: stopLoader
-    func stopLoader(view:UIView,indicator:MaterialLoadingIndicator)
+    func stopLoader(view:UIView)
     
     //TODO: Check entity is empty
     func entityIsEmpty(entity: String) -> Bool
@@ -78,7 +75,8 @@ protocol CustomMethodProtocol {
     func getTableAndKeys(entity:String)->String
     
     //TODO: Setup error view
-    func setupError(chidView:ErrorView,animationName:String,message:String)
+    func setupError(chidView:ErrorView,message:String,callback: @escaping () -> Void)
+    
     
     //TODO: Check subview is available or not
     func isSubviewAdded(parentView:UIView,childView:UIView) -> Bool

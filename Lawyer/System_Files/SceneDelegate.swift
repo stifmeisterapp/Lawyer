@@ -8,6 +8,8 @@
 
 import UIKit
 import IQKeyboardManagerSwift
+import Firebase
+
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
@@ -22,6 +24,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
 //        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
 //        print(urls[urls.count-1] as URL)
+        
+        
+        /// Firebase implementation
+        FirebaseApp.configure()
+        USER_DEFAULTS.set(ConstantTexts.simulatorToken, forKey: ConstantTexts.deviceID)
+        registerForRemoteNotification()
+        
+        Crashlytics.crashlytics().setCrashlyticsCollectionEnabled(true)
+        Crashlytics.crashlytics().checkForUnsentReports { _ in
+            Crashlytics.crashlytics().sendUnsentReports()
+        }
+        
+        /// Messaging delegate implementation
+        Messaging.messaging().delegate = self
         
         /// Implementation IQKeyboardManager
         IQKeyboardManager.shared.enable = true

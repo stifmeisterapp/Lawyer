@@ -8,7 +8,6 @@
 
 import UIKit
 import ViewAnimator
-import FullMaterialLoader
 import DropDown
 
 class AppointmentVC: SBaseViewController {
@@ -48,7 +47,6 @@ class AppointmentVC: SBaseViewController {
     internal var expertise_idArray = [String]()
     internal var expertise_nameArray = [String]()
     
-    internal var indicator: MaterialLoadingIndicator!
     
     //MARK: - For hitting api...
     internal var appointMentVM:AppointmentDataModeling?
@@ -76,6 +74,8 @@ class AppointmentVC: SBaseViewController {
         super.viewWillAppear(animated)
         navSetup()
     }
+    
+    
     
 
     /*
@@ -156,8 +156,10 @@ class AppointmentVC: SBaseViewController {
                             
                             self.validateFields { (msg, status, isSlot) in
                                 if status{
-                                    let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: PaymentVC.className) as! PaymentVC
+                                    let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: UploadDocumentVC.className) as! UploadDocumentVC
+                                    vc.Uuid = self.Uuid
                                     self.navigationController?.pushViewController(vc, animated: true)
+                                    
                                 }else{
                                     if isSlot{
                                         

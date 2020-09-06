@@ -27,7 +27,7 @@ extension HomeVC:UICollectionViewDataSource{
             fatalError(ConstantTexts.unexpectedIndexPath)
         }
         
-        cell.configure(with: categoryListVM?.categoryAtIndex(indexPath.row) ?? CategoryViewModel(Category(image: UIImage(), title: String())))
+        cell.configure(with: categoryListVM?.categoryAtIndex(indexPath.row) ?? CategoryViewModel(Category(image: UIImage(), title: String(), ExpertiseId: String())))
         
         
         

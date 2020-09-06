@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import FullMaterialLoader
 
 class OTP_VC: SBaseViewController {
     //MARK: - IBOutlets
@@ -21,7 +20,6 @@ class OTP_VC: SBaseViewController {
     
     
     //MARK: - Variables
-    internal var indicator: MaterialLoadingIndicator!
     internal var enteredOtp: String = String()
     internal var customMethodManager:CustomMethodProtocol?
     internal var validationMethodManager:ValidationProtocol?

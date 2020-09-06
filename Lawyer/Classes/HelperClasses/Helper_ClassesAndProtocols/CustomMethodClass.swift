@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 import Lottie
 import DropDown
-import FullMaterialLoader
 import CoreData
 import SDWebImage
 class CustomMethodClass: CustomMethodProtocol {
@@ -18,6 +17,9 @@ class CustomMethodClass: CustomMethodProtocol {
     //TODO: Singleton object
     static let shared = CustomMethodClass()
     private init() {}
+    
+    internal let animationView = AnimationView(name: ConstantTexts.Loader)
+    
     
     
     //TODO: Set url image on imageview
@@ -44,23 +46,23 @@ class CustomMethodClass: CustomMethodProtocol {
     }
     
     
-   //TODO: Show alert with cancel
+    //TODO: Show alert with cancel
     func showAlertWithCancel(title:String,message:String,btnOkTitle:String,btnCancelTitle:String,callBack:@escaping ((Bool)->())){
         
         let topViewController: UIViewController? = self.topMostViewController(rootViewController: self.rootViewController())
         
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-
+        
         alert.addAction(UIAlertAction(title: btnOkTitle, style: .default, handler: { action in
             callBack(true)
         }))
         alert.addAction(UIAlertAction(title: btnCancelTitle, style: .cancel, handler: { action in
             callBack(false)
         }))
-
+        
         topViewController?.present(alert, animated: true)
     }
-
+    
     //TODO: Get root view controller
     func rootViewController() -> UIViewController
     {
@@ -182,37 +184,6 @@ class CustomMethodClass: CustomMethodProtocol {
         let indexPath = collectionView.indexPathForItem(at: point)
         return indexPath
     }
-    
-    
-    //MARK: - For progressview
-    //TODO: configViews progressview
-    func configViews(view: UIView) -> MaterialLoadingIndicator  {
-        
-        let indicator = MaterialLoadingIndicator(frame: CGRect(x:0, y:0, width: 30, height: 30))
-        indicator.indicatorColor = [AppColor.errorColor.cgColor, AppColor.themeColor.cgColor]
-        indicator.center = view.center
-        view.addSubview(indicator)
-        indicator.isHidden = true
-        view.isUserInteractionEnabled = true
-        return indicator
-        
-    }
-    
-    //TODO: startLoader
-    func startLoader(view:UIView,indicator:MaterialLoadingIndicator) {
-        indicator.isHidden = false
-        indicator.startAnimating()
-        view.isUserInteractionEnabled = false
-        
-    }
-    
-    //TODO: stopLoader
-    func stopLoader(view:UIView,indicator:MaterialLoadingIndicator) {
-        indicator.stopAnimating()
-        indicator.isHidden = true
-        view.isUserInteractionEnabled = true
-    }
-    
     
     
     //MARK: - Methods for coredata
@@ -337,21 +308,20 @@ class CustomMethodClass: CustomMethodProtocol {
         let context = kAppDelegate.persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
         request.predicate = NSPredicate(format: "\(primary_key) = %@", primary_value)
-        
         do {
             let result = try context.fetch(request)
-            let filterObject = result[0] as! NSManagedObject
-            filterObject.setValue(value, forKey: key)
-            do{
-                try context.save()
-            }catch{
-                print("Failed")
+            if result.count > 0{
+                let filterObject = result[0] as! NSManagedObject
+                filterObject.setValue(value, forKey: key)
+                do{
+                    try context.save()
+                }catch{
+                    print("Failed")
+                }
             }
         } catch {
-            
             print("Failed")
         }
-        
     }
     
     
@@ -385,6 +355,37 @@ class CustomMethodClass: CustomMethodProtocol {
 //MARK: - Extension for lottie animation
 extension CustomMethodClass {
     
+    
+    
+    //MARK: - For progressview
+    //TODO: startLoader
+    func startLoader(view:UIView) {
+        view.isUserInteractionEnabled = false
+        animationView.isHidden = false
+        
+        animationView.frame = CGRect(x: view.frame.size.width/2 - 25, y: view.frame.size.height/2 - 25, width: 50, height: 50)
+        
+        animationView.center = view.center
+        animationView.contentMode = UIView.ContentMode(rawValue: UIView.ContentMode.scaleAspectFit.rawValue * 2)!
+        
+        animationView.animationSpeed = 1.20
+        animationView.loopMode = .loop
+        view.addSubview(animationView)
+        animationView.play()
+    }
+    
+    //TODO: stopLoader
+    func stopLoader(view:UIView) {
+        view.isUserInteractionEnabled = true
+        view.alpha = 1
+        self.animationView.isHidden = true
+        self.animationView.stop()
+    }
+    
+    
+    
+    
+    
     //TODO: Run lottie animation
     func showLottieAnimation(_ view: UIView,_ animationName:String, _ loopMode:LottieLoopMode) {
         let animationViewLottie = AnimationView(name: animationName)
@@ -401,7 +402,7 @@ extension CustomMethodClass {
     
     
     //TODO: Setup error view
-    func setupError(chidView:ErrorView,animationName:String,message:String){
+    func setupError(chidView:ErrorView,message:String,callback: @escaping () -> Void){
         chidView.backgroundColor = AppColor.clearColor
         chidView.viewLottie.backgroundColor = AppColor.clearColor
         chidView.lblDescription.backgroundColor = AppColor.clearColor
@@ -411,12 +412,15 @@ extension CustomMethodClass {
         chidView.lblDescription.textAlignment = .center
         chidView.lblDescription.numberOfLines = 0
         chidView.lblDescription.text = message
-     
+        
         chidView.viewLottie.subviews.forEach({ $0.removeFromSuperview() }) // this gets things done
         _ = chidView.viewLottie.subviews.map({ $0.removeFromSuperview() }) // this returns modified array
-        self.showLottieAnimation(chidView.viewLottie, animationName, .loop)
+        
+        callback()
+        
+        
     }
-    
+   
     
     
     //TODO: Check subview is available or not
@@ -435,16 +439,17 @@ extension CustomMethodClass {
         childView.removeFromSuperview()
     }
     
-    
     //TODO: Get animation name and message
     func getAnimationNameAndMessage(errorCode:Int)->(String,String){
         switch errorCode {
+        case 1:
+            return (ConstantTexts.search_doc,ConstantTexts.NoDocumentUploadedYetALERT)
         case 1009:
             return (ConstantTexts.NoInternetConnectionEmptyState,ConstantTexts.noInterNet)
             
         case 400:
             return (ConstantTexts.Invalid_URLA,ConstantTexts.Invalid_URL)
-       
+            
         default:
             return (ConstantTexts.SomeThingWentWrong,ConstantTexts.somethingWentMessage)
         }

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import FullMaterialLoader
 class LoginVC: SBaseViewController {
     
     //MARK: - IBOutlets
@@ -25,7 +24,6 @@ class LoginVC: SBaseViewController {
     
     
     //MARK: - Variables
-    internal var indicator: MaterialLoadingIndicator!
     internal var customMethodManager:CustomMethodProtocol?
     internal var logInModel: DataStoreStructListModeling?
     internal var dataListVM:DataStoreStruct_List_ViewModel?

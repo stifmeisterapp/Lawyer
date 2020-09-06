@@ -84,7 +84,7 @@
                         <viewLayoutGuide key="safeArea" id="IpN-D9-16S"/>
                     </view>
                     <connections>
-                        <outlet property="categoryTableView" destination="nIx-QC-Dqn" id="rDe-ZA-rWK"/>
+                        <outlet property="categoryTableView" destination="nIx-QC-Dqn" id="RGE-1y-MJh"/>
                         <outlet property="imageViewDropDown" destination="pnr-oH-kab" id="ckv-OS-vqE"/>
                         <outlet property="imageViewLoction" destination="Jqv-Oe-hjf" id="pYn-rr-K0b"/>
                         <outlet property="labelLoationTitle" destination="vuQ-MJ-Azr" id="aiX-SO-gql"/>
@@ -478,7 +478,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="72B-EQ-Rbh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2066.666666666667" y="75.669642857142847"/>
+            <point key="canvasLocation" x="2723" y="76"/>
         </scene>
         <!--MoreVC-->
         <scene sceneID="yHb-Ns-Dzs">
@@ -626,7 +626,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XwV-i9-wAH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2686.9565217391305" y="75.669642857142847"/>
+            <point key="canvasLocation" x="3348" y="76"/>
         </scene>
         <!--Under ConstructionVC-->
         <scene sceneID="OPg-Ys-zV4">
@@ -671,7 +671,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aZ3-KL-NoY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3310" y="76"/>
+            <point key="canvasLocation" x="3981" y="76"/>
         </scene>
         <!--FAQ_VC-->
         <scene sceneID="gdQ-ow-0D4">
@@ -686,7 +686,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MZr-g8-TL2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3941" y="76"/>
+            <point key="canvasLocation" x="4613" y="76"/>
         </scene>
         <!--About UsVC-->
         <scene sceneID="JDe-s6-zfu">
@@ -720,7 +720,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MFQ-sv-38S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4565" y="76"/>
+            <point key="canvasLocation" x="5241" y="76"/>
         </scene>
         <!--Contact UsVC-->
         <scene sceneID="FPO-c3-JHD">
@@ -812,7 +812,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1kl-hv-W5R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5195.652173913044" y="75.669642857142847"/>
+            <point key="canvasLocation" x="5868" y="76"/>
         </scene>
         <!--Lawyer ProfileVC-->
         <scene sceneID="VV1-xQ-IyG">
@@ -833,6 +833,11 @@
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imga" translatesAutoresizingMaskIntoConstraints="NO" id="G7n-HC-qE5">
                                         <rect key="frame" x="3" y="3" width="114" height="114"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="skeletonCornerRadius">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -852,7 +857,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="d46-XE-p7T">
-                                <rect key="frame" x="20" y="209" width="354" height="582"/>
+                                <rect key="frame" x="20" y="209" width="374" height="582"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="qA4-18-kJ3" id="Fbj-Ap-Fbn"/>
@@ -860,15 +865,18 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q3t-Ni-2TA">
-                                <rect key="frame" x="20" y="801" width="172" height="50"/>
+                                <rect key="frame" x="20" y="801" width="182" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="p8Y-VC-gug"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xkV-ya-6gf">
-                                <rect key="frame" x="202" y="801" width="172" height="50"/>
+                                <rect key="frame" x="212" y="801" width="182" height="50"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="btnMeetTapped:" destination="qA4-18-kJ3" eventType="touchUpInside" id="ykf-bM-HcV"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -884,7 +892,7 @@
                             <constraint firstItem="xkV-ya-6gf" firstAttribute="leading" secondItem="Q3t-Ni-2TA" secondAttribute="trailing" constant="10" id="ZAW-yS-w87"/>
                             <constraint firstItem="UcK-MX-d2b" firstAttribute="top" secondItem="X3o-cd-oFf" secondAttribute="bottom" constant="-55" id="bfb-TE-GrZ"/>
                             <constraint firstItem="zQV-uZ-NaC" firstAttribute="top" secondItem="X3o-cd-oFf" secondAttribute="bottom" constant="13" id="h3n-1W-ELW"/>
-                            <constraint firstItem="d46-XE-p7T" firstAttribute="trailing" secondItem="zQV-uZ-NaC" secondAttribute="trailing" constant="-20" id="ltd-Uo-7uc"/>
+                            <constraint firstItem="d46-XE-p7T" firstAttribute="trailing" secondItem="zQV-uZ-NaC" secondAttribute="trailing" id="ltd-Uo-7uc"/>
                             <constraint firstItem="xkV-ya-6gf" firstAttribute="width" secondItem="Q3t-Ni-2TA" secondAttribute="width" id="pH5-uq-haX"/>
                             <constraint firstItem="xkV-ya-6gf" firstAttribute="trailing" secondItem="d46-XE-p7T" secondAttribute="trailing" id="skk-IO-vuJ"/>
                             <constraint firstItem="Q3t-Ni-2TA" firstAttribute="top" secondItem="d46-XE-p7T" secondAttribute="bottom" constant="10" id="uDQ-Rh-l0B"/>
@@ -907,6 +915,54 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z11-Ry-Ue7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="219" y="-562"/>
+        </scene>
+        <!--Upload DocumentVC-->
+        <scene sceneID="k1A-yp-XpD">
+            <objects>
+                <viewController storyboardIdentifier="UploadDocumentVC" id="Fft-F4-8LG" customClass="UploadDocumentVC" customModule="Lawyer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Z2h-A1-Al1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="dDv-1x-BtW">
+                                <rect key="frame" x="0.0" y="44" width="414" height="738"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Fft-F4-8LG" id="dQo-Tb-kyc"/>
+                                    <outlet property="delegate" destination="Fft-F4-8LG" id="zS1-iP-gqu"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SH3-FX-mnP">
+                                <rect key="frame" x="20" y="792" width="374" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="BWP-6k-hOa"/>
+                                </constraints>
+                                <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="btnSubmitTapped:" destination="Fft-F4-8LG" eventType="touchUpInside" id="knk-a9-g1J"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="dDv-1x-BtW" firstAttribute="top" secondItem="xWu-gn-ygk" secondAttribute="top" id="9ea-Sr-dwW"/>
+                            <constraint firstItem="xWu-gn-ygk" firstAttribute="bottom" secondItem="SH3-FX-mnP" secondAttribute="bottom" constant="20" id="DYg-4e-jv0"/>
+                            <constraint firstItem="SH3-FX-mnP" firstAttribute="trailing" secondItem="dDv-1x-BtW" secondAttribute="trailing" constant="-20" id="Nea-2e-dxP"/>
+                            <constraint firstAttribute="trailing" secondItem="dDv-1x-BtW" secondAttribute="trailing" id="TOX-op-5mO"/>
+                            <constraint firstItem="dDv-1x-BtW" firstAttribute="leading" secondItem="Z2h-A1-Al1" secondAttribute="leading" id="eA1-iF-iaJ"/>
+                            <constraint firstItem="SH3-FX-mnP" firstAttribute="leading" secondItem="dDv-1x-BtW" secondAttribute="leading" constant="20" id="h4y-mU-FSh"/>
+                            <constraint firstItem="SH3-FX-mnP" firstAttribute="top" secondItem="dDv-1x-BtW" secondAttribute="bottom" constant="10" id="sAB-1K-Zjm"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="xWu-gn-ygk"/>
+                    </view>
+                    <connections>
+                        <outlet property="btnSubmitRef" destination="SH3-FX-mnP" id="9Jj-Nz-mns"/>
+                        <outlet property="tblDocuments" destination="dDv-1x-BtW" id="kH4-9T-Qqv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uuh-te-jVl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2070" y="76"/>
         </scene>
     </scenes>
     <resources>

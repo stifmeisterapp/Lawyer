@@ -22,7 +22,7 @@ extension LawyerProfileVC:UITableViewDataSource{
             fatalError("No FilterCategoryViewModel found...")
         }
         
-        return count
+        return count > 1 ? 1 : count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -33,7 +33,16 @@ extension LawyerProfileVC:UITableViewDataSource{
         
         
         if let detailItem = self.lawyerDetailsVM?.appointmentAtIndex(indexPath.section){
-            cell.lblValue.text = detailItem.items[indexPath.row]
+            if detailItem.title == ConstantTexts.ExpertiseLT{
+                cell.viewBG.isHidden = true
+                cell.tagListView.isHidden = false
+                cell.configure(with: detailItem.items)
+            }else{
+                cell.viewBG.isHidden = false
+                cell.tagListView.isHidden = true
+               cell.lblValue.text = detailItem.items[indexPath.row]
+            }
+            
         }
         
         

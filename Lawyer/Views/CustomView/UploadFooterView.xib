@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="lZc-bm-olr" customClass="UploadFooterView" customModule="Lawyer" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="640" height="317"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wK9-tx-rv3">
+                    <rect key="frame" x="20" y="10" width="600" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Qp-VZ-hTg">
+                    <rect key="frame" x="20" y="40.5" width="600" height="266.5"/>
+                    <subviews>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0yq-aq-1M3">
+                            <rect key="frame" x="8" y="8" width="584" height="250.5"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                            <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstItem="0yq-aq-1M3" firstAttribute="leading" secondItem="3Qp-VZ-hTg" secondAttribute="leading" constant="8" id="Qp0-kN-HOj"/>
+                        <constraint firstAttribute="trailing" secondItem="0yq-aq-1M3" secondAttribute="trailing" constant="8" id="i0n-eU-pfn"/>
+                        <constraint firstItem="0yq-aq-1M3" firstAttribute="top" secondItem="3Qp-VZ-hTg" secondAttribute="top" constant="8" id="odP-MQ-Y7F"/>
+                        <constraint firstAttribute="bottom" secondItem="0yq-aq-1M3" secondAttribute="bottom" constant="8" id="tu3-nI-oKl"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="GDd-v4-RGy" firstAttribute="trailing" secondItem="wK9-tx-rv3" secondAttribute="trailing" constant="20" id="7Be-F5-myO"/>
+                <constraint firstAttribute="bottom" secondItem="3Qp-VZ-hTg" secondAttribute="bottom" constant="10" id="B7J-8y-5jC"/>
+                <constraint firstItem="wK9-tx-rv3" firstAttribute="top" secondItem="lZc-bm-olr" secondAttribute="top" constant="10" id="QBN-fB-mQL"/>
+                <constraint firstItem="wK9-tx-rv3" firstAttribute="leading" secondItem="GDd-v4-RGy" secondAttribute="leading" constant="20" id="TKk-qD-3aZ"/>
+                <constraint firstItem="3Qp-VZ-hTg" firstAttribute="top" secondItem="wK9-tx-rv3" secondAttribute="bottom" constant="10" id="Z87-Jb-9Vy"/>
+                <constraint firstItem="3Qp-VZ-hTg" firstAttribute="trailing" secondItem="wK9-tx-rv3" secondAttribute="trailing" id="lDo-ml-c6n"/>
+                <constraint firstItem="3Qp-VZ-hTg" firstAttribute="leading" secondItem="wK9-tx-rv3" secondAttribute="leading" id="t9k-NR-21P"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="GDd-v4-RGy"/>
+            <connections>
+                <outlet property="lblInstruction2" destination="wK9-tx-rv3" id="7lM-ZO-pQQ"/>
+                <outlet property="txtView" destination="0yq-aq-1M3" id="7tn-am-NNb"/>
+                <outlet property="viewBG" destination="3Qp-VZ-hTg" id="Hu2-p2-GGb"/>
+            </connections>
+            <point key="canvasLocation" x="-39.130434782608695" y="-79.352678571428569"/>
+        </view>
+    </objects>
+</document>

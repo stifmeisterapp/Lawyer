@@ -44,7 +44,6 @@ extension AppointmentVC{
         
         self.viewHeader.gradientBackground(from: AppColor.placeholderColor, to: AppColor.placeholderColor, direction: .leftToRight)
         
-        self.indicator = customMethodManager?.configViews(view:self.view)
         
         self.btnBackRef.setImage(#imageLiteral(resourceName: "backDate").withRenderingMode(.alwaysTemplate), for: .normal)
         self.btnForwardRef.setImage(#imageLiteral(resourceName: "forwardDate").withRenderingMode(.alwaysTemplate), for: .normal)
@@ -135,13 +134,13 @@ extension AppointmentVC{
     //TODO: Filter web service
     internal func appointmentListService(current_date:String,another_date:String,isRefresh:Bool,btnIdentity:String){
         
-        self.customMethodManager?.startLoader(view:self.view, indicator: self.indicator)
+        self.customMethodManager?.startLoader(view:self.view)
         
         ServiceClass.shared.webServiceBasicMethod(url: "\(SCustomerApi.consultation_slot)\(current_date)&AnotherDateType=\(another_date)&Uuid=\(self.Uuid)", method: .get, parameters: nil, header: nil, success: { (result) in
             print(result)
             self.setuserBtnIteraction()
             
-            self.customMethodManager?.stopLoader(view:self.view, indicator: self.indicator)
+            self.customMethodManager?.stopLoader(view:self.view)
             if let result_Dict = result as? NSDictionary{
                 if let code = result_Dict.value(forKey: "code") as? Int{
                     if code == 200{
@@ -255,7 +254,7 @@ extension AppointmentVC{
         }) { (error) in
             print(error)
             self.setuserBtnIteraction()
-            self.customMethodManager?.stopLoader(view:self.view, indicator: self.indicator)
+            self.customMethodManager?.stopLoader(view:self.view)
             if let errorString = (error as NSError).userInfo[ConstantTexts.errorMessage_Key] as? String{
                 _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: errorString, style:.error)
             }else{

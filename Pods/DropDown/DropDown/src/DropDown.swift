@@ -722,7 +722,9 @@ extension DropDown {
 	
 	fileprivate func fittingWidth() -> CGFloat {
 		if templateCell == nil {
-            templateCell = cellNib.instantiate(withOwner: nil, options: nil)[0] as? DropDownCell
+            guard cellNib.instantiate(withOwner: nil, options: nil)[0] is DropDownCell else{
+                fatalError("No templateCell")
+            }
 		}
 		
 		var maxWidth: CGFloat = 0
@@ -945,11 +947,10 @@ extension DropDown {
 			else { return }
         
         // remove from indices
-        
-        if let selectedRowIndex = selectedRowIndices.firstIndex(where: { $0 == index  }){
+        if let selectedRowIndex = selectedRowIndices.firstIndex(where: { $0 == index  }) {
             selectedRowIndices.remove(at: selectedRowIndex)
         }
-        
+
 		tableView.deselectRow(at: IndexPath(row: index, section: 0), animated: true)
 	}
     

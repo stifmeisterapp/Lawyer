@@ -24,7 +24,7 @@ extension MoreVC:UITableViewDataSource{
         guard let cell = tableView.dequeueReusableCell(withIdentifier: LawyerTableViewCell.className, for: indexPath) as? LawyerTableViewCell else {
             fatalError(ConstantTexts.unexpectedIndexPath)
         }
-        cell.configure(with: categoryListVM?.categoryAtIndex(indexPath.row) ?? CategoryViewModel(Category(image: UIImage(), title: String())))
+        cell.configure(with: categoryListVM?.categoryAtIndex(indexPath.row) ?? CategoryViewModel(Category(image: UIImage(), title: String(), ExpertiseId: String())))
         return cell
     }
 }

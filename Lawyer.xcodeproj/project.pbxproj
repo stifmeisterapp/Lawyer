@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		27933A82CCB121DBF6D058BE /* Pods_LawyerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3129BC034A8C3602D9FF64E3 /* Pods_LawyerTests.framework */; };
-		7C646813CC71624E9ED7CEA2 /* Pods_Lawyer_LawyerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEB6203CFFF145774FC5892F /* Pods_Lawyer_LawyerUITests.framework */; };
-		88BAAB8D8F4A55A5086DFC8B /* Pods_Lawyer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5E67AB4FEE1E9E590A3FBF /* Pods_Lawyer.framework */; };
+		6FC4B59358EF165FEE842187 /* Pods_LawyerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFF2A0BB7C040FA95379195C /* Pods_LawyerTests.framework */; };
 		9D00E1FB24C7625900F6FC74 /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D00E1FA24C7625900F6FC74 /* OnboardingVC.swift */; };
 		9D00E1FF24C7E02900F6FC74 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D00E1FE24C7E02900F6FC74 /* OnboardingView.swift */; };
 		9D00E20124C7E0F500F6FC74 /* OnboardingVC+MethodExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D00E20024C7E0F500F6FC74 /* OnboardingVC+MethodExtension.swift */; };
@@ -46,6 +44,8 @@
 		9D46EE6424FA36570013751C /* AppointmentViewWithSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D46EE6324FA36570013751C /* AppointmentViewWithSectionModel.swift */; };
 		9D4C683024C598180064E935 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D4C682F24C598180064E935 /* Home.storyboard */; };
 		9D4C683924C5A3EB0064E935 /* HomeVC+MethodExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4C683824C5A3EB0064E935 /* HomeVC+MethodExtension.swift */; };
+		9D50AB2825020374000ECA6A /* UploadDocTableViewCellAndXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D50AB2625020374000ECA6A /* UploadDocTableViewCellAndXib.swift */; };
+		9D50AB2925020374000ECA6A /* UploadDocTableViewCellAndXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D50AB2725020374000ECA6A /* UploadDocTableViewCellAndXib.xib */; };
 		9D554C4F24C2C26300E2080D /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D554C4E24C2C26300E2080D /* Launch.storyboard */; };
 		9D554C5524C2C8D300E2080D /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D554C5424C2C8D300E2080D /* SplashVC.swift */; };
 		9D554C5724C2C9CD00E2080D /* SplashVC+MethodExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D554C5624C2C9CD00E2080D /* SplashVC+MethodExtension.swift */; };
@@ -86,6 +86,7 @@
 		9D67B12624E08B160074B3F2 /* ContactUsVC+TableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D67B12524E08B160074B3F2 /* ContactUsVC+TableViewExtension.swift */; };
 		9D67B12824E08B890074B3F2 /* ContactUsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D67B12724E08B890074B3F2 /* ContactUsVM.swift */; };
 		9D67B12A24E08FC80074B3F2 /* ContactUsVC+UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D67B12924E08FC80074B3F2 /* ContactUsVC+UITextFieldExtension.swift */; };
+		9D693EA82503E4BD00C2CB71 /* SceneDelegate+MessagingDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D693EA72503E4BD00C2CB71 /* SceneDelegate+MessagingDelegates.swift */; };
 		9D6FED1624DEC28E00232A7A /* MoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6FED1524DEC28E00232A7A /* MoreVC.swift */; };
 		9D6FED1824DEC3D900232A7A /* MoreVC+CustomMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6FED1724DEC3D900232A7A /* MoreVC+CustomMethods.swift */; };
 		9D6FED1A24DEC5FF00232A7A /* MoreVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6FED1924DEC5FF00232A7A /* MoreVM.swift */; };
@@ -101,6 +102,7 @@
 		9D787D8224C9663300EB22D2 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D787D8124C9663300EB22D2 /* UITextField+Extension.swift */; };
 		9D787D8424C9834E00EB22D2 /* ValidationClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D787D8324C9834E00EB22D2 /* ValidationClass.swift */; };
 		9D787D8624C9848C00EB22D2 /* ValidationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D787D8524C9848C00EB22D2 /* ValidationProtocol.swift */; };
+		9D7E634F2503FB4600B312A6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9D7E634E2503FB4600B312A6 /* GoogleService-Info.plist */; };
 		9D80F43824EAB176004F64D1 /* All_India_Legal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9D80F43624EAB176004F64D1 /* All_India_Legal.xcdatamodeld */; };
 		9D80F43A24EB05EF004F64D1 /* User_Data_Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80F43924EB05EF004F64D1 /* User_Data_Model.swift */; };
 		9D86012124F29FEB00A4E3FE /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D86012024F29FEB00A4E3FE /* ErrorView.swift */; };
@@ -169,6 +171,12 @@
 		9DC5456324C33DAE009AF27A /* AppStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC5456224C33DAE009AF27A /* AppStoryboard.swift */; };
 		9DC5456524C33E9A009AF27A /* ConstantTexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC5456424C33E9A009AF27A /* ConstantTexts.swift */; };
 		9DC5456724C33F55009AF27A /* AppMacros.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC5456624C33F55009AF27A /* AppMacros.swift */; };
+		9DCED4832501047000BCFEF3 /* loader.json in Resources */ = {isa = PBXBuildFile; fileRef = 9DCED4822501046F00BCFEF3 /* loader.json */; };
+		9DCED48625010C0300BCFEF3 /* UploadDocumentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCED48525010C0300BCFEF3 /* UploadDocumentVC.swift */; };
+		9DCED48825010C7200BCFEF3 /* UploadDocumentVC+MethodExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCED48725010C7200BCFEF3 /* UploadDocumentVC+MethodExtension.swift */; };
+		9DCED48A2501186E00BCFEF3 /* UploadDocHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DCED4892501186E00BCFEF3 /* UploadDocHeader.xib */; };
+		9DCED48C2501188E00BCFEF3 /* UploadDocHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCED48B2501188E00BCFEF3 /* UploadDocHeader.swift */; };
+		9DCED48E25011CFA00BCFEF3 /* UploadDocumentVC+UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCED48D25011CFA00BCFEF3 /* UploadDocumentVC+UITableViewExtension.swift */; };
 		9DD38ADD24FEA35E00EA4D1C /* SkeletonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD38ADC24FEA35E00EA4D1C /* SkeletonView.swift */; };
 		9DD38AE024FEA3D000EA4D1C /* LawyerProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD38ADF24FEA3D000EA4D1C /* LawyerProfileVC.swift */; };
 		9DD38AE224FEA7C200EA4D1C /* LawyerProfileVC+MethodExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD38AE124FEA7C200EA4D1C /* LawyerProfileVC+MethodExtension.swift */; };
@@ -199,6 +207,13 @@
 		9DDD4A1224E9B8BF003CC77F /* AppReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDD4A1124E9B8BF003CC77F /* AppReachability.swift */; };
 		9DDD4A1424E9C990003CC77F /* NetworkState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDD4A1324E9C990003CC77F /* NetworkState.swift */; };
 		9DDD4A1624EAA4FE003CC77F /* SCustomerApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDD4A1524EAA4FE003CC77F /* SCustomerApi.swift */; };
+		9DE78DDA2501293C008CEC40 /* Upload_filesHeader.json in Resources */ = {isa = PBXBuildFile; fileRef = 9DE78DD92501293C008CEC40 /* Upload_filesHeader.json */; };
+		9DE78DDC2501329D008CEC40 /* UploadFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DE78DDB2501329D008CEC40 /* UploadFooterView.xib */; };
+		9DE78DDE250132B3008CEC40 /* UploadFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE78DDD250132B3008CEC40 /* UploadFooterView.swift */; };
+		9DE78DE025014B74008CEC40 /* UploadDocumentVC+UITextViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE78DDF25014B74008CEC40 /* UploadDocumentVC+UITextViewExtension.swift */; };
+		9DE78DE225015387008CEC40 /* search_doc.json in Resources */ = {isa = PBXBuildFile; fileRef = 9DE78DE125015386008CEC40 /* search_doc.json */; };
+		9DE78DE525016DCC008CEC40 /* EmptyWithAlertTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE78DE325016DCC008CEC40 /* EmptyWithAlertTableViewCell.swift */; };
+		9DE78DE625016DCD008CEC40 /* EmptyWithAlertTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DE78DE425016DCC008CEC40 /* EmptyWithAlertTableViewCell.xib */; };
 		9DEB6EB724D9D09D00ED3FD6 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEB6EB624D9D09C00ED3FD6 /* UIView+Extensions.swift */; };
 		9DEB6EBA24D9DB5D00ED3FD6 /* FilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEB6EB824D9DB5D00ED3FD6 /* FilterCollectionViewCell.swift */; };
 		9DEB6EBB24D9DB5D00ED3FD6 /* FilterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DEB6EB924D9DB5D00ED3FD6 /* FilterCollectionViewCell.xib */; };
@@ -221,6 +236,8 @@
 		9DFFC28924C9CF2C00A50EA0 /* UINavigationBarButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFFC28824C9CF2C00A50EA0 /* UINavigationBarButtonType.swift */; };
 		9DFFC28B24C9D30300A50EA0 /* NSObject+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFFC28A24C9D30300A50EA0 /* NSObject+Extensions.swift */; };
 		9DFFC28D24C9D36B00A50EA0 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFFC28C24C9D36B00A50EA0 /* UIImageView+Extensions.swift */; };
+		AD92576751DFFAA8161213A8 /* Pods_Lawyer_LawyerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B88826783591DF26CFC79E /* Pods_Lawyer_LawyerUITests.framework */; };
+		E365796669E9A947A5089EC4 /* Pods_Lawyer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C36F13276614586001D951C5 /* Pods_Lawyer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -241,13 +258,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		26283AA1C805B8ECEA6209FE /* Pods-Lawyer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lawyer.release.xcconfig"; path = "Target Support Files/Pods-Lawyer/Pods-Lawyer.release.xcconfig"; sourceTree = "<group>"; };
-		26BC0869787379417EA415AE /* Pods-Lawyer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lawyer.debug.xcconfig"; path = "Target Support Files/Pods-Lawyer/Pods-Lawyer.debug.xcconfig"; sourceTree = "<group>"; };
-		3129BC034A8C3602D9FF64E3 /* Pods_LawyerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LawyerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		469CCD19A01A137EFBF87BA5 /* Pods-LawyerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LawyerTests.debug.xcconfig"; path = "Target Support Files/Pods-LawyerTests/Pods-LawyerTests.debug.xcconfig"; sourceTree = "<group>"; };
-		4C88BE4B62D9819F89AE5048 /* Pods-LawyerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LawyerTests.release.xcconfig"; path = "Target Support Files/Pods-LawyerTests/Pods-LawyerTests.release.xcconfig"; sourceTree = "<group>"; };
-		6544288F677EC312055129F8 /* Pods-Lawyer-LawyerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lawyer-LawyerUITests.release.xcconfig"; path = "Target Support Files/Pods-Lawyer-LawyerUITests/Pods-Lawyer-LawyerUITests.release.xcconfig"; sourceTree = "<group>"; };
-		8908AF1CC8FEF4EAEBFC05EE /* Pods-Lawyer-LawyerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lawyer-LawyerUITests.debug.xcconfig"; path = "Target Support Files/Pods-Lawyer-LawyerUITests/Pods-Lawyer-LawyerUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		3CBD33789CBC661494FA1118 /* Pods-LawyerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LawyerTests.debug.xcconfig"; path = "Target Support Files/Pods-LawyerTests/Pods-LawyerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4E3401A5096C720AA09BE8AD /* Pods-Lawyer-LawyerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lawyer-LawyerUITests.release.xcconfig"; path = "Target Support Files/Pods-Lawyer-LawyerUITests/Pods-Lawyer-LawyerUITests.release.xcconfig"; sourceTree = "<group>"; };
+		63B88826783591DF26CFC79E /* Pods_Lawyer_LawyerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lawyer_LawyerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		82A24DB4C9526557FFEF1622 /* Pods-Lawyer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lawyer.release.xcconfig"; path = "Target Support Files/Pods-Lawyer/Pods-Lawyer.release.xcconfig"; sourceTree = "<group>"; };
+		8952E76024032C5D52549018 /* Pods-Lawyer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lawyer.debug.xcconfig"; path = "Target Support Files/Pods-Lawyer/Pods-Lawyer.debug.xcconfig"; sourceTree = "<group>"; };
 		9D00E1FA24C7625900F6FC74 /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
 		9D00E1FE24C7E02900F6FC74 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		9D00E20024C7E0F500F6FC74 /* OnboardingVC+MethodExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OnboardingVC+MethodExtension.swift"; sourceTree = "<group>"; };
@@ -290,6 +305,8 @@
 		9D46EE6324FA36570013751C /* AppointmentViewWithSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentViewWithSectionModel.swift; sourceTree = "<group>"; };
 		9D4C682F24C598180064E935 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		9D4C683824C5A3EB0064E935 /* HomeVC+MethodExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeVC+MethodExtension.swift"; sourceTree = "<group>"; };
+		9D50AB2625020374000ECA6A /* UploadDocTableViewCellAndXib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDocTableViewCellAndXib.swift; sourceTree = "<group>"; };
+		9D50AB2725020374000ECA6A /* UploadDocTableViewCellAndXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UploadDocTableViewCellAndXib.xib; sourceTree = "<group>"; };
 		9D554C4E24C2C26300E2080D /* Launch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
 		9D554C5424C2C8D300E2080D /* SplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
 		9D554C5624C2C9CD00E2080D /* SplashVC+MethodExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SplashVC+MethodExtension.swift"; sourceTree = "<group>"; };
@@ -330,6 +347,7 @@
 		9D67B12524E08B160074B3F2 /* ContactUsVC+TableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContactUsVC+TableViewExtension.swift"; sourceTree = "<group>"; };
 		9D67B12724E08B890074B3F2 /* ContactUsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsVM.swift; sourceTree = "<group>"; };
 		9D67B12924E08FC80074B3F2 /* ContactUsVC+UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContactUsVC+UITextFieldExtension.swift"; sourceTree = "<group>"; };
+		9D693EA72503E4BD00C2CB71 /* SceneDelegate+MessagingDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SceneDelegate+MessagingDelegates.swift"; sourceTree = "<group>"; };
 		9D6FED1524DEC28E00232A7A /* MoreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreVC.swift; sourceTree = "<group>"; };
 		9D6FED1724DEC3D900232A7A /* MoreVC+CustomMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoreVC+CustomMethods.swift"; sourceTree = "<group>"; };
 		9D6FED1924DEC5FF00232A7A /* MoreVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreVM.swift; sourceTree = "<group>"; };
@@ -345,6 +363,7 @@
 		9D787D8124C9663300EB22D2 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		9D787D8324C9834E00EB22D2 /* ValidationClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationClass.swift; sourceTree = "<group>"; };
 		9D787D8524C9848C00EB22D2 /* ValidationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationProtocol.swift; sourceTree = "<group>"; };
+		9D7E634E2503FB4600B312A6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9D80F43724EAB176004F64D1 /* All_India_Legal.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = All_India_Legal.xcdatamodel; sourceTree = "<group>"; };
 		9D80F43924EB05EF004F64D1 /* User_Data_Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User_Data_Model.swift; sourceTree = "<group>"; };
 		9D86012024F29FEB00A4E3FE /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
@@ -413,6 +432,12 @@
 		9DC5456224C33DAE009AF27A /* AppStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoryboard.swift; sourceTree = "<group>"; };
 		9DC5456424C33E9A009AF27A /* ConstantTexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantTexts.swift; sourceTree = "<group>"; };
 		9DC5456624C33F55009AF27A /* AppMacros.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMacros.swift; sourceTree = "<group>"; };
+		9DCED4822501046F00BCFEF3 /* loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loader.json; sourceTree = "<group>"; };
+		9DCED48525010C0300BCFEF3 /* UploadDocumentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDocumentVC.swift; sourceTree = "<group>"; };
+		9DCED48725010C7200BCFEF3 /* UploadDocumentVC+MethodExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UploadDocumentVC+MethodExtension.swift"; sourceTree = "<group>"; };
+		9DCED4892501186E00BCFEF3 /* UploadDocHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UploadDocHeader.xib; sourceTree = "<group>"; };
+		9DCED48B2501188E00BCFEF3 /* UploadDocHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDocHeader.swift; sourceTree = "<group>"; };
+		9DCED48D25011CFA00BCFEF3 /* UploadDocumentVC+UITableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UploadDocumentVC+UITableViewExtension.swift"; sourceTree = "<group>"; };
 		9DD38ADC24FEA35E00EA4D1C /* SkeletonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonView.swift; sourceTree = "<group>"; };
 		9DD38ADF24FEA3D000EA4D1C /* LawyerProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LawyerProfileVC.swift; sourceTree = "<group>"; };
 		9DD38AE124FEA7C200EA4D1C /* LawyerProfileVC+MethodExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LawyerProfileVC+MethodExtension.swift"; sourceTree = "<group>"; };
@@ -443,6 +468,13 @@
 		9DDD4A1124E9B8BF003CC77F /* AppReachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReachability.swift; sourceTree = "<group>"; };
 		9DDD4A1324E9C990003CC77F /* NetworkState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkState.swift; sourceTree = "<group>"; };
 		9DDD4A1524EAA4FE003CC77F /* SCustomerApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCustomerApi.swift; sourceTree = "<group>"; };
+		9DE78DD92501293C008CEC40 /* Upload_filesHeader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Upload_filesHeader.json; sourceTree = "<group>"; };
+		9DE78DDB2501329D008CEC40 /* UploadFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UploadFooterView.xib; sourceTree = "<group>"; };
+		9DE78DDD250132B3008CEC40 /* UploadFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadFooterView.swift; sourceTree = "<group>"; };
+		9DE78DDF25014B74008CEC40 /* UploadDocumentVC+UITextViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UploadDocumentVC+UITextViewExtension.swift"; sourceTree = "<group>"; };
+		9DE78DE125015386008CEC40 /* search_doc.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = search_doc.json; sourceTree = "<group>"; };
+		9DE78DE325016DCC008CEC40 /* EmptyWithAlertTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyWithAlertTableViewCell.swift; sourceTree = "<group>"; };
+		9DE78DE425016DCC008CEC40 /* EmptyWithAlertTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyWithAlertTableViewCell.xib; sourceTree = "<group>"; };
 		9DEB6EB624D9D09C00ED3FD6 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		9DEB6EB824D9DB5D00ED3FD6 /* FilterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionViewCell.swift; sourceTree = "<group>"; };
 		9DEB6EB924D9DB5D00ED3FD6 /* FilterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -465,8 +497,10 @@
 		9DFFC28824C9CF2C00A50EA0 /* UINavigationBarButtonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationBarButtonType.swift; sourceTree = "<group>"; };
 		9DFFC28A24C9D30300A50EA0 /* NSObject+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extensions.swift"; sourceTree = "<group>"; };
 		9DFFC28C24C9D36B00A50EA0 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
-		BE5E67AB4FEE1E9E590A3FBF /* Pods_Lawyer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lawyer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EEB6203CFFF145774FC5892F /* Pods_Lawyer_LawyerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lawyer_LawyerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C36F13276614586001D951C5 /* Pods_Lawyer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lawyer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB686463BE4D61E0982F8B77 /* Pods-LawyerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LawyerTests.release.xcconfig"; path = "Target Support Files/Pods-LawyerTests/Pods-LawyerTests.release.xcconfig"; sourceTree = "<group>"; };
+		D6B3FD907BDB5B853412383A /* Pods-Lawyer-LawyerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lawyer-LawyerUITests.debug.xcconfig"; path = "Target Support Files/Pods-Lawyer-LawyerUITests/Pods-Lawyer-LawyerUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		EFF2A0BB7C040FA95379195C /* Pods_LawyerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LawyerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -474,7 +508,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88BAAB8D8F4A55A5086DFC8B /* Pods_Lawyer.framework in Frameworks */,
+				E365796669E9A947A5089EC4 /* Pods_Lawyer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,7 +516,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27933A82CCB121DBF6D058BE /* Pods_LawyerTests.framework in Frameworks */,
+				6FC4B59358EF165FEE842187 /* Pods_LawyerTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,19 +524,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7C646813CC71624E9ED7CEA2 /* Pods_Lawyer_LawyerUITests.framework in Frameworks */,
+				AD92576751DFFAA8161213A8 /* Pods_Lawyer_LawyerUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0E2704A158B6764535800BEB /* Frameworks */ = {
+		7FC1D4DEC8E3AC95A58E4B74 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BE5E67AB4FEE1E9E590A3FBF /* Pods_Lawyer.framework */,
-				EEB6203CFFF145774FC5892F /* Pods_Lawyer_LawyerUITests.framework */,
-				3129BC034A8C3602D9FF64E3 /* Pods_LawyerTests.framework */,
+				C36F13276614586001D951C5 /* Pods_Lawyer.framework */,
+				63B88826783591DF26CFC79E /* Pods_Lawyer_LawyerUITests.framework */,
+				EFF2A0BB7C040FA95379195C /* Pods_LawyerTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -542,7 +576,7 @@
 				9D25569524C1DCAB006563AC /* LawyerUITests */,
 				9D25567224C1DCAA006563AC /* Products */,
 				C64139B8F84DE84A41F24DA9 /* Pods */,
-				0E2704A158B6764535800BEB /* Frameworks */,
+				7FC1D4DEC8E3AC95A58E4B74 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -566,6 +600,7 @@
 				9D554C4C24C2C20300E2080D /* Views */,
 				9D554C5824C2D03A00E2080D /* Classes */,
 				9D25568224C1DCAB006563AC /* Info.plist */,
+				9D7E634E2503FB4600B312A6 /* GoogleService-Info.plist */,
 			);
 			path = Lawyer;
 			sourceTree = "<group>";
@@ -594,6 +629,7 @@
 			children = (
 				9D25567424C1DCAA006563AC /* AppDelegate.swift */,
 				9D25567624C1DCAA006563AC /* SceneDelegate.swift */,
+				9D693EA72503E4BD00C2CB71 /* SceneDelegate+MessagingDelegates.swift */,
 				9D25567824C1DCAA006563AC /* ViewController.swift */,
 				9D25567A24C1DCAA006563AC /* Main.storyboard */,
 				9D25567D24C1DCAB006563AC /* Assets.xcassets */,
@@ -616,6 +652,7 @@
 		9D4C683124C59DF30064E935 /* HomeScreens */ = {
 			isa = PBXGroup;
 			children = (
+				9DCED48425010BD900BCFEF3 /* UploadDocumentScreen */,
 				9DD38ADE24FEA3AE00EA4D1C /* LawyerProfileScreen */,
 				9D67B12024E075670074B3F2 /* ContactUsScreen */,
 				9D645B9524DF3E3D00A2B0F6 /* AboutUsScreen */,
@@ -765,6 +802,10 @@
 				9D9E723724DDEA4D005805D7 /* GSTIN_TableViewCellAndXib.xib */,
 				9D66A8E424FF12C500FD1EBB /* Detail_TableViewCellAndXib.swift */,
 				9D66A8E524FF12C500FD1EBB /* Detail_TableViewCellAndXib.xib */,
+				9DE78DE325016DCC008CEC40 /* EmptyWithAlertTableViewCell.swift */,
+				9DE78DE425016DCC008CEC40 /* EmptyWithAlertTableViewCell.xib */,
+				9D50AB2625020374000ECA6A /* UploadDocTableViewCellAndXib.swift */,
+				9D50AB2725020374000ECA6A /* UploadDocTableViewCellAndXib.xib */,
 			);
 			path = TableViewCellsAndXibs;
 			sourceTree = "<group>";
@@ -1007,6 +1048,10 @@
 				9D86012024F29FEB00A4E3FE /* ErrorView.swift */,
 				9D04938224FEDF100068032D /* ProfileHeaderView.xib */,
 				9D04938424FEDF290068032D /* ProfileHeaderView.swift */,
+				9DCED4892501186E00BCFEF3 /* UploadDocHeader.xib */,
+				9DCED48B2501188E00BCFEF3 /* UploadDocHeader.swift */,
+				9DE78DDB2501329D008CEC40 /* UploadFooterView.xib */,
+				9DE78DDD250132B3008CEC40 /* UploadFooterView.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -1056,6 +1101,17 @@
 			path = CustomStructs;
 			sourceTree = "<group>";
 		};
+		9DCED48425010BD900BCFEF3 /* UploadDocumentScreen */ = {
+			isa = PBXGroup;
+			children = (
+				9DCED48525010C0300BCFEF3 /* UploadDocumentVC.swift */,
+				9DCED48725010C7200BCFEF3 /* UploadDocumentVC+MethodExtension.swift */,
+				9DCED48D25011CFA00BCFEF3 /* UploadDocumentVC+UITableViewExtension.swift */,
+				9DE78DDF25014B74008CEC40 /* UploadDocumentVC+UITextViewExtension.swift */,
+			);
+			path = UploadDocumentScreen;
+			sourceTree = "<group>";
+		};
 		9DD38ADB24FEA34500EA4D1C /* SkeletonViewClass */ = {
 			isa = PBXGroup;
 			children = (
@@ -1078,6 +1134,9 @@
 		9DDC564424DB44B9002DD47D /* AnimationFiles */ = {
 			isa = PBXGroup;
 			children = (
+				9DE78DE125015386008CEC40 /* search_doc.json */,
+				9DE78DD92501293C008CEC40 /* Upload_filesHeader.json */,
+				9DCED4822501046F00BCFEF3 /* loader.json */,
 				9D86012C24F2D88E00A4E3FE /* Invalid_URL.json */,
 				9D86012824F2AEB900A4E3FE /* EmptyBoxNew.json */,
 				9D86012A24F2D1A000A4E3FE /* SomeThingWentWrong.json */,
@@ -1127,12 +1186,12 @@
 		C64139B8F84DE84A41F24DA9 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				26BC0869787379417EA415AE /* Pods-Lawyer.debug.xcconfig */,
-				26283AA1C805B8ECEA6209FE /* Pods-Lawyer.release.xcconfig */,
-				8908AF1CC8FEF4EAEBFC05EE /* Pods-Lawyer-LawyerUITests.debug.xcconfig */,
-				6544288F677EC312055129F8 /* Pods-Lawyer-LawyerUITests.release.xcconfig */,
-				469CCD19A01A137EFBF87BA5 /* Pods-LawyerTests.debug.xcconfig */,
-				4C88BE4B62D9819F89AE5048 /* Pods-LawyerTests.release.xcconfig */,
+				8952E76024032C5D52549018 /* Pods-Lawyer.debug.xcconfig */,
+				82A24DB4C9526557FFEF1622 /* Pods-Lawyer.release.xcconfig */,
+				D6B3FD907BDB5B853412383A /* Pods-Lawyer-LawyerUITests.debug.xcconfig */,
+				4E3401A5096C720AA09BE8AD /* Pods-Lawyer-LawyerUITests.release.xcconfig */,
+				3CBD33789CBC661494FA1118 /* Pods-LawyerTests.debug.xcconfig */,
+				CB686463BE4D61E0982F8B77 /* Pods-LawyerTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -1144,11 +1203,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9D25569B24C1DCAB006563AC /* Build configuration list for PBXNativeTarget "Lawyer" */;
 			buildPhases = (
-				7C2D5A93F97B1C45BE4B4FDC /* [CP] Check Pods Manifest.lock */,
+				100D1A51D8C537FEC42EC440 /* [CP] Check Pods Manifest.lock */,
 				9D25566D24C1DCAA006563AC /* Sources */,
 				9D25566E24C1DCAA006563AC /* Frameworks */,
 				9D25566F24C1DCAA006563AC /* Resources */,
-				7D1F478BF94F69D1D6BFAA19 /* [CP] Embed Pods Frameworks */,
+				9D693EAA2503EEBE00C2CB71 /* ShellScript */,
+				693F341EC00FC9EA2FB73ECD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1163,7 +1223,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9D25569E24C1DCAB006563AC /* Build configuration list for PBXNativeTarget "LawyerTests" */;
 			buildPhases = (
-				D182A4EAE4EA377533F67A97 /* [CP] Check Pods Manifest.lock */,
+				D5AA6A6D83A77414166E638E /* [CP] Check Pods Manifest.lock */,
 				9D25568324C1DCAB006563AC /* Sources */,
 				9D25568424C1DCAB006563AC /* Frameworks */,
 				9D25568524C1DCAB006563AC /* Resources */,
@@ -1182,11 +1242,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9D2556A124C1DCAB006563AC /* Build configuration list for PBXNativeTarget "LawyerUITests" */;
 			buildPhases = (
-				B38F3055AFDF55EFD70E705E /* [CP] Check Pods Manifest.lock */,
+				46666B8B14120D1C37964CA3 /* [CP] Check Pods Manifest.lock */,
 				9D25568E24C1DCAB006563AC /* Sources */,
 				9D25568F24C1DCAB006563AC /* Frameworks */,
 				9D25569024C1DCAB006563AC /* Resources */,
-				81EE7460437B025A14228F63 /* [CP] Embed Pods Frameworks */,
+				DBB6EDF8050584531660B608 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1252,6 +1312,7 @@
 				9D04938324FEDF100068032D /* ProfileHeaderView.xib in Resources */,
 				9DDC563924DB4486002DD47D /* OpenSans-ExtraBoldItalic.ttf in Resources */,
 				9DDC564024DB4486002DD47D /* OpenSans-Bold.ttf in Resources */,
+				9DE78DDC2501329D008CEC40 /* UploadFooterView.xib in Resources */,
 				9D9E722824DD8D00005805D7 /* AppointmentFooterView.xib in Resources */,
 				9D5F2B2A24C5FB3900BA4015 /* TabBar.storyboard in Resources */,
 				9DFED3DB24D48C7F00851570 /* Auth_TextField_TableViewCell.xib in Resources */,
@@ -1261,10 +1322,12 @@
 				9D9E723924DDEA4D005805D7 /* GSTIN_TableViewCellAndXib.xib in Resources */,
 				9D25567E24C1DCAB006563AC /* Assets.xcassets in Resources */,
 				9D9E722024DD24FE005805D7 /* AppointMentTableViewCellAndXib.xib in Resources */,
+				9D50AB2925020374000ECA6A /* UploadDocTableViewCellAndXib.xib in Resources */,
 				9D86012624F2AC7E00A4E3FE /* NoInternetConnectionEmptyState.json in Resources */,
 				9DDC565124DB4601002DD47D /* Judges_Gavel.mp3 in Resources */,
 				9DDC563A24DB4486002DD47D /* OpenSans-BoldItalic.ttf in Resources */,
 				9D86012724F2AC7E00A4E3FE /* NoConnection.json in Resources */,
+				9DE78DDA2501293C008CEC40 /* Upload_filesHeader.json in Resources */,
 				9D4C683024C598180064E935 /* Home.storyboard in Resources */,
 				9D9E724524DDFD4D005805D7 /* PaymentFooterView.xib in Resources */,
 				9D948F3224D5FB6000AB41F0 /* CategoryCollectionViewCellAndXib.xib in Resources */,
@@ -1276,21 +1339,26 @@
 				9D1F382F24F29B6000AD7D1C /* ErrorView.xib in Resources */,
 				9D9E721524DCA90E005805D7 /* AppointmentHeaderView.xib in Resources */,
 				9DEB6EBB24D9DB5D00ED3FD6 /* FilterCollectionViewCell.xib in Resources */,
+				9DE78DE625016DCD008CEC40 /* EmptyWithAlertTableViewCell.xib in Resources */,
 				9DDC564224DB4486002DD47D /* OpenSans-Italic.ttf in Resources */,
 				9D389BB624EC49C40089CDB3 /* FilterItemCollectionViewCell.xib in Resources */,
 				9D9E722624DD57EA005805D7 /* TimeCollectionViewCellAndXib.xib in Resources */,
 				9DDC564624DB44E2002DD47D /* Law.json in Resources */,
 				9D67B11F24E074880074B3F2 /* ContactUs.json in Resources */,
 				9DDC563C24DB4486002DD47D /* OpenSans-LightItalic.ttf in Resources */,
+				9DE78DE225015387008CEC40 /* search_doc.json in Resources */,
 				9DDC564324DB4486002DD47D /* OpenSans-SemiboldItalic.ttf in Resources */,
 				9DC5455A24C32EF9009AF27A /* TypewriterKeys.ttf in Resources */,
 				9D5F2B3224C6AF1100BA4015 /* LawyerTableViewCell.xib in Resources */,
 				9DDC565524DB530D002DD47D /* LawyerNewTableViewCell.xib in Resources */,
 				9DDC563E24DB4486002DD47D /* OpenSans-Light.ttf in Resources */,
+				9DCED48A2501186E00BCFEF3 /* UploadDocHeader.xib in Resources */,
 				9D9E71FB24DC3F2A005805D7 /* FilterTableViewCellAndXib.xib in Resources */,
+				9DCED4832501047000BCFEF3 /* loader.json in Resources */,
 				9D9E723124DDAEB5005805D7 /* PaymentHeaderView.xib in Resources */,
 				9D86012524F2AC7E00A4E3FE /* EmptyBox.json in Resources */,
 				9D86012924F2AEB900A4E3FE /* EmptyBoxNew.json in Resources */,
+				9D7E634F2503FB4600B312A6 /* GoogleService-Info.plist in Resources */,
 				9D554C4F24C2C26300E2080D /* Launch.storyboard in Resources */,
 				9DDC563F24DB4486002DD47D /* OpenSans-Regular.ttf in Resources */,
 			);
@@ -1313,7 +1381,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		7C2D5A93F97B1C45BE4B4FDC /* [CP] Check Pods Manifest.lock */ = {
+		100D1A51D8C537FEC42EC440 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1335,41 +1403,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7D1F478BF94F69D1D6BFAA19 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Lawyer/Pods-Lawyer-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Lawyer/Pods-Lawyer-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Lawyer/Pods-Lawyer-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		81EE7460437B025A14228F63 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Lawyer-LawyerUITests/Pods-Lawyer-LawyerUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Lawyer-LawyerUITests/Pods-Lawyer-LawyerUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Lawyer-LawyerUITests/Pods-Lawyer-LawyerUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B38F3055AFDF55EFD70E705E /* [CP] Check Pods Manifest.lock */ = {
+		46666B8B14120D1C37964CA3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1391,7 +1425,43 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D182A4EAE4EA377533F67A97 /* [CP] Check Pods Manifest.lock */ = {
+		693F341EC00FC9EA2FB73ECD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Lawyer/Pods-Lawyer-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Lawyer/Pods-Lawyer-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Lawyer/Pods-Lawyer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9D693EAA2503EEBE00C2CB71 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n\"${PODS_ROOT}/FirebaseCrashlytics/upload-symbols\" -gsp \"${PROJECT_DIR}/GoogleService-Info.plist\" -p iOS \"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}\"\n";
+		};
+		D5AA6A6D83A77414166E638E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1413,6 +1483,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		DBB6EDF8050584531660B608 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Lawyer-LawyerUITests/Pods-Lawyer-LawyerUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Lawyer-LawyerUITests/Pods-Lawyer-LawyerUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Lawyer-LawyerUITests/Pods-Lawyer-LawyerUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1421,6 +1508,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D00E1FB24C7625900F6FC74 /* OnboardingVC.swift in Sources */,
+				9D693EA82503E4BD00C2CB71 /* SceneDelegate+MessagingDelegates.swift in Sources */,
 				9DC5456524C33E9A009AF27A /* ConstantTexts.swift in Sources */,
 				9D948F3124D5FB6000AB41F0 /* CategoryCollectionViewCellAndXib.swift in Sources */,
 				9D6FED1624DEC28E00232A7A /* MoreVC.swift in Sources */,
@@ -1452,6 +1540,7 @@
 				9DDD4A1224E9B8BF003CC77F /* AppReachability.swift in Sources */,
 				9D31C57224FA46B3005F6F13 /* AppointmentDataModeling.swift in Sources */,
 				9DFFC28D24C9D36B00A50EA0 /* UIImageView+Extensions.swift in Sources */,
+				9DCED48C2501188E00BCFEF3 /* UploadDocHeader.swift in Sources */,
 				9D9E720324DC6DAC005805D7 /* FilterPopup_Expertise_VM.swift in Sources */,
 				9D9E724924DE05AE005805D7 /* PaymentVC+UITextFieldDelegate.swift in Sources */,
 				9DDC564E24DB453B002DD47D /* TipView.swift in Sources */,
@@ -1462,12 +1551,15 @@
 				9DEB6ECD24D9FA8C00ED3FD6 /* LawyerListVC+CollectionViewExtensions.swift in Sources */,
 				9D787D8424C9834E00EB22D2 /* ValidationClass.swift in Sources */,
 				9D233DED24DF0BF500B2F1C9 /* UnderConstructionVC.swift in Sources */,
+				9DE78DE025014B74008CEC40 /* UploadDocumentVC+UITextViewExtension.swift in Sources */,
 				9DFED3D324D48B2D00851570 /* SignUpType.swift in Sources */,
+				9DCED48E25011CFA00BCFEF3 /* UploadDocumentVC+UITableViewExtension.swift in Sources */,
 				9D4C683924C5A3EB0064E935 /* HomeVC+MethodExtension.swift in Sources */,
 				9D554C6124C2D4FB00E2080D /* SoundClass.swift in Sources */,
 				9DFED3E124D495AD00851570 /* DataStoreStruct_ViewModel.swift in Sources */,
 				9D5FE2AE24D4AA60002A94F1 /* LoginVM.swift in Sources */,
 				9D9E721724DCAA25005805D7 /* AppointmentHeaderView.swift in Sources */,
+				9DCED48625010C0300BCFEF3 /* UploadDocumentVC.swift in Sources */,
 				9D9E722D24DD9E3E005805D7 /* PaymentVC.swift in Sources */,
 				9D5F2B3724C6B15000BA4015 /* HomeVC.swift in Sources */,
 				9D9E720B24DC8EF9005805D7 /* FilterPopup_Empty_VM.swift in Sources */,
@@ -1483,9 +1575,11 @@
 				9D9E722F24DD9E63005805D7 /* PaymentVC+MethodExtension.swift in Sources */,
 				9D389BB524EC49C40089CDB3 /* FilterItemCollectionViewCell.swift in Sources */,
 				9D9148A024ED70B0003A3E37 /* Lawyer_View_Model.swift in Sources */,
+				9DCED48825010C7200BCFEF3 /* UploadDocumentVC+MethodExtension.swift in Sources */,
 				9D76C05324C8EBD2002B400E /* SignUpVC+MethodExtension.swift in Sources */,
 				9DD38ADD24FEA35E00EA4D1C /* SkeletonView.swift in Sources */,
 				9D5FE2B024D4B59D002A94F1 /* LoginVC+TableViewExtension.swift in Sources */,
+				9DE78DDE250132B3008CEC40 /* UploadFooterView.swift in Sources */,
 				9D554C5524C2C8D300E2080D /* SplashVC.swift in Sources */,
 				9DDD4A1424E9C990003CC77F /* NetworkState.swift in Sources */,
 				9DDD4A0824E9B143003CC77F /* SBaseService.swift in Sources */,
@@ -1549,6 +1643,7 @@
 				9D645B9424DF36BC00A2B0F6 /* FAQ_VM.swift in Sources */,
 				9DC5455E24C33170009AF27A /* CustomMethodProtocol.swift in Sources */,
 				9D5F2B3524C6AF9700BA4015 /* SBaseTableViewCell.swift in Sources */,
+				9D50AB2825020374000ECA6A /* UploadDocTableViewCellAndXib.swift in Sources */,
 				9D0B58FB24D4CCC600AACE59 /* LoginVC+UITextFieldDelegate.swift in Sources */,
 				9D76C05124C8EB4C002B400E /* SignUpVC.swift in Sources */,
 				9D9148A224ED732B003A3E37 /* Lawyer_Model.swift in Sources */,
@@ -1580,6 +1675,7 @@
 				9D00E20124C7E0F500F6FC74 /* OnboardingVC+MethodExtension.swift in Sources */,
 				9D67B12424E075E70074B3F2 /* ContactUsVC+CustomMethodsExtension.swift in Sources */,
 				9D76C04E24C8E011002B400E /* LoginVC+MethodExtension.swift in Sources */,
+				9DE78DE525016DCC008CEC40 /* EmptyWithAlertTableViewCell.swift in Sources */,
 				9D645B9024DF332900A2B0F6 /* FAQView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1669,7 +1765,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -1752,12 +1848,13 @@
 		};
 		9D25569C24C1DCAB006563AC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 26BC0869787379417EA415AE /* Pods-Lawyer.debug.xcconfig */;
+			baseConfigurationReference = 8952E76024032C5D52549018 /* Pods-Lawyer.debug.xcconfig */;
 			buildSettings = {
 				ALL_INDIA_LEGAL_BASE_SERVICE_URL = "https://www.allindialegal.com/v1/";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4Q46HXC747;
 				INFOPLIST_FILE = Lawyer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1766,7 +1863,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = www.corwhite.com.AllIndiaLegal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = All_India_Lawyer_Provision_Developement;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1774,12 +1871,13 @@
 		};
 		9D25569D24C1DCAB006563AC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 26283AA1C805B8ECEA6209FE /* Pods-Lawyer.release.xcconfig */;
+			baseConfigurationReference = 82A24DB4C9526557FFEF1622 /* Pods-Lawyer.release.xcconfig */;
 			buildSettings = {
 				ALL_INDIA_LEGAL_BASE_SERVICE_URL = "https://www.allindialegal.com/v1/";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4Q46HXC747;
 				INFOPLIST_FILE = Lawyer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1788,7 +1886,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = www.corwhite.com.AllIndiaLegal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = All_India_Lawyer_Provision_Developement;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1796,7 +1894,7 @@
 		};
 		9D25569F24C1DCAB006563AC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 469CCD19A01A137EFBF87BA5 /* Pods-LawyerTests.debug.xcconfig */;
+			baseConfigurationReference = 3CBD33789CBC661494FA1118 /* Pods-LawyerTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1818,7 +1916,7 @@
 		};
 		9D2556A024C1DCAB006563AC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4C88BE4B62D9819F89AE5048 /* Pods-LawyerTests.release.xcconfig */;
+			baseConfigurationReference = CB686463BE4D61E0982F8B77 /* Pods-LawyerTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1840,7 +1938,7 @@
 		};
 		9D2556A224C1DCAB006563AC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8908AF1CC8FEF4EAEBFC05EE /* Pods-Lawyer-LawyerUITests.debug.xcconfig */;
+			baseConfigurationReference = D6B3FD907BDB5B853412383A /* Pods-Lawyer-LawyerUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1860,7 +1958,7 @@
 		};
 		9D2556A324C1DCAB006563AC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6544288F677EC312055129F8 /* Pods-Lawyer-LawyerUITests.release.xcconfig */;
+			baseConfigurationReference = 4E3401A5096C720AA09BE8AD /* Pods-Lawyer-LawyerUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

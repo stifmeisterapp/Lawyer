@@ -44,7 +44,7 @@ extension AppointmentVC:UITableViewDataSource{
                             }else{
                                 appointments[i].list[j].isSelected = Bool()
                             }
-                           
+                            
                         }
                     }
                     
@@ -93,11 +93,11 @@ extension AppointmentVC:UITableViewDelegate{
         
         if let appointMentItem = self.appointMentListVM?.appointmentAtIndex(indexPath.section){
             if appointMentItem.list.count <= 4{
-                return 70
+                return 50
             }else if appointMentItem.list.count > 4 && appointMentItem.list.count <= 8{
-                return 120
+                return 110
             }else{
-               return 180
+                return 180
             }
             
         }else{
@@ -110,11 +110,11 @@ extension AppointmentVC:UITableViewDelegate{
         
         if let appointMentItem = self.appointMentListVM?.appointmentAtIndex(indexPath.section){
             if appointMentItem.list.count <= 4{
-                return 70
+                return 50
             }else if appointMentItem.list.count > 4 && appointMentItem.list.count <= 8{
-                return 130
+                return 110
             }else{
-               return 190
+                return 180
             }
             
         }else{

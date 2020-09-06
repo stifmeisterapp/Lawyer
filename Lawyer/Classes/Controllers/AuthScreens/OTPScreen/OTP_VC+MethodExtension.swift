@@ -42,7 +42,6 @@ extension OTP_VC{
         //tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
         
-        self.indicator = customMethodManager?.configViews(view:self.view)
         
         otpView.otpFieldsCount = 4
         otpView.otpFieldDefaultBorderColor = AppColor.darkGrayColor
@@ -178,11 +177,11 @@ extension OTP_VC{
         
         
         
-        self.customMethodManager?.startLoader(view:self.view, indicator: self.indicator)
+        self.customMethodManager?.startLoader(view:self.view)
         
         ServiceClass.shared.webServiceBasicMethod(url: SAuthApi.verify_otp, method: .post, parameters: parameters, header: nil, success: { (result) in
             print(result)
-            self.customMethodManager?.stopLoader(view:self.view, indicator: self.indicator)
+            self.customMethodManager?.stopLoader(view:self.view)
             if let result_Dict = result as? NSDictionary{
                 if let code = result_Dict.value(forKey: "code") as? Int{
                     if code == 200{
@@ -273,7 +272,7 @@ extension OTP_VC{
             
         }) { (error) in
             print(error)
-            self.customMethodManager?.stopLoader(view:self.view, indicator: self.indicator)
+            self.customMethodManager?.stopLoader(view:self.view)
             if let errorString = (error as NSError).userInfo[ConstantTexts.errorMessage_Key] as? String{
                 _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: errorString, style:.error)
             }else{
@@ -292,18 +291,30 @@ extension OTP_VC{
     internal func hitResendOTP_Service(){
         
         
-        let parameters = [Api_keys_model.FirebaseId:"sadasdsadsadsad",
+        guard let FirebaseId = USER_DEFAULTS.value(forKey: ConstantTexts.deviceToken) as? String else {
+              print("No FirebaseId found...")
+              return
+          }
+          
+        /*  guard let DeviceId = USER_DEFAULTS.value(forKey: ConstantTexts.deviceID) as? String else {
+              print("No DeviceId found...")
+              return
+          }
+           */
+        
+        
+        let parameters = [Api_keys_model.FirebaseId:FirebaseId,
                           Api_keys_model.Mobile:self.phoneNumber,
                           Api_keys_model.type:self.type] as [String:AnyObject]
         
         
         
         
-        self.customMethodManager?.startLoader(view:self.view, indicator: self.indicator)
+        self.customMethodManager?.startLoader(view:self.view)
         
         ServiceClass.shared.webServiceBasicMethod(url: SAuthApi.resend_otp, method: .post, parameters: parameters, header: nil, success: { (result) in
             print(result)
-            self.customMethodManager?.stopLoader(view:self.view, indicator: self.indicator)
+            self.customMethodManager?.stopLoader(view:self.view)
             if let result_Dict = result as? NSDictionary{
                 if let code = result_Dict.value(forKey: "code") as? Int{
                     if code == 200{
@@ -319,7 +330,7 @@ extension OTP_VC{
             
         }) { (error) in
             print(error)
-            self.customMethodManager?.stopLoader(view:self.view, indicator: self.indicator)
+            self.customMethodManager?.stopLoader(view:self.view)
             if let errorString = (error as NSError).userInfo[ConstantTexts.errorMessage_Key] as? String{
                 _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: errorString, style:.error)
             }else{

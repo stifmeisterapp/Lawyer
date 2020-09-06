@@ -72,9 +72,9 @@ extension AppointMentTableViewCellAndXib:UICollectionViewDataSource{
 extension AppointMentTableViewCellAndXib:UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let numberOfItemsPerRow:CGFloat = 4
-        let spacingBetweenCells:CGFloat = 16
+        let spacingBetweenCells:CGFloat = 10
         
-        let spacingBetweenCellsColumns:CGFloat = 8
+        let spacingBetweenCellsColumns:CGFloat = 10
         var numberOfItemsPerColumn:CGFloat = 0
         if self.arrayTiming.count <= 4{
             numberOfItemsPerColumn = 1

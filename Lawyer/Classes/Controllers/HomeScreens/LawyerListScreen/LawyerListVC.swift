@@ -8,7 +8,6 @@
 
 import UIKit
 import ViewAnimator
-import FullMaterialLoader
 
 class LawyerListVC: SBaseViewController {
     
@@ -24,7 +23,6 @@ class LawyerListVC: SBaseViewController {
     @IBOutlet weak var heightFilterItemCollectionView: NSLayoutConstraint!
     
     //MARK: - Variables
-    internal var indicator: MaterialLoadingIndicator!
     internal var headerTitle:String = String()
     internal var customMethodManager:CustomMethodProtocol?
     internal var filterCategoryListDataVM:FilterCategory_List_ViewModel?

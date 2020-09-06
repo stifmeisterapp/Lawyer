@@ -9,7 +9,6 @@
 import UIKit
 import DropDown
 import ViewAnimator
-import FullMaterialLoader
 class HomeVC: SBaseViewController {
     
     //MARK: - IBOutlets
@@ -29,8 +28,9 @@ class HomeVC: SBaseViewController {
     @IBOutlet weak var categoryTableView: UITableView!
     
     //MARK: - Variables
-    internal var indicator: MaterialLoadingIndicator!
+    internal var expertiseVM:CategoryListViewModel?
     internal var categoryListVM:CategoryListViewModel?
+    
     internal var homeVM: CategoryListModeling?
     internal var customMethodManager:CustomMethodProtocol?
     internal let dropDown = DropDown()
@@ -108,6 +108,9 @@ class HomeVC: SBaseViewController {
     //TODO: Actions
     
     @IBAction func btnCountryTapped(_ sender: UIButton) {
+        
+       /* fatalError() */
+        
         self.customMethodManager?.openDownOnView(dropDown: self.dropDown, array: cityNameArray, anchor: self.viewLocationBackground, callBack: { (dropDown) in
             
             dropDown.selectionAction = { [unowned self] (index: Int, item: String) in

@@ -17,7 +17,6 @@ struct Api_keys_model {
     public static let IpAddress:String           = "IpAddress"
     public static let DeviceId:String            = "DeviceId"
     public static let FirebaseId:String          = "FirebaseId"
-    
     public static let OtpVerification:String     = "OtpVerification"
     
 }

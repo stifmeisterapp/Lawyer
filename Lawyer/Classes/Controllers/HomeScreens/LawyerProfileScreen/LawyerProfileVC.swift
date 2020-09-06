@@ -9,9 +9,9 @@
 import UIKit
 
 class LawyerProfileVC: SBaseViewController {
-
+    
     //MARK: - IBOutlets
-   
+    
     
     @IBOutlet weak var profileImageViewPlaceholder: UIView!
     
@@ -20,7 +20,7 @@ class LawyerProfileVC: SBaseViewController {
     @IBOutlet weak var buttonMeetRef: UIButton!
     @IBOutlet weak var buttonCallRef: UIButton!
     @IBOutlet weak var profileTable: UITableView!
-
+    
     
     //MARK: - Variables
     internal var Uuid:String = String()
@@ -61,10 +61,31 @@ class LawyerProfileVC: SBaseViewController {
     //TODO: Implementation viewDidAppear
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
+        
         
     }
     
+    //MARK: - Actions, Gestures, Selectors
+    
+    //TODO: Actions
+    @IBAction func btnMeetTapped(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.1,
+                       animations: {
+                        self.customMethodManager?.provideShadowAndCornerRadius(self.buttonMeetRef, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.textColor, 0, 0, 0, 0, 0, AppColor.clearColor)
+                        self.buttonMeetRef.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+        },
+                       completion: { _ in
+                        UIView.animate(withDuration: 0.1) {
+                            self.customMethodManager?.provideShadowAndCornerRadius(self.buttonMeetRef, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.textColor, -1, 1, 1, 3, 0, AppColor.clearColor)
+                            self.buttonMeetRef.transform = CGAffineTransform.identity
+                            let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: AppointmentVC.className) as! AppointmentVC
+                            vc.Uuid = self.Uuid
+                            self.navigationController?.pushViewController(vc, animated: true)
+                            
+                        }
+        })
+        
+    }
     
     //TODO: Selectors
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
@@ -73,6 +94,6 @@ class LawyerProfileVC: SBaseViewController {
         
     }
     
-   
-
+    
+    
 }

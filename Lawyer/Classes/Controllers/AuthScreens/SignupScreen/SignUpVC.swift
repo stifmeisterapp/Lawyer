@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import FullMaterialLoader
 class SignUpVC: SBaseViewController {
     
     //MARK: - IBOutlets
@@ -22,7 +21,6 @@ class SignUpVC: SBaseViewController {
     
     
     //MARK: - Variables
-    internal var indicator: MaterialLoadingIndicator!
     public var tag = Int()
     public var callBack_SingIn:((Int)->())?
     

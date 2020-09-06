@@ -16,7 +16,7 @@ target 'Lawyer' do
   pod 'Cosmos', '~> 22.1'
   pod 'Alamofire', '~> 5.2'
   pod 'SwiftyJSON'
-  pod 'FullMaterialLoader', '~> 0.2.3'
+  #pod 'FullMaterialLoader', '~> 0.2.3'
   pod 'SDWebImage', '~> 5.0'
   pod 'ReachabilitySwift'
   pod 'XCGLogger', '~> 7.0.1'
@@ -24,6 +24,18 @@ target 'Lawyer' do
   pod 'SkeletonView'
   # pod 'RealmSwift'
   # pod 'ObjectMapper', '~> 3.5'
+
+  # add the Firebase pod for Google Analytics
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Messaging'
+  pod 'Firebase/Crashlytics'
+  pod 'Firebase/Performance'
+  pod 'Firebase/Core'
+  # pod 'Fabric', '~> 1.10.2'
+
+  # add pods for any other desired Firebase products
+  # https://firebase.google.com/docs/ios/setup#available-pods
+
   
   target 'LawyerTests' do
     inherit! :search_paths

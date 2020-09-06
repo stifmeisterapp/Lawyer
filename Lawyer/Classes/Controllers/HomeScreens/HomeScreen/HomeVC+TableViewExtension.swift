@@ -24,7 +24,7 @@ extension HomeVC:UITableViewDataSource{
         guard let cell = tableView.dequeueReusableCell(withIdentifier: LawyerTableViewCell.className, for: indexPath) as? LawyerTableViewCell else {
             fatalError(ConstantTexts.unexpectedIndexPath)
         }
-        cell.configure(with: categoryListVM?.categoryAtIndex(indexPath.row) ?? CategoryViewModel(Category(image: UIImage(), title: String())))
+        cell.configure(with: categoryListVM?.categoryAtIndex(indexPath.row) ?? CategoryViewModel(Category(image: UIImage(), title: String(), ExpertiseId: String())))
         return cell
     }
 }
@@ -57,6 +57,11 @@ extension HomeVC:UITableViewDelegate{
                                                 let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: LawyerListVC.className) as! LawyerListVC
                                                 if let categoryVM = self.categoryListVM?.categoryAtIndex(indexPath.row){
                                                     vc.headerTitle = categoryVM.title
+                                                    
+                                                    self.customMethodManager?.updateIsSelect(entity: ConstantTexts.ExpertiseLT, primary_key: self.customMethodManager?.getTableAndKeys(entity: ConstantTexts.ExpertiseLT) ?? String(), primary_value: categoryVM.expertiseId, key: "is_selected", value: true)
+                                                    
+                                                    vc.filters.append(Filter(entity: ConstantTexts.ExpertiseLT, title: categoryVM.title, id: categoryVM.expertiseId, isSelected: true))
+                                                    
                                                 }
                                                 if self.cityIdArray.count > 0{
                                                     

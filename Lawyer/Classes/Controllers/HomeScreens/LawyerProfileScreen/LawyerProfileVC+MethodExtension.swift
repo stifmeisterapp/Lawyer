@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SkeletonView
 extension LawyerProfileVC{
     //TODO: Navigation setup implenemtation
     internal func navSetup(){
@@ -34,7 +35,8 @@ extension LawyerProfileVC{
     
     //TODO: Intial setup implementation
     private func initialSetup(){
-       
+        
+        
         self.customMethodManager?.provideCornerRadiusTo(self.profileImageViewPlaceholder, 5, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
         self.customMethodManager?.provideCornerBorderTo(self.profileImageViewPlaceholder, 0.5, AppColor.darkGrayColor)
         
@@ -55,13 +57,13 @@ extension LawyerProfileVC{
         self.customMethodManager?.provideCornerRadiusTo(self.buttonMeetRef, 3, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
         
         
-        self.buttonCallRef.setTitleColor(AppColor.darkGrayColor, for: .normal)
-        self.buttonCallRef.backgroundColor = AppColor.whiteColor
+        self.buttonCallRef.setTitleColor(AppColor.whiteColor, for: .normal)
+        self.buttonCallRef.backgroundColor = AppColor.themeColor
         self.buttonCallRef.setTitle(ConstantTexts.CallBT, for: .normal)
         self.buttonCallRef.titleLabel?.font = ConstantFonts.mainBottomButtonFont
         self.customMethodManager?.provideCornerRadiusTo(self.buttonCallRef, 3, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
-        self.customMethodManager?.provideCornerBorderTo(self.buttonCallRef, 1, AppColor.placeholderColor)
         
+      
         
         self.profileTable.tableHeaderView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 0.0, height: Double.leastNormalMagnitude))
         self.profileTable.tableFooterView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 0.0, height: Double.leastNormalMagnitude))
@@ -72,19 +74,21 @@ extension LawyerProfileVC{
         self.profileTable.separatorStyle = .none
         self.profileTable.hideEmptyCells()
         self.profileTable.backgroundColor = AppColor.whiteColor
-        self.profileTable.isHidden = false
+        
         self.profileTable.estimatedRowHeight = 50.0
-        self.profileTable.addSubview(self.refreshControl)
+        //self.profileTable.addSubview(self.refreshControl)
         
         
-        self.nameLabel.alpha = 0
-        self.buttonCallRef.isHidden = true
-        self.buttonMeetRef.isHidden = true
-        self.profileTable.isHidden = true
-        
-        self.profileImageView.isHidden = true
-        self.profileImageViewPlaceholder.isHidden = true
+        self.nameLabel.isSkeletonable = true
+        self.profileImageViewPlaceholder.isSkeletonable = true
+        self.profileImageView.isSkeletonable = true
+        self.profileTable.isSkeletonable = true
+        self.buttonMeetRef.isSkeletonable = true
+        self.buttonCallRef.isSkeletonable = true
+
         registerNib()
+        self.nameLabel.text = self.name_Lawyer
+        self.customMethodManager?.setImage(imageView: self.profileImageView, url: self.imageURL)
         lawyerDetailService()
         
     }
@@ -96,17 +100,32 @@ extension LawyerProfileVC{
     }
     
     
+    
+    //TODO: Show sekeleton animation
+    internal func showAnimation(){
+        self.profileImageView.showAnimatedSkeleton()
+        self.profileImageViewPlaceholder.showAnimatedSkeleton()
+        self.nameLabel.showAnimatedSkeleton()
+        self.profileTable.showAnimatedSkeleton()
+        self.buttonCallRef.showAnimatedSkeleton()
+        self.buttonMeetRef.showAnimatedSkeleton()
+        
+        
+        
+    }
+    
     //TODO: Show all fields
-    internal func showAllFields(){
+    internal func hideAnimation(){
         
         DispatchQueue.main.async {
  
-            self.nameLabel.alpha = 1.0
-            self.buttonCallRef.isHidden = false
-            self.buttonMeetRef.isHidden = false
-            self.profileTable.isHidden = false
-            self.profileImageView.isHidden = false
-            self.profileImageViewPlaceholder.isHidden = false
+            
+            self.profileImageView.hideSkeleton()
+            self.profileImageViewPlaceholder.hideSkeleton()
+            self.nameLabel.hideSkeleton()
+            self.profileTable.hideSkeleton()
+            self.buttonCallRef.hideSkeleton()
+            self.buttonMeetRef.hideSkeleton()
         }
         
         
@@ -123,18 +142,16 @@ extension LawyerProfileVC{
            
         }
         
-        
+        self.showAnimation()
         ServiceClass.shared.webServiceBasicMethod(url: "\(SCustomerApi.lawyer_overview)\(self.Uuid)", method: .get, parameters: nil, header: nil, success: { (result) in
             print(result)
             
-            self.showAllFields()
+            self.hideAnimation()
             if let result_Dict = result as? NSDictionary{
                 if let code = result_Dict.value(forKey: "code") as? Int{
                     if code == 200{
                         if let data = result_Dict.value(forKey: "data") as? NSDictionary{
                             print(data)
-                            self.customMethodManager?.setImage(imageView: self.profileImageView, url: self.imageURL)
-                            self.nameLabel.text = self.name_Lawyer
                             
                             if self.lawyerDetailsVM == nil {
                                 self.lawyerDetailsVM = self.lawyerProfileVM?.prepareDataSource(data: data)
@@ -164,9 +181,7 @@ extension LawyerProfileVC{
             
         }) { (error) in
             print(error)
-            self.showAllFields()
-            
-            
+            self.hideAnimation()
             if let errorString = (error as NSError).userInfo[ConstantTexts.errorMessage_Key] as? String{
                 _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: errorString, style:.error)
             }else{

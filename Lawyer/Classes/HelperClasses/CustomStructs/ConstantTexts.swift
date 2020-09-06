@@ -25,6 +25,7 @@ struct ConstantTexts{
     static let  supportLink                         =      "support@allindialegal.com"
     static let  supportConta                        =      "1800-419-9661"
     static let  mod20                               =      "%20"
+    static let  simulatorToken                      =      "SIMULATOR_TOKEN"
     
     
     //TODO: Animation
@@ -38,15 +39,21 @@ struct ConstantTexts{
     static let  EmptyBoxNew                         =      "EmptyBoxNew"
     static let  SomeThingWentWrong                  =      "SomeThingWentWrong"
     static let  Invalid_URLA                        =      "Invalid_URL"
+    static let  Loader                              =      "loader"
+    static let  Upload_filesHeader                  =      "Upload_filesHeader"
+    static let  search_doc                          =      "search_doc"
     
     //TODO: Label Text
+    static let  UploadDocumentInsLT                 =      "If you have any additional documents, kindly upload the same in the above space."
+    static let  UploadDocumentLT                    =      "Upload document"
+    static let  AdditionalInfoLT                    =      "Additional information for description"
     static let  NeedHelp_LT                         =      "Need Help?\nTalk to an Expert."
     static let  Education_LT                        =      "Education"
     static let  CallCharges_LT                      =      "Call charges"
     static let  ConsultationCharges_LT              =      "Consultation charges"
     static let  ConsultationFees_LT                 =      "Consultation fees"
     static let  ProfessionalHistory_LT              =      "Professional history"
-
+    
     static let  NotAvaila_LT                        =      "Not available"
     static let  MailUsTitle_LT                      =      "For enquiries, mail us"
     static let  CallUsTitle_LT                      =      "For enquiries, call us on"
@@ -83,6 +90,10 @@ struct ConstantTexts{
     static let  YouAreInLT                          =      "You are in"
     static let  TrademarkLT                         =      "Trademark and copyright"
     static let  SexualAbuseLT                       =      "Sexual Abuse"
+    static let  StampParerAndNotaryLT               =      "Stamp Paper and Notary"
+    static let  StartUpLT                           =      "Start Up"
+    static let  TaxLT                               =      "Tax"
+    static let  WillsLT                             =      "Wills"
     static let  AccidentsLT                         =      "Accidents"
     static let  BookAppointmentLT                   =      "Book Appointment"
     static let  BankingLT                           =      "Banking"
@@ -90,16 +101,29 @@ struct ConstantTexts{
     static let  ChildCustodyLT                      =      "Child Custody"
     static let  CivilLawyersLT                      =      "Civil Lawyers"
     static let  CommercialContractsLT               =      "Commercial Contracts"
-    static let  ConsumerGrivancesLT                 =      "Consumer Grivances"
+    static let  ConsumerGrivancesLT                 =      "Consumer Grieviances"
+    static let  CovidLT                             =      "COVID-19"
     static let  CriminalLawyersLT                   =      "Criminal Law"
     static let  FinanceLawLT                        =      "Finance Law"
+    static let  ImmigrationLT                       =      "Immigration"
+    static let  ITRLT                               =      "Income Tax Return"
+    static let  LabourIssuesLT                      =      "Labour Issues"
+    static let  LandlordTenantLT                    =      "Landlord/Tenant"
     static let  MerrigeRegistrationLT               =      "Marriage Registration"
+    static let  MedicalNegligenceLT                 =      "Medical Negligence"
+    static let  OthersLT                            =      "Others"
+    static let  PersonalInjuryLT                    =      "Personal Injury"
+    static let  RaggingLT                           =      "Ragging"
+    static let  RecoveryLT                          =      "Recovery"
     static let  PropertyLT                          =      "Property"
     static let  DishonourOfChequesLT                =      "Dishonour of Cheques"
     static let  DivorceLT                           =      "Divorce"
+    static let  DocumentationLT                     =      "Documentation"
     static let  DefaultFeeValueLT                   =      "0"
     static let  DefaultOffsetValueLT                =      "10"
     static let  DomesticVoilenceLT                  =      "Domestic Voilence"
+    static let  EmployementLT                       =      "Employment"
+    static let  FamilyLT                            =      "Family"
     static let  NALT                                =      "NA"
     static let  AnyLT                               =      "Any"
     static let  ZeroLT                              =      "0"
@@ -141,7 +165,7 @@ struct ConstantTexts{
     
     static let  CustomerIns_LT                      =      "Register with us as a customer and gain access to a wide network of lawyers for consultations and legal counselling."
     
-
+    
     
     //TODO: Header Title Text
     static let  CategoriesHT                        =      "Categories"
@@ -152,7 +176,8 @@ struct ConstantTexts{
     static let  MoreHT                              =      "More"
     static let  UnderCHT                            =      "Under construction"
     static let  LawyerDetailsHT                     =      "Lawyer details"
-
+    static let  UploadDocumentHT                    =      "Upload Document"
+    
     
     //TODO: Button Title Text
     static let  OkBT                                =      "Ok"
@@ -190,7 +215,7 @@ struct ConstantTexts{
     
     static let  SignUpAsC_New_BT                    =      "Sign Up As Customer"
     static let  SignUpAsL_New_BT                    =      "Sign Up As Lawyer"
-
+    
     //TODO: Placeholder Text
     static let  MobileNumberPH                      =      "Mobile Number"
     static let  ContactNumberPH                     =      "Contact Number"
@@ -199,6 +224,7 @@ struct ConstantTexts{
     static let  EmailAddressPH                      =      "Email Address"
     static let  EmailPH                             =      "Email"
     static let  CommentPH                           =      "Comment"
+    static let  WriteCommentPH                      =      "Write description here..."
     static let  KeywordsPH                          =      "Keywords"
     static let  Search_PH                           =      "Search"
     static let  GSTIN_PH                            =      "GSTIN*"
@@ -219,6 +245,7 @@ struct ConstantTexts{
     static let  RatedSuccessfullyALERT              =      "Thanks for you rating."
     static let  ContactYouSoonALERT                 =      "We'll contact you soon."
     static let  NoDataFoundALERT                    =      "No data found!"
+    static let  NoDocumentUploadedYetALERT          =      "No document uploaded yet!"
     
     
     static let  EnterMobileNumberALERT              =      "Please enter mobile number."
@@ -240,7 +267,9 @@ struct ConstantTexts{
     
     
     //TODO: User defaults key
-    static let tourOverUDK                          =      "TOUR_OVER"
+    static let  tourOverUDK                          =      "TOUR_OVER"
+    static let  deviceToken                          =      "DEVICE_TOKEN"
+    static let  deviceID                             =      "DEVICE_ID"
     
     //TODO: Static values for api keys
     static let IpAddress_Key                         =      "0.0.0.0"

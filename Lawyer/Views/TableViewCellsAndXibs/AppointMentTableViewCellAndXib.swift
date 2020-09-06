@@ -14,7 +14,7 @@ class AppointMentTableViewCellAndXib: UITableViewCell {
     @IBOutlet weak var timeCollectionView: UICollectionView!
     
     //MARK: - Variables
-    internal let spacing:CGFloat = 16.0
+    internal let spacing:CGFloat = 10.0
     internal var arrayTiming = [AppointmentTimeDataModel]()
     internal var cellCollectionCallBack:((Int)->())?
     
@@ -42,6 +42,7 @@ class AppointMentTableViewCellAndXib: UITableViewCell {
         
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
+        
         layout.minimumLineSpacing = spacing
         layout.minimumInteritemSpacing = spacing
         self.timeCollectionView?.collectionViewLayout = layout

@@ -10,5 +10,13 @@ import Foundation
 protocol CategoryListModeling {
     //TODO: Prepare data source implementation
     func prepareDataSource() -> CategoryListViewModel
+    //TODO: Prepare data static source implementation
+    func prepareDataSourceStatic() -> CategoryListViewModel
     
+}
+
+extension CategoryListModeling{
+    func prepareDataSourceStatic() -> CategoryListViewModel {
+        return CategoryListViewModel(categories: [Category]())
+    }
 }

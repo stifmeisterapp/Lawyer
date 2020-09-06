@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-import FullMaterialLoader
 
 
 extension LoginVC{
@@ -117,7 +116,6 @@ extension LoginVC{
         self.lblSignUpRef_Lawyer.isUserInteractionEnabled = true
         self.lblSignUpRef_Lawyer.addGestureRecognizer(lblSignUpRef_Lawyer_Tap)
         
-        self.indicator = customMethodManager?.configViews(view:self.view)
     }
 
     
@@ -203,18 +201,29 @@ extension LoginVC{
             return
         }
         
+        guard let FirebaseId = USER_DEFAULTS.value(forKey: ConstantTexts.deviceToken) as? String else {
+            print("No FirebaseId found...")
+            return
+        }
+        
+      /*  guard let DeviceId = USER_DEFAULTS.value(forKey: ConstantTexts.deviceID) as? String else {
+            print("No DeviceId found...")
+            return
+        }
+         */
+        
       
-        let parameters = [Api_keys_model.FirebaseId:"sadasdsadsadsad",
+        let parameters = [Api_keys_model.FirebaseId:FirebaseId,
                           Api_keys_model.Mobile:dataListVM_T.dataStoreStructAtIndex(0).value,
                           Api_keys_model.type:self.tag == 0 ? "1" : "2"] as [String:AnyObject]
         
         
         
         
-        self.customMethodManager?.startLoader(view:self.view, indicator: self.indicator)
+        self.customMethodManager?.startLoader(view:self.view)
         
         ServiceClass.shared.webServiceBasicMethod(url: SAuthApi.siginin, method: .post, parameters: parameters, header: nil, success: { (result) in
-            self.customMethodManager?.stopLoader(view:self.view, indicator: self.indicator)
+            self.customMethodManager?.stopLoader(view:self.view)
             print(result)
             if let result_Dict = result as? NSDictionary{
                 if let code = result_Dict.value(forKey: "code") as? Int{
@@ -247,7 +256,7 @@ extension LoginVC{
             
         }) { (error) in
             print(error)
-            self.customMethodManager?.stopLoader(view:self.view, indicator: self.indicator)
+            self.customMethodManager?.stopLoader(view:self.view)
             if let errorString = (error as NSError).userInfo[ConstantTexts.errorMessage_Key] as? String{
                 _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: errorString, style:.error)
             }else{

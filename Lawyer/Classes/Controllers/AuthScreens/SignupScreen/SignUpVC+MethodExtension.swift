@@ -46,7 +46,6 @@ extension SignUpVC{
         //tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
         
-        self.indicator = customMethodManager?.configViews(view:self.view)
         
         customMethodManager?.provideShadowAndCornerRadius(self.viewBG, 5, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.placeholderColor, -1, 1, 1, 3, 0, AppColor.clearColor)
         
@@ -196,23 +195,35 @@ extension SignUpVC{
         }
         
         
+        guard let FirebaseId = USER_DEFAULTS.value(forKey: ConstantTexts.deviceToken) as? String else {
+            print("No FirebaseId found...")
+            return
+        }
+        
+        guard let DeviceId = USER_DEFAULTS.value(forKey: ConstantTexts.deviceID) as? String else {
+            print("No DeviceId found...")
+            return
+        }
+        
+        
+        
         let parameters = [Api_keys_model.Fullname:dataListVM_T.dataStoreStructAtIndex(0).value,
                           Api_keys_model.Mobile:dataListVM_T.dataStoreStructAtIndex(1).value,
                           Api_keys_model.Email:dataListVM_T.dataStoreStructAtIndex(2).value,
                           Api_keys_model.type:self.tag == 0 ? "1" : "2",
                           Api_keys_model.DeviceType:ConstantTexts.deviceType,
                           Api_keys_model.IpAddress:ConstantTexts.IpAddress_Key,
-                          Api_keys_model.DeviceId:"asd",
-                          Api_keys_model.FirebaseId:"SADAS"] as [String:AnyObject]
+                          Api_keys_model.DeviceId:DeviceId,
+                          Api_keys_model.FirebaseId:FirebaseId] as [String:AnyObject]
         
         
         
         
         
-        self.customMethodManager?.startLoader(view:self.view, indicator: self.indicator)
+        self.customMethodManager?.startLoader(view:self.view)
         ServiceClass.shared.webServiceBasicMethod(url: SAuthApi.signup, method: .post, parameters: parameters, header: nil, success: { (result) in
             print(result)
-            self.customMethodManager?.stopLoader(view:self.view, indicator: self.indicator)
+            self.customMethodManager?.stopLoader(view:self.view)
             if let result_Dict = result as? NSDictionary{
                 if let code = result_Dict.value(forKey: "code") as? Int{
                     if code == 200{
@@ -243,7 +254,7 @@ extension SignUpVC{
             
         }) { (error) in
             print(error)
-            self.customMethodManager?.stopLoader(view:self.view, indicator: self.indicator)
+            self.customMethodManager?.stopLoader(view:self.view)
             if let errorString = (error as NSError).userInfo[ConstantTexts.errorMessage_Key] as? String{
                 _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: errorString, style:.error)
             }else{

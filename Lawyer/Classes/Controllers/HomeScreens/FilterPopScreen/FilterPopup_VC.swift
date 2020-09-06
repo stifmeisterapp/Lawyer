@@ -158,8 +158,9 @@ class FilterPopup_VC: SBaseViewController {
                         UIView.animate(withDuration: 0.1) {
                             
                             self.btnClearRef.transform = CGAffineTransform.identity
+                            self.dismiss(animated: true, completion: nil)
                             
-                            self.customMethodManager?.showAlertWithCancel(title: ConstantTexts.AppName, message: ConstantTexts.ClearFiltersStateBT, btnOkTitle: ConstantTexts.OkBT, btnCancelTitle: ConstantTexts.CancelBT, callBack: { (status) in
+                          /*  self.customMethodManager?.showAlertWithCancel(title: ConstantTexts.AppName, message: ConstantTexts.ClearFiltersStateBT, btnOkTitle: ConstantTexts.OkBT, btnCancelTitle: ConstantTexts.CancelBT, callBack: { (status) in
                                 if status{
                                     self.resetFilters(callBack: {
                                         self.isClearActivated = true
@@ -168,7 +169,7 @@ class FilterPopup_VC: SBaseViewController {
                                 }else{
                                     print("Do nothing...")
                                 }
-                            })
+                            }) */
                         }
         })
     }

@@ -62,7 +62,6 @@ extension LawyerListVC{
         
         self.viewFilterBG.backgroundColor = AppColor.whiteColor
         
-        self.indicator = customMethodManager?.configViews(view:self.view)
         
         self.customMethodManager?.provideShadowAndCornerRadius(self.viewFilterBG, 3, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.placeholderColor, 2, 2, 2, 2, 0, AppColor.clearColor)
         
@@ -303,14 +302,14 @@ extension LawyerListVC{
     //TODO: Filter web service
     internal func lawyerListService(serviceURL:String,keyword:String,offset:Int,isRefresh:Bool,isFilterApplied:Bool,isSearchActive:Bool){
         
-        self.customMethodManager?.startLoader(view:self.view, indicator: self.indicator)
+        self.customMethodManager?.startLoader(view:self.view)
         
         ServiceClass.shared.webServiceBasicMethod(url: "\(SCustomerApi.lawyer_list)\(serviceURL)\(keyword)&OffSet=\(self.offset)", method: .get, parameters: nil, header: nil, success: { (result) in
             print(result)
-            self.customMethodManager?.stopLoader(view:self.view, indicator: self.indicator)
+            self.customMethodManager?.stopLoader(view:self.view)
             if let result_Dict = result as? NSDictionary{
                 if let code = result_Dict.value(forKey: "code") as? Int{
-                    if code == 200{
+                    if code == 200 || code == 201{
                         
                         if let data = result_Dict.value(forKey: "data") as? NSDictionary{
                             
@@ -381,11 +380,7 @@ extension LawyerListVC{
                                     }
                                     
                                 }
-                                
-                                
-                                
-                                
-                                
+
                                 //For checking pagination...
                                 if let count = self.lawyerListVM?.lawyers.count{
                                     self.offset = count
@@ -396,8 +391,11 @@ extension LawyerListVC{
                                         DispatchQueue.main.async {
                                             if let isAddedSubview = self.customMethodManager?.isSubviewAdded(parentView: self.lawyerTableView, childView: self.errorView){
                                                 if isAddedSubview{
+                                                    
                                                 }else{
-                                                    self.customMethodManager?.setupError(chidView: self.errorView, animationName: ConstantTexts.EmptyBoxNew, message: ConstantTexts.NoDataFoundALERT)
+                                                    self.customMethodManager?.setupError(chidView: self.errorView, message: ConstantTexts.NoDataFoundALERT, callback: {
+                                                        self.self.customMethodManager?.showLottieAnimation(self.errorView.viewLottie, ConstantTexts.EmptyBoxNew, .loop)
+                                                    })
                                                     
                                                     self.customMethodManager?.addSubView(parentView: self.lawyerTableView, childView: self.errorView)
                                                 }
@@ -419,14 +417,16 @@ extension LawyerListVC{
                             }
                         }
                         
+                        if code == 200{
+                            if let message = result_Dict.value(forKey: "message") as? String{
+                                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style:.warning)
+                            }
+                        }
+
                         DispatchQueue.main.async {
                             self.lawyerTableView.reloadData()
                         }
-                        
-                        
-                        
-                        
-                        
+  
                     }else{
                         if let message = result_Dict.value(forKey: "message") as? String{
                             _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style:.error)
@@ -450,7 +450,7 @@ extension LawyerListVC{
                 self.lawyerTableView.reloadData()
             }
             
-            self.customMethodManager?.stopLoader(view:self.view, indicator: self.indicator)
+            self.customMethodManager?.stopLoader(view:self.view)
             if let _ = (error as NSError).userInfo[ConstantTexts.errorMessage_Key] as? String{
                 
                 let errorCode = (error as NSError).code
@@ -459,10 +459,14 @@ extension LawyerListVC{
                         if let isAddedSubview = self.customMethodManager?.isSubviewAdded(parentView: self.lawyerTableView, childView: self.errorView){
                             if isAddedSubview{
                                 
-                                self.customMethodManager?.setupError(chidView: self.errorView, animationName: animationDetail.0, message: animationDetail.1)
+                                self.customMethodManager?.setupError(chidView: self.errorView, message: animationDetail.1,callback: {
+                                    self.self.customMethodManager?.showLottieAnimation(self.errorView.viewLottie, animationDetail.0, .loop)
+                                })
                                 
                             }else{
-                                self.customMethodManager?.setupError(chidView: self.errorView, animationName: animationDetail.0, message: animationDetail.1)
+                                self.customMethodManager?.setupError(chidView: self.errorView, message: animationDetail.1,callback: {
+                                    self.self.customMethodManager?.showLottieAnimation(self.errorView.viewLottie, animationDetail.0, .loop)
+                                })
                                 
                                 self.customMethodManager?.addSubView(parentView: self.lawyerTableView, childView: self.errorView)
                             }
@@ -477,10 +481,14 @@ extension LawyerListVC{
                     if let isAddedSubview = self.customMethodManager?.isSubviewAdded(parentView: self.lawyerTableView, childView: self.errorView){
                         if isAddedSubview{
                             
-                            self.customMethodManager?.setupError(chidView: self.errorView, animationName: ConstantTexts.SomeThingWentWrong, message: ConstantTexts.errorMessage)
+                            self.customMethodManager?.setupError(chidView: self.errorView, message: ConstantTexts.errorMessage, callback: {
+                                self.self.customMethodManager?.showLottieAnimation(self.errorView.viewLottie, ConstantTexts.SomeThingWentWrong, .loop)
+                            })
                             
                         }else{
-                            self.customMethodManager?.setupError(chidView: self.errorView, animationName: ConstantTexts.SomeThingWentWrong, message: ConstantTexts.errorMessage)
+                            self.customMethodManager?.setupError(chidView: self.errorView, message: ConstantTexts.errorMessage, callback: {
+                                self.self.customMethodManager?.showLottieAnimation(self.errorView.viewLottie, ConstantTexts.SomeThingWentWrong, .loop)
+                            })
                             
                             self.customMethodManager?.addSubView(parentView: self.lawyerTableView, childView: self.errorView)
                         }

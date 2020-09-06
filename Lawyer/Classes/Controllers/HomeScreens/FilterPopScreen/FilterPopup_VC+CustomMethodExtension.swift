@@ -61,7 +61,7 @@ extension FilterPopup_VC{
         self.customMethodManager?.provideCornerRadiusTo(self.btnClearRef, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
         self.btnClearRef.backgroundColor = AppColor.tableBGColor
         self.btnClearRef.titleLabel?.font = AppFont.Bold.size(AppFontName.OpenSans, size: 12)
-        self.btnClearRef.setTitle(ConstantTexts.Clear_BT, for: .normal)
+        self.btnClearRef.setTitle(ConstantTexts.CancelBT, for: .normal)
         self.btnClearRef.setTitleColor(AppColor.darkGrayColor, for: .normal)
         
         self.customMethodManager?.provideCornerRadiusTo(self.btnDoneRef, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
