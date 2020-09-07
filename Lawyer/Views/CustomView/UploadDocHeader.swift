@@ -15,7 +15,8 @@ class UploadDocHeader: UIView {
     @IBOutlet weak var lblInstruction1: UILabel!
     @IBOutlet weak var lblInstruction2: UILabel!
     @IBOutlet weak var imgLottie: UIImageView!
-    @IBOutlet weak var viewBG: UIView!
+    @IBOutlet weak var viewBG: RectangularDashedView!
+    
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.

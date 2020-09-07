@@ -114,5 +114,7 @@ extension SBaseViewController{
         navigationController.navigationBar.isHidden = false
         self.view.window?.rootViewController = navigationController
     }
-  
+    
+    
+    
 }

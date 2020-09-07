@@ -23,39 +23,7 @@ extension SceneDelegate:MessagingDelegate{
 
 //MARK: - Extension for get Device token
 extension SceneDelegate:UNUserNotificationCenterDelegate{
-    
-    internal func registerForRemoteNotification() {
-        let center = UNUserNotificationCenter.current()
-        center.delegate = self
-        center.requestAuthorization(options: [.sound, .alert, .badge]) { (granted, error) in
-            if error == nil{
-                DispatchQueue.main.async {
-                    UIApplication.shared.registerForRemoteNotifications()
-                }
-            }else{
-                let center = UNUserNotificationCenter.current()
-                center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
-                    // Enable or disable features based on authorization.
-                }
-                UIApplication.shared.registerForRemoteNotifications()
-            }
-        }
-    }
-    
-    
-    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
-        USER_DEFAULTS.set(deviceTokenString as String, forKey: ConstantTexts.deviceID)
-        NSLog("Device Token : %@", deviceTokenString)
-    }
-    
-    func application(
-        _ application: UIApplication,
-        didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        print("Failed to register: \(error)")
-    }
-    
-    
+
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         print("in did recieve")
         /*  if let userInfo = response.notification.request.content.userInfo as? NSDictionary{

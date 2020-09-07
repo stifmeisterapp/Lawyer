@@ -295,12 +295,6 @@ extension OTP_VC{
               print("No FirebaseId found...")
               return
           }
-          
-        /*  guard let DeviceId = USER_DEFAULTS.value(forKey: ConstantTexts.deviceID) as? String else {
-              print("No DeviceId found...")
-              return
-          }
-           */
         
         
         let parameters = [Api_keys_model.FirebaseId:FirebaseId,

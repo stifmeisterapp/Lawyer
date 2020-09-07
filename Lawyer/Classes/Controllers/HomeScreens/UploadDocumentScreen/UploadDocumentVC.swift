@@ -68,6 +68,13 @@ class UploadDocumentVC: SBaseViewController {
         
     }
     
+    
+    //MARK: - Actions, Gestures, Selectors
+    //TODO: Selectors
+    @objc func btnChooseTapped(_ sender: UIButton) {
+        self.openActionSheet()
+    }
+    
 
     /*
     // MARK: - Navigation

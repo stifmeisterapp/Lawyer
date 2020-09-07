@@ -200,12 +200,7 @@ extension SignUpVC{
             return
         }
         
-        guard let DeviceId = USER_DEFAULTS.value(forKey: ConstantTexts.deviceID) as? String else {
-            print("No DeviceId found...")
-            return
-        }
-        
-        
+       
         
         let parameters = [Api_keys_model.Fullname:dataListVM_T.dataStoreStructAtIndex(0).value,
                           Api_keys_model.Mobile:dataListVM_T.dataStoreStructAtIndex(1).value,
@@ -213,7 +208,7 @@ extension SignUpVC{
                           Api_keys_model.type:self.tag == 0 ? "1" : "2",
                           Api_keys_model.DeviceType:ConstantTexts.deviceType,
                           Api_keys_model.IpAddress:ConstantTexts.IpAddress_Key,
-                          Api_keys_model.DeviceId:DeviceId,
+                          Api_keys_model.DeviceId:FirebaseId,
                           Api_keys_model.FirebaseId:FirebaseId] as [String:AnyObject]
         
         

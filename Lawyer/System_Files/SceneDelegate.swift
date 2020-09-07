@@ -28,9 +28,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         /// Firebase implementation
         FirebaseApp.configure()
-        USER_DEFAULTS.set(ConstantTexts.simulatorToken, forKey: ConstantTexts.deviceID)
-        registerForRemoteNotification()
-        
+       
         Crashlytics.crashlytics().setCrashlyticsCollectionEnabled(true)
         Crashlytics.crashlytics().checkForUnsentReports { _ in
             Crashlytics.crashlytics().sendUnsentReports()

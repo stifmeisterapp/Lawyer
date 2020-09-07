@@ -205,13 +205,7 @@ extension LoginVC{
             print("No FirebaseId found...")
             return
         }
-        
-      /*  guard let DeviceId = USER_DEFAULTS.value(forKey: ConstantTexts.deviceID) as? String else {
-            print("No DeviceId found...")
-            return
-        }
-         */
-        
+    
       
         let parameters = [Api_keys_model.FirebaseId:FirebaseId,
                           Api_keys_model.Mobile:dataListVM_T.dataStoreStructAtIndex(0).value,

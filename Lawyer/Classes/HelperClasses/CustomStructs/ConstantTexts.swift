@@ -42,8 +42,14 @@ struct ConstantTexts{
     static let  Loader                              =      "loader"
     static let  Upload_filesHeader                  =      "Upload_filesHeader"
     static let  search_doc                          =      "search_doc"
+    static let  Sucess_Lottie                       =      "Sucess_Lottie"
     
     //TODO: Label Text
+    static let  SelectYourOptionLT                  =      "Select your option"
+    static let  GalleryLT                           =      "Gallery"
+    static let  DocumetsLT                          =      "Documents"
+    static let  CameraLT                            =      "Camera"
+    
     static let  UploadDocumentInsLT                 =      "If you have any additional documents, kindly upload the same in the above space."
     static let  UploadDocumentLT                    =      "Upload document"
     static let  AdditionalInfoLT                    =      "Additional information for description"
@@ -264,7 +270,7 @@ struct ConstantTexts{
     static let  SelectFilterALERT                   =      "Please select atleast one filter."
     static let  SelectTimeSlotALERT                 =      "Please select time slot."
     static let  SelectCaseTypeALERT                 =      "Please select case type."
-    
+    static let  cameraAlert                         =      "Device has no camera."
     
     //TODO: User defaults key
     static let  tourOverUDK                          =      "TOUR_OVER"

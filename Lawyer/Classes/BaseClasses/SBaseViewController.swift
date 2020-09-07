@@ -10,8 +10,8 @@ import UIKit
 
 class SBaseViewController: UIViewController {
     //MARK: - Variables
-    
-    
+    internal let myPickerController = UIImagePickerController()
+    internal var getDocCallBack:((_ item : DocumentDataModel)->())?
     override func viewDidLoad() {
         super.viewDidLoad()
         

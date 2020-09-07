@@ -62,12 +62,12 @@ extension UploadDocumentVC:UITableViewDelegate{
     
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 200
+        return 250
         
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
-        return 200
+        return 250
     }
     
     
