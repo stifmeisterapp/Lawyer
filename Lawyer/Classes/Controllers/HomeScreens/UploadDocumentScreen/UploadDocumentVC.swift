@@ -9,7 +9,7 @@
 import UIKit
 
 class UploadDocumentVC: SBaseViewController {
-
+    
     //MARK: - IBOutlets
     @IBOutlet weak var btnSubmitRef: UIButton!
     @IBOutlet weak var tblDocuments: UITableView!
@@ -22,6 +22,7 @@ class UploadDocumentVC: SBaseViewController {
     
     internal var customMethodManager:CustomMethodProtocol?
     internal var Uuid:String = String()
+    internal var descriptionTxtView: String = String()
     
     internal var docDataArray = [DocumentDataModel]()
     internal var selectedSlot:String = String()
@@ -65,10 +66,11 @@ class UploadDocumentVC: SBaseViewController {
         },
                        completion: { _ in
                         UIView.animate(withDuration: 0.1) {
+                            self.btnSubmitRef.transform = .identity
+                            self.hitCheckBookingSlotService()
                             self.customMethodManager?.provideShadowAndCornerRadius(self.btnSubmitRef, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.textColor, -1, 1, 1, 3, 0, AppColor.clearColor)
-                            self.btnSubmitRef.transform = CGAffineTransform.identity
-                            let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: PaymentVC.className) as! PaymentVC
-                            self.navigationController?.pushViewController(vc, animated: true)
+                            
+                            
                         }
         })
         
@@ -78,7 +80,16 @@ class UploadDocumentVC: SBaseViewController {
     //MARK: - Actions, Gestures, Selectors
     //TODO: Selectors
     @objc func btnChooseTapped(_ sender: UIButton) {
-        self.openActionSheet()
+        
+        if let count = self.docDataList?.numberOfRowsInSection(0){
+            if count == 0 {
+                self.openActionSheet()
+            }else{
+                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: ConstantTexts.chooseOneALERT, style: .error)
+            }
+            
+        }
+        
     }
     
     @objc func btnDeleteTapped(_ sender: UIButton) {
@@ -99,15 +110,15 @@ class UploadDocumentVC: SBaseViewController {
     }
     
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

@@ -20,5 +20,6 @@ struct Api_keys_model {
     public static let OtpVerification:String     = "OtpVerification"
     public static let SelectedSlot:String        = "SelectedSlot"
     public static let Date:String                = "Date"
+    public static let Description:String         = "Description"
     
 }

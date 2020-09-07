@@ -117,7 +117,7 @@ extension UploadDocumentVC{
         }else{
             self.header.lblInstruction1.text = ConstantTexts.DocumentUploadLT
         }
-       
+        
     }
     
     
@@ -165,28 +165,34 @@ extension UploadDocumentVC{
         
         super.getDocCallBack = { item in
             if let count = self.docDataList?.numberOfRowsInSection(0){
-            if count > 0 {
-                self.docDataList?.documentDataItems.removeAll()
+                if count > 0 {
+                    self.docDataList?.documentDataItems.removeAll()
                 }
                 
             }
             self.docDataList?.documentDataItems.append(item)
-            self.hitCheckBookingSlotService()
-           
+            
+            DispatchQueue.main.async {
+                self.tblDocuments.reloadData()
+            }
+            
         }
         
     }
     
     //MARK: - Web services
     //TODO: check-bookingslot Service
-    private func hitCheckBookingSlotService(){
+    internal func hitCheckBookingSlotService(){
         guard let user = self.customMethodManager?.getUser(entity: "User_Data") else{
             print("No user found...")
             return
         }
         
+        
+        
         let parameters = [Api_keys_model.Date:self.date,
-                          Api_keys_model.SelectedSlot:self.selectedSlot] as [String:AnyObject]
+                          Api_keys_model.SelectedSlot:self.selectedSlot,
+                          Api_keys_model.Description:self.descriptionTxtView] as [String:AnyObject]
         
         let header = ["authorization":user.token,
                       "Content-Type": "application/json",
@@ -207,12 +213,34 @@ extension UploadDocumentVC{
                                     self.docDataList?.documentDataItems[0].fileName = self.docDataModeling?.getUrl(data: dataDict) ?? String()
                                     DispatchQueue.main.async {
                                         self.tblDocuments.reloadData()
+                                        
+                                        if let message = result_Dict.value(forKey: "message") as? String{
+                                            _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style: .success, buttonTitle: ConstantTexts.OkBT, action: { (status) in
+                                                if status{
+                                                    let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: PaymentVC.className) as! PaymentVC
+                                                    self.navigationController?.pushViewController(vc, animated: true)                                                }
+                                            })
+                                        }
+
+                                        
+                                        
                                     }
                                 }
                             }
-                           
+                            
                         }
                     }else if code == 401{
+                        
+                        if let count = self.docDataList?.numberOfRowsInSection(0){
+                            if count > 0 {
+                                self.docDataList?.documentDataItems.removeAll()
+                            }
+                            
+                        }
+                        DispatchQueue.main.async {
+                            self.tblDocuments.reloadData()
+                        }
+                        
                         if let message = result_Dict.value(forKey: "message") as? String{
                             _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style: .error, buttonTitle: ConstantTexts.OkBT, action: { (status) in
                                 if status{
@@ -229,12 +257,23 @@ extension UploadDocumentVC{
         }) { (error) in
             print(error)
             self.customMethodManager?.stopLoader(view:self.view)
+            
+            if let count = self.docDataList?.numberOfRowsInSection(0){
+                if count > 0 {
+                    self.docDataList?.documentDataItems.removeAll()
+                }
+                
+            }
+            DispatchQueue.main.async {
+                self.tblDocuments.reloadData()
+            }
+            
             if let errorString = (error as NSError).userInfo[ConstantTexts.errorMessage_Key] as? String{
                 _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: errorString, style:.error)
             }else{
                 _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: ConstantTexts.errorMessage, style:.error)
             }
- 
+            
         }
     }
     

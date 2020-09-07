@@ -273,6 +273,7 @@ struct ConstantTexts{
     static let  SelectTimeSlotALERT                 =      "Please select time slot."
     static let  SelectCaseTypeALERT                 =      "Please select case type."
     static let  cameraAlert                         =      "Device has no camera."
+    static let  chooseOneALERT                      =      "Already selected document.\nYou can pick only one document."
     
     //TODO: User defaults key
     static let  tourOverUDK                          =      "TOUR_OVER"
