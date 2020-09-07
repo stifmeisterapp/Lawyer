@@ -30,14 +30,14 @@ extension UploadDocumentVC{
             self.docDataList = docDataModeling?.prepareDataSource()
         }
         
-        let item = DocumentDataModel(Data(), String(), String(), "String", String(), Bool())
+      /*  let item = DocumentDataModel(Data(), String(), String(), "String", String(), Bool())
         
         self.docDataList?.documentDataItems.append(item)
         
         DispatchQueue.main.async {
             self.tblDocuments.reloadData()
         }
-        
+        */
         initialSetup()
         
     }
@@ -125,6 +125,26 @@ extension UploadDocumentVC{
     private func registerNib(){
         self.tblDocuments.registerMultiple(nibs: [EmptyWithAlertTableViewCell.className,UploadDocTableViewCellAndXib.className])
         
+    }
+    
+    //TODO: Delete row form index
+    internal func deleteRow(index:Int){
+        _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: ConstantTexts.WantToDeleteDocuALERT, style: AlertStyle.warning, buttonTitle:ConstantTexts.CancelBT, buttonColor:AppColor.errorColor , otherButtonTitle:  ConstantTexts.OkBT, otherButtonColor: AppColor.passGreenColor) { (isOtherButton) -> Void in
+                   if isOtherButton == true {
+                      DispatchQueue.main.async {
+                           self.tblDocuments.reloadData()
+                       }
+                   }
+                   else
+                   {
+                       self.docDataList?.documentDataItems.remove(at: index)
+                       DispatchQueue.main.async {
+                           self.tblDocuments.reloadData()
+                       }
+                       
+                   }
+                   
+               }
     }
     
     

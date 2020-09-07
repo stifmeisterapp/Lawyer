@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import SwipeCellKit
 
-class UploadDocTableViewCellAndXib: UITableViewCell {
+class UploadDocTableViewCellAndXib: SwipeTableViewCell {
     
     //MARK: - IBOutlets
     @IBOutlet weak var viewBG: UIView!
@@ -41,6 +42,7 @@ class UploadDocTableViewCellAndXib: UITableViewCell {
     
     //TODO: Setup textFieldFloating
     private func setUpTextField(){
+        self.selectionStyle = .none
         self.viewBG.backgroundColor = AppColor.tableBGColor
         
         self.lblDocName.font = AppFont.Regular.size(AppFontName.OpenSans, size: 12)

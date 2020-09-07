@@ -22,6 +22,7 @@ target 'Lawyer' do
   pod 'XCGLogger', '~> 7.0.1'
   pod 'TagListView', '~> 1.0'
   pod 'SkeletonView'
+  pod 'SwipeCellKit'
   # pod 'RealmSwift'
   # pod 'ObjectMapper', '~> 3.5'
 

@@ -35,7 +35,6 @@ extension TabBarVC{
     //TODO: Implementation setUpView
     private func setUpView() {
         
-        self.tabBar.barTintColor =  AppColor.themeColor
         self.tabBar.isTranslucent = true
         
         self.selectedIndex = 0
@@ -46,10 +45,10 @@ extension TabBarVC{
         if let tabBarItems = tabBar.items{
             for index in 0..<tabBarItems.count {
                 
-                tabBarItems[index].setTitleTextAttributes([NSAttributedString.Key.foregroundColor: AppColor.whiteColor], for: .selected)
+                tabBarItems[index].setTitleTextAttributes([NSAttributedString.Key.foregroundColor: AppColor.themeColor], for: .selected)
                 tabBarItems[index].imageInsets = UIEdgeInsets(top: 6, left: 6, bottom: 6, right: 6)
                 
-                let image = images[index].withRenderingMode(.alwaysOriginal).withTintColor(AppColor.whiteColor)
+                let image = images[index].withRenderingMode(.alwaysOriginal).withTintColor(AppColor.themeColor)
                 
                 tabBarItems[index].selectedImage = image
                 tabBarItems[index].image = images[index]

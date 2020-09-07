@@ -82,6 +82,7 @@ struct ConstantTexts{
     static let  AfternoonLT                         =      "Afternoon"
     static let  EveningLT                           =      "Evening"
     static let  AM_LT                               =      "AM"
+    static let  Delete_LT                           =      "Delete"
     static let  PM_LT                               =      "PM"
     static let  PaySummary_LT                       =      "Payment Summary"
     static let  OriginalPrice_LT                    =      "Original Price"

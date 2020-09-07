@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SwipeCellKit
 //MARK: - UITableViewDataSource extension
 extension UploadDocumentVC:UITableViewDataSource{
     
@@ -23,6 +24,14 @@ extension UploadDocumentVC:UITableViewDataSource{
         return count == 0 ? 1 : count
         
     }
+    
+    
+    /*override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! SwipeTableViewCell
+        cell.delegate = self
+        return cell
+    }*/
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let count = self.docDataList?.numberOfRowsInSection(indexPath.section) else {
@@ -55,6 +64,7 @@ extension UploadDocumentVC:UITableViewDataSource{
                 cell.configure(with: docItem)
                 cell.btnDeleteRef.tag = indexPath.row
                 cell.btnDeleteRef.addTarget(self, action: #selector(btnDeleteTapped), for: .touchUpInside)
+                cell.delegate = self
             }
             
             return cell
@@ -70,7 +80,7 @@ extension UploadDocumentVC:UITableViewDataSource{
 
 
 //MARK: - UITableViewDelegate extension
-extension UploadDocumentVC:UITableViewDelegate{
+extension UploadDocumentVC:UITableViewDelegate,SwipeTableViewCellDelegate{
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
        
         guard let count = self.docDataList?.numberOfRowsInSection(section) else {
@@ -121,5 +131,21 @@ extension UploadDocumentVC:UITableViewDelegate{
     func tableView(_ tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat {
         return 170
     }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        guard orientation == .right else { return nil }
+
+        let deleteAction = SwipeAction(style: .destructive, title: ConstantTexts.Delete_LT) { action, indexPath in
+            // handle action by updating model with deletion
+            self.deleteRow(index:indexPath.row)
+        }
+
+        // customize the action appearance
+        // deleteAction.image = UIImage(named: "bin")
+
+        return [deleteAction]
+    }
+    
+    
 }
 

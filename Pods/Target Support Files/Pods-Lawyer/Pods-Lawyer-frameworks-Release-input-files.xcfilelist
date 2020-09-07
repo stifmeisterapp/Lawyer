@@ -14,6 +14,7 @@ ${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework
 ${BUILT_PRODUCTS_DIR}/SkeletonView/SkeletonView.framework
 ${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework
 ${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework
+${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework
 ${BUILT_PRODUCTS_DIR}/TagListView/TagListView.framework
 ${BUILT_PRODUCTS_DIR}/ViewAnimator/ViewAnimator.framework
 ${BUILT_PRODUCTS_DIR}/XCGLogger/XCGLogger.framework

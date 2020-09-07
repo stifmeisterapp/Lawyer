@@ -93,20 +93,7 @@ class UploadDocumentVC: SBaseViewController {
     }
     
     @objc func btnDeleteTapped(_ sender: UIButton) {
-        _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: ConstantTexts.WantToDeleteDocuALERT, style: AlertStyle.warning, buttonTitle:ConstantTexts.CancelBT, buttonColor:AppColor.errorColor , otherButtonTitle:  ConstantTexts.OkBT, otherButtonColor: AppColor.passGreenColor) { (isOtherButton) -> Void in
-            if isOtherButton == true {
-                print("Do nothing...")
-            }
-            else
-            {
-                self.docDataList?.documentDataItems.remove(at: sender.tag)
-                DispatchQueue.main.async {
-                    self.tblDocuments.reloadData()
-                }
-                
-            }
-            
-        }
+        self.deleteRow(index:sender.tag)
     }
     
     
