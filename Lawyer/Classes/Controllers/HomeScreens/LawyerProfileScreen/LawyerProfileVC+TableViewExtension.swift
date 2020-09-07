@@ -40,7 +40,7 @@ extension LawyerProfileVC:UITableViewDataSource{
             }else{
                 cell.viewBG.isHidden = false
                 cell.tagListView.isHidden = true
-               cell.lblValue.text = detailItem.items[indexPath.row]
+                cell.lblValue.text = detailItem.items[indexPath.row]
             }
             
         }

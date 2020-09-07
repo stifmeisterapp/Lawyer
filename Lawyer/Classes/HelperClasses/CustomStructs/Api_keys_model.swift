@@ -18,5 +18,7 @@ struct Api_keys_model {
     public static let DeviceId:String            = "DeviceId"
     public static let FirebaseId:String          = "FirebaseId"
     public static let OtpVerification:String     = "OtpVerification"
+    public static let SelectedSlot:String        = "SelectedSlot"
+    public static let Date:String                = "Date"
     
 }

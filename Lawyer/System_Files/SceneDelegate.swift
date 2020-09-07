@@ -9,7 +9,10 @@
 import UIKit
 import IQKeyboardManagerSwift
 import Firebase
-
+import FirebaseCore
+import FirebaseMessaging
+import FirebaseAnalytics
+import FirebaseCrashlytics
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
@@ -81,4 +84,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     
 }
+
+
+//MARK: - Extension for get FCM TOKEN
+extension SceneDelegate:MessagingDelegate{
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+        print("Firebase registration token: \(fcmToken)")
+        USER_DEFAULTS.set(fcmToken, forKey: ConstantTexts.deviceToken)
+    }
+}
+
+
 

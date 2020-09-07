@@ -34,7 +34,7 @@ final class ServiceClass: SBaseService {
         }
         
         
-        let manager = Alamofire.Session.default
+        let manager = Alamofire.SessionManager.default
         manager.session.configuration.timeoutIntervalForRequest = 300
         
         manager.request(urlValue, method: method, parameters: parameters, encoding: JSONEncoding.default, headers: header).validate().responseJSON { response in
@@ -52,4 +52,75 @@ final class ServiceClass: SBaseService {
         
     }
     
+    
+    
+    
+    func multipartImageServiceWithArrayObject(url:String, _ data:[DocumentDataModel], header:[String:String]? = nil, parameters:[String:Any]?, success: @escaping (Any)-> (), failure: @escaping (Error)->()) -> Void {
+        
+        if !NetworkState.isConnected() {
+            failure(NSError(domain: ConstantTexts.Network_Error, code: 1009, userInfo: [ConstantTexts.errorMessage_Key : ConstantTexts.noInterNet]))
+            return
+        }
+        
+        guard let urlValue = URL(string: SBaseService().getServiceHostURL() + url) else{
+            failure(NSError(domain: ConstantTexts.URL_Error, code: 400, userInfo: [ConstantTexts.errorMessage_Key : ConstantTexts.Invalid_URL]))
+            return
+        }
+        
+        
+        print(data.count)
+        let manager = Alamofire.SessionManager.default
+        manager.session.configuration.timeoutIntervalForRequest = 300
+        
+       manager.upload(multipartFormData: { (multipartFormData) in
+        for (_,item) in data.enumerated() {
+                if item.mimeType == "document"{
+                    if let stringURL = URL(string: item.fileName){
+                        let filename = stringURL.lastPathComponent
+                        let splitName = filename.split(separator: ".")
+                        let value = splitName.last ?? ""
+                        let mime = "application/" + value
+                        multipartFormData.append(item.data as Data, withName:item.withName,fileName: item.fileName, mimeType:mime)
+                    }
+                }else{
+                    multipartFormData.append(item.data as Data, withName: item.withName, fileName: item.fileName, mimeType: item.fileName)
+                }
+            }
+        }, to: urlValue,headers: header){
+            (result) in
+            switch result {
+            case .success(let upload, _,_ ):
+                upload.uploadProgress(closure: { (progress) in
+                    print(progress)
+                })
+                upload.responseData { response in
+                    upload.responseJSON {
+                        (response) -> Void in
+                        switch(response.result){
+                        case .success(let value):
+                            print(value)
+                            if let dict = value as? [String:Any]{
+                                success(dict)
+                            }
+                            else{
+                                if let dict = value as? [String:Any]{
+                                    
+                                    if let code = dict["code"] as? Int{
+                                        if let message = dict["message"] as? String{
+                                            failure(NSError(domain: ConstantTexts.SW_Error,code:code,userInfo: ["errorMessage":message]))
+                                        }
+                                    }
+                                }
+                            }
+                        case .failure(let error):
+                            failure(error)
+                        }
+                    }
+                }
+            case .failure(let error):
+                failure(error)
+            }
+        }
+    }
+ 
 }

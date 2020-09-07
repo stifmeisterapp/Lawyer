@@ -33,6 +33,12 @@ class UploadDocTableViewCellAndXib: UITableViewCell {
     //MARK: - User Define Functions
     //TODO: Config TableViewCell
     
+    //TODO: Configure with info
+    public func configure(with info: DocumentViewModel){
+        self.lblDocName.text = info.fileName
+    }
+    
+    
     //TODO: Setup textFieldFloating
     private func setUpTextField(){
         self.viewBG.backgroundColor = AppColor.tableBGColor
@@ -41,7 +47,9 @@ class UploadDocTableViewCellAndXib: UITableViewCell {
         self.lblDocName.textColor = AppColor.darkGrayColor
         self.lblDocName.numberOfLines = 0
         self.lblDocName.textAlignment = .left
-        self.lblDocName.text = "ConstantTexts.AdditionalInfoLT"
+        
+        self.imageView?.setImageTintColor(AppColor.themeColor)
+        self.btnDeleteRef.tintColor = AppColor.darkGrayColor
         
     }
     

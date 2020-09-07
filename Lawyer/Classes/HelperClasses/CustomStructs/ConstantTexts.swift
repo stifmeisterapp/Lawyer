@@ -52,6 +52,7 @@ struct ConstantTexts{
     
     static let  UploadDocumentInsLT                 =      "If you have any additional documents, kindly upload the same in the above space."
     static let  UploadDocumentLT                    =      "Upload document"
+    static let  DocumentUploadLT                    =      "Document uploaded"
     static let  AdditionalInfoLT                    =      "Additional information for description"
     static let  NeedHelp_LT                         =      "Need Help?\nTalk to an Expert."
     static let  Education_LT                        =      "Education"
@@ -248,6 +249,7 @@ struct ConstantTexts{
     static let  EnterCorFAddressALERT               =      "Please enter company/firm's address."
     static let  EnterValidCorFAddressALERT          =      "Please enter valid company/firm's address."
     static let  WantToLogoutALERT                   =      "Are you sure?\nYou want to Log out!"
+    static let  WantToDeleteDocuALERT               =      "Are you sure?\nYou want to delete uploaded document!"
     static let  RatedSuccessfullyALERT              =      "Thanks for you rating."
     static let  ContactYouSoonALERT                 =      "We'll contact you soon."
     static let  NoDataFoundALERT                    =      "No data found!"
@@ -291,6 +293,7 @@ struct ConstantTexts{
     //TODO: Errors domain
     static let  Network_Error                       =      "Network Error"
     static let  URL_Error                           =      "URL Error"
+    static let  SW_Error                            =      "Web service error"
     
     //TODO: Errors keys
     static let  errorMessage_Key                    =      "errorMessage"

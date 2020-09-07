@@ -18,10 +18,25 @@ extension UploadDocumentVC{
     
     //TODO: Init values
     internal func initValues(){
-        if customMethodManager == nil {
-            customMethodManager = CustomMethodClass.shared
+        if self.customMethodManager == nil {
+            self.customMethodManager = CustomMethodClass.shared
         }
         
+        if self.docDataModeling == nil{
+            self.docDataModeling = UploadDocumentVM.shared
+        }
+        
+        if self.docDataList == nil{
+            self.docDataList = docDataModeling?.prepareDataSource()
+        }
+        
+        let item = DocumentDataModel(Data(), String(), String(), "String", String(), Bool())
+        
+        self.docDataList?.documentDataItems.append(item)
+        
+        DispatchQueue.main.async {
+            self.tblDocuments.reloadData()
+        }
         
         initialSetup()
         
@@ -39,14 +54,11 @@ extension UploadDocumentVC{
         self.header.viewBG.dashLength = 6.0
         self.header.viewBG.betweenDashesSpace = 2.0
         
-        
         self.customMethodManager?.showLottieAnimation(self.header.imgLottie, ConstantTexts.Upload_filesHeader, .loop)
-        
         self.header.lblInstruction1.font = AppFont.Semibold.size(AppFontName.OpenSans, size: 14)
         self.header.lblInstruction1.textColor = AppColor.darkGrayColor
         self.header.lblInstruction1.numberOfLines = 0
         self.header.lblInstruction1.textAlignment = .center
-        self.header.lblInstruction1.text = ConstantTexts.UploadDocumentLT
         
         self.header.lblInstruction2.font = AppFont.Regular.size(AppFontName.OpenSans, size: 10)
         self.header.lblInstruction2.textColor = AppColor.darkGrayColor
@@ -55,9 +67,6 @@ extension UploadDocumentVC{
         self.header.lblInstruction2.text = ConstantTexts.UploadDocumentInsLT
         self.header.btnCamRef.tintColor = AppColor.darkGrayColor
         self.header.btnCamRef.addTarget(self, action: #selector(btnChooseTapped), for: .touchUpInside)
-        
-        
-        
         
         self.tblDocuments.tableHeaderView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 0.0, height: Double.leastNormalMagnitude))
         self.tblDocuments.tableFooterView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 0.0, height: Double.leastNormalMagnitude))
@@ -97,6 +106,18 @@ extension UploadDocumentVC{
         self.btnSubmitRef.backgroundColor = AppColor.themeColor
         
         
+    }
+    
+    
+    //TODO: Change header implementation
+    internal func changeHeader(count:Int){
+        if count == 0{
+            self.header.lblInstruction1.text = ConstantTexts.UploadDocumentLT
+            
+        }else{
+            self.header.lblInstruction1.text = ConstantTexts.DocumentUploadLT
+        }
+       
     }
     
     
@@ -143,10 +164,78 @@ extension UploadDocumentVC{
         super.present(alert, animated: true, completion: nil)
         
         super.getDocCallBack = { item in
-            print(item.fileName)
+            if let count = self.docDataList?.numberOfRowsInSection(0){
+            if count > 0 {
+                self.docDataList?.documentDataItems.removeAll()
+                }
+                
+            }
+            self.docDataList?.documentDataItems.append(item)
+            self.hitCheckBookingSlotService()
            
         }
         
+    }
+    
+    //MARK: - Web services
+    //TODO: check-bookingslot Service
+    private func hitCheckBookingSlotService(){
+        guard let user = self.customMethodManager?.getUser(entity: "User_Data") else{
+            print("No user found...")
+            return
+        }
+        
+        let parameters = [Api_keys_model.Date:self.date,
+                          Api_keys_model.SelectedSlot:self.selectedSlot] as [String:AnyObject]
+        
+        let header = ["authorization":user.token,
+                      "Content-Type": "application/json",
+                      "accept": "application/json"]
+        
+        self.customMethodManager?.startLoader(view:self.view)
+        
+        ServiceClass.shared.multipartImageServiceWithArrayObject(url: SCustomerApi.check_bookingslot, self.docDataArray, header: header, parameters: parameters, success: { (result) in
+            self.customMethodManager?.stopLoader(view:self.view)
+            print(result)
+            if let result_Dict = result as? NSDictionary{
+                if let code = result_Dict.value(forKey: "code") as? Int{
+                    if code == 200{
+                        if let dataDict = result_Dict.value(forKey: "data") as? NSDictionary{
+                            
+                            if let count = self.docDataList?.numberOfRowsInSection(0){
+                                if count > 0 {
+                                    self.docDataList?.documentDataItems[0].fileName = self.docDataModeling?.getUrl(data: dataDict) ?? String()
+                                    DispatchQueue.main.async {
+                                        self.tblDocuments.reloadData()
+                                    }
+                                }
+                            }
+                           
+                        }
+                    }else if code == 401{
+                        if let message = result_Dict.value(forKey: "message") as? String{
+                            _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style: .error, buttonTitle: ConstantTexts.OkBT, action: { (status) in
+                                if status{
+                                    self.customMethodManager?.deleteAllData(entity: "User_Data", success: {
+                                        super.moveToNextViewCViaRoot(name: ConstantTexts.AuthSBT, withIdentifier: LoginVC.className)
+                                    })
+                                }
+                            })
+                        }
+                    }
+                }
+            }
+            
+        }) { (error) in
+            print(error)
+            self.customMethodManager?.stopLoader(view:self.view)
+            if let errorString = (error as NSError).userInfo[ConstantTexts.errorMessage_Key] as? String{
+                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: errorString, style:.error)
+            }else{
+                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: ConstantTexts.errorMessage, style:.error)
+            }
+ 
+        }
     }
     
     

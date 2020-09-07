@@ -23,6 +23,12 @@ class UploadDocumentVC: SBaseViewController {
     internal var customMethodManager:CustomMethodProtocol?
     internal var Uuid:String = String()
     
+    internal var docDataArray = [DocumentDataModel]()
+    internal var selectedSlot:String = String()
+    internal var date:String = String()
+    
+    internal var docDataModeling:DocumentDataModeling?
+    internal var docDataList:DocumentViewModelList?
     
     
     //MARK: - View life cycle methods
@@ -74,6 +80,24 @@ class UploadDocumentVC: SBaseViewController {
     @objc func btnChooseTapped(_ sender: UIButton) {
         self.openActionSheet()
     }
+    
+    @objc func btnDeleteTapped(_ sender: UIButton) {
+        _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: ConstantTexts.WantToDeleteDocuALERT, style: AlertStyle.warning, buttonTitle:ConstantTexts.CancelBT, buttonColor:AppColor.errorColor , otherButtonTitle:  ConstantTexts.OkBT, otherButtonColor: AppColor.passGreenColor) { (isOtherButton) -> Void in
+            if isOtherButton == true {
+                print("Do nothing...")
+            }
+            else
+            {
+                self.docDataList?.documentDataItems.remove(at: sender.tag)
+                DispatchQueue.main.async {
+                    self.tblDocuments.reloadData()
+                }
+                
+            }
+            
+        }
+    }
+    
     
 
     /*

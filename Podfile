@@ -14,7 +14,7 @@ target 'Lawyer' do
   pod 'paper-onboarding'
   pod 'ViewAnimator'
   pod 'Cosmos', '~> 22.1'
-  pod 'Alamofire', '~> 5.2'
+  pod 'Alamofire','~> 4.9.0'
   pod 'SwiftyJSON'
   #pod 'FullMaterialLoader', '~> 0.2.3'
   pod 'SDWebImage', '~> 5.0'

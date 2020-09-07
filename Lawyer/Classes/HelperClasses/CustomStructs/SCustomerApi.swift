@@ -12,4 +12,5 @@ struct SCustomerApi {
     public static let filter_list                    = "filter-list"
     public static let consultation_slot              = "consultation-slot?CurrentDate="
     public static let lawyer_overview                = "lawyer-overview?Uuid="
+    public static let check_bookingslot              = "check-bookingslot"
 }

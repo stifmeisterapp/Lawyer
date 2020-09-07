@@ -158,6 +158,8 @@ class AppointmentVC: SBaseViewController {
                                 if status{
                                     let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: UploadDocumentVC.className) as! UploadDocumentVC
                                     vc.Uuid = self.Uuid
+                                    vc.date = self.current_date
+                                    vc.selectedSlot = self.selectedSlot
                                     self.navigationController?.pushViewController(vc, animated: true)
                                     
                                 }else{

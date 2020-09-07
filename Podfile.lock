@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (5.2.2)
+  - Alamofire (4.9.1)
   - Cosmos (22.1.0)
   - DropDown (2.3.4)
   - Firebase/Analytics (6.29.0):
@@ -141,7 +141,7 @@ PODS:
     - ObjcExceptionBridging
 
 DEPENDENCIES:
-  - Alamofire (~> 5.2)
+  - Alamofire (~> 4.9.0)
   - Cosmos (~> 22.1)
   - DropDown (= 2.3.4)
   - Firebase/Analytics
@@ -199,7 +199,7 @@ SPEC REPOS:
     - XCGLogger
 
 SPEC CHECKSUMS:
-  Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   Cosmos: 2795b36ad4bbea1af3050d6d65576ed63875f86a
   DropDown: f225ff0fd09dde064d17aa03db7e4d4e4ff40b6b
   Firebase: 57957c8d6eb3d8b80a560b1dc58be24724b89ff2
@@ -234,6 +234,6 @@ SPEC CHECKSUMS:
   ViewAnimator: 5af1c6f3b310f012bf081259c43717aa54fbae73
   XCGLogger: 1943831ef907df55108b0b18657953f868de973b
 
-PODFILE CHECKSUM: 98a4815cd88369ac5f1af7dac5f36fe76395face
+PODFILE CHECKSUM: 6f448a0d23ba95f8bddde9f5be565187ed0848d7
 
 COCOAPODS: 1.8.4
