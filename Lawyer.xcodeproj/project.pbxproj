@@ -40,6 +40,8 @@
 		9D31C57224FA46B3005F6F13 /* AppointmentDataModeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D31C57124FA46B3005F6F13 /* AppointmentDataModeling.swift */; };
 		9D31C57424FA4A6B005F6F13 /* AppointmentVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D31C57324FA4A6B005F6F13 /* AppointmentVM.swift */; };
 		9D31C57624FA6F4F005F6F13 /* LawyerListVC+MethodExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D31C57524FA6F4F005F6F13 /* LawyerListVC+MethodExtension.swift */; };
+		9D37602A250A57DB0006DA2A /* state.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D376029250A57DA0006DA2A /* state.json */; };
+		9D37602C250A59AC0006DA2A /* State_DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D37602B250A59AC0006DA2A /* State_DataModel.swift */; };
 		9D389BB524EC49C40089CDB3 /* FilterItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D389BB324EC49C40089CDB3 /* FilterItemCollectionViewCell.swift */; };
 		9D389BB624EC49C40089CDB3 /* FilterItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D389BB424EC49C40089CDB3 /* FilterItemCollectionViewCell.xib */; };
 		9D46EE6124FA34670013751C /* AppointmentTimeDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D46EE6024FA34660013751C /* AppointmentTimeDataViewModel.swift */; };
@@ -308,6 +310,8 @@
 		9D31C57124FA46B3005F6F13 /* AppointmentDataModeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentDataModeling.swift; sourceTree = "<group>"; };
 		9D31C57324FA4A6B005F6F13 /* AppointmentVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentVM.swift; sourceTree = "<group>"; };
 		9D31C57524FA6F4F005F6F13 /* LawyerListVC+MethodExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LawyerListVC+MethodExtension.swift"; sourceTree = "<group>"; };
+		9D376029250A57DA0006DA2A /* state.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = state.json; sourceTree = "<group>"; };
+		9D37602B250A59AC0006DA2A /* State_DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State_DataModel.swift; sourceTree = "<group>"; };
 		9D389BB324EC49C40089CDB3 /* FilterItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		9D389BB424EC49C40089CDB3 /* FilterItemCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterItemCollectionViewCell.xib; sourceTree = "<group>"; };
 		9D46EE6024FA34660013751C /* AppointmentTimeDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentTimeDataViewModel.swift; sourceTree = "<group>"; };
@@ -843,6 +847,7 @@
 				9D9148A124ED732B003A3E37 /* Lawyer_Model.swift */,
 				9D04938824FEE4AF0068032D /* ProfileDataModel.swift */,
 				9D0444602505520100055B40 /* DocumentDataModel.swift */,
+				9D37602B250A59AC0006DA2A /* State_DataModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1105,6 +1110,7 @@
 		9DC5456124C33D8D009AF27A /* CustomStructs */ = {
 			isa = PBXGroup;
 			children = (
+				9D376029250A57DA0006DA2A /* state.json */,
 				9DC5456224C33DAE009AF27A /* AppStoryboard.swift */,
 				9DC5456424C33E9A009AF27A /* ConstantTexts.swift */,
 				9D76C04524C8CC51002B400E /* AppColor.swift */,
@@ -1345,6 +1351,7 @@
 				9D233DF124DF0F0E00B2F1C9 /* construction.json in Resources */,
 				9D66A8E724FF12C500FD1EBB /* Detail_TableViewCellAndXib.xib in Resources */,
 				9D25568124C1DCAB006563AC /* LaunchScreen.storyboard in Resources */,
+				9D37602A250A57DB0006DA2A /* state.json in Resources */,
 				9D9E723924DDEA4D005805D7 /* GSTIN_TableViewCellAndXib.xib in Resources */,
 				9D25567E24C1DCAB006563AC /* Assets.xcassets in Resources */,
 				9D9E722024DD24FE005805D7 /* AppointMentTableViewCellAndXib.xib in Resources */,
@@ -1449,7 +1456,7 @@
 		};
 		9D693EAA2503EEBE00C2CB71 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
+			buildActionMask = 12;
 			files = (
 			);
 			inputFileListPaths = (
@@ -1462,9 +1469,9 @@
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n\"${PODS_ROOT}/FirebaseCrashlytics/upload-symbols\" -gsp \"${PROJECT_DIR}/GoogleService-Info.plist\" -p iOS \"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}\"\n";
+			shellScript = "\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
 		};
 		ACAB0559593598221A6CD85F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1545,6 +1552,7 @@
 				9D67B12624E08B160074B3F2 /* ContactUsVC+TableViewExtension.swift in Sources */,
 				9D5F2B4224C6C7FD00BA4015 /* HomeVM.swift in Sources */,
 				9D0444612505520100055B40 /* DocumentDataModel.swift in Sources */,
+				9D37602C250A59AC0006DA2A /* State_DataModel.swift in Sources */,
 				9D00E1FF24C7E02900F6FC74 /* OnboardingView.swift in Sources */,
 				9DEB6EC524D9E42A00ED3FD6 /* FilterViewModel.swift in Sources */,
 				9D787D7E24C942FF00EB22D2 /* OTP_VC.swift in Sources */,

@@ -127,7 +127,7 @@ struct ConstantTexts{
     static let  DishonourOfChequesLT                =      "Dishonour of Cheques"
     static let  DivorceLT                           =      "Divorce"
     static let  DocumentationLT                     =      "Documentation"
-    static let  DefaultFeeValueLT                   =      "0"
+    static let  DefaultFeeValueLT                   =      "N/A"
     static let  DefaultOffsetValueLT                =      "10"
     static let  DomesticVoilenceLT                  =      "Domestic Voilence"
     static let  EmployementLT                       =      "Employment"
@@ -143,6 +143,7 @@ struct ConstantTexts{
     static let  MeetLT                              =      "Meet"
     static let  CurLT                               =      "₹"
     static let  CountryCodeLT                       =      "+91"
+    static let  DashLT                              =      "-"
     static let  SelectCityLT                        =      "Select city :-"
     static let  SelectLT                            =      "Select :-"
     static let  ResendInLT                          =      "Resend in"
@@ -172,6 +173,8 @@ struct ConstantTexts{
     static let  LawyerIns_LT                        =      "Register here to create your profile as a lawyer with us. Once your profile is approved, you can start building your client network and provide consultations."
     
     static let  CustomerIns_LT                      =      "Register with us as a customer and gain access to a wide network of lawyers for consultations and legal counselling."
+    
+    static let  CompanyGSTIN_LT                     =      "27AAPFU0939F1ZV"
     
     
     
@@ -212,6 +215,7 @@ struct ConstantTexts{
     static let  SignUpAsL_BT                        =      "Sign Up as a Lawyer."
     static let  Clear_BT                            =      "Clear"
     static let  Apply_BT                            =      "Apply"
+    static let  Applied_BT                          =      "Applied"
     static let  Submit_BT                           =      "Submit"
     static let  RequestCallBack_BT                  =      "Request a Callback"
     
@@ -240,11 +244,14 @@ struct ConstantTexts{
     static let  C_Address_PH                        =      "Company/Firm's Address (as per GSTIN)*"
     static let  CouponCode_PH                       =      "Enter coupon code here"
     static let  AddNoteHere_PH                      =      "Add a note here"
+    static let  State_PH                            =      "State*"
     
     
     //TODO: Alert Text
     static let  EnterGSTINNumberALERT               =      "Please enter GSTIN number."
+    static let  EnterValidGSTINNumberALERT          =      "Please enter a valid GSTIN number."
     static let  SelectGSTIN_DD_ALERT                =      "Please select drop down."
+    static let  SelectGSTINSTATE_DD_ALERT           =      "Please select state."
     static let  EnterCorFNameALERT                  =      "Please enter company/firm's name."
     static let  EnterValidCorFNameALERT             =      "Please enter valid company/firm's name."
     static let  EnterCorFAddressALERT               =      "Please enter company/firm's address."
@@ -273,6 +280,8 @@ struct ConstantTexts{
     static let  SelectFilterALERT                   =      "Please select atleast one filter."
     static let  SelectTimeSlotALERT                 =      "Please select time slot."
     static let  SelectCaseTypeALERT                 =      "Please select case type."
+    static let  EnterDescriptionALERT               =      "Please enter description."
+    static let  EnterCouponCodeALERT                =      "Please enter coupon code."
     static let  cameraAlert                         =      "Device has no camera."
     static let  chooseOneALERT                      =      "Already selected document.\nYou can pick only one document."
     

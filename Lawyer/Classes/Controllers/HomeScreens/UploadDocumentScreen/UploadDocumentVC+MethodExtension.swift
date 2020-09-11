@@ -22,6 +22,10 @@ extension UploadDocumentVC{
             self.customMethodManager = CustomMethodClass.shared
         }
         
+        if self.validationMethodManager == nil {
+            self.validationMethodManager = ValidationClass.shared
+        }
+        
         if self.docDataModeling == nil{
             self.docDataModeling = UploadDocumentVM.shared
         }
@@ -30,14 +34,14 @@ extension UploadDocumentVC{
             self.docDataList = docDataModeling?.prepareDataSource()
         }
         
-      /*  let item = DocumentDataModel(Data(), String(), String(), "String", String(), Bool())
-        
-        self.docDataList?.documentDataItems.append(item)
-        
-        DispatchQueue.main.async {
-            self.tblDocuments.reloadData()
-        }
-        */
+        /*  let item = DocumentDataModel(Data(), String(), String(), "String", String(), Bool())
+         
+         self.docDataList?.documentDataItems.append(item)
+         
+         DispatchQueue.main.async {
+         self.tblDocuments.reloadData()
+         }
+         */
         initialSetup()
         
     }
@@ -47,6 +51,14 @@ extension UploadDocumentVC{
     internal func initialSetup(){
         
         //  self.customMethodManager?.provideShadowAndCornerRadius(self.header.viewBG, 10, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.placeholderColor, -1, 1, 1, 3, 0, AppColor.clearColor)
+        
+        //Looks for single or multiple taps.
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        
+        //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
+        //tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+        
         
         self.header.viewBG.cornerRadius = 10
         self.header.viewBG.dashColor = AppColor.placeholderColor
@@ -130,21 +142,21 @@ extension UploadDocumentVC{
     //TODO: Delete row form index
     internal func deleteRow(index:Int){
         _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: ConstantTexts.WantToDeleteDocuALERT, style: AlertStyle.warning, buttonTitle:ConstantTexts.CancelBT, buttonColor:AppColor.errorColor , otherButtonTitle:  ConstantTexts.OkBT, otherButtonColor: AppColor.passGreenColor) { (isOtherButton) -> Void in
-                   if isOtherButton == true {
-                      DispatchQueue.main.async {
-                           self.tblDocuments.reloadData()
-                       }
-                   }
-                   else
-                   {
-                       self.docDataList?.documentDataItems.remove(at: index)
-                       DispatchQueue.main.async {
-                           self.tblDocuments.reloadData()
-                       }
-                       
-                   }
-                   
-               }
+            if isOtherButton == true {
+                DispatchQueue.main.async {
+                    self.tblDocuments.reloadData()
+                }
+            }
+            else
+            {
+                self.docDataList?.documentDataItems.remove(at: index)
+                DispatchQueue.main.async {
+                    self.tblDocuments.reloadData()
+                }
+                
+            }
+            
+        }
     }
     
     
@@ -200,6 +212,29 @@ extension UploadDocumentVC{
         
     }
     
+    
+    //TODO: Validate fields implementation
+    internal func validateFields(validHandler: @escaping ( String, Bool) -> Void){
+        
+        if !validationMethodManager!.checkEmptyField(self.footer.txtView.text.trimmingCharacters(in: .whitespacesAndNewlines)){
+            validHandler( ConstantTexts.EnterDescriptionALERT, Bool())
+            return
+            
+        }
+        
+        
+        if self.footer.txtView.text.trimmingCharacters(in: .whitespacesAndNewlines) == ConstantTexts.WriteCommentPH{
+            validHandler( ConstantTexts.EnterDescriptionALERT, Bool())
+            return
+        }
+        
+        validHandler(ConstantTexts.empty,  true)
+        
+        
+    }
+    
+    
+    
     //MARK: - Web services
     //TODO: check-bookingslot Service
     internal func hitCheckBookingSlotService(){
@@ -208,19 +243,24 @@ extension UploadDocumentVC{
             return
         }
         
+        guard  let docArray = self.docDataList?.documentDataItems  else {
+            print("No docArray found...")
+            return
+        }
+        
         
         
         let parameters = [Api_keys_model.Date:self.date,
-                          Api_keys_model.SelectedSlot:self.selectedSlot,
-                          Api_keys_model.Description:self.descriptionTxtView] as [String:AnyObject]
+                          Api_keys_model.LawyerId:self.Uuid,
+                          Api_keys_model.SelectedSlot:self.selectedSlot] as [String:AnyObject]
         
         let header = ["authorization":user.token,
-                      "Content-Type": "application/json",
-                      "accept": "application/json"]
+                      "Content-Type":"application/json",
+                      "accept":"application/json"]
         
         self.customMethodManager?.startLoader(view:self.view)
         
-        ServiceClass.shared.multipartImageServiceWithArrayObject(url: SCustomerApi.check_bookingslot, self.docDataArray, header: header, parameters: parameters, success: { (result) in
+        ServiceClass.shared.multipartImageServiceWithArrayObject(url: SCustomerApi.check_bookingslot, docArray, header: header, parameters: parameters, success: { (result) in
             self.customMethodManager?.stopLoader(view:self.view)
             print(result)
             if let result_Dict = result as? NSDictionary{
@@ -238,10 +278,25 @@ extension UploadDocumentVC{
                                             _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style: .success, buttonTitle: ConstantTexts.OkBT, action: { (status) in
                                                 if status{
                                                     let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: PaymentVC.className) as! PaymentVC
-                                                    self.navigationController?.pushViewController(vc, animated: true)                                                }
+                                                    vc.Uuid = self.Uuid
+                                                    vc.date = self.date
+                                                    vc.selectedSlot = self.selectedSlot
+                                                    vc.price = self.price
+                                                    vc.type = self.type
+                                                    vc.expID = self.expID
+                                                    vc.expName = self.expName
+                                                    vc.desc = self.descriptionTxtView
+                                                    if let count = self.docDataList?.numberOfRowsInSection(0){
+                                                        if count > 0{
+                                                            if let fileName = self.docDataList?.documentAtIndex(0).fileName{
+                                                                vc.Docs = fileName
+                                                            }
+                                                        }
+                                                    }
+                                                    self.navigationController?.pushViewController(vc, animated: true)         }
                                             })
                                         }
-
+                                        
                                         
                                         
                                     }
@@ -249,6 +304,14 @@ extension UploadDocumentVC{
                             }
                             
                         }
+                    }else if code == 404{
+                        if let message = result_Dict.value(forKey: "message") as? String{
+                            _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style: .error, buttonTitle: ConstantTexts.OkBT, action: { (status) in
+                                if status{
+                                    self.navigationController?.popViewController(animated: true)                            }
+                            })
+                        }
+                        
                     }else if code == 401{
                         
                         if let count = self.docDataList?.numberOfRowsInSection(0){
@@ -296,6 +359,4 @@ extension UploadDocumentVC{
             
         }
     }
-    
-    
 }

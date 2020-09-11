@@ -36,4 +36,7 @@ protocol ValidationProtocol {
     //TODO: Validate empty field
     func checkEmptyField(_ value: String) -> Bool
     
+    //TODO: Validate GSTIN number
+    func isValidGSTIN(_ value: String) -> Bool
+    
 }

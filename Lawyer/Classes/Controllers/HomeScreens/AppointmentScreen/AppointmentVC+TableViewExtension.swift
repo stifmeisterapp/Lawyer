@@ -93,9 +93,9 @@ extension AppointmentVC:UITableViewDelegate{
         
         if let appointMentItem = self.appointMentListVM?.appointmentAtIndex(indexPath.section){
             if appointMentItem.list.count <= 4{
-                return 50
+                return 60
             }else if appointMentItem.list.count > 4 && appointMentItem.list.count <= 8{
-                return 110
+                return 120
             }else{
                 return 180
             }
@@ -110,9 +110,9 @@ extension AppointmentVC:UITableViewDelegate{
         
         if let appointMentItem = self.appointMentListVM?.appointmentAtIndex(indexPath.section){
             if appointMentItem.list.count <= 4{
-                return 50
+                return 60
             }else if appointMentItem.list.count > 4 && appointMentItem.list.count <= 8{
-                return 110
+                return 120
             }else{
                 return 180
             }

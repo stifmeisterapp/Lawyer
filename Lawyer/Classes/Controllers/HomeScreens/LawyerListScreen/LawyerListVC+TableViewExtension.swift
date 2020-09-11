@@ -24,6 +24,10 @@ extension LawyerListVC:UITableViewDataSource{
             fatalError(ConstantTexts.unexpectedIndexPath)
         }
         
+        
+        cell.buttonCallRef.tag = indexPath.row
+        cell.buttonCallRef.addTarget(self, action: #selector(self.btnCallTapped(_:)), for: .touchUpInside)
+        
         cell.buttonMeetRef.tag = indexPath.row
         cell.buttonMeetRef.addTarget(self, action: #selector(self.btnMeetTapped(_:)), for: .touchUpInside)
         

@@ -29,7 +29,7 @@ class PaymentVM: DataStoreStructListModeling_GSTIN {
     func prepareDataSource() -> DataStoreStruct_GSTIN_List_ViewModel {
         let dataStores = [DataStoreStruct_GSTIN(title: ConstantTexts.GSTIN_PH, placeholder:ConstantTexts.GSTIN_PH, value: ConstantTexts.empty, type: GSTIN_Type.GSTIN),
                           DataStoreStruct_GSTIN(title: ConstantTexts.C_Name_PH, placeholder:ConstantTexts.C_Name_PH, value: ConstantTexts.empty, type: GSTIN_Type.CompanyName),
-                          DataStoreStruct_GSTIN(title: ConstantTexts.empty, placeholder:ConstantTexts.empty, value: ConstantTexts.empty, type: GSTIN_Type.DropDownType),
+                          DataStoreStruct_GSTIN(title: ConstantTexts.State_PH, placeholder:ConstantTexts.State_PH, value: ConstantTexts.empty, type: GSTIN_Type.DropDownType),
                           DataStoreStruct_GSTIN(title: ConstantTexts.C_Address_PH, placeholder:ConstantTexts.C_Address_PH, value: ConstantTexts.empty, type: GSTIN_Type.Address)]
         
         return DataStoreStruct_GSTIN_List_ViewModel(dataStores)
@@ -49,6 +49,13 @@ class PaymentVM: DataStoreStructListModeling_GSTIN {
                     return
                     
                 }
+                
+                if !validationMethodManager!.isValidGSTIN(dataStore.dataStoreStructAtIndex(index).value.trimmingCharacters(in: .whitespaces)) {
+                    validHandler( ConstantTexts.EnterValidGSTINNumberALERT, false, index, Int())
+                    return
+                    
+                }
+                
             case .CompanyName:
                 if !validationMethodManager!.checkEmptyField(dataStore.dataStoreStructAtIndex(index).value.trimmingCharacters(in: .whitespaces)){
                     validHandler( ConstantTexts.EnterCorFNameALERT, false, index, Int())
@@ -64,7 +71,7 @@ class PaymentVM: DataStoreStructListModeling_GSTIN {
                 }
             case .DropDownType:
                 if !validationMethodManager!.checkEmptyField(dataStore.dataStoreStructAtIndex(index).value.trimmingCharacters(in: .whitespaces)) {
-                    validHandler( ConstantTexts.SelectGSTIN_DD_ALERT, false, index, Int())
+                    validHandler( ConstantTexts.SelectGSTINSTATE_DD_ALERT, false, index, Int())
                     return
                     
                 }

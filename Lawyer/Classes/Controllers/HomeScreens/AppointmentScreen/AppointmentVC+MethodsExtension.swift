@@ -33,7 +33,8 @@ extension AppointmentVC{
             appointMentVM = AppointmentVM.shared
         }
         
-        
+        print(price)
+        print(type)
         
         initialSetup()
     }

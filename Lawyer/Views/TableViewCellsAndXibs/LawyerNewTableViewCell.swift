@@ -77,7 +77,29 @@ class LawyerNewTableViewCell: SBaseTableViewCell {
         
         myMutableString = NSMutableAttributedString()
         myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: ConstantTexts.CallLT, font: AppFont.Semibold.size(AppFontName.OpenSans, size: 12), color: AppColor.textColor) ?? NSMutableAttributedString())
-        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\n\(ConstantTexts.CurLT)  \(info.ConsulationType_Call_Fee)", font:AppFont.Semibold.size(AppFontName.OpenSans, size: 12), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
+        
+        if info.ConsulationType_Call_Fee == ConstantTexts.DefaultFeeValueLT{
+            myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\n\(info.ConsulationType_Call_Fee)", font:AppFont.Semibold.size(AppFontName.OpenSans, size: 12), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
+            
+            self.buttonCallRef.isHidden = true
+            
+            
+        }else{
+            myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\n\(ConstantTexts.CurLT)  \(info.ConsulationType_Call_Fee)", font:AppFont.Semibold.size(AppFontName.OpenSans, size: 12), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
+            
+            self.buttonCallRef.isHidden = false
+            
+            self.buttonCallRef.setTitleColor(AppColor.darkGrayColor, for: .normal)
+            self.buttonCallRef.backgroundColor = AppColor.whiteColor
+            self.buttonCallRef.setTitle(ConstantTexts.CallBT, for: .normal)
+            self.buttonCallRef.titleLabel?.font = AppFont.Bold.size(AppFontName.OpenSans, size: 12)
+            self.customMethodManager?.provideCornerRadiusTo(self.buttonCallRef, 3, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
+            self.customMethodManager?.provideCornerBorderTo(self.buttonCallRef, 1, AppColor.placeholderColor)
+            
+            
+        }
+        
+        
         // *** Apply attribute to string ***
         myMutableString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, myMutableString.length))
         // *** Set Attributed String to your label ***
@@ -87,7 +109,24 @@ class LawyerNewTableViewCell: SBaseTableViewCell {
         
         myMutableString = NSMutableAttributedString()
         myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: ConstantTexts.MeetLT, font: AppFont.Semibold.size(AppFontName.OpenSans, size: 12), color: AppColor.textColor) ?? NSMutableAttributedString())
-        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\n\(ConstantTexts.CurLT)  \(info.ConsulationType_Meet_Fee)", font: AppFont.Semibold.size(AppFontName.OpenSans, size: 12), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
+        
+        if info.ConsulationType_Meet_Fee == ConstantTexts.DefaultFeeValueLT{
+            myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\n\(info.ConsulationType_Meet_Fee)", font: AppFont.Semibold.size(AppFontName.OpenSans, size: 12), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
+            
+            self.buttonMeetRef.isHidden = true
+            
+        }else{
+           myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\n\(ConstantTexts.CurLT)  \(info.ConsulationType_Meet_Fee)", font: AppFont.Semibold.size(AppFontName.OpenSans, size: 12), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
+            
+            self.buttonMeetRef.isHidden = false
+            self.buttonMeetRef.setTitleColor(AppColor.whiteColor, for: .normal)
+            self.buttonMeetRef.backgroundColor = AppColor.themeColor
+            self.buttonMeetRef.setTitle(ConstantTexts.MeetBT, for: .normal)
+            self.buttonMeetRef.titleLabel?.font = AppFont.Bold.size(AppFontName.OpenSans, size: 12)
+            self.customMethodManager?.provideCornerRadiusTo(self.buttonMeetRef, 3, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
+        }
+        
+        
         // *** Apply attribute to string ***
         myMutableString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, myMutableString.length))
         // *** Set Attributed String to your label ***
@@ -120,25 +159,8 @@ class LawyerNewTableViewCell: SBaseTableViewCell {
         
         self.viewSeprator1.backgroundColor = AppColor.tableBGColor
         self.viewSeprator1.isHidden = false
-        
-        self.buttonMeetRef.setTitleColor(AppColor.whiteColor, for: .normal)
-        self.buttonMeetRef.backgroundColor = AppColor.themeColor
-        self.buttonMeetRef.setTitle(ConstantTexts.MeetBT, for: .normal)
-        self.buttonMeetRef.titleLabel?.font = AppFont.Bold.size(AppFontName.OpenSans, size: 12)
-        self.customMethodManager?.provideCornerRadiusTo(self.buttonMeetRef, 3, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
-        
-        
-        self.buttonCallRef.setTitleColor(AppColor.darkGrayColor, for: .normal)
-        self.buttonCallRef.backgroundColor = AppColor.whiteColor
-        self.buttonCallRef.setTitle(ConstantTexts.CallBT, for: .normal)
-        self.buttonCallRef.titleLabel?.font = AppFont.Bold.size(AppFontName.OpenSans, size: 12)
-        self.customMethodManager?.provideCornerRadiusTo(self.buttonCallRef, 3, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
-        self.customMethodManager?.provideCornerBorderTo(self.buttonCallRef, 1, AppColor.placeholderColor)
-        
-        
+
         //TODO: Values
-        
-        
         self.labelNameLayer.font = AppFont.Semibold.size(AppFontName.OpenSans, size: 14)
         self.labelNameLayer.textColor = AppColor.themeColor
         self.labelNameLayer.numberOfLines = 0

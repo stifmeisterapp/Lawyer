@@ -11,8 +11,8 @@ class TabBarVC: UITabBarController {
     
     //MARK: - Variables
     
-    private let images = [#imageLiteral(resourceName: "home") ,#imageLiteral(resourceName: "Blogs")  ,#imageLiteral(resourceName: "FlatFee")  , #imageLiteral(resourceName: "Coupons"),  #imageLiteral(resourceName: "menu")]
-    private let titles = [ConstantTexts.HomeLT ,ConstantTexts.BlogsLT,ConstantTexts.FlatFeesLT, ConstantTexts.CouponsLT, ConstantTexts.MoreLT]
+    private let images = [#imageLiteral(resourceName: "home") ,#imageLiteral(resourceName: "Blogs")  , #imageLiteral(resourceName: "Coupons"),  #imageLiteral(resourceName: "menu")]
+    private let titles = [ConstantTexts.HomeLT ,ConstantTexts.BlogsLT, ConstantTexts.CouponsLT, ConstantTexts.MoreLT]
     
     //MARK: - View life cycle methods
     //TODO: Implementation viewDidLoad

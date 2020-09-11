@@ -49,21 +49,29 @@ extension LawyerProfileVC{
         self.nameLabel.textColor = AppColor.themeColor
         self.nameLabel.numberOfLines = 2
         
+        if self.meetPrice == ConstantTexts.DefaultFeeValueLT{
+            self.buttonMeetRef.isHidden = true
+        }else{
+            self.buttonMeetRef.isHidden = false
+            self.buttonMeetRef.setTitleColor(AppColor.whiteColor, for: .normal)
+            self.buttonMeetRef.backgroundColor = AppColor.themeColor
+            self.buttonMeetRef.setTitle(ConstantTexts.MeetBT, for: .normal)
+            self.buttonMeetRef.titleLabel?.font = ConstantFonts.mainBottomButtonFont
+            self.customMethodManager?.provideCornerRadiusTo(self.buttonMeetRef, 3, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
+        }
         
-        self.buttonMeetRef.setTitleColor(AppColor.whiteColor, for: .normal)
-        self.buttonMeetRef.backgroundColor = AppColor.themeColor
-        self.buttonMeetRef.setTitle(ConstantTexts.MeetBT, for: .normal)
-        self.buttonMeetRef.titleLabel?.font = ConstantFonts.mainBottomButtonFont
-        self.customMethodManager?.provideCornerRadiusTo(self.buttonMeetRef, 3, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
         
+        if self.callPrice == ConstantTexts.DefaultFeeValueLT{
+            self.buttonCallRef.isHidden = true
+        }else{
+            self.buttonCallRef.isHidden = false
+            self.buttonCallRef.setTitleColor(AppColor.whiteColor, for: .normal)
+            self.buttonCallRef.backgroundColor = AppColor.themeColor
+            self.buttonCallRef.setTitle(ConstantTexts.CallBT, for: .normal)
+            self.buttonCallRef.titleLabel?.font = ConstantFonts.mainBottomButtonFont
+            self.customMethodManager?.provideCornerRadiusTo(self.buttonCallRef, 3, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
+        }
         
-        self.buttonCallRef.setTitleColor(AppColor.whiteColor, for: .normal)
-        self.buttonCallRef.backgroundColor = AppColor.themeColor
-        self.buttonCallRef.setTitle(ConstantTexts.CallBT, for: .normal)
-        self.buttonCallRef.titleLabel?.font = ConstantFonts.mainBottomButtonFont
-        self.customMethodManager?.provideCornerRadiusTo(self.buttonCallRef, 3, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
-        
-      
         
         self.profileTable.tableHeaderView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 0.0, height: Double.leastNormalMagnitude))
         self.profileTable.tableFooterView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 0.0, height: Double.leastNormalMagnitude))

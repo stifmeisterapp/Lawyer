@@ -20,7 +20,43 @@ class CustomMethodClass: CustomMethodProtocol {
     
     internal let animationView = AnimationView(name: ConstantTexts.Loader)
     
-    
+    //TODO: Get states from json file
+    func getStates() -> ([State_DataModel],[String]) {
+        var states = [State_DataModel]()
+        var statesName = [String]()
+        
+        if let path = Bundle.main.path(forResource: "state", ofType: "json") {
+            do {
+                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+                let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
+                if let jsonResult = jsonResult as? NSArray{
+                    // do stuff
+                    for item in jsonResult{
+                        if let itemDict = item as? NSDictionary{
+                            var state = State_DataModel(Id: String(), State: String(), isSelected: String())
+                            if let Id = itemDict.value(forKey: "Id") as? Int{
+                                state.Id = "\(Id)"
+                            }
+                            
+                            if let Id = itemDict.value(forKey: "Id") as? String{
+                                state.Id = "\(Id)"
+                            }
+                            
+                            if let State = itemDict.value(forKey: "State") as? String{
+                                state.State = State
+                                statesName.append(state.State)
+                            }
+                            states.append(state)
+                        }
+                    }
+                }
+            } catch {
+                // handle error
+            }
+        }
+        
+        return (states,statesName)
+    }
     
     //TODO: Set url image on imageview
     func setImage(imageView:UIImageView,url:String){
@@ -169,6 +205,21 @@ class CustomMethodClass: CustomMethodProtocol {
         
         callBack(dropDown)
     }
+    
+    //TODO: Open drop down bottom direction
+    public func openDownOnViewBottomDirection(dropDown:DropDown,array:[String],anchor:UIView,callBack:((_ dropDown:DropDown)->())){
+        dropDown.anchorView = anchor
+        dropDown.width = anchor.frame.size.width
+        dropDown.dataSource = array
+        /* dropDown.backgroundColor = AppColor.bgColor
+         dropDown.textColor = AppColor.whiteColor */
+        dropDown.bottomOffset = CGPoint(x: 0, y:anchor.bounds.height)
+        dropDown.direction = .bottom
+        dropDown.show()
+        
+        callBack(dropDown)
+    }
+    
     
     
     //TODO: Get indexPath for tableview cell

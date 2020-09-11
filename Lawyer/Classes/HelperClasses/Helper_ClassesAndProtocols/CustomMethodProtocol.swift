@@ -12,6 +12,9 @@ import Lottie
 import DropDown
 protocol CustomMethodProtocol {
     
+    //TODO: Get states from json file
+    func getStates() -> ([State_DataModel],[String])
+    
     //TODO: Set url image on imageview
     func setImage(imageView:UIImageView,url:String)
     
@@ -38,6 +41,9 @@ protocol CustomMethodProtocol {
     
     //TODO: Open drop down
     func openDownOnView(dropDown:DropDown,array:[String],anchor:UIView,callBack:((_ dropDown:DropDown)->()))
+    
+    //TODO: Open drop down bottom direction
+    func openDownOnViewBottomDirection(dropDown:DropDown,array:[String],anchor:UIView,callBack:((_ dropDown:DropDown)->()))
     
     //TODO: Get indexPath for tableview cell
     func getIndexPathFor(view: UIView, tableView: UITableView) -> IndexPath?

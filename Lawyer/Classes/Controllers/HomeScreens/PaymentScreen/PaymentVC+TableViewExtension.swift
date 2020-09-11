@@ -36,6 +36,12 @@ extension PaymentVC:UITableViewDataSource{
             guard let item = self.dataListVM?.dataStoreStructAtIndex(indexPath.row) else {
                 fatalError(ConstantTexts.unexpectedIndexPath)
             }
+            
+            if indexPath.row == 2{
+                cell.btnDDSelectRef.tag = indexPath.row
+                cell.btnDDSelectRef.addTarget(self, action: #selector(btnDropDownTapped), for: .touchUpInside)
+            }
+            
             cell.textField.delegate = self
             cell.configure(with: item)
             
@@ -101,7 +107,7 @@ extension PaymentVC:UITableViewDelegate{
         self.footer.lblDetail.textColor = AppColor.darkGrayColor
         self.footer.lblDetail.numberOfLines = 0
         self.footer.lblDetail.textAlignment = .center
-        self.footer.lblDetail.text = "\(ConstantTexts.ServiceProviders_LT) 09867JH6NN445VC"
+        self.footer.lblDetail.text = "\(ConstantTexts.ServiceProviders_LT) \(ConstantTexts.CompanyGSTIN_LT)"
         
         if self.header.switch_Ref.isOn{
             self.footer.lblDetail.isHidden = false

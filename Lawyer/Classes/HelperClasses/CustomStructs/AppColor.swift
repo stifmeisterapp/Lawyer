@@ -25,16 +25,16 @@ struct AppColor {
     public static let whiteColor               = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     public static let errorColor               = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
     
-    public static let bgColorOne               = themeColor
+   /* public static let bgColorOne               = themeColor
     public static let bgColorTwo               = themeColor
-    public static let bgColorThree             = themeColor
+    public static let bgColorThree             = themeColor */
     public static let clearColor               = UIColor.clear
     public static let tableBGColor             = #colorLiteral(red: 0.9499999881, green: 0.9499999881, blue: 0.9499999881, alpha: 1)
     
     public static let highLightColor           = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1)
     
-  /*  public static let bgColorOne              = UIColor(red: 0.40, green: 0.56, blue: 0.71, alpha: 1.00)
+    public static let bgColorOne              = UIColor(red: 0.40, green: 0.56, blue: 0.71, alpha: 1.00)
     public static let bgColorTwo               = UIColor(red: 0.40, green: 0.69, blue: 0.71, alpha: 1.00)
-    public static let bgColorThree             = UIColor(red: 0.61, green: 0.56, blue: 0.74, alpha: 1.00) */
+    public static let bgColorThree             = UIColor(red: 0.61, green: 0.56, blue: 0.74, alpha: 1.00)
     
 }

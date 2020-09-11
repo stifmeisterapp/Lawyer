@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -27,6 +27,9 @@
                             <constraint firstAttribute="width" secondItem="zNQ-6r-Qph" secondAttribute="height" multiplier="19:20" id="TbA-IV-fAl"/>
                         </constraints>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mgr-hE-qc5">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="83"/>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="zNQ-6r-Qph" firstAttribute="trailing" secondItem="G3D-n1-TDz" secondAttribute="trailing" constant="-5" id="04X-a0-pdi"/>
@@ -34,11 +37,16 @@
                     <constraint firstAttribute="trailing" secondItem="G3D-n1-TDz" secondAttribute="trailing" constant="30" id="7u5-hr-5zZ"/>
                     <constraint firstAttribute="bottom" secondItem="G3D-n1-TDz" secondAttribute="bottom" constant="5" id="EdB-DF-Z8R"/>
                     <constraint firstItem="G3D-n1-TDz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="W00-QN-PH2"/>
+                    <constraint firstAttribute="bottom" secondItem="Mgr-hE-qc5" secondAttribute="bottom" id="XCq-EL-t80"/>
+                    <constraint firstItem="Mgr-hE-qc5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="XKA-QA-DCG"/>
+                    <constraint firstItem="Mgr-hE-qc5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="cU6-bq-71l"/>
+                    <constraint firstAttribute="trailing" secondItem="Mgr-hE-qc5" secondAttribute="trailing" id="gB4-a6-4dP"/>
                     <constraint firstItem="G3D-n1-TDz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="qan-jN-e4h"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="btnDDSelectRef" destination="Mgr-hE-qc5" id="u0G-X8-Jky"/>
                 <outlet property="imgDD" destination="zNQ-6r-Qph" id="CTe-LB-iqW"/>
                 <outlet property="textField" destination="G3D-n1-TDz" id="8Aa-Zz-ysc"/>
             </connections>

@@ -13,6 +13,7 @@ class GSTIN_TableViewCellAndXib: SBaseTableViewCell {
     //MARK: - IBOutlets
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var imgDD: UIImageView!
+    @IBOutlet weak var btnDDSelectRef: UIButton!
     
     //MARK: - Variables
     internal var customMethodManager:CustomMethodProtocol?
@@ -36,6 +37,7 @@ class GSTIN_TableViewCellAndXib: SBaseTableViewCell {
     
     public func configure(with info: DataStoreStruct_GSTIN_ViewModel) {
         self.textField.placeholder = info.placeholder
+        self.textField.text = info.value
         
         switch info.type{
         case .GSTIN:
@@ -43,7 +45,8 @@ class GSTIN_TableViewCellAndXib: SBaseTableViewCell {
             textField.maxLength = 15
             textField.keyboardType = .default
             textField.isSecureTextEntry = false
-            textField.autocapitalizationType = .none
+            textField.autocapitalizationType = .allCharacters
+            btnDDSelectRef.isHidden = true
             
             
         case .CompanyName:
@@ -52,6 +55,7 @@ class GSTIN_TableViewCellAndXib: SBaseTableViewCell {
             textField.keyboardType = .namePhonePad
             textField.isSecureTextEntry = false
             textField.autocapitalizationType = .words
+            btnDDSelectRef.isHidden = true
             
             
         case .DropDownType:
@@ -60,6 +64,7 @@ class GSTIN_TableViewCellAndXib: SBaseTableViewCell {
             textField.keyboardType = .default
             textField.isSecureTextEntry = false
             textField.autocapitalizationType = .none
+            btnDDSelectRef.isHidden = false
             
             
         case .Address:
@@ -68,6 +73,7 @@ class GSTIN_TableViewCellAndXib: SBaseTableViewCell {
             textField.keyboardType = .namePhonePad
             textField.isSecureTextEntry = false
             textField.autocapitalizationType = .none
+            btnDDSelectRef.isHidden = true
         }
         
     }

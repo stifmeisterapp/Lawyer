@@ -27,6 +27,8 @@ class LawyerProfileVC: SBaseViewController {
     internal var Id:String = String()
     internal var name_Lawyer:String = String()
     internal var imageURL:String = String()
+    internal var callPrice:String = String()
+    internal var meetPrice:String = String()
     
     internal var customMethodManager:CustomMethodProtocol?
     internal var lawyerProfileVM:ProfileDataModelModeling?
@@ -80,12 +82,37 @@ class LawyerProfileVC: SBaseViewController {
                             self.buttonMeetRef.transform = CGAffineTransform.identity
                             let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: AppointmentVC.className) as! AppointmentVC
                             vc.Uuid = self.Uuid
+                            vc.price = self.meetPrice
+                            vc.type = "1"
                             self.navigationController?.pushViewController(vc, animated: true)
                             
                         }
         })
         
     }
+    
+    @IBAction func btnCallTapped(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.1,
+                       animations: {
+                        self.customMethodManager?.provideShadowAndCornerRadius(self.buttonCallRef, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.textColor, 0, 0, 0, 0, 0, AppColor.clearColor)
+                        self.buttonCallRef.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+        },
+                       completion: { _ in
+                        UIView.animate(withDuration: 0.1) {
+                            self.customMethodManager?.provideShadowAndCornerRadius(self.buttonCallRef, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.textColor, -1, 1, 1, 3, 0, AppColor.clearColor)
+                            self.buttonCallRef.transform = CGAffineTransform.identity
+                            let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: AppointmentVC.className) as! AppointmentVC
+                            vc.Uuid = self.Uuid
+                            vc.price = self.callPrice
+                            vc.type = "0"
+                            self.navigationController?.pushViewController(vc, animated: true)
+                            
+                        }
+        })
+        
+    }
+    
+    
     
     //TODO: Selectors
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {

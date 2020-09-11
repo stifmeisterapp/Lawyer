@@ -65,7 +65,7 @@ class HomeVM: CategoryListModeling {
                           Category(image: UIImage(), title: ConstantTexts.StampParerAndNotaryLT, ExpertiseId: "29"),
                           Category(image: UIImage(), title: ConstantTexts.StartUpLT, ExpertiseId: "30"),
                           Category(image: UIImage(), title: ConstantTexts.TaxLT, ExpertiseId: "31"),
-                          Category(image: UIImage(), title: ConstantTexts.TrademarkLT, ExpertiseId: "32"),
+                          Category(image: UIImage(), title: ConstantTexts.TrademarkLT, ExpertiseId: "81"),
                           Category(image: UIImage(), title: ConstantTexts.WillsLT, ExpertiseId: "33"),
                           Category(image: UIImage(), title: ConstantTexts.OthersLT, ExpertiseId: "23")]
         

@@ -278,6 +278,8 @@ class LawyerListVC: SBaseViewController {
                                 }
                                 
                                 vc.Uuid = item.Uuid
+                                vc.price = item.ConsulationType_Meet_Fee
+                                vc.type = "1"
                                
                                 self.navigationController?.pushViewController(vc, animated: true)
                                 
@@ -285,6 +287,42 @@ class LawyerListVC: SBaseViewController {
                         }
         })
     }
+    
+    
+    
+    @objc func btnCallTapped(_ sender: UIButton) {
+        print("Button selected...")
+        let indexPath = IndexPath(item: sender.tag, section: 0)
+        
+        UIView.animate(withDuration: 0.1,
+                       animations: {
+                        if let cell = self.lawyerTableView.cellForRow(at: indexPath) as? LawyerNewTableViewCell {
+                            cell.buttonCallRef.transform = .init(scaleX: 0.95, y: 0.95)
+                            
+                        }
+        },
+                       completion: { _ in
+                        UIView.animate(withDuration: 0.1) {
+                            if let cell = self.lawyerTableView.cellForRow(at: indexPath) as? LawyerNewTableViewCell {
+                                cell.buttonCallRef.transform = .identity
+                                
+                                let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: AppointmentVC.className) as! AppointmentVC
+                                
+                                guard let item = self.lawyerListVM?.lawyerAtIndex(sender.tag) else {
+                                    fatalError("No FilterCategoryViewModel found...")
+                                }
+                                
+                                vc.Uuid = item.Uuid
+                                vc.price = item.ConsulationType_Call_Fee
+                                vc.type = "0"
+                               
+                                self.navigationController?.pushViewController(vc, animated: true)
+                                
+                            }
+                        }
+        })
+    }
+    
     
     
     
@@ -317,6 +355,8 @@ class LawyerListVC: SBaseViewController {
                                 vc.name_Lawyer = item.FullName
                                 vc.Id = item.Id
                                 vc.imageURL = item.ProfilePhoto
+                                vc.callPrice = item.ConsulationType_Call_Fee
+                                vc.meetPrice = item.ConsulationType_Meet_Fee
                                                                
                                 self.navigationController?.pushViewController(vc, animated: true)
                             }

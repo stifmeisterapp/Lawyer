@@ -44,6 +44,9 @@ class AppointmentVC: SBaseViewController {
     internal var prev_date = String()
     internal var next_date = String()
     
+    internal var price:String = String()
+    internal var type:String = String()
+    
     internal var expertise_idArray = [String]()
     internal var expertise_nameArray = [String]()
     
@@ -160,6 +163,10 @@ class AppointmentVC: SBaseViewController {
                                     vc.Uuid = self.Uuid
                                     vc.date = self.current_date
                                     vc.selectedSlot = self.selectedSlot
+                                    vc.price = self.price
+                                    vc.type = self.type
+                                    vc.expID = self.expID
+                                    vc.expName = self.expName
                                     self.navigationController?.pushViewController(vc, animated: true)
                                     
                                 }else{

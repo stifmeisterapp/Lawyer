@@ -24,13 +24,18 @@ class UploadDocumentVC: SBaseViewController {
     internal var Uuid:String = String()
     internal var descriptionTxtView: String = String()
     
-    internal var docDataArray = [DocumentDataModel]()
     internal var selectedSlot:String = String()
     internal var date:String = String()
     
+    internal var price:String = String()
+    internal var type:String = String()
+    internal var expID:String = String()
+    internal var expName:String = String()
+    
+    
     internal var docDataModeling:DocumentDataModeling?
     internal var docDataList:DocumentViewModelList?
-    
+    internal var validationMethodManager:ValidationProtocol?
     
     //MARK: - View life cycle methods
     //TODO: Implementation viewDidLoad
@@ -59,6 +64,7 @@ class UploadDocumentVC: SBaseViewController {
     //TODO: Actions
     
     @IBAction func btnSubmitTapped(_ sender: UIButton) {
+        self.dismissKeyboard()
         UIView.animate(withDuration: 0.1,
                        animations: {
                         self.customMethodManager?.provideShadowAndCornerRadius(self.btnSubmitRef, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.textColor, 0, 0, 0, 0, 0, AppColor.clearColor)
@@ -67,10 +73,24 @@ class UploadDocumentVC: SBaseViewController {
                        completion: { _ in
                         UIView.animate(withDuration: 0.1) {
                             self.btnSubmitRef.transform = .identity
-                            self.hitCheckBookingSlotService()
                             self.customMethodManager?.provideShadowAndCornerRadius(self.btnSubmitRef, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.textColor, -1, 1, 1, 3, 0, AppColor.clearColor)
-                            
-                            
+                            if let count = self.docDataList?.numberOfRowsInSection(0){
+                                if count > 0 {
+                                    self.hitCheckBookingSlotService()
+                                }else{
+                                    let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: PaymentVC.className) as! PaymentVC
+                                    vc.Uuid = self.Uuid
+                                    vc.date = self.date
+                                    vc.selectedSlot = self.selectedSlot
+                                    vc.price = self.price
+                                    vc.type = self.type
+                                    vc.expID = self.expID
+                                    vc.expName = self.expName
+                                    vc.desc = self.descriptionTxtView
+                                    vc.Docs = String()
+                                    self.navigationController?.pushViewController(vc, animated: true)
+                                }
+                            }
                         }
         })
         
@@ -79,6 +99,13 @@ class UploadDocumentVC: SBaseViewController {
     
     //MARK: - Actions, Gestures, Selectors
     //TODO: Selectors
+    
+    //Calls this function when the tap is recognized.
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+    
     @objc func btnChooseTapped(_ sender: UIButton) {
         
         if let count = self.docDataList?.numberOfRowsInSection(0){
