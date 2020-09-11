@@ -23,6 +23,7 @@ class LawyerProfileVC: SBaseViewController {
     
     
     //MARK: - Variables
+    internal var lawyer:Lawyer_Model = Lawyer_Model(CityName: String(), ConsulationType_Call_Fee: String(), ConsulationType_Meet_Fee: String(), ConsulationType_Video_Call_Fee: String(), Experience_Name: String(), Expertise_String: String(), FullName: String(), Id: String(), Language_String: String(), ProfilePhoto: String(), Uuid: String())
     internal var Uuid:String = String()
     internal var Id:String = String()
     internal var name_Lawyer:String = String()
@@ -84,6 +85,7 @@ class LawyerProfileVC: SBaseViewController {
                             vc.Uuid = self.Uuid
                             vc.price = self.meetPrice
                             vc.type = "1"
+                            vc.lawyer = self.lawyer
                             self.navigationController?.pushViewController(vc, animated: true)
                             
                         }
@@ -105,6 +107,7 @@ class LawyerProfileVC: SBaseViewController {
                             vc.Uuid = self.Uuid
                             vc.price = self.callPrice
                             vc.type = "0"
+                            vc.lawyer = self.lawyer
                             self.navigationController?.pushViewController(vc, animated: true)
                             
                         }

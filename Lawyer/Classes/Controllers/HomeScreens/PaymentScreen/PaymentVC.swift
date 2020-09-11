@@ -8,6 +8,7 @@
 
 import UIKit
 import DropDown
+import Razorpay
 class PaymentVC: SBaseViewController {
     
     //MARK: - IBOutlets
@@ -26,6 +27,7 @@ class PaymentVC: SBaseViewController {
     
     
     //MARK: - Variables
+    internal var lawyer:Lawyer_Model = Lawyer_Model(CityName: String(), ConsulationType_Call_Fee: String(), ConsulationType_Meet_Fee: String(), ConsulationType_Video_Call_Fee: String(), Experience_Name: String(), Expertise_String: String(), FullName: String(), Id: String(), Language_String: String(), ProfilePhoto: String(), Uuid: String())
     internal var Uuid:String = String()
     internal var descriptionTxtView: String = String()
     
@@ -44,6 +46,7 @@ class PaymentVC: SBaseViewController {
     internal var totalPaid:Double = Double()
     internal var desc:String = String()
     
+    
     internal var stateName:String = String()
     internal var stateID:String = String()
     internal var stateModel:[State_DataModel] = [State_DataModel]()
@@ -51,6 +54,14 @@ class PaymentVC: SBaseViewController {
     
     internal let dropDown = DropDown()
     internal var validationMethodManager:ValidationProtocol?
+    
+    //MARK: - variables for RazorpayCheckout
+    internal var razorpay: RazorpayCheckout!
+    internal var OrderId:String = String()
+    internal var Key:String = String()
+    internal var BookedConsulationId:String = String()
+    internal var RazorpayPaymentId:String = String()
+    internal var generated_signature:String = String()
     
     //MARK: - variables for the animate tableview
     internal var animationName = String()
@@ -121,7 +132,7 @@ class PaymentVC: SBaseViewController {
                             if let cell = self.tblPayment.cellForRow(at: indexPath) as? GSTIN_TableViewCellAndXib{
                                 cell.transform = CGAffineTransform.identity
                                 
-                                self.customMethodManager?.openDownOnViewBottomDirection(dropDown: self.dropDown, array: self.states, anchor: cell.textField, callBack: { (dropDown) in
+                                self.customMethodManager?.openDownOnView(dropDown: self.dropDown, array: self.states, anchor: cell.textField, callBack: { (dropDown) in
                                     dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
                                         print("Selected item: \(item) at index: \(index)")
                                         cell.textField.text = item
@@ -212,4 +223,21 @@ class PaymentVC: SBaseViewController {
                         }
         })
     }
+    
+    @objc func btnbtnChangeDateTapped(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.1,
+                       animations: {
+                        self.header.btnChangeDateRef.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+        },
+                       completion: { _ in
+                        UIView.animate(withDuration: 0.1) {
+                            self.header.btnChangeDateRef.transform = CGAffineTransform.identity
+                            super.goBackToIndex(2)
+                        }
+        })
+    }
+    
+    
+    
+    
 }

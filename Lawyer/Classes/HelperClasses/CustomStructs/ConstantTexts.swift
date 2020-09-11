@@ -26,9 +26,11 @@ struct ConstantTexts{
     static let  supportConta                        =      "1800-419-9661"
     static let  mod20                               =      "%20"
     static let  simulatorToken                      =      "SIMULATOR_TOKEN"
+    static let  razorpayTestKey                     =      "rzp_test_NCjJ2F3uUBhH6l"
     
     
     //TODO: Animation
+    static let  wallet_animation                    =      "wallet_animation"
     static let  Law                                 =      "Law"
     static let  Construction                        =      "construction"
     static let  ContactUs                           =      "ContactUs"
@@ -45,10 +47,22 @@ struct ConstantTexts{
     static let  Sucess_Lottie                       =      "Sucess_Lottie"
     
     //TODO: Label Text
+    
+    static let  LawyerNameLT                        =      "Lawyer Name"
+    static let  DateLT                              =      "Date"
+    static let  TimeLT                              =      "Time"
+    static let  ConsultationCostLT                  =      "Consultation Cost"
+    static let  FooterLT                            =      "You will receice a confirmation email with your consultation details.\nClick the Continue button to describe your query so that the lawyer will be able to assist you better."
+    static let  ConsultationTypeLT                  =      "Consultation Type"
+    static let  ConsultationCaseTypeLT              =      "Consultation Case Type"
+    static let  CallConsultationLT                  =      "Call Consultation"
+    static let  MeetConsultationLT                  =      "Meet Consultation"
+    
     static let  SelectYourOptionLT                  =      "Select your option"
     static let  GalleryLT                           =      "Gallery"
     static let  DocumetsLT                          =      "Documents"
     static let  CameraLT                            =      "Camera"
+    static let  ConsultationPaymentLT               =      "Consultation Payment"
     
     static let  UploadDocumentInsLT                 =      "If you have any additional documents, kindly upload the same in the above space."
     static let  UploadDocumentLT                    =      "Upload document"
@@ -70,6 +84,7 @@ struct ConstantTexts{
     static let  FAQs_LT                             =      "FAQ's"
     static let  Share_LT                            =      "Share"
     static let  Custom_Payment_LT                   =      "Custom Payment"
+    static let  PaymentSuccessfull_LT               =      "Payment Successful"
     static let  RateUs_LT                           =      "Rate Us"
     static let  AboutUs_LT                          =      "About Us"
     static let  UnderConstruction_LT                =      "Our app is in under construction."
@@ -85,6 +100,8 @@ struct ConstantTexts{
     static let  Delete_LT                           =      "Delete"
     static let  PM_LT                               =      "PM"
     static let  PaySummary_LT                       =      "Payment Summary"
+    static let  UserDetail_LT                       =      "User Details"
+    static let  ConsultationDetail_LT               =      "Consultation Details"
     static let  OriginalPrice_LT                    =      "Original Price"
     static let  CouponApplied_LT                    =      "Coupon Applied"
     static let  Gst_LT                              =      "GST @"
@@ -196,6 +213,7 @@ struct ConstantTexts{
     static let  CancelBT                            =      "Cancel"
     static let  MeetBT                              =      "MEET"
     static let  ClearFiltersBT                      =      "Clear Filters"
+    static let  ChangeDateAndTimeBT                 =      "Change Date & Time"
     static let  ClearFiltersStateBT                 =      "Are you sure?\nyou want to clear all filters!"
     static let  CallBT                              =      "CALL"
     static let  LIST_VIEW_BT                        =      "LIST VIEW"
@@ -204,6 +222,7 @@ struct ConstantTexts{
     static let  LawyerBT                            =      "For Lawyer"
     static let  CustomerBT                          =      "For Customer"
     static let  SendOTP_BT                          =      "Send OTP"
+    static let  GoToHome_BT                         =      "Go to Home"
     static let  BookConsul_BT                       =      "Book Consultation"
     static let  CheckOut_BT                         =      "Checkout"
     static let  Done_BT                             =      "Done"

@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		60A4981F1A2DBDAFE057C4A4 /* Pods_Lawyer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45DA8F93A7D1E679C264CC8A /* Pods_Lawyer.framework */; };
-		9A4BE612EFC5ABDB6DF23BF3 /* Pods_Lawyer_LawyerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 326DA82A803D9E943531292B /* Pods_Lawyer_LawyerUITests.framework */; };
+		08D3BF277307C2A418BCA4DF /* Pods_LawyerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4559D93FF729DA59AFDF40F8 /* Pods_LawyerTests.framework */; };
 		9D00E1FB24C7625900F6FC74 /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D00E1FA24C7625900F6FC74 /* OnboardingVC.swift */; };
 		9D00E1FF24C7E02900F6FC74 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D00E1FE24C7E02900F6FC74 /* OnboardingView.swift */; };
 		9D00E20124C7E0F500F6FC74 /* OnboardingVC+MethodExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D00E20024C7E0F500F6FC74 /* OnboardingVC+MethodExtension.swift */; };
@@ -24,6 +23,11 @@
 		9D0B58FD24D52FE800AACE59 /* SignUpVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0B58FC24D52FE800AACE59 /* SignUpVM.swift */; };
 		9D0B58FF24D5390000AACE59 /* SignUpVC+UITextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0B58FE24D5390000AACE59 /* SignUpVC+UITextFieldDelegate.swift */; };
 		9D0B590124D5396400AACE59 /* SignUpVC+TableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0B590024D5396400AACE59 /* SignUpVC+TableViewExtension.swift */; };
+		9D0FF1DE250B85FB0048F26F /* PaymentVC+RazorpayPaymentCompletionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FF1DD250B85FB0048F26F /* PaymentVC+RazorpayPaymentCompletionProtocol.swift */; };
+		9D0FF1E0250BAA4C0048F26F /* CryptoAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FF1DF250BAA4C0048F26F /* CryptoAlgorithm.swift */; };
+		9D0FF1E3250C11D20048F26F /* PaymentCompleteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FF1E2250C11D20048F26F /* PaymentCompleteVC.swift */; };
+		9D0FF1E5250C12480048F26F /* PaymentCompleteVC+CustomMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FF1E4250C12480048F26F /* PaymentCompleteVC+CustomMethods.swift */; };
+		9D0FF1E7250C14C50048F26F /* wallet_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D0FF1E6250C14C50048F26F /* wallet_animation.json */; };
 		9D1F382F24F29B6000AD7D1C /* ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D1F382E24F29B6000AD7D1C /* ErrorView.xib */; };
 		9D233DEA24DEFB7400B2F1C9 /* SweetAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D233DE924DEFB7400B2F1C9 /* SweetAlert.swift */; };
 		9D233DED24DF0BF500B2F1C9 /* UnderConstructionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D233DEC24DF0BF500B2F1C9 /* UnderConstructionVC.swift */; };
@@ -245,9 +249,10 @@
 		9DFFC28924C9CF2C00A50EA0 /* UINavigationBarButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFFC28824C9CF2C00A50EA0 /* UINavigationBarButtonType.swift */; };
 		9DFFC28B24C9D30300A50EA0 /* NSObject+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFFC28A24C9D30300A50EA0 /* NSObject+Extensions.swift */; };
 		9DFFC28D24C9D36B00A50EA0 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFFC28C24C9D36B00A50EA0 /* UIImageView+Extensions.swift */; };
-		D10EC34B4DF71868958C1BCF /* Pods_LawyerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFEB3A9D5B43AC03C1E6DCFD /* Pods_LawyerTests.framework */; };
+		D820B729886071F1C5C06913 /* Pods_Lawyer_LawyerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2098A98B1A9B408DDE5DB414 /* Pods_Lawyer_LawyerUITests.framework */; };
 		E6F24F1D25050B36007643A4 /* SBaseViewController+UIImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F24F1C25050B36007643A4 /* SBaseViewController+UIImagePicker.swift */; };
 		E6F24F1F250512CD007643A4 /* SBaseViewController+UIDocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F24F1E250512CD007643A4 /* SBaseViewController+UIDocumentPicker.swift */; };
+		F0806349735CAE0D4722123D /* Pods_Lawyer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30F06BDD0DF68F772666BB55 /* Pods_Lawyer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -268,11 +273,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		326DA82A803D9E943531292B /* Pods_Lawyer_LawyerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lawyer_LawyerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3FF7BB2B4C7C7C453B6173FC /* Pods-LawyerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LawyerTests.release.xcconfig"; path = "Target Support Files/Pods-LawyerTests/Pods-LawyerTests.release.xcconfig"; sourceTree = "<group>"; };
-		45DA8F93A7D1E679C264CC8A /* Pods_Lawyer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lawyer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		522DE2D600BC60AA7911C429 /* Pods-LawyerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LawyerTests.debug.xcconfig"; path = "Target Support Files/Pods-LawyerTests/Pods-LawyerTests.debug.xcconfig"; sourceTree = "<group>"; };
-		876E388FAD2EAC95D0814C8E /* Pods-Lawyer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lawyer.release.xcconfig"; path = "Target Support Files/Pods-Lawyer/Pods-Lawyer.release.xcconfig"; sourceTree = "<group>"; };
+		13FC9C3452FF638AB3340275 /* Pods-Lawyer-LawyerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lawyer-LawyerUITests.release.xcconfig"; path = "Target Support Files/Pods-Lawyer-LawyerUITests/Pods-Lawyer-LawyerUITests.release.xcconfig"; sourceTree = "<group>"; };
+		18E38A67BC0ADA120E7E2D3B /* Pods-LawyerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LawyerTests.release.xcconfig"; path = "Target Support Files/Pods-LawyerTests/Pods-LawyerTests.release.xcconfig"; sourceTree = "<group>"; };
+		2098A98B1A9B408DDE5DB414 /* Pods_Lawyer_LawyerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lawyer_LawyerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		30F06BDD0DF68F772666BB55 /* Pods_Lawyer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lawyer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		417E23BFFB4ECE1DE5BD6B8A /* Pods-Lawyer-LawyerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lawyer-LawyerUITests.debug.xcconfig"; path = "Target Support Files/Pods-Lawyer-LawyerUITests/Pods-Lawyer-LawyerUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		4559D93FF729DA59AFDF40F8 /* Pods_LawyerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LawyerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B22A9786F0EB641509E8819 /* Pods-LawyerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LawyerTests.debug.xcconfig"; path = "Target Support Files/Pods-LawyerTests/Pods-LawyerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9D00E1FA24C7625900F6FC74 /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
 		9D00E1FE24C7E02900F6FC74 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		9D00E20024C7E0F500F6FC74 /* OnboardingVC+MethodExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OnboardingVC+MethodExtension.swift"; sourceTree = "<group>"; };
@@ -288,6 +295,11 @@
 		9D0B58FC24D52FE800AACE59 /* SignUpVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVM.swift; sourceTree = "<group>"; };
 		9D0B58FE24D5390000AACE59 /* SignUpVC+UITextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpVC+UITextFieldDelegate.swift"; sourceTree = "<group>"; };
 		9D0B590024D5396400AACE59 /* SignUpVC+TableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpVC+TableViewExtension.swift"; sourceTree = "<group>"; };
+		9D0FF1DD250B85FB0048F26F /* PaymentVC+RazorpayPaymentCompletionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PaymentVC+RazorpayPaymentCompletionProtocol.swift"; sourceTree = "<group>"; };
+		9D0FF1DF250BAA4C0048F26F /* CryptoAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoAlgorithm.swift; sourceTree = "<group>"; };
+		9D0FF1E2250C11D20048F26F /* PaymentCompleteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentCompleteVC.swift; sourceTree = "<group>"; };
+		9D0FF1E4250C12480048F26F /* PaymentCompleteVC+CustomMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PaymentCompleteVC+CustomMethods.swift"; sourceTree = "<group>"; };
+		9D0FF1E6250C14C50048F26F /* wallet_animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = wallet_animation.json; sourceTree = "<group>"; };
 		9D1F382E24F29B6000AD7D1C /* ErrorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ErrorView.xib; sourceTree = "<group>"; };
 		9D233DE924DEFB7400B2F1C9 /* SweetAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SweetAlert.swift; sourceTree = "<group>"; };
 		9D233DEC24DF0BF500B2F1C9 /* UnderConstructionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderConstructionVC.swift; sourceTree = "<group>"; };
@@ -401,6 +413,7 @@
 		9D948F2F24D5FB6000AB41F0 /* CategoryCollectionViewCellAndXib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCellAndXib.swift; sourceTree = "<group>"; };
 		9D948F3024D5FB6000AB41F0 /* CategoryCollectionViewCellAndXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCollectionViewCellAndXib.xib; sourceTree = "<group>"; };
 		9D948F3324D5FFF900AB41F0 /* HomeVC+CollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeVC+CollectionViewExtension.swift"; sourceTree = "<group>"; };
+		9D9A8C2F60E31CEA13E5608D /* Pods-Lawyer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lawyer.debug.xcconfig"; path = "Target Support Files/Pods-Lawyer/Pods-Lawyer.debug.xcconfig"; sourceTree = "<group>"; };
 		9D9E71F624DC32CB005805D7 /* FilterPopup_VC+CustomMethodExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FilterPopup_VC+CustomMethodExtension.swift"; sourceTree = "<group>"; };
 		9D9E71F824DC3F2A005805D7 /* FilterTableViewCellAndXib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTableViewCellAndXib.swift; sourceTree = "<group>"; };
 		9D9E71F924DC3F2A005805D7 /* FilterTableViewCellAndXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterTableViewCellAndXib.xib; sourceTree = "<group>"; };
@@ -515,13 +528,10 @@
 		9DFFC28824C9CF2C00A50EA0 /* UINavigationBarButtonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationBarButtonType.swift; sourceTree = "<group>"; };
 		9DFFC28A24C9D30300A50EA0 /* NSObject+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extensions.swift"; sourceTree = "<group>"; };
 		9DFFC28C24C9D36B00A50EA0 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
-		BEC651E83D960877E9656F60 /* Pods-Lawyer-LawyerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lawyer-LawyerUITests.release.xcconfig"; path = "Target Support Files/Pods-Lawyer-LawyerUITests/Pods-Lawyer-LawyerUITests.release.xcconfig"; sourceTree = "<group>"; };
-		BFEB3A9D5B43AC03C1E6DCFD /* Pods_LawyerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LawyerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C0B07C65B4ABEAB0B009AECB /* Pods-Lawyer-LawyerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lawyer-LawyerUITests.debug.xcconfig"; path = "Target Support Files/Pods-Lawyer-LawyerUITests/Pods-Lawyer-LawyerUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		C9A975276AC8C71DC61ACA37 /* Pods-Lawyer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lawyer.debug.xcconfig"; path = "Target Support Files/Pods-Lawyer/Pods-Lawyer.debug.xcconfig"; sourceTree = "<group>"; };
 		E6F24F1B2504FDD4007643A4 /* Lawyer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Lawyer.entitlements; sourceTree = "<group>"; };
 		E6F24F1C25050B36007643A4 /* SBaseViewController+UIImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SBaseViewController+UIImagePicker.swift"; sourceTree = "<group>"; };
 		E6F24F1E250512CD007643A4 /* SBaseViewController+UIDocumentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SBaseViewController+UIDocumentPicker.swift"; sourceTree = "<group>"; };
+		FEAFD6B71A586A3C02F7E8BE /* Pods-Lawyer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lawyer.release.xcconfig"; path = "Target Support Files/Pods-Lawyer/Pods-Lawyer.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -529,7 +539,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				60A4981F1A2DBDAFE057C4A4 /* Pods_Lawyer.framework in Frameworks */,
+				F0806349735CAE0D4722123D /* Pods_Lawyer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -537,7 +547,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D10EC34B4DF71868958C1BCF /* Pods_LawyerTests.framework in Frameworks */,
+				08D3BF277307C2A418BCA4DF /* Pods_LawyerTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -545,7 +555,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A4BE612EFC5ABDB6DF23BF3 /* Pods_Lawyer_LawyerUITests.framework in Frameworks */,
+				D820B729886071F1C5C06913 /* Pods_Lawyer_LawyerUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -560,6 +570,15 @@
 				9D00E20224C7E19800F6FC74 /* OnboardingVC+paper_onboardingExtension.swift */,
 			);
 			path = OnboardingScreen;
+			sourceTree = "<group>";
+		};
+		9D0FF1E1250C11990048F26F /* PaymentCompleteScreenPopUp */ = {
+			isa = PBXGroup;
+			children = (
+				9D0FF1E2250C11D20048F26F /* PaymentCompleteVC.swift */,
+				9D0FF1E4250C12480048F26F /* PaymentCompleteVC+CustomMethods.swift */,
+			);
+			path = PaymentCompleteScreenPopUp;
 			sourceTree = "<group>";
 		};
 		9D233DE824DEFB4D00B2F1C9 /* SweetAleart */ = {
@@ -587,7 +606,7 @@
 				9D25569524C1DCAB006563AC /* LawyerUITests */,
 				9D25567224C1DCAA006563AC /* Products */,
 				C64139B8F84DE84A41F24DA9 /* Pods */,
-				F8F008B2522DFBDA2ADE1D8C /* Frameworks */,
+				F906F6C115E0F7913C5C0EAB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -664,6 +683,7 @@
 		9D4C683124C59DF30064E935 /* HomeScreens */ = {
 			isa = PBXGroup;
 			children = (
+				9D0FF1E1250C11990048F26F /* PaymentCompleteScreenPopUp */,
 				9DCED48425010BD900BCFEF3 /* UploadDocumentScreen */,
 				9DD38ADE24FEA3AE00EA4D1C /* LawyerProfileScreen */,
 				9D67B12024E075670074B3F2 /* ContactUsScreen */,
@@ -782,6 +802,7 @@
 				9D787D8524C9848C00EB22D2 /* ValidationProtocol.swift */,
 				9D787D8324C9834E00EB22D2 /* ValidationClass.swift */,
 				9D00E1FE24C7E02900F6FC74 /* OnboardingView.swift */,
+				9D0FF1DF250BAA4C0048F26F /* CryptoAlgorithm.swift */,
 			);
 			path = Helper_ClassesAndProtocols;
 			sourceTree = "<group>";
@@ -1080,6 +1101,7 @@
 			children = (
 				9D9E722C24DD9E3E005805D7 /* PaymentVC.swift */,
 				9D9E722E24DD9E63005805D7 /* PaymentVC+MethodExtension.swift */,
+				9D0FF1DD250B85FB0048F26F /* PaymentVC+RazorpayPaymentCompletionProtocol.swift */,
 				9D9E723424DDBB0E005805D7 /* PaymentVC+TableViewExtension.swift */,
 				9D9E724824DE05AE005805D7 /* PaymentVC+UITextFieldDelegate.swift */,
 				9D9E724224DDEFD4005805D7 /* PaymentVM.swift */,
@@ -1155,6 +1177,7 @@
 		9DDC564424DB44B9002DD47D /* AnimationFiles */ = {
 			isa = PBXGroup;
 			children = (
+				9D0FF1E6250C14C50048F26F /* wallet_animation.json */,
 				9D91F9972504EACC005ED5E0 /* Sucess_Lottie.json */,
 				9DE78DE125015386008CEC40 /* search_doc.json */,
 				9DE78DD92501293C008CEC40 /* Upload_filesHeader.json */,
@@ -1208,22 +1231,22 @@
 		C64139B8F84DE84A41F24DA9 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				C9A975276AC8C71DC61ACA37 /* Pods-Lawyer.debug.xcconfig */,
-				876E388FAD2EAC95D0814C8E /* Pods-Lawyer.release.xcconfig */,
-				C0B07C65B4ABEAB0B009AECB /* Pods-Lawyer-LawyerUITests.debug.xcconfig */,
-				BEC651E83D960877E9656F60 /* Pods-Lawyer-LawyerUITests.release.xcconfig */,
-				522DE2D600BC60AA7911C429 /* Pods-LawyerTests.debug.xcconfig */,
-				3FF7BB2B4C7C7C453B6173FC /* Pods-LawyerTests.release.xcconfig */,
+				9D9A8C2F60E31CEA13E5608D /* Pods-Lawyer.debug.xcconfig */,
+				FEAFD6B71A586A3C02F7E8BE /* Pods-Lawyer.release.xcconfig */,
+				417E23BFFB4ECE1DE5BD6B8A /* Pods-Lawyer-LawyerUITests.debug.xcconfig */,
+				13FC9C3452FF638AB3340275 /* Pods-Lawyer-LawyerUITests.release.xcconfig */,
+				5B22A9786F0EB641509E8819 /* Pods-LawyerTests.debug.xcconfig */,
+				18E38A67BC0ADA120E7E2D3B /* Pods-LawyerTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		F8F008B2522DFBDA2ADE1D8C /* Frameworks */ = {
+		F906F6C115E0F7913C5C0EAB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				45DA8F93A7D1E679C264CC8A /* Pods_Lawyer.framework */,
-				326DA82A803D9E943531292B /* Pods_Lawyer_LawyerUITests.framework */,
-				BFEB3A9D5B43AC03C1E6DCFD /* Pods_LawyerTests.framework */,
+				30F06BDD0DF68F772666BB55 /* Pods_Lawyer.framework */,
+				2098A98B1A9B408DDE5DB414 /* Pods_Lawyer_LawyerUITests.framework */,
+				4559D93FF729DA59AFDF40F8 /* Pods_LawyerTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1235,12 +1258,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9D25569B24C1DCAB006563AC /* Build configuration list for PBXNativeTarget "Lawyer" */;
 			buildPhases = (
-				ACAB0559593598221A6CD85F /* [CP] Check Pods Manifest.lock */,
+				BA4B9934EA2682023E1EDC35 /* [CP] Check Pods Manifest.lock */,
 				9D25566D24C1DCAA006563AC /* Sources */,
 				9D25566E24C1DCAA006563AC /* Frameworks */,
 				9D25566F24C1DCAA006563AC /* Resources */,
 				9D693EAA2503EEBE00C2CB71 /* ShellScript */,
-				14D84CBA4E3F930CA4FBDB4F /* [CP] Embed Pods Frameworks */,
+				55FCD5635497B356F9216478 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1255,7 +1278,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9D25569E24C1DCAB006563AC /* Build configuration list for PBXNativeTarget "LawyerTests" */;
 			buildPhases = (
-				B94717ACE7A23647AF6C6410 /* [CP] Check Pods Manifest.lock */,
+				3F5BF75A015D3888BDC54176 /* [CP] Check Pods Manifest.lock */,
 				9D25568324C1DCAB006563AC /* Sources */,
 				9D25568424C1DCAB006563AC /* Frameworks */,
 				9D25568524C1DCAB006563AC /* Resources */,
@@ -1274,11 +1297,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9D2556A124C1DCAB006563AC /* Build configuration list for PBXNativeTarget "LawyerUITests" */;
 			buildPhases = (
-				025D9C481200E40CC03EE4BF /* [CP] Check Pods Manifest.lock */,
+				BAC79835D3180D3DF207930C /* [CP] Check Pods Manifest.lock */,
 				9D25568E24C1DCAB006563AC /* Sources */,
 				9D25568F24C1DCAB006563AC /* Frameworks */,
 				9D25569024C1DCAB006563AC /* Resources */,
-				F1C868A200648E2085903F3F /* [CP] Embed Pods Frameworks */,
+				A3E63A5D7746AFCE33F9FEAA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1367,6 +1390,7 @@
 				9D948F3224D5FB6000AB41F0 /* CategoryCollectionViewCellAndXib.xib in Resources */,
 				9DDC563B24DB4486002DD47D /* OpenSans-ExtraBold.ttf in Resources */,
 				9DDC564124DB4486002DD47D /* Apache License.txt in Resources */,
+				9D0FF1E7250C14C50048F26F /* wallet_animation.json in Resources */,
 				9D5F2B4B24C6F81C00BA4015 /* LawyerShortDetailTableViewCell.xib in Resources */,
 				9DDC563D24DB4486002DD47D /* OpenSans-Semibold.ttf in Resources */,
 				9D25567C24C1DCAA006563AC /* Main.storyboard in Resources */,
@@ -1415,7 +1439,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		025D9C481200E40CC03EE4BF /* [CP] Check Pods Manifest.lock */ = {
+		3F5BF75A015D3888BDC54176 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1430,14 +1454,14 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Lawyer-LawyerUITests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-LawyerTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		14D84CBA4E3F930CA4FBDB4F /* [CP] Embed Pods Frameworks */ = {
+		55FCD5635497B356F9216478 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1473,7 +1497,24 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
 		};
-		ACAB0559593598221A6CD85F /* [CP] Check Pods Manifest.lock */ = {
+		A3E63A5D7746AFCE33F9FEAA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Lawyer-LawyerUITests/Pods-Lawyer-LawyerUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Lawyer-LawyerUITests/Pods-Lawyer-LawyerUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Lawyer-LawyerUITests/Pods-Lawyer-LawyerUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BA4B9934EA2682023E1EDC35 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1495,7 +1536,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B94717ACE7A23647AF6C6410 /* [CP] Check Pods Manifest.lock */ = {
+		BAC79835D3180D3DF207930C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1510,28 +1551,11 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-LawyerTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Lawyer-LawyerUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F1C868A200648E2085903F3F /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Lawyer-LawyerUITests/Pods-Lawyer-LawyerUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Lawyer-LawyerUITests/Pods-Lawyer-LawyerUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Lawyer-LawyerUITests/Pods-Lawyer-LawyerUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1553,6 +1577,7 @@
 				9D5F2B4224C6C7FD00BA4015 /* HomeVM.swift in Sources */,
 				9D0444612505520100055B40 /* DocumentDataModel.swift in Sources */,
 				9D37602C250A59AC0006DA2A /* State_DataModel.swift in Sources */,
+				9D0FF1E3250C11D20048F26F /* PaymentCompleteVC.swift in Sources */,
 				9D00E1FF24C7E02900F6FC74 /* OnboardingView.swift in Sources */,
 				9DEB6EC524D9E42A00ED3FD6 /* FilterViewModel.swift in Sources */,
 				9D787D7E24C942FF00EB22D2 /* OTP_VC.swift in Sources */,
@@ -1652,11 +1677,13 @@
 				9D80F43824EAB176004F64D1 /* All_India_Legal.xcdatamodeld in Sources */,
 				9DF205532506AC0700EFA740 /* DocumentViewModel.swift in Sources */,
 				9D80F43A24EB05EF004F64D1 /* User_Data_Model.swift in Sources */,
+				9D0FF1E5250C12480048F26F /* PaymentCompleteVC+CustomMethods.swift in Sources */,
 				9D948F2924D572F200AB41F0 /* OTP_VC+ VPMOTPViewDelegate.swift in Sources */,
 				9D31C57624FA6F4F005F6F13 /* LawyerListVC+MethodExtension.swift in Sources */,
 				9D9E720924DC836B005805D7 /* FilterPopup_VC+UISearchExtension.swift in Sources */,
 				9D67B12224E0759F0074B3F2 /* ContactUsVC.swift in Sources */,
 				9D645B9224DF368500A2B0F6 /* FAQ_DataModeling.swift in Sources */,
+				9D0FF1E0250BAA4C0048F26F /* CryptoAlgorithm.swift in Sources */,
 				9D9E724324DDEFD4005805D7 /* PaymentVM.swift in Sources */,
 				9DEB6EBA24D9DB5D00ED3FD6 /* FilterCollectionViewCell.swift in Sources */,
 				9D948F3424D5FFF900AB41F0 /* HomeVC+CollectionViewExtension.swift in Sources */,
@@ -1678,6 +1705,7 @@
 				9DFED3DD24D48F7800851570 /* DataStoreStruct_Model.swift in Sources */,
 				9DEB6EC724D9E73200ED3FD6 /* FilterListModeling.swift in Sources */,
 				9DF3D1C624FD3E5F00BC3B2B /* Array+Extensions.swift in Sources */,
+				9D0FF1DE250B85FB0048F26F /* PaymentVC+RazorpayPaymentCompletionProtocol.swift in Sources */,
 				9DDD4A0C24E9B3AA003CC77F /* SAuthApi.swift in Sources */,
 				9D86012124F29FEB00A4E3FE /* ErrorView.swift in Sources */,
 				9D645B9424DF36BC00A2B0F6 /* FAQ_VM.swift in Sources */,
@@ -1890,7 +1918,7 @@
 		};
 		9D25569C24C1DCAB006563AC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C9A975276AC8C71DC61ACA37 /* Pods-Lawyer.debug.xcconfig */;
+			baseConfigurationReference = 9D9A8C2F60E31CEA13E5608D /* Pods-Lawyer.debug.xcconfig */;
 			buildSettings = {
 				ALL_INDIA_LEGAL_BASE_SERVICE_URL = "https://www.allindialegal.com/v1/";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1914,7 +1942,7 @@
 		};
 		9D25569D24C1DCAB006563AC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 876E388FAD2EAC95D0814C8E /* Pods-Lawyer.release.xcconfig */;
+			baseConfigurationReference = FEAFD6B71A586A3C02F7E8BE /* Pods-Lawyer.release.xcconfig */;
 			buildSettings = {
 				ALL_INDIA_LEGAL_BASE_SERVICE_URL = "https://www.allindialegal.com/v1/";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1938,7 +1966,7 @@
 		};
 		9D25569F24C1DCAB006563AC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 522DE2D600BC60AA7911C429 /* Pods-LawyerTests.debug.xcconfig */;
+			baseConfigurationReference = 5B22A9786F0EB641509E8819 /* Pods-LawyerTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1965,7 +1993,7 @@
 		};
 		9D2556A024C1DCAB006563AC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3FF7BB2B4C7C7C453B6173FC /* Pods-LawyerTests.release.xcconfig */;
+			baseConfigurationReference = 18E38A67BC0ADA120E7E2D3B /* Pods-LawyerTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1992,7 +2020,7 @@
 		};
 		9D2556A224C1DCAB006563AC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C0B07C65B4ABEAB0B009AECB /* Pods-Lawyer-LawyerUITests.debug.xcconfig */;
+			baseConfigurationReference = 417E23BFFB4ECE1DE5BD6B8A /* Pods-Lawyer-LawyerUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -2012,7 +2040,7 @@
 		};
 		9D2556A324C1DCAB006563AC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BEC651E83D960877E9656F60 /* Pods-Lawyer-LawyerUITests.release.xcconfig */;
+			baseConfigurationReference = 13FC9C3452FF638AB3340275 /* Pods-Lawyer-LawyerUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

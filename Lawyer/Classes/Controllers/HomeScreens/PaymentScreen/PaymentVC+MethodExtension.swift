@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Razorpay
 extension PaymentVC{
     //TODO: Navigation setup implenemtation
     internal func navSetup(){
@@ -64,6 +65,15 @@ extension PaymentVC{
         self.tblPayment.backgroundColor = AppColor.tableBGColor
         registerNib()
         
+        self.header.viewUser.backgroundColor = AppColor.whiteColor
+        self.customMethodManager?.provideCornerBorderTo(self.header.viewUser, 0.8, AppColor.placeholderColor)
+        
+        self.header.lblUserHeading.font = AppFont.Bold.size(AppFontName.OpenSans, size: 14)
+        self.header.lblUserHeading.textColor = AppColor.themeColor
+        self.header.lblUserHeading.numberOfLines = 0
+        self.header.lblUserHeading.text = ConstantTexts.UserDetail_LT
+        
+        
         self.header.imgName.image = UIImage(systemName: "person.circle") ?? UIImage()
         self.header.imgName.setImageTintColor(AppColor.darkGrayColor)
         self.header.imgName.contentMode = .scaleToFill
@@ -85,8 +95,93 @@ extension PaymentVC{
         self.header.lblPhone.textColor = AppColor.darkGrayColor
         self.header.lblPhone.numberOfLines = 0
         
-        self.header.paymentSummaryTitle.font = AppFont.Semibold.size(AppFontName.OpenSans, size: 14)
-        self.header.paymentSummaryTitle.textColor = AppColor.darkGrayColor
+        var myMutableString = NSMutableAttributedString()
+        myMutableString.append(customMethodManager?.provideUnderlineAttributedText(text: "\(ConstantTexts.ChangeDateAndTimeBT)", font: AppFont.Bold.size(AppFontName.OpenSans, size: 10), AppColor.themeColor) ?? NSMutableAttributedString())
+        self.header.btnChangeDateRef.setAttributedTitle(myMutableString, for: .normal)
+        self.header.btnChangeDateRef.addTarget(self, action: #selector(btnbtnChangeDateTapped), for: .touchUpInside)
+        
+        
+        self.header.viewConsultation.backgroundColor = AppColor.whiteColor
+        self.customMethodManager?.provideCornerBorderTo(self.header.viewConsultation, 0.8, AppColor.placeholderColor)
+        
+        self.header.lblConsultationHeader.font = AppFont.Bold.size(AppFontName.OpenSans, size: 14)
+        self.header.lblConsultationHeader.textColor = AppColor.themeColor
+        self.header.lblConsultationHeader.numberOfLines = 0
+        self.header.lblConsultationHeader.text = ConstantTexts.ConsultationDetail_LT
+        
+        self.header.lblDetailLeft.numberOfLines = 0
+        self.header.lblDetailRightt.numberOfLines = 0
+        
+        // *** Create instance of `NSMutableParagraphStyle`
+        let paragraphStyleLeft = NSMutableParagraphStyle()
+        paragraphStyleLeft.alignment = .left
+        
+        // *** set LineSpacing property in points ***
+        paragraphStyleLeft.lineSpacing = 1 // Whatever line spacing you want in points
+        
+        myMutableString = NSMutableAttributedString()
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\(ConstantTexts.LawyerNameLT)\n", font: AppFont.Semibold.size(AppFontName.OpenSans, size: 12), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
+        
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\(lawyer.FullName)\n\n", font: AppFont.Regular.size(AppFontName.OpenSans, size: 10), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
+        
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\(ConstantTexts.DateLT)\n", font: AppFont.Semibold.size(AppFontName.OpenSans, size: 12), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
+        
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\(self.date)\n\n", font: AppFont.Regular.size(AppFontName.OpenSans, size: 10), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
+        
+     
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\(ConstantTexts.ConsultationCostLT)\n", font: AppFont.Semibold.size(AppFontName.OpenSans, size: 12), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
+        
+        self.amountPaid = round(Double(self.price) ?? 0.0)
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\(ConstantTexts.CurLT) \(self.amountPaid)", font: AppFont.Regular.size(AppFontName.OpenSans, size: 10), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
+        
+        
+        // *** Apply attribute to string ***
+        myMutableString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyleLeft, range:NSMakeRange(0, myMutableString.length))
+        self.header.lblDetailLeft.attributedText = myMutableString
+        
+        
+        
+        
+        
+        
+        // *** Create instance of `NSMutableParagraphStyle`
+        let paragraphStyleRight = NSMutableParagraphStyle()
+        paragraphStyleRight.alignment = .right
+        
+        // *** set LineSpacing property in points ***
+        paragraphStyleRight.lineSpacing = 1 // Whatever line spacing you want in points
+        
+        myMutableString = NSMutableAttributedString()
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\(ConstantTexts.ConsultationTypeLT)\n", font: AppFont.Semibold.size(AppFontName.OpenSans, size: 12), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
+        
+        
+        let c_type:String = self.type == "0" ? ConstantTexts.CallConsultationLT : ConstantTexts.MeetConsultationLT
+        
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\(c_type)\n\n", font: AppFont.Regular.size(AppFontName.OpenSans, size: 10), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
+        
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\(ConstantTexts.TimeLT)\n", font: AppFont.Semibold.size(AppFontName.OpenSans, size: 12), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
+        
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\(self.selectedSlot)\n\n", font: AppFont.Regular.size(AppFontName.OpenSans, size: 10), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
+        
+        
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\(ConstantTexts.ConsultationCaseTypeLT)\n", font: AppFont.Semibold.size(AppFontName.OpenSans, size: 12), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
+        
+        self.amountPaid = round(Double(self.price) ?? 0.0)
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\(self.expName)", font: AppFont.Regular.size(AppFontName.OpenSans, size: 10), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
+        
+        
+        // *** Apply attribute to string ***
+        myMutableString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyleRight, range:NSMakeRange(0, myMutableString.length))
+        self.header.lblDetailRightt.attributedText = myMutableString
+        
+        self.header.viewPayment.backgroundColor = AppColor.whiteColor
+        self.customMethodManager?.provideCornerBorderTo(self.header.viewPayment, 0.8, AppColor.placeholderColor)
+        
+        
+        
+        
+        self.header.paymentSummaryTitle.font = AppFont.Bold.size(AppFontName.OpenSans, size: 14)
+        self.header.paymentSummaryTitle.textColor = AppColor.themeColor
         self.header.paymentSummaryTitle.numberOfLines = 0
         self.header.paymentSummaryTitle.text = ConstantTexts.PaySummary_LT
         
@@ -160,7 +255,7 @@ extension PaymentVC{
         self.header.lblEmail.text = user.Email
         self.header.lblPhone.text = "\(ConstantTexts.CountryCodeLT)\(ConstantTexts.DashLT)\(user.Mobile)"
         
-        self.amountPaid = round(Double(self.price) ?? 0.0)
+        
         self.header.originalPriceValue.text = "\(ConstantTexts.CurLT) \(self.amountPaid)"
         
         self.gst18Paid = round(self.getPercentValue(value: self.amountPaid, percentage: 18.0))
@@ -177,7 +272,7 @@ extension PaymentVC{
         paragraphStyle.lineSpacing = 1 // Whatever line spacing you want in points
         
         
-        let myMutableString = NSMutableAttributedString()
+        myMutableString = NSMutableAttributedString()
         myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\(ConstantTexts.HaveGSTIN_LT)\n", font: AppFont.Semibold.size(AppFontName.OpenSans, size: 14), color: AppColor.textColor) ?? NSMutableAttributedString())
         
         if self.header.switch_Ref.isOn{
@@ -247,15 +342,10 @@ extension PaymentVC{
                         if row != 2{
                             cell.textField.becomeFirstResponder()
                         }
-                        
-                        
                     }
-                    
-                    
                 }
             })
         }
-        
     }
     
     
@@ -314,11 +404,10 @@ extension PaymentVC{
                                     self.header.btnApplyRef.backgroundColor = AppColor.tableBGColor
                                     self.header.btnApplyRef.setTitleColor(AppColor.darkGrayColor, for: .normal)
                                     self.header.btnApplyRef.setTitle(ConstantTexts.Applied_BT, for: .normal)
-                                    
                                     print(self.amountPaid)
                                 }
                             }
-
+                            
                             _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style:.success)
                         }
                     }else if code == 401{
@@ -375,12 +464,12 @@ extension PaymentVC{
                           Api_keys_model.LawyerId: self.Uuid,
                           Api_keys_model.Name: user.Fullname,
                           Api_keys_model.MobileNo: "\(ConstantTexts.CountryCodeLT) \(user.Mobile)",
-                          Api_keys_model.Email: user.Email,
-                          Api_keys_model.QueryData: self.desc,
-                          Api_keys_model.Receipt:"\(100000 + arc4random_uniform(900000))",
-                          Api_keys_model.StateName: self.stateName,
-                          Api_keys_model.StateId: self.stateID,
-                          Api_keys_model.CoupanCode:"\(self.header.txtCoupon.text!.trimmingCharacters(in: .whitespacesAndNewlines))"] as [String:AnyObject]
+            Api_keys_model.Email: user.Email,
+            Api_keys_model.QueryData: self.desc,
+            Api_keys_model.Receipt:"\(100000 + arc4random_uniform(900000))",
+            Api_keys_model.StateName: self.stateName,
+            Api_keys_model.StateId: self.stateID,
+            Api_keys_model.CoupanCode:"\(self.header.txtCoupon.text!.trimmingCharacters(in: .whitespacesAndNewlines))"] as [String:AnyObject]
         
         let header = ["authorization":user.token,
                       "Content-Type":"application/json",
@@ -394,13 +483,41 @@ extension PaymentVC{
                 if let code = result_Dict.value(forKey: "code") as? Int{
                     if code == 200{
                         
-                        if let message = result_Dict.value(forKey: "message") as? String{
+                        if let _ = result_Dict.value(forKey: "message") as? String{
                             
                             if let data = result_Dict.value(forKey: "data") as? NSDictionary{
                                 print(data)
+                                if let OrderId = data.value(forKey: "OrderId") as? String{
+                                    self.OrderId = OrderId
+                                }
+                                
+                                if let Key = data.value(forKey: "Key") as? String{
+                                    self.Key = Key
+                                }
+                                
+                                if let BookedConsulationId = data.value(forKey: "BookedConsulation") as? String{
+                                    self.BookedConsulationId = BookedConsulationId
+                                }
+                                
+                                if let BookedConsulationId = data.value(forKey: "BookedConsulation") as? Int{
+                                    self.BookedConsulationId = "\(BookedConsulationId)"
+                                }
+                                
+                                
+                                self.showPaymentForm()
                             }
-                            _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style:.success)
+                            
                         }
+                    }else if code == 404{
+                        if let message = result_Dict.value(forKey: "message") as? String{
+                            _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style: .error, buttonTitle: ConstantTexts.OkBT, action: { (status) in
+                                if status{
+                                    super.goBackToIndex(2)
+                                    
+                                }
+                            })
+                        }
+                        
                     }else if code == 401{
                         if let message = result_Dict.value(forKey: "message") as? String{
                             _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style: .error, buttonTitle: ConstantTexts.OkBT, action: { (status) in
@@ -432,6 +549,91 @@ extension PaymentVC{
             
         }
     }
+    
+    
+    
+    //TODO: create-order Service
+    internal func hitCheckPaymentService(){
+        guard let user = self.customMethodManager?.getUser(entity: "User_Data") else{
+            print("No user found...")
+            return
+        }
+        let parameters = [Api_keys_model.RazorpayOrderId: self.OrderId,
+                          Api_keys_model.RazorpayPaymentId: self.RazorpayPaymentId,
+                          Api_keys_model.RazorpaySignature:self.generated_signature,
+                          Api_keys_model.TaxAmount: "\(self.gst18Paid)",
+            Api_keys_model.Amount: "\(self.amountPaid)",
+            Api_keys_model.BookedConsulationId: self.BookedConsulationId] as [String:AnyObject]
+        
+        let header = ["authorization":user.token,
+                      "Content-Type":"application/json",
+                      "accept":"application/json"]
+        
+        self.customMethodManager?.startLoader(view:self.view)
+        ServiceClass.shared.webServiceBasicMethod(url: SCustomerApi.check_payment, method: .post, parameters: parameters, header: header, success: { (result) in
+            self.customMethodManager?.stopLoader(view:self.view)
+            print(result)
+            if let result_Dict = result as? NSDictionary{
+                if let code = result_Dict.value(forKey: "code") as? Int{
+                    if code == 200{
+                        if let message = result_Dict.value(forKey: "message") as? String{
+                            _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style: .success, buttonTitle: ConstantTexts.OkBT, action: { (status) in
+                                if status{
+                                    print("Screen new wali par le jao")
+                                    let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: PaymentCompleteVC.className) as! PaymentCompleteVC
+                                    vc.lawyer = self.lawyer
+                                    vc.date = self.date
+                                    vc.time = self.selectedSlot
+                                    vc.type = self.type == "0" ? ConstantTexts.CallConsultationLT : ConstantTexts.MeetConsultationLT
+                                    vc.cost = "\(ConstantTexts.CurLT) \(self.amountPaid)"
+                                    
+                                    self.navigationController?.pushViewController(vc, animated: true)
+                                    
+                                }
+                            })
+                        }
+                    }else if code == 404{
+                        if let message = result_Dict.value(forKey: "message") as? String{
+                            _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style: .error, buttonTitle: ConstantTexts.OkBT, action: { (status) in
+                                if status{
+                                    super.goBackToIndex(2)
+                                    
+                                }
+                            })
+                        }
+                        
+                    }else if code == 401{
+                        if let message = result_Dict.value(forKey: "message") as? String{
+                            _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style: .error, buttonTitle: ConstantTexts.OkBT, action: { (status) in
+                                if status{
+                                    self.customMethodManager?.deleteAllData(entity: "User_Data", success: {
+                                        super.moveToNextViewCViaRoot(name: ConstantTexts.AuthSBT, withIdentifier: LoginVC.className)
+                                    })
+                                }
+                            })
+                        }
+                    }else{
+                        
+                        if let message = result_Dict.value(forKey: "message") as? String{
+                            _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style:.error)
+                        }
+                        
+                    }
+                }
+            }
+            
+        }) { (error) in
+            print(error)
+            self.customMethodManager?.stopLoader(view:self.view)
+            if let errorString = (error as NSError).userInfo[ConstantTexts.errorMessage_Key] as? String{
+                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: errorString, style:.error)
+            }else{
+                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: ConstantTexts.errorMessage, style:.error)
+            }
+            
+        }
+    }
+    
     
     
 }

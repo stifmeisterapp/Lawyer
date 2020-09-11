@@ -20,6 +20,9 @@ class AppointmentVC: SBaseViewController {
     @IBOutlet weak var tblAppointment: UITableView!
     
     //MARK: - Variables
+    
+    internal var lawyer:Lawyer_Model = Lawyer_Model(CityName: String(), ConsulationType_Call_Fee: String(), ConsulationType_Meet_Fee: String(), ConsulationType_Video_Call_Fee: String(), Experience_Name: String(), Expertise_String: String(), FullName: String(), Id: String(), Language_String: String(), ProfilePhoto: String(), Uuid: String())
+    
     internal let dropDown = DropDown()
     internal var customMethodManager:CustomMethodProtocol?
     internal let footer: AppointmentFooterView  = Bundle.main.loadNibNamed(AppointmentFooterView.className, owner: self, options: nil)?.last as! AppointmentFooterView
@@ -167,6 +170,7 @@ class AppointmentVC: SBaseViewController {
                                     vc.type = self.type
                                     vc.expID = self.expID
                                     vc.expName = self.expName
+                                    vc.lawyer = self.lawyer
                                     self.navigationController?.pushViewController(vc, animated: true)
                                     
                                 }else{

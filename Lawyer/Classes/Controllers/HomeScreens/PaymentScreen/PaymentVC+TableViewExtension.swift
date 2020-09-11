@@ -84,17 +84,17 @@ extension PaymentVC:UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if self.header.switch_Ref.isOn{
-            return 430
+            return 665
         }else{
-            return 390
+            return 630
         }
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
         if self.header.switch_Ref.isOn{
-            return 430
+            return 665
         }else{
-            return 390
+            return 630
         }
     }
     

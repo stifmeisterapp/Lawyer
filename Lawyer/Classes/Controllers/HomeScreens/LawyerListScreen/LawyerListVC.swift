@@ -280,7 +280,7 @@ class LawyerListVC: SBaseViewController {
                                 vc.Uuid = item.Uuid
                                 vc.price = item.ConsulationType_Meet_Fee
                                 vc.type = "1"
-                               
+                                vc.lawyer = item.lawyer
                                 self.navigationController?.pushViewController(vc, animated: true)
                                 
                             }
@@ -315,7 +315,7 @@ class LawyerListVC: SBaseViewController {
                                 vc.Uuid = item.Uuid
                                 vc.price = item.ConsulationType_Call_Fee
                                 vc.type = "0"
-                               
+                                vc.lawyer = item.lawyer
                                 self.navigationController?.pushViewController(vc, animated: true)
                                 
                             }
@@ -357,7 +357,7 @@ class LawyerListVC: SBaseViewController {
                                 vc.imageURL = item.ProfilePhoto
                                 vc.callPrice = item.ConsulationType_Call_Fee
                                 vc.meetPrice = item.ConsulationType_Meet_Fee
-                                                               
+                                vc.lawyer = item.lawyer
                                 self.navigationController?.pushViewController(vc, animated: true)
                             }
                         }

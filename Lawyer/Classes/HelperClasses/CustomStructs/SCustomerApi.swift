@@ -15,4 +15,5 @@ struct SCustomerApi {
     public static let check_bookingslot              = "check-bookingslot"
     public static let check_coupon                   = "check-coupon"
     public static let create_order                   = "create-order"
+    public static let check_payment                  = "check-payment"
 }

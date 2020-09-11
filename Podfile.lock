@@ -126,6 +126,7 @@ PODS:
   - paper-onboarding (6.1.5)
   - PromisesObjC (1.2.9)
   - Protobuf (3.12.0)
+  - razorpay-pod (1.1.7)
   - ReachabilitySwift (5.0.0)
   - SDWebImage (5.8.4):
     - SDWebImage/Core (= 5.8.4)
@@ -153,6 +154,7 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift
   - lottie-ios
   - paper-onboarding
+  - razorpay-pod (~> 1.1.7)
   - ReachabilitySwift
   - SDWebImage (~> 5.0)
   - SkeletonView
@@ -191,6 +193,7 @@ SPEC REPOS:
     - paper-onboarding
     - PromisesObjC
     - Protobuf
+    - razorpay-pod
     - ReachabilitySwift
     - SDWebImage
     - SkeletonView
@@ -228,6 +231,7 @@ SPEC CHECKSUMS:
   paper-onboarding: fede1799b1da6988f3788e3b71654583c6f3bce1
   PromisesObjC: b48e0338dbbac2207e611750777895f7a5811b75
   Protobuf: 2793fcd0622a00b546c60e7cbbcc493e043e9bb9
+  razorpay-pod: 6ee0c8c7afad8eead9524d5eb516bc35ac1604ef
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   SDWebImage: cf6922231e95550934da2ada0f20f2becf2ceba9
   SkeletonView: e37c282c1b228547b83daf47605f79c3aeb1df9a
@@ -238,6 +242,6 @@ SPEC CHECKSUMS:
   ViewAnimator: 5af1c6f3b310f012bf081259c43717aa54fbae73
   XCGLogger: 1943831ef907df55108b0b18657953f868de973b
 
-PODFILE CHECKSUM: 4bfddd48d0943501a406cd2a3ccbf9b88f05a078
+PODFILE CHECKSUM: 8558588f974068604f1e4b493d6b6c3a115d746b
 
 COCOAPODS: 1.8.4

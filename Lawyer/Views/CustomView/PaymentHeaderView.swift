@@ -12,15 +12,25 @@ class PaymentHeaderView: UIView {
 
     //MARK: - IBOutlet
     
+    @IBOutlet weak var viewUser: UIView!
+    @IBOutlet weak var lblUserHeading: UILabel!
     @IBOutlet weak var imgName: UIImageView!
     @IBOutlet weak var imgEmail: UIImageView!
     @IBOutlet weak var imgPhone: UIImageView!
     @IBOutlet weak var imgCoupon: UIImageView!
+    @IBOutlet weak var btnChangeDateRef: UIButton!
     
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var lblEmail: UILabel!
     @IBOutlet weak var lblPhone: UILabel!
     
+    @IBOutlet weak var viewConsultation: UIView!
+    @IBOutlet weak var lblConsultationHeader: UILabel!
+    @IBOutlet weak var lblDetailLeft: UILabel!
+    @IBOutlet weak var lblDetailRightt: UILabel!
+    
+    
+    @IBOutlet weak var viewPayment: UIView!
     @IBOutlet weak var paymentSummaryTitle: UILabel!
     
     @IBOutlet weak var originalPriceTitle: UILabel!
