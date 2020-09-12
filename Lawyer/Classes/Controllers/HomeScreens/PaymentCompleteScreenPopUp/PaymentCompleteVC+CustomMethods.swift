@@ -42,14 +42,14 @@ extension PaymentCompleteVC{
         self.customMethodManager?.provideCornerBorderTo(self.viewBG, 0.8, AppColor.placeholderColor)
         
         self.lblKeys.numberOfLines = 0
-        self.lblKeys.font = AppFont.Semibold.size(AppFontName.OpenSans, size: 14)
+        self.lblKeys.font = AppFont.Semibold.size(AppFontName.OpenSans, size: 10)
         self.lblKeys.textColor = AppColor.darkGrayColor
         self.lblKeys.textAlignment = .left
         self.lblKeys.text = "\(ConstantTexts.DateLT)\n\n\(ConstantTexts.LawyerNameLT)\n\n\(ConstantTexts.ConsultationTypeLT)\n\n\(ConstantTexts.ConsultationCostLT)"
         
         
         self.lblValues.numberOfLines = 0
-        self.lblValues.font = AppFont.Bold.size(AppFontName.OpenSans, size: 14)
+        self.lblValues.font = AppFont.Bold.size(AppFontName.OpenSans, size: 10)
         self.lblValues.textColor = AppColor.darkGrayColor
         self.lblValues.textAlignment = .right
         self.lblValues.text = "\(self.date) \(self.time)\n\n\(lawyer.FullName)\n\n\(self.type)\n\n\(self.cost)"
