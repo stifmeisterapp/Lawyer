@@ -13,6 +13,7 @@ class PaymentCompleteVC: SBaseViewController {
     //MARK: - IBOutlets
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var lblTitle: UILabel!
+    @IBOutlet weak var viewBG: UIView!
     @IBOutlet weak var lblKeys: UILabel!
     @IBOutlet weak var lblValues: UILabel!
     @IBOutlet weak var lblFooter: UILabel!
@@ -64,9 +65,7 @@ class PaymentCompleteVC: SBaseViewController {
                         UIView.animate(withDuration: 0.1) {
                             self.customMethodManager?.provideShadowAndCornerRadius(self.btnHomeRef, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.textColor, -1, 1, 1, 3, 0, AppColor.clearColor)
                             self.btnHomeRef.transform = CGAffineTransform.identity
-                            let vc = AppStoryboard.tabBarSB.instantiateViewController(withIdentifier: TabBarVC.className) as! TabBarVC
-                            UIApplication.shared.windows.first?.rootViewController = vc
-                            UIApplication.shared.windows.first?.makeKeyAndVisible()
+                            self.navigationController?.popToRootViewController(animated: true)
                             
                         }
         })

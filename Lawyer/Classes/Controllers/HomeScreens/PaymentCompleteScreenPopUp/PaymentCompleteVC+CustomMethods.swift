@@ -38,6 +38,8 @@ extension PaymentCompleteVC{
         self.lblTitle.textAlignment = .center
         self.lblTitle.text = ConstantTexts.PaymentSuccessfull_LT
         
+        self.viewBG.backgroundColor = AppColor.whiteColor
+        self.customMethodManager?.provideCornerBorderTo(self.viewBG, 0.8, AppColor.placeholderColor)
         
         self.lblKeys.numberOfLines = 0
         self.lblKeys.font = AppFont.Semibold.size(AppFontName.OpenSans, size: 14)
@@ -54,7 +56,7 @@ extension PaymentCompleteVC{
         
         
         self.lblFooter.numberOfLines = 0
-        self.lblFooter.font = AppFont.Semibold.size(AppFontName.OpenSans, size: 14)
+        self.lblFooter.font = AppFont.Regular.size(AppFontName.OpenSans, size: 10)
         self.lblFooter.textColor = AppColor.darkGrayColor
         self.lblFooter.textAlignment = .center
         self.lblFooter.text = "\(ConstantTexts.FooterLT)"

@@ -576,7 +576,18 @@ extension PaymentVC{
             if let result_Dict = result as? NSDictionary{
                 if let code = result_Dict.value(forKey: "code") as? Int{
                     if code == 200{
-                        if let message = result_Dict.value(forKey: "message") as? String{
+                        
+                        let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: PaymentCompleteVC.className) as! PaymentCompleteVC
+                        vc.lawyer = self.lawyer
+                        vc.date = self.date
+                        vc.time = self.selectedSlot
+                        vc.type = self.type == "0" ? ConstantTexts.CallConsultationLT : ConstantTexts.MeetConsultationLT
+                        vc.cost = "\(ConstantTexts.CurLT) \(self.amountPaid)"
+                        
+                        self.navigationController?.pushViewController(vc, animated: true)
+                        
+                        
+                      /*  if let message = result_Dict.value(forKey: "message") as? String{
                             _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style: .success, buttonTitle: ConstantTexts.OkBT, action: { (status) in
                                 if status{
                                     print("Screen new wali par le jao")
@@ -591,7 +602,7 @@ extension PaymentVC{
                                     
                                 }
                             })
-                        }
+                        } */
                     }else if code == 404{
                         if let message = result_Dict.value(forKey: "message") as? String{
                             _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style: .error, buttonTitle: ConstantTexts.OkBT, action: { (status) in
