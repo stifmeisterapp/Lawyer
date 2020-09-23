@@ -21,7 +21,7 @@ extension UploadDocumentVC: UITextViewDelegate {
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
             self.descriptionTxtView = String()
-            textView.font = AppFont.Italic.size(AppFontName.OpenSans, size: 11)
+            textView.font = AppFont.Italic.size(AppFontName.OpenSans, size: 12)
             textView.text = ConstantTexts.WriteCommentPH
             textView.textColor = AppColor.darkGrayColor
         }

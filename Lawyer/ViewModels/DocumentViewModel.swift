@@ -78,4 +78,38 @@ extension DocumentViewModel{
         return self.documentDataModel.isSelected
     }
     
+    var isAudioFile:Bool{
+        return self.documentDataModel.isAudioFile
+    }
+    
+    var Id:String{
+        return self.documentDataModel.Id
+    }
+    
+    var ConsultationId:String{
+        return self.documentDataModel.ConsultationId
+    }
+    
+    var DocumentUrl:String{
+        return self.documentDataModel.DocumentUrl
+    }
+    
+    var FileType:String{
+        return self.documentDataModel.FileType
+    }
+    
+    var FileName:String{
+        return self.documentDataModel.FileName
+    }
+    
+    var localSoundPath:String{
+        return self.documentDataModel.localSoundPath
+    }
+    
+    var serverSoundPath:String{
+        return self.documentDataModel.serverSoundPath
+    }
+    
+   
+    
 }

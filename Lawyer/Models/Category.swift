@@ -9,7 +9,8 @@
 import Foundation
 import UIKit
 struct Category {
-    let image:UIImage
-    let title:String
-    let ExpertiseId:String
+    var image:UIImage
+    var Url:String
+    var title:String
+    var ExpertiseId:String
 }

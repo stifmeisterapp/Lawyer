@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import AVFoundation
 extension UploadDocumentVC{
     //TODO: Navigation setup implenemtation
     internal func navSetup(){
@@ -50,6 +51,9 @@ extension UploadDocumentVC{
     //TODO: Intial setup implementation
     internal func initialSetup(){
         
+        NotificationCenter.default.addObserver(self, selector: #selector(self.stopRecordingAndPlaying(_:)), name: NSNotification.Name(rawValue: "STOP_RECORDING_AND_PLAYING"), object: nil)
+        
+        
         //  self.customMethodManager?.provideShadowAndCornerRadius(self.header.viewBG, 10, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.placeholderColor, -1, 1, 1, 3, 0, AppColor.clearColor)
         
         //Looks for single or multiple taps.
@@ -60,25 +64,63 @@ extension UploadDocumentVC{
         view.addGestureRecognizer(tap)
         
         
-        self.header.viewBG.cornerRadius = 10
-        self.header.viewBG.dashColor = AppColor.placeholderColor
-        self.header.viewBG.dashWidth = 1.5
-        self.header.viewBG.dashLength = 6.0
-        self.header.viewBG.betweenDashesSpace = 2.0
+        /*   self.header.viewBG.cornerRadius = 10
+         self.header.viewBG.dashColor = AppColor.placeholderColor
+         self.header.viewBG.dashWidth = 1.5
+         self.header.viewBG.dashLength = 6.0
+         self.header.viewBG.betweenDashesSpace = 2.0
+         
+         self.customMethodManager?.showLottieAnimation(self.header.imgLottie, ConstantTexts.Upload_filesHeader, .loop)
+         self.header.lblInstruction1.font = AppFont.Semibold.size(AppFontName.OpenSans, size: 14)
+         self.header.lblInstruction1.textColor = AppColor.darkGrayColor
+         self.header.lblInstruction1.numberOfLines = 0
+         self.header.lblInstruction1.textAlignment = .center */
         
-        self.customMethodManager?.showLottieAnimation(self.header.imgLottie, ConstantTexts.Upload_filesHeader, .loop)
-        self.header.lblInstruction1.font = AppFont.Semibold.size(AppFontName.OpenSans, size: 14)
-        self.header.lblInstruction1.textColor = AppColor.darkGrayColor
-        self.header.lblInstruction1.numberOfLines = 0
-        self.header.lblInstruction1.textAlignment = .center
-        
-        self.header.lblInstruction2.font = AppFont.Regular.size(AppFontName.OpenSans, size: 10)
-        self.header.lblInstruction2.textColor = AppColor.darkGrayColor
+        self.header.lblInstruction2.font = AppFont.Semibold.size(AppFontName.OpenSans, size: 14)
+        self.header.lblInstruction2.textColor = AppColor.themeColor
         self.header.lblInstruction2.numberOfLines = 0
-        self.header.lblInstruction2.textAlignment = .center
-        self.header.lblInstruction2.text = ConstantTexts.UploadDocumentInsLT
-        self.header.btnCamRef.tintColor = AppColor.darkGrayColor
-        self.header.btnCamRef.addTarget(self, action: #selector(btnChooseTapped), for: .touchUpInside)
+        self.header.lblInstruction2.textAlignment = .left
+        self.header.lblInstruction2.text = ConstantTexts.AdditionalInfoLT
+        
+        self.header.txtView.font = AppFont.Italic.size(AppFontName.OpenSans, size: 12)
+        self.header.txtView.text = ConstantTexts.WriteCommentPH
+        self.header.txtView.textColor = AppColor.darkGrayColor
+        self.header.txtView.delegate = self
+        
+        self.customMethodManager?.provideCornerRadiusTo(self.header.viewBG, 10, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
+        self.header.viewBG.backgroundColor = AppColor.tableBGColor
+        self.header.txtView.backgroundColor = AppColor.tableBGColor
+        
+        self.header.btnUpladDocRef.backgroundColor = AppColor.clearColor
+        self.customMethodManager?.provideCornerRadiusTo(self.header.btnUpladDocRef, 2.5, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
+        self.customMethodManager?.provideCornerRadiusTo(self.header.viewUpload, 2.5, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
+        self.header.viewUpload.backgroundColor = AppColor.tableBGColor
+        self.header.imgUploadRef.setImageTintColor(AppColor.darkGrayColor)
+        
+        
+        self.header.lblUpload.font = AppFont.Regular.size(AppFontName.OpenSans, size: 12)
+        self.header.lblUpload.textColor = AppColor.darkGrayColor
+        self.header.lblUpload.numberOfLines = 0
+        self.header.lblUpload.textAlignment = .left
+        self.header.lblUpload.text = ConstantTexts.UploadLT
+        
+        
+        
+        self.header.btnRecordVoice.backgroundColor = AppColor.clearColor
+        self.customMethodManager?.provideCornerRadiusTo(self.header.btnRecordVoice, 2.5, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
+        self.customMethodManager?.provideCornerRadiusTo(self.header.viewRecord, 2.5, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
+        self.header.viewRecord.backgroundColor = AppColor.tableBGColor
+        self.header.imgRecordRef.setImageTintColor(AppColor.darkGrayColor)
+        
+        
+        self.header.lblRecord.font = AppFont.Regular.size(AppFontName.OpenSans, size: 12)
+        self.header.lblRecord.textColor = AppColor.darkGrayColor
+        self.header.lblRecord.numberOfLines = 0
+        self.header.lblRecord.textAlignment = .left
+        self.header.lblRecord.text = ConstantTexts.RecordLT
+        
+        self.header.btnUpladDocRef.addTarget(self, action: #selector(btnChooseTapped), for: .touchUpInside)
+        self.header.btnRecordVoice.addTarget(self, action: #selector(btnRecordTapped), for: .touchUpInside)
         
         self.tblDocuments.tableHeaderView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 0.0, height: Double.leastNormalMagnitude))
         self.tblDocuments.tableFooterView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 0.0, height: Double.leastNormalMagnitude))
@@ -92,22 +134,6 @@ extension UploadDocumentVC{
         registerNib()
         
         
-        self.footer.lblInstruction2.font = AppFont.Semibold.size(AppFontName.OpenSans, size: 11)
-        self.footer.lblInstruction2.textColor = AppColor.darkGrayColor
-        self.footer.lblInstruction2.numberOfLines = 0
-        self.footer.lblInstruction2.textAlignment = .center
-        self.footer.lblInstruction2.text = ConstantTexts.AdditionalInfoLT
-        
-        self.footer.txtView.font = AppFont.Italic.size(AppFontName.OpenSans, size: 11)
-        self.footer.txtView.text = ConstantTexts.WriteCommentPH
-        self.footer.txtView.textColor = AppColor.darkGrayColor
-        self.footer.txtView.delegate = self
-        
-        
-        self.customMethodManager?.provideCornerRadiusTo(self.footer.viewBG, 10, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
-        self.footer.viewBG.backgroundColor = AppColor.tableBGColor
-        
-        self.footer.txtView.backgroundColor = AppColor.tableBGColor
         
         self.customMethodManager?.provideShadowAndCornerRadius(self.btnSubmitRef, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.darkGrayColor, -1, 1, 1, 3, 0, AppColor.clearColor)
         
@@ -118,19 +144,22 @@ extension UploadDocumentVC{
         self.btnSubmitRef.backgroundColor = AppColor.themeColor
         
         
-    }
-    
-    
-    //TODO: Change header implementation
-    internal func changeHeader(count:Int){
-        if count == 0{
-            self.header.lblInstruction1.text = ConstantTexts.UploadDocumentLT
-            
-        }else{
-            self.header.lblInstruction1.text = ConstantTexts.DocumentUploadLT
-        }
+        self.check_record_permission()
+        
         
     }
+    
+    
+    /*  //TODO: Change header implementation
+     internal func changeHeader(count:Int){
+     if count == 0{
+     self.header.lblInstruction1.text = ConstantTexts.UploadDocumentLT
+     
+     }else{
+     self.header.lblInstruction1.text = ConstantTexts.DocumentUploadLT
+     }
+     
+     } */
     
     
     //TODO: register nib file
@@ -141,7 +170,7 @@ extension UploadDocumentVC{
     
     //TODO: Delete row form index
     internal func deleteRow(index:Int){
-        _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: ConstantTexts.WantToDeleteDocuALERT, style: AlertStyle.warning, buttonTitle:ConstantTexts.CancelBT, buttonColor:AppColor.errorColor , otherButtonTitle:  ConstantTexts.OkBT, otherButtonColor: AppColor.passGreenColor) { (isOtherButton) -> Void in
+        SweetAlert().showAlert(ConstantTexts.AppName, subTitle: ConstantTexts.WantToDeleteDocuALERT, style: AlertStyle.warning, buttonTitle:ConstantTexts.CancelBT, buttonColor:AppColor.errorColor , otherButtonTitle:  ConstantTexts.OkBT, otherButtonColor: AppColor.passGreenColor) { (isOtherButton) -> Void in
             if isOtherButton == true {
                 DispatchQueue.main.async {
                     self.tblDocuments.reloadData()
@@ -196,17 +225,16 @@ extension UploadDocumentVC{
         super.present(alert, animated: true, completion: nil)
         
         super.getDocCallBack = { item in
-            if let count = self.docDataList?.numberOfRowsInSection(0){
-                if count > 0 {
-                    self.docDataList?.documentDataItems.removeAll()
-                }
-                
-            }
-            self.docDataList?.documentDataItems.append(item)
+            /* if let count = self.docDataList?.numberOfRowsInSection(0){
+             if count > 0 {
+             self.docDataList?.documentDataItems.removeAll()
+             }
+             
+             } */
             
-            DispatchQueue.main.async {
-                self.tblDocuments.reloadData()
-            }
+            
+            self.docDataList?.documentDataItems.append(item)
+            self.hitMultiple_docV2(item: item)
             
         }
         
@@ -216,22 +244,200 @@ extension UploadDocumentVC{
     //TODO: Validate fields implementation
     internal func validateFields(validHandler: @escaping ( String, Bool) -> Void){
         
-        if !validationMethodManager!.checkEmptyField(self.footer.txtView.text.trimmingCharacters(in: .whitespacesAndNewlines)){
-            validHandler( ConstantTexts.EnterDescriptionALERT, Bool())
-            return
-            
-        }
-        
-        
-        if self.footer.txtView.text.trimmingCharacters(in: .whitespacesAndNewlines) == ConstantTexts.WriteCommentPH{
-            validHandler( ConstantTexts.EnterDescriptionALERT, Bool())
-            return
-        }
-        
-        validHandler(ConstantTexts.empty,  true)
+        /*  if !validationMethodManager!.checkEmptyField(self.footer.txtView.text.trimmingCharacters(in: .whitespacesAndNewlines)){
+         validHandler( ConstantTexts.EnterDescriptionALERT, Bool())
+         return
+         
+         }
+         
+         
+         if self.footer.txtView.text.trimmingCharacters(in: .whitespacesAndNewlines) == ConstantTexts.WriteCommentPH{
+         validHandler( ConstantTexts.EnterDescriptionALERT, Bool())
+         return
+         }
+         
+         validHandler(ConstantTexts.empty,  true) */
         
         
     }
+    
+    //MARK: - Methods for recording
+    //TODO: Check record permission
+    private func check_record_permission()
+    {
+        switch AVAudioSession.sharedInstance().recordPermission {
+        case AVAudioSessionRecordPermission.granted:
+            isAudioRecordingGranted = true
+            break
+        case AVAudioSessionRecordPermission.denied:
+            isAudioRecordingGranted = false
+            break
+        case AVAudioSessionRecordPermission.undetermined:
+            AVAudioSession.sharedInstance().requestRecordPermission({ (allowed) in
+                if allowed {
+                    self.isAudioRecordingGranted = true
+                } else {
+                    self.isAudioRecordingGranted = false
+                }
+            })
+            break
+        default:
+            break
+        }
+    }
+    
+    //TODO: Start and stop recording
+    internal func startAndStopRecording(){
+        if isRecording{
+            self.header.lblRecord.text = ConstantTexts.RecordLT
+            finishAudioRecording(success: true)
+        }else{
+            self.header.lblRecord.text = ConstantTexts.StopRecordLT
+            isRecording = true
+            self.setup_recorder()
+        }
+    }
+    
+    //TODO: Stop recording forcely when goto background or back tapped
+    internal func stopRecording(){
+        if isRecording
+        {
+            self.header.lblRecord.text = ConstantTexts.RecordLT
+            isRecording = false
+            audioRecorder.stop()
+            audioRecorder = nil
+        }
+        
+    }
+    
+    
+    //TODO: Setup recorder
+    private func setup_recorder()
+    {
+        if isAudioRecordingGranted
+        {
+            let session = AVAudioSession.sharedInstance()
+            do
+            {
+                try session.setCategory(AVAudioSession.Category.playAndRecord, options: .defaultToSpeaker)
+                try session.setActive(true)
+                let settings = [
+                    AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
+                    AVSampleRateKey: 44100,
+                    AVNumberOfChannelsKey: 2,
+                    AVEncoderAudioQualityKey:AVAudioQuality.high.rawValue
+                ]
+                audioRecorder = try AVAudioRecorder(url: getFileUrl(), settings: settings)
+                audioRecorder.delegate = self
+                audioRecorder.isMeteringEnabled = true
+                audioRecorder.prepareToRecord()
+            }
+            catch let error {
+                display_alert(msg_title: ConstantTexts.AppName, msg_desc: error.localizedDescription, action_title: ConstantTexts.OkBT)
+            }
+        }
+        else
+        {
+            display_alert(msg_title: ConstantTexts.AppName, msg_desc: ConstantTexts.DontHaveMicrophoneALERT, action_title: ConstantTexts.OkBT)
+        }
+    }
+    
+    
+    //TODO: Finish audio recording
+    internal func finishAudioRecording(success: Bool)
+    {
+        if success
+        {
+            audioRecorder.stop()
+            audioRecorder = nil
+            let urlString: String = getFileUrl().absoluteString
+            self.recordingPath = urlString
+            let item = DocumentDataModel(data: self.getAudioData(localUrl: getFileUrl()), type: String(), withName: "Audio", fileName: urlString, mimeType: "recording/mp3", isSelected: Bool(),isAudioFile: true,localSoundPath: urlString,serverSoundPath: String(),Id:String(), ConsultationId:String(), DocumentUrl:String(), FileType:String(), FileName:String())
+            
+            self.docDataList?.documentDataItems.insert(item, at: 0)
+            DispatchQueue.main.async {
+                self.tblDocuments.reloadData()
+            }
+            
+            // self.hitBooking_FormV2(item: item)
+            
+        }
+        else
+        {
+            display_alert(msg_title: ConstantTexts.AppName, msg_desc: ConstantTexts.recordingFailALERT, action_title: ConstantTexts.OkBT)
+        }
+    }
+    
+    //TODO: Get audio data
+    private func getAudioData(localUrl:URL)->Data{
+        var audioData: Data = Data()
+        do {
+            
+            audioData = try Data(contentsOf: localUrl)
+            return audioData
+            
+        } catch {
+            
+            print("Unable to load data: \(error)")
+            
+        }
+        return audioData
+    }
+    
+    
+    //TODO: Get file url
+    private func getFileUrl() -> URL
+    {
+        let filename = ConstantTexts.MyRecording_LT
+        let filePath = getDocumentsDirectory().appendingPathComponent(filename)
+        return filePath
+    }
+    
+    
+    //TODO: Show display alert
+    internal func display_alert(msg_title : String , msg_desc : String ,action_title : String)
+    {
+        let ac = UIAlertController(title: msg_title, message: msg_desc, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: action_title, style: .default)
+        {
+            (result : UIAlertAction) -> Void in
+            _ = self.navigationController?.popViewController(animated: true)
+        })
+        present(ac, animated: true)
+    }
+    
+    
+    //MARK: - Play the recording
+    //TODO: Prepare play
+    internal func prepare_play()
+    {
+        do
+        {
+            audioPlayer = try AVAudioPlayer(contentsOf: getFileUrl())
+            audioPlayer.delegate = self
+            audioPlayer.prepareToPlay()
+        }
+        catch{
+            print("Error")
+        }
+    }
+    
+    //TODO: Stop player
+    internal func stopAudioPlayer()
+    {
+        if(isPlaying)
+        {
+            audioPlayer.stop()
+            let indexPath = IndexPath(row: 0, section: 0)
+            if let cell = self.tblDocuments.cellForRow(at: indexPath) as? UploadDocTableViewCellAndXib{
+                
+                cell.btnPlayPauseRef.setImage(UIImage(systemName: "play.fill"), for: .normal)
+            }
+            // play_btn_ref.setTitle("Play", for: .normal)
+            isPlaying = false
+        }
+    }
+    
     
     
     
@@ -359,4 +565,433 @@ extension UploadDocumentVC{
             
         }
     }
+    
+    
+    
+    
+    //MARK: - V2 Web Services
+    //TODO: Multiple_doc Service
+    internal func hitMultiple_docV2(item:DocumentDataModel){
+        guard let user = self.customMethodManager?.getUser(entity: "User_Data") else{
+            print("No user found...")
+            return
+        }
+        
+        guard  let docArray = self.docDataList?.documentDataItems  else {
+            print("No docArray found...")
+            return
+        }
+        
+        
+        
+        let parameters = [Api_keys_model.OrderId:self.orderId] as [String:AnyObject]
+        
+        let header = ["Authorization":user.token,
+                      "Content-Type":"multipart/form-data; boundary=<calculated when request is sent>",
+                      "Accept":"*/*"]
+        
+        self.customMethodManager?.startLoader(view:self.view)
+        
+        ServiceClass.shared.multipartImageServiceWithArrayObject(url: SCustomerApi.multiple_doc, docArray, header: header, parameters: parameters, success: { (result) in
+            self.customMethodManager?.stopLoader(view:self.view)
+            print(result)
+            if let result_Dict = result as? NSDictionary{
+                if let code = result_Dict.value(forKey: "code") as? Int{
+                    if code == 200{
+                        if let dataDict = result_Dict.value(forKey: "data") as? NSDictionary{
+                            // item.fileName = self.docDataModeling?.getUrl(data: dataDict) ?? String()
+                            
+                            if let Id = dataDict.value(forKey: "Id") as? String{
+                                item.Id = Id
+                            }
+                            
+                            if let Id = dataDict.value(forKey: "Id") as? Int{
+                                item.Id = "\(Id)"
+                            }
+                            
+                            if let ConsultationId = dataDict.value(forKey: "ConsultationId") as? String{
+                                item.ConsultationId = ConsultationId
+                            }
+                            
+                            if let ConsultationId = dataDict.value(forKey: "ConsultationId") as? Int{
+                                item.ConsultationId = "\(ConsultationId)"
+                            }
+                            
+                            if let DocumentUrl = dataDict.value(forKey: "DocumentUrl") as? String{
+                                item.DocumentUrl = DocumentUrl
+                            }
+                            
+                            if let FileType = dataDict.value(forKey: "FileType") as? String{
+                                item.FileType = FileType
+                            }
+                            
+                            if let FileName = dataDict.value(forKey: "FileName") as? String{
+                                item.FileName = FileName
+                                item.fileName = item.FileName
+                            }
+                            
+                            
+                            DispatchQueue.main.async {
+                                self.tblDocuments.reloadData()
+                            }
+                            
+                        }
+                    }else if code == 404{
+                        if let message = result_Dict.value(forKey: "message") as? String{
+                            _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style: .error, buttonTitle: ConstantTexts.OkBT, action: { (status) in
+                                if status{
+                                    self.navigationController?.popViewController(animated: true)                            }
+                            })
+                        }
+                        
+                    }else if code == 401{
+                        
+                        if let count = self.docDataList?.numberOfRowsInSection(0){
+                            if count > 0 {
+                                self.docDataList?.documentDataItems.removeAll()
+                            }
+                            
+                        }
+                        DispatchQueue.main.async {
+                            self.tblDocuments.reloadData()
+                        }
+                        
+                        if let message = result_Dict.value(forKey: "message") as? String{
+                            _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style: .error, buttonTitle: ConstantTexts.OkBT, action: { (status) in
+                                if status{
+                                    self.customMethodManager?.deleteAllData(entity: "User_Data", success: {
+                                        super.moveToNextViewCViaRoot(name: ConstantTexts.AuthSBT, withIdentifier: LoginVC.className)
+                                    })
+                                }
+                            })
+                        }
+                    }else if code == 400{
+                        
+                        self.docDataList?.documentDataItems.removeLast()
+                        DispatchQueue.main.async {
+                            self.tblDocuments.reloadData()
+                        }
+                        
+                        if let message = result_Dict.value(forKey: "message") as? String{
+                            _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style:.error)
+                        }
+                    }
+                }
+            }
+            
+        }) { (error) in
+            print(error)
+            self.customMethodManager?.stopLoader(view:self.view)
+            
+            if let count = self.docDataList?.numberOfRowsInSection(0){
+                if count > 0 {
+                    self.docDataList?.documentDataItems.removeAll()
+                }
+                
+            }
+            DispatchQueue.main.async {
+                self.tblDocuments.reloadData()
+            }
+            
+            if let errorString = (error as NSError).userInfo[ConstantTexts.errorMessage_Key] as? String{
+                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: errorString, style:.error)
+            }else{
+                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: ConstantTexts.errorMessage, style:.error)
+            }
+            
+        }
+    }
+    
+    
+    //TODO: Booking-form Service
+    internal func hitBooking_FormV2(item:DocumentDataModel){
+        guard let user = self.customMethodManager?.getUser(entity: "User_Data") else{
+            print("No user found...")
+            return
+        }
+        
+        
+        let parameters = [Api_keys_model.OrderId:self.orderId,
+                          Api_keys_model.Query:self.descriptionTxtView] as [String:AnyObject]
+        
+        let header = ["Authorization":user.token,
+                      "Content-Type":"multipart/form-data; boundary=<calculated when request is sent>",
+                      "Accept":"*/*"]
+        
+        self.customMethodManager?.startLoader(view:self.view)
+        
+        ServiceClass.shared.multipartImageServiceWithArrayObject(url: SCustomerApi.booking_form, [item], header: header, parameters: parameters, success: { (result) in
+            self.customMethodManager?.stopLoader(view:self.view)
+            print(result)
+            if let result_Dict = result as? NSDictionary{
+                if let code = result_Dict.value(forKey: "code") as? Int{
+                    if code == 200{
+                        
+                        if let dataDict = result_Dict.value(forKey: "data") as? NSDictionary{
+                            if let Id = dataDict.value(forKey: "Id") as? String{
+                                item.Id = Id
+                            }
+                            
+                            if let Id = dataDict.value(forKey: "Id") as? Int{
+                                item.Id = "\(Id)"
+                            }
+                            
+                            if let Audio = dataDict.value(forKey: "Audio") as? String{
+                                item.DocumentUrl = Audio
+                            }
+                            
+                            
+                        }
+                        
+                        self.docDataList?.documentDataItems.insert(item, at: 0)
+                        
+                        DispatchQueue.main.async {
+                            self.tblDocuments.reloadData()
+                        }
+                        
+                        
+                        /* if let dataDict = result_Dict.value(forKey: "data") as? NSDictionary{
+                         item.fileName = self.docDataModeling?.getUrl(data: dataDict) ?? String()
+                         DispatchQueue.main.async {
+                         self.tblDocuments.reloadData()
+                         }
+                         
+                         } */
+                    }else if code == 404{
+                        if let message = result_Dict.value(forKey: "message") as? String{
+                            _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style: .error, buttonTitle: ConstantTexts.OkBT, action: { (status) in
+                                if status{
+                                    self.navigationController?.popViewController(animated: true)                            }
+                            })
+                        }
+                        
+                    }else if code == 401{
+                        
+                        if let count = self.docDataList?.numberOfRowsInSection(0){
+                            if count > 0 {
+                                self.docDataList?.documentDataItems.removeAll()
+                            }
+                            
+                        }
+                        DispatchQueue.main.async {
+                            self.tblDocuments.reloadData()
+                        }
+                        
+                        if let message = result_Dict.value(forKey: "message") as? String{
+                            _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style: .error, buttonTitle: ConstantTexts.OkBT, action: { (status) in
+                                if status{
+                                    self.customMethodManager?.deleteAllData(entity: "User_Data", success: {
+                                        super.moveToNextViewCViaRoot(name: ConstantTexts.AuthSBT, withIdentifier: LoginVC.className)
+                                    })
+                                }
+                            })
+                        }
+                    }else if code == 400{
+                        
+                        if let message = result_Dict.value(forKey: "message") as? String{
+                            _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style:.error)
+                        }
+                    }
+                }
+            }
+            
+        }) { (error) in
+            print(error)
+            self.customMethodManager?.stopLoader(view:self.view)
+            
+            if let count = self.docDataList?.numberOfRowsInSection(0){
+                if count > 0 {
+                    self.docDataList?.documentDataItems.removeAll()
+                }
+                
+            }
+            DispatchQueue.main.async {
+                self.tblDocuments.reloadData()
+            }
+            
+            if let errorString = (error as NSError).userInfo[ConstantTexts.errorMessage_Key] as? String{
+                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: errorString, style:.error)
+            }else{
+                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: ConstantTexts.errorMessage, style:.error)
+            }
+            
+        }
+    }
+    
+    
+    //TODO: check-bookingslot Service
+    internal func hitDeleteDocService(DocumentId:String,index:Int){
+        guard let user = self.customMethodManager?.getUser(entity: "User_Data") else{
+            print("No user found...")
+            return
+        }
+        
+        guard  let docArray = self.docDataList?.documentDataItems  else {
+            print("No docArray found...")
+            return
+        }
+        
+        
+        
+        let parameters = [Api_keys_model.DocumentId:DocumentId] as [String:AnyObject]
+        
+        let header = ["authorization":user.token,
+                      "Content-Type":"application/json",
+                      "accept":"application/json"]
+        
+        self.customMethodManager?.startLoader(view:self.view)
+        
+        ServiceClass.shared.multipartImageServiceWithArrayObject(url: SCustomerApi.delete_document, docArray, header: header, parameters: parameters, success: { (result) in
+            self.customMethodManager?.stopLoader(view:self.view)
+            print(result)
+            if let result_Dict = result as? NSDictionary{
+                if let code = result_Dict.value(forKey: "code") as? Int{
+                    if code == 200{
+                        
+                        self.docDataList?.documentDataItems.remove(at: index)
+                        DispatchQueue.main.async {
+                            self.tblDocuments.reloadData()
+                        }
+                    }else if code == 404{
+                        if let message = result_Dict.value(forKey: "message") as? String{
+                            _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style: .error, buttonTitle: ConstantTexts.OkBT, action: { (status) in
+                                if status{
+                                    self.navigationController?.popViewController(animated: true)                            }
+                            })
+                        }
+                        
+                    }else if code == 401{
+                        
+                        if let count = self.docDataList?.numberOfRowsInSection(0){
+                            if count > 0 {
+                                self.docDataList?.documentDataItems.removeAll()
+                            }
+                            
+                        }
+                        DispatchQueue.main.async {
+                            self.tblDocuments.reloadData()
+                        }
+                        
+                        if let message = result_Dict.value(forKey: "message") as? String{
+                            _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style: .error, buttonTitle: ConstantTexts.OkBT, action: { (status) in
+                                if status{
+                                    self.customMethodManager?.deleteAllData(entity: "User_Data", success: {
+                                        super.moveToNextViewCViaRoot(name: ConstantTexts.AuthSBT, withIdentifier: LoginVC.className)
+                                    })
+                                }
+                            })
+                        }
+                    }
+                }
+            }
+            
+        }) { (error) in
+            print(error)
+            self.customMethodManager?.stopLoader(view:self.view)
+            
+            if let count = self.docDataList?.numberOfRowsInSection(0){
+                if count > 0 {
+                    self.docDataList?.documentDataItems.removeAll()
+                }
+                
+            }
+            DispatchQueue.main.async {
+                self.tblDocuments.reloadData()
+            }
+            
+            if let errorString = (error as NSError).userInfo[ConstantTexts.errorMessage_Key] as? String{
+                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: errorString, style:.error)
+            }else{
+                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: ConstantTexts.errorMessage, style:.error)
+            }
+            
+        }
+    }
+    
+    
+    
+    
+    //TODO: get_packages web service
+    internal func get_packages_Service(){
+        
+        //        self.setExperise()
+        
+        self.customMethodManager?.startLoader(view:self.view)
+        ServiceClass.shared.webServiceBasicMethod(url: SCustomerApi.get_packages, method: .get, parameters: nil, header: nil, success: { (result) in
+            print(result)
+            self.customMethodManager?.stopLoader(view:self.view)
+            if let result_Dict = result as? NSDictionary{
+                if let code = result_Dict.value(forKey: "code") as? Int{
+                    if code == 200{
+                        if let data = result_Dict.value(forKey: "data") as? NSDictionary{
+                            if let package = data.value(forKey: "package") as? NSArray{
+                                for item in package{
+                                    if let itemDict = item as? NSDictionary{
+                                        if let Uuid = itemDict.value(forKey: "Uuid") as? String{
+                                            self.lawyer.Uuid = Uuid
+                                            self.Uuid = Uuid
+                                        }
+                                        
+                                        if let PackageName = itemDict.value(forKey: "PackageName") as? String{
+                                            self.lawyer.Expertise_String = PackageName
+                                        }
+                                        
+                                      /*  if let PackageName = itemDict.value(forKey: "PackageName") as? String{
+                                        }
+                                        
+                                        if let PackageDescription = itemDict.value(forKey: "PackageDescription") as? String{
+                                        } */
+                                        
+                                        if let Amount = itemDict.value(forKey: "Amount") as? String{
+                                            self.lawyer.ConsulationType_Call_Fee = Amount
+                                            self.price = Amount
+                                        }
+                                        
+                                        self.lawyer.FullName = "\(ConstantTexts.AppName)"
+                                        
+                                        let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: PaymentVC.className) as! PaymentVC
+                                        vc.Uuid = self.Uuid
+                                        vc.date = self.date
+                                        vc.selectedSlot = self.selectedSlot
+                                        vc.price = self.price
+                                        vc.type = self.type
+                                        vc.expID = self.expID
+                                        vc.expName = self.expName
+                                        vc.desc = self.descriptionTxtView
+                                        vc.Docs = String()
+                                        vc.lawyer = self.lawyer
+                                        self.navigationController?.pushViewController(vc, animated: true)
+                                        
+                                    }
+                                }
+                            }
+                            
+                        }
+                    }else{
+                        if let message = result_Dict.value(forKey: "message") as? String{
+                            _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style:.error)
+                        }
+                        
+                    }
+                }
+            }
+            
+            
+        }) { (error) in
+            print(error)
+            self.customMethodManager?.stopLoader(view:self.view)
+            if let errorString = (error as NSError).userInfo[ConstantTexts.errorMessage_Key] as? String{
+                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: errorString, style:.error)
+            }else{
+                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: ConstantTexts.errorMessage, style:.error)
+            }
+            
+            
+            
+        }
+        
+        
+    }
+    
+    
 }

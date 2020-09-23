@@ -18,14 +18,14 @@ class AppointmentVC: SBaseViewController {
     @IBOutlet weak var lblDate: UILabel!
     @IBOutlet weak var btnForwardRef: UIButton!
     @IBOutlet weak var tblAppointment: UITableView!
-    
+    @IBOutlet weak var btnBookRef: UIButton!
     //MARK: - Variables
     
     internal var lawyer:Lawyer_Model = Lawyer_Model(CityName: String(), ConsulationType_Call_Fee: String(), ConsulationType_Meet_Fee: String(), ConsulationType_Video_Call_Fee: String(), Experience_Name: String(), Expertise_String: String(), FullName: String(), Id: String(), Language_String: String(), ProfilePhoto: String(), Uuid: String())
     
     internal let dropDown = DropDown()
     internal var customMethodManager:CustomMethodProtocol?
-    internal let footer: AppointmentFooterView  = Bundle.main.loadNibNamed(AppointmentFooterView.className, owner: self, options: nil)?.last as! AppointmentFooterView
+    internal let footer: AppointmentFooterNew  = Bundle.main.loadNibNamed(AppointmentFooterNew.className, owner: self, options: nil)?.last as! AppointmentFooterNew
     
     
     internal var count_Tapped = 0
@@ -62,7 +62,7 @@ class AppointmentVC: SBaseViewController {
     internal var expID:String = String()
     internal var expName:String = String()
     internal var selectedSlot:String = String()
-    
+    internal var BookingId:String = String()
     
    // internal var data = [AppointmentViewModel]()
     
@@ -136,6 +136,38 @@ class AppointmentVC: SBaseViewController {
   
     }
     
+    @IBAction func btnBookConsultationTappedNew(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.1,
+                       animations: {
+                        self.customMethodManager?.provideShadowAndCornerRadius(self.btnBookRef, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.textColor, 0, 0, 0, 0, 0, AppColor.clearColor)
+                        self.btnBookRef.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+        },
+                       completion: { _ in
+                        UIView.animate(withDuration: 0.1) {
+                            self.customMethodManager?.provideShadowAndCornerRadius(self.btnBookRef, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.darkGrayColor, -1, 1, 1, 3, 0, AppColor.clearColor)
+                            self.btnBookRef.transform = CGAffineTransform.identity
+                            
+                            self.validateFields { (msg, status, isSlot) in
+                                if status{
+                                    self.hitCheckCouponService()
+                                    
+                                }else{
+                                    if isSlot{
+                                        
+                                        self.customMethodManager?.showAlert(msg, okButtonTitle: ConstantTexts.OkBT, target: self)
+                        
+                                    }
+                                    /*else{
+                                        self.customMethodManager?.showToolTip(msg: msg, anchorView: self.footer.lblValue, sourceView: self.view)
+                                    } */
+                                }
+                            }
+                        }
+        })
+        
+    }
+    
+    
     //TODO: Selectors
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
         self.count_Tapped = 0
@@ -147,6 +179,10 @@ class AppointmentVC: SBaseViewController {
     
     
     
+    
+    
+    
+    
     @objc func btnBookConsultationTapped(_ sender: UIButton) {
         UIView.animate(withDuration: 0.1,
                        animations: {
@@ -155,32 +191,22 @@ class AppointmentVC: SBaseViewController {
         },
                        completion: { _ in
                         UIView.animate(withDuration: 0.1) {
-                            self.customMethodManager?.provideShadowAndCornerRadius(self.footer.btnBookConsultaionRef, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.textColor, -1, 1, 1, 3, 0, AppColor.clearColor)
+                            self.customMethodManager?.provideShadowAndCornerRadius(self.footer.btnBookConsultaionRef, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.darkGrayColor, -1, 1, 1, 3, 0, AppColor.clearColor)
                             self.footer.btnBookConsultaionRef.transform = CGAffineTransform.identity
-                            //TODO: Temp code need to remove
-                            
                             
                             self.validateFields { (msg, status, isSlot) in
                                 if status{
-                                    let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: UploadDocumentVC.className) as! UploadDocumentVC
-                                    vc.Uuid = self.Uuid
-                                    vc.date = self.current_date
-                                    vc.selectedSlot = self.selectedSlot
-                                    vc.price = self.price
-                                    vc.type = self.type
-                                    vc.expID = self.expID
-                                    vc.expName = self.expName
-                                    vc.lawyer = self.lawyer
-                                    self.navigationController?.pushViewController(vc, animated: true)
-                                    
+                                    self.hitCheckCouponService()
+                                   
                                 }else{
                                     if isSlot{
                                         
                                         self.customMethodManager?.showAlert(msg, okButtonTitle: ConstantTexts.OkBT, target: self)
                         
-                                    }else{
-                                        self.customMethodManager?.showToolTip(msg: msg, anchorView: self.footer.lblValue, sourceView: self.view)
                                     }
+                                    /*else{
+                                        self.customMethodManager?.showToolTip(msg: msg, anchorView: self.footer.lblValue, sourceView: self.view)
+                                    } */
                                 }
                             }
                         }
@@ -189,7 +215,7 @@ class AppointmentVC: SBaseViewController {
     }
     
     
-    @objc func btnDropDownTapped(_ sender: UIButton) {
+  /*  @objc func btnDropDownTapped(_ sender: UIButton) {
         self.customMethodManager?.openDownOnView(dropDown: self.dropDown, array: self.expertise_nameArray, anchor: self.footer.viewLine, callBack: { (dropDown) in
             
             dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
@@ -210,7 +236,7 @@ class AppointmentVC: SBaseViewController {
             
         })
         
-    }
+    } */
     
     
     

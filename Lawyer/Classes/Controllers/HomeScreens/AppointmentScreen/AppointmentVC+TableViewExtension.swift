@@ -92,12 +92,18 @@ extension AppointmentVC:UITableViewDelegate{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         if let appointMentItem = self.appointMentListVM?.appointmentAtIndex(indexPath.section){
-            if appointMentItem.list.count <= 4{
+            if appointMentItem.list.count <= 3{
                 return 60
-            }else if appointMentItem.list.count > 4 && appointMentItem.list.count <= 8{
+            }else if appointMentItem.list.count > 3 && appointMentItem.list.count <= 6{
                 return 120
-            }else{
+            }else if appointMentItem.list.count > 6 && appointMentItem.list.count <= 9{
                 return 180
+            }else if appointMentItem.list.count > 9 && appointMentItem.list.count <= 12{
+                return 240
+            }else if appointMentItem.list.count > 12 && appointMentItem.list.count <= 15{
+                return 300
+            }else{
+                return 360
             }
             
         }else{
@@ -109,12 +115,18 @@ extension AppointmentVC:UITableViewDelegate{
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         
         if let appointMentItem = self.appointMentListVM?.appointmentAtIndex(indexPath.section){
-            if appointMentItem.list.count <= 4{
+            if appointMentItem.list.count <= 3{
                 return 60
-            }else if appointMentItem.list.count > 4 && appointMentItem.list.count <= 8{
+            }else if appointMentItem.list.count > 3 && appointMentItem.list.count <= 6{
                 return 120
-            }else{
+            }else if appointMentItem.list.count > 6 && appointMentItem.list.count <= 9{
                 return 180
+            }else if appointMentItem.list.count > 9 && appointMentItem.list.count <= 12{
+                return 240
+            }else if appointMentItem.list.count > 12 && appointMentItem.list.count <= 15{
+                return 300
+            }else{
+                return 360
             }
             
         }else{
@@ -145,7 +157,7 @@ extension AppointmentVC:UITableViewDelegate{
                 self.footer.btnBookConsultaionRef.setTitleColor(AppColor.whiteColor, for: .normal)
                 self.footer.btnBookConsultaionRef.backgroundColor = AppColor.themeColor
                 self.footer.btnBookConsultaionRef.addTarget(self, action: #selector(btnBookConsultationTapped), for: .touchUpInside)
-                self.footer.imgHammer.setImageTintColor(AppColor.darkGrayColor)
+               /* self.footer.imgHammer.setImageTintColor(AppColor.darkGrayColor)
                 self.footer.imgDD.setImageTintColor(AppColor.darkGrayColor)
                 
                 self.footer.viewBG.backgroundColor = AppColor.tableBGColor
@@ -172,9 +184,9 @@ extension AppointmentVC:UITableViewDelegate{
                 self.footer.lblValue.text = self.expName == String() ? ConstantTexts.SelectLT : self.expName
                 self.footer.viewLine.backgroundColor = AppColor.placeholderColor
                 
-                self.footer.btnDropDown.addTarget(self, action: #selector(btnDropDownTapped), for: .touchUpInside)
+                self.footer.btnDropDown.addTarget(self, action: #selector(btnDropDownTapped), for: .touchUpInside) */
                 
-                return footer
+                return UIView()
             }else{
                 return UIView()
             }
@@ -187,19 +199,33 @@ extension AppointmentVC:UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        if let sections = self.appointMentListVM?.numberOfSections{
+        
+         if let sections = self.appointMentListVM?.numberOfSections{
+             return section == (sections - 1) ? 0 : 0
+         }else{
+             return 0
+         }
+        
+       /* if let sections = self.appointMentListVM?.numberOfSections{
             return section == (sections - 1) ? 270 : 0
         }else{
             return 0
-        }
+        } */
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat {
+        
         if let sections = self.appointMentListVM?.numberOfSections{
-            return section == (sections - 1) ? 270 : 0
+            return section == (sections - 1) ? 0 : 0
         }else{
             return 0
         }
-    }
+       
+      /* if let sections = self.appointMentListVM?.numberOfSections{
+           return section == (sections - 1) ? 270 : 0
+       }else{
+           return 0
+       } */
+   }
 }
 

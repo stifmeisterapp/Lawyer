@@ -36,7 +36,7 @@ extension HomeVC{
     
     //TODO: Intial setup implementation
     private func initialSetup(){
-
+        
         self.view.backgroundColor = AppColor.tableBGColor
         self.viewLocationBackground.backgroundColor = AppColor.whiteColor
         
@@ -48,7 +48,7 @@ extension HomeVC{
         self.labelLoationTitle.textColor = AppColor.darkGrayColor
         self.labelLoationTitle.text = ConstantTexts.SelectCityLT
         
-       
+        
         self.imageViewDropDown.setImageTintColor(AppColor.darkGrayColor)
         
         // For Tableview
@@ -56,7 +56,6 @@ extension HomeVC{
         self.categoryTableView.separatorStyle = .singleLine
         self.categoryTableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         self.categoryTableView.hideEmptyCells()
-        self.categoryTableView.isHidden = true
         self.categoryTableView.isScrollEnabled = true
         self.categoryTableView.addSubview(self.refreshControl)
         
@@ -76,18 +75,13 @@ extension HomeVC{
             self.homeVM = HomeVM.shared
         }
         
-        if  self.categoryListVM == nil{
-            self.categoryListVM = self.homeVM?.prepareDataSource()
-        }
+        /*  if  self.categoryListVM == nil{
+         self.categoryListVM = self.homeVM?.prepareDataSource()
+         } */
         
         if self.expertiseVM == nil{
-            self.expertiseVM = self.homeVM?.prepareDataSourceStatic()
+            self.expertiseVM = self.homeVM?.prepareDataEmpty()
         }
-        
-        
-        
-    
-
         registerNib()
         
     }
@@ -118,13 +112,27 @@ extension HomeVC{
     //TODO: Animate rotate table view
     internal func animateView(){
         self.categoryTableView.isHidden = false
-        self.categoryTableView.reloadData()
+        DispatchQueue.main.async {
+            self.categoryTableView.reloadData()
+        }
+        
+        
         let fromAnimation = AnimationType.from(direction: .right, offset: 30.0)
         UIView.animate(views: categoryTableView.visibleCells,
                        animations: [fromAnimation], delay: 0.5)
         
         
-       self.filter_Service()
+        self.filter_Service()
+    }
+    
+    
+    //TODO: without animate table view
+    internal func reloadView(){
+        self.categoryTableView.isHidden = false
+        DispatchQueue.main.async {
+            self.categoryTableView.reloadData()
+        }
+        self.filter_Service()
     }
     
     
@@ -155,25 +163,25 @@ extension HomeVC{
     
     //TODO: Set static data in expertise in local db
     private func setExperise(){
-      
+        
         if let experitseList = expertiseVM?.categories{
-                self.customMethodManager?.deleteAllDataFilters(entity: "Expertise")
-                let context = kAppDelegate.persistentContainer.viewContext
-                let entity = NSEntityDescription.entity(forEntityName: "Expertise", in: context)
-                for expertise in experitseList{
-                    let expertiseItem = Filter(entity: ConstantTexts.ExpertiseLT, title: expertise.title,id: expertise.ExpertiseId, isSelected: Bool())
-                    
-                    let expertise = NSManagedObject(entity: entity!, insertInto: context)
-                    expertise.setValue(expertiseItem.title, forKey: "expertise_name")
-                    expertise.setValue(expertiseItem.id, forKey: "expertise_id")
-                    expertise.setValue(expertiseItem.isSelected, forKey: "is_selected")
-                    do {
-                        try context.save()
-                    } catch {
-                        print("Failed saving: - \(error)")
-                    }
+            self.customMethodManager?.deleteAllDataFilters(entity: "Expertise")
+            let context = kAppDelegate.persistentContainer.viewContext
+            let entity = NSEntityDescription.entity(forEntityName: "Expertise", in: context)
+            for expertise in experitseList{
+                let expertiseItem = Filter(entity: ConstantTexts.ExpertiseLT, title: expertise.title,id: expertise.ExpertiseId, isSelected: Bool())
+                
+                let expertise = NSManagedObject(entity: entity!, insertInto: context)
+                expertise.setValue(expertiseItem.title, forKey: "expertise_name")
+                expertise.setValue(expertiseItem.id, forKey: "expertise_id")
+                expertise.setValue(expertiseItem.isSelected, forKey: "is_selected")
+                do {
+                    try context.save()
+                } catch {
+                    print("Failed saving: - \(error)")
                 }
             }
+        }
         
         
     }
@@ -182,7 +190,7 @@ extension HomeVC{
     //TODO: Filter web service
     internal func filter_Service(){
         
-//        self.setExperise()
+        //        self.setExperise()
         
         self.customMethodManager?.startLoader(view:self.view)
         ServiceClass.shared.webServiceBasicMethod(url: SCustomerApi.filter_list, method: .get, parameters: nil, header: nil, success: { (result) in
@@ -386,5 +394,65 @@ extension HomeVC{
         
         
     }
+    
+    
+    
+    
+    //TODO: Filter web service
+    internal func expertise_list(){
+        self.customMethodManager?.startLoader(view:self.view)
+        ServiceClass.shared.webServiceBasicMethod(url: SCustomerApi.expertise_list, method: .get, parameters: nil, header: nil, success: { (result) in
+            print(result)
+            self.customMethodManager?.stopLoader(view:self.view)
+            if let result_Dict = result as? NSDictionary{
+                if let code = result_Dict.value(forKey: "code") as? Int{
+                    if code == 200{
+                        if let data = result_Dict.value(forKey: "data") as? NSDictionary{
+                            print(data)
+                            if let ExpertiseId = data.value(forKey: "ExpertiseId") as? NSArray{
+                                
+                                if let Url = data.value(forKey: "Url") as? String{
+                                    if  self.categoryListVM == nil{
+                                        self.categoryListVM = self.homeVM?.prepareDataSourceWithJSON(data: ExpertiseId, baseUrl: Url)
+                                        self.reloadView()
+                                        
+                                    }else{
+                                        self.categoryListVM = self.homeVM?.prepareDataSourceWithJSON(data: ExpertiseId, baseUrl: Url)
+                                        self.reloadView()
+                                        
+                                    }
+                                }
+                                
+                                
+                                
+                            }
+                            
+                        }
+                    }else{
+                        if let message = result_Dict.value(forKey: "message") as? String{
+                            _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style:.error)
+                        }
+                        
+                    }
+                }
+            }
+            
+            
+        }) { (error) in
+            print(error)
+            self.customMethodManager?.stopLoader(view:self.view)
+            if let errorString = (error as NSError).userInfo[ConstantTexts.errorMessage_Key] as? String{
+                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: errorString, style:.error)
+            }else{
+                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: ConstantTexts.errorMessage, style:.error)
+            }
+            
+            
+            
+        }
+        
+        
+    }
+    
     
 }

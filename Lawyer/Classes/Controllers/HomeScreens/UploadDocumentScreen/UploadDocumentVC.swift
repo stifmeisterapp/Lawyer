@@ -7,7 +7,8 @@
 //
 
 import UIKit
-
+import AVFoundation
+import AVKit
 class UploadDocumentVC: SBaseViewController {
     
     //MARK: - IBOutlets
@@ -16,9 +17,7 @@ class UploadDocumentVC: SBaseViewController {
     
     
     //MARK: - Variables
-    internal let header: UploadDocHeader  = Bundle.main.loadNibNamed(UploadDocHeader.className, owner: self, options: nil)?.first as! UploadDocHeader
-    
-    internal let footer: UploadFooterView  = Bundle.main.loadNibNamed(UploadFooterView.className, owner: self, options: nil)?.last as! UploadFooterView
+    internal let header: UploadFooterView  = Bundle.main.loadNibNamed(UploadFooterView.className, owner: self, options: nil)?.first as! UploadFooterView
     
     
     internal var lawyer:Lawyer_Model = Lawyer_Model(CityName: String(), ConsulationType_Call_Fee: String(), ConsulationType_Meet_Fee: String(), ConsulationType_Video_Call_Fee: String(), Experience_Name: String(), Expertise_String: String(), FullName: String(), Id: String(), Language_String: String(), ProfilePhoto: String(), Uuid: String())
@@ -33,11 +32,22 @@ class UploadDocumentVC: SBaseViewController {
     internal var type:String = String()
     internal var expID:String = String()
     internal var expName:String = String()
+    internal var orderId:String = String()
     
     
     internal var docDataModeling:DocumentDataModeling?
     internal var docDataList:DocumentViewModelList?
     internal var validationMethodManager:ValidationProtocol?
+    
+    //MARK: - Variables for audio recording
+    internal var audioRecorder: AVAudioRecorder!
+    internal var isAudioRecordingGranted: Bool = Bool()
+    internal var isRecording: Bool = Bool()
+    internal var recordingPath:String = String()
+    
+    //MARK: - Variables for audio playing
+    internal var audioPlayer : AVAudioPlayer!
+    internal var isPlaying: Bool = Bool()
     
     //MARK: - View life cycle methods
     //TODO: Implementation viewDidLoad
@@ -61,41 +71,51 @@ class UploadDocumentVC: SBaseViewController {
         initialSetup()
     }
     
+    //TODO: Implementation viewWillDisappear
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.stopAudioPlayer()
+        self.stopRecording()
+        
+    }
+    
     //MARK: - Actions, Gestures, Selectors
     
     //TODO: Actions
     
     @IBAction func btnSubmitTapped(_ sender: UIButton) {
+        
         self.dismissKeyboard()
         UIView.animate(withDuration: 0.1,
                        animations: {
                         self.customMethodManager?.provideShadowAndCornerRadius(self.btnSubmitRef, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.textColor, 0, 0, 0, 0, 0, AppColor.clearColor)
                         self.btnSubmitRef.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
-        },
+                       },
                        completion: { _ in
                         UIView.animate(withDuration: 0.1) {
                             self.btnSubmitRef.transform = .identity
                             self.customMethodManager?.provideShadowAndCornerRadius(self.btnSubmitRef, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.textColor, -1, 1, 1, 3, 0, AppColor.clearColor)
-                            if let count = self.docDataList?.numberOfRowsInSection(0){
-                                if count > 0 {
-                                    self.hitCheckBookingSlotService()
-                                }else{
-                                    let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: PaymentVC.className) as! PaymentVC
-                                    vc.Uuid = self.Uuid
-                                    vc.date = self.date
-                                    vc.selectedSlot = self.selectedSlot
-                                    vc.price = self.price
-                                    vc.type = self.type
-                                    vc.expID = self.expID
-                                    vc.expName = self.expName
-                                    vc.desc = self.descriptionTxtView
-                                    vc.Docs = String()
-                                    vc.lawyer = self.lawyer
-                                    self.navigationController?.pushViewController(vc, animated: true)
-                                }
-                            }
+                            self.get_packages_Service()
+                            /*  if let count = self.docDataList?.numberOfRowsInSection(0){
+                             if count > 0 {
+                             self.hitCheckBookingSlotService()
+                             }else{
+                             let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: PaymentVC.className) as! PaymentVC
+                             vc.Uuid = self.Uuid
+                             vc.date = self.date
+                             vc.selectedSlot = self.selectedSlot
+                             vc.price = self.price
+                             vc.type = self.type
+                             vc.expID = self.expID
+                             vc.expName = self.expName
+                             vc.desc = self.descriptionTxtView
+                             vc.Docs = String()
+                             vc.lawyer = self.lawyer
+                             self.navigationController?.pushViewController(vc, animated: true)
+                             }
+                             } */
                         }
-        })
+                       })
         
     }
     
@@ -110,20 +130,175 @@ class UploadDocumentVC: SBaseViewController {
     }
     
     @objc func btnChooseTapped(_ sender: UIButton) {
+        self.dismissKeyboard()
+        UIView.animate(withDuration: 0.1,
+                       animations: {
+                        self.header.btnUpladDocRef.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+                       },
+                       completion: { _ in
+                        UIView.animate(withDuration: 0.1) {
+                            self.header.btnUpladDocRef.transform = .identity
+                            
+                            self.openActionSheet()
+                            
+                            /* if let count = self.docDataList?.numberOfRowsInSection(0){
+                             if count == 0 {
+                             self.openActionSheet()
+                             }else{
+                             _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: ConstantTexts.chooseOneALERT, style: .error)
+                             }
+                             
+                             } */
+                        }
+                       })
         
-        if let count = self.docDataList?.numberOfRowsInSection(0){
-            if count == 0 {
-                self.openActionSheet()
+    }
+    
+    @objc func btnRecordTapped(_ sender: UIButton) {
+        self.dismissKeyboard()
+        UIView.animate(withDuration: 0.1,
+                       animations: {
+                        self.header.btnRecordVoice.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+                       },
+                       completion: { _ in
+                        UIView.animate(withDuration: 0.1) {
+                            self.header.btnRecordVoice.transform = .identity
+                            if self.recordingPath == String(){
+                                self.startAndStopRecording()
+                            }else{
+                                self.customMethodManager?.showAlert(ConstantTexts.chooseOneRecordingALERT, okButtonTitle: ConstantTexts.OkBT, target: self)
+                            }
+                            
+                            
+                            /* if let count = self.docDataList?.numberOfRowsInSection(0){
+                             if count == 0 {
+                             self.openActionSheet()
+                             }else{
+                             _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: ConstantTexts.chooseOneALERT, style: .error)
+                             }
+                             
+                             } */
+                        }
+                       })
+        
+    }
+    
+    
+    
+    
+    @objc func btnDeleteTapped(_ sender: UIButton) {
+        if let item = self.docDataList?.documentAtIndex(sender.tag){
+            if item.isAudioFile{
+                
+                SweetAlert().showAlert(ConstantTexts.AppName, subTitle: ConstantTexts.WantToDelRecALERT, style: AlertStyle.warning, buttonTitle:ConstantTexts.CancelBT, buttonColor:AppColor.errorColor , otherButtonTitle:  ConstantTexts.OkBT, otherButtonColor: AppColor.passGreenColor) { (isOtherButton) -> Void in
+                    if isOtherButton == true {
+                        DispatchQueue.main.async {
+                            self.tblDocuments.reloadData()
+                        }
+                    }
+                    else
+                    {
+                        
+                        self.header.lblRecord.textColor = AppColor.darkGrayColor
+                        self.header.lblRecord.text = ConstantTexts.RecordLT
+                        self.isRecording = false
+                        self.recordingPath = String()
+                        self.stopAudioPlayer()
+                        
+                        do {
+                            if let url = URL(string: item.localSoundPath){
+                                try FileManager.default.removeItem(at:url)
+                            }
+                            
+                        } catch let error as NSError {
+                            print("Error: \(error.domain)")
+                        }
+                        
+                        self.docDataList?.documentDataItems.remove(at: sender.tag)
+                        DispatchQueue.main.async {
+                            self.tblDocuments.reloadData()
+                        }
+                        
+                    }
+                    
+                }
             }else{
-                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: ConstantTexts.chooseOneALERT, style: .error)
+                
+                
+                SweetAlert().showAlert(ConstantTexts.AppName, subTitle: ConstantTexts.WantToDelRecALERT, style: AlertStyle.warning, buttonTitle:ConstantTexts.CancelBT, buttonColor:AppColor.errorColor , otherButtonTitle:  ConstantTexts.OkBT, otherButtonColor: AppColor.passGreenColor) { (isOtherButton) -> Void in
+                    if isOtherButton == true {
+                        DispatchQueue.main.async {
+                            self.tblDocuments.reloadData()
+                        }
+                    }
+                    else
+                    {
+                        self.hitDeleteDocService(DocumentId:item.Id,index:sender.tag)
+                    }
+                    
+                }
+                
+                
             }
-            
         }
         
     }
     
-    @objc func btnDeleteTapped(_ sender: UIButton) {
-        self.deleteRow(index:sender.tag)
+    
+    
+    @objc func btnPlayTapped(_ sender: UIButton) {
+        if let item = self.docDataList?.documentAtIndex(sender.tag){
+            
+            if let url = URL(string: item.localSoundPath){
+                if let item = self.docDataList?.documentAtIndex(sender.tag){
+                    if item.isAudioFile{
+                        if(isPlaying)
+                        {
+                            audioPlayer.stop()
+                            let indexPath = IndexPath(row: 0, section: 0)
+                            if let cell = self.tblDocuments.cellForRow(at: indexPath) as? UploadDocTableViewCellAndXib{
+                                
+                                cell.btnPlayPauseRef.setImage(UIImage(systemName: "play.fill"), for: .normal)
+                            }
+                            // play_btn_ref.setTitle("Play", for: .normal)
+                            isPlaying = false
+                        }
+                        else
+                        {
+                            if FileManager.default.fileExists(atPath: url.path)
+                            {
+                                let indexPath = IndexPath(row: 0, section: 0)
+                                if let cell = self.tblDocuments.cellForRow(at: indexPath) as? UploadDocTableViewCellAndXib{
+                                    
+                                    cell.btnPlayPauseRef.setImage(UIImage(systemName: "pause.fill"), for: .normal)
+                                }
+                                // play_btn_ref.setTitle("pause", for: .normal)
+                                prepare_play()
+                                audioPlayer.play()
+                                isPlaying = true
+                            }
+                            else
+                            {
+                                display_alert(msg_title: ConstantTexts.AppName, msg_desc: ConstantTexts.audioFileMissingALERT, action_title: ConstantTexts.OkBT)
+                            }
+                        }
+                    }
+                }
+                
+            }
+        }
+        
+        
+        
+        
+        
+        
+    }
+    
+    
+    @objc func stopRecordingAndPlaying(_ notification: Notification) {
+        stopRecording()
+        stopAudioPlayer()
     }
     
     

@@ -75,11 +75,10 @@ extension SignUpVC{
         
         
         let myMutableString = NSMutableAttributedString()
-        let myMutableString_For_Instruction = NSMutableAttributedString()
         
-        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\(ConstantTexts.AlreadyHaveBT)  ", font: AppFont.Regular.size(AppFontName.OpenSans, size: 11), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\(ConstantTexts.AlreadyHaveBT)  ", font: AppFont.Regular.size(AppFontName.OpenSans, size: 12), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
         
-        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: ConstantTexts.LogInAsC_BT, font: AppFont.Bold.size(AppFontName.OpenSans, size: 11), color: AppColor.themeColor) ?? NSMutableAttributedString())
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: ConstantTexts.LoginHT, font: AppFont.Bold.size(AppFontName.OpenSans, size: 12), color: AppColor.themeColor) ?? NSMutableAttributedString())
         
         
         // *** Apply attribute to string ***
@@ -94,45 +93,11 @@ extension SignUpVC{
         self.lblInstruction_SignIn_Customer.addGestureRecognizer(lblInstruction_SignIn_Customer_Tap)
         
         
-        
-        self.lblInstruction_SignIn_Lawyer.font = AppFont.Bold.size(AppFontName.OpenSans, size: 11)
-        self.lblInstruction_SignIn_Lawyer.textAlignment = .center
-        self.lblInstruction_SignIn_Lawyer.textColor = AppColor.themeColor
-        self.lblInstruction_SignIn_Lawyer.text = ConstantTexts.LogInAsL_BT
-        
-        let lblInstruction_SignIn_Lawyer_Tap = UITapGestureRecognizer(target: self, action: #selector(self.lblInstruction_SignIn_Lawyer_Tapped(_:)))
-        self.lblInstruction_SignIn_Lawyer.isUserInteractionEnabled = true
-        self.lblInstruction_SignIn_Lawyer.addGestureRecognizer(lblInstruction_SignIn_Lawyer_Tap)
-        
-        
-        if tag == 0{
-            
-            myMutableString_For_Instruction.append(customMethodManager?.provideSimpleAttributedText(text: "\(ConstantTexts.SignUpAsC_New_BT)\n\n", font:  AppFont.Bold.size(AppFontName.OpenSans, size: 18), color: AppColor.themeColor) ?? NSMutableAttributedString())
-            
-            myMutableString_For_Instruction.append(customMethodManager?.provideSimpleAttributedText(text: ConstantTexts.CustomerIns_LT, font:  AppFont.Regular.size(AppFontName.OpenSans, size: 11), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
-            
-            
-            // *** Apply attribute to string ***
-            myMutableString_For_Instruction.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, myMutableString_For_Instruction.length))
-            
-            // *** Set Attributed String to your label ***
-            
-            
-            self.lblInstruction.attributedText = myMutableString_For_Instruction
-            
-        }else{
-            
-            myMutableString_For_Instruction.append(customMethodManager?.provideSimpleAttributedText(text: "\(ConstantTexts.SignUpAsL_New_BT)\n\n", font:  AppFont.Bold.size(AppFontName.OpenSans, size: 18), color: AppColor.themeColor) ?? NSMutableAttributedString())
-            
-            myMutableString_For_Instruction.append(customMethodManager?.provideSimpleAttributedText(text: ConstantTexts.LawyerIns_LT, font:  AppFont.Regular.size(AppFontName.OpenSans, size: 11), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
-            
-            // *** Apply attribute to string ***
-            myMutableString_For_Instruction.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, myMutableString_For_Instruction.length))
-            
-            // *** Set Attributed String to your label ***
-            
-            self.lblInstruction.attributedText = myMutableString_For_Instruction
-        }
+        self.lblInstruction.font = AppFont.Regular.size(AppFontName.OpenSans, size: 12)
+        self.lblInstruction.textColor = AppColor.darkGrayColor
+        self.lblInstruction.numberOfLines = 0
+        self.lblInstruction.textAlignment = .center
+        self.lblInstruction.text = ConstantTexts.CustomerIns_LT
         
        
         

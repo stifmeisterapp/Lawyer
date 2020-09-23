@@ -16,6 +16,7 @@ class UploadDocTableViewCellAndXib: SwipeTableViewCell {
     @IBOutlet weak var imgDoc: UIImageView!
     @IBOutlet weak var lblDocName: UILabel!
     @IBOutlet weak var btnDeleteRef: UIButton!
+    @IBOutlet weak var btnPlayPauseRef: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -37,13 +38,20 @@ class UploadDocTableViewCellAndXib: SwipeTableViewCell {
     //TODO: Configure with info
     public func configure(with info: DocumentViewModel){
         self.lblDocName.text = info.fileName
+        if info.isAudioFile{
+            self.imgDoc.image = #imageLiteral(resourceName: "music-note")
+            self.btnPlayPauseRef.isHidden = false
+        }else{
+            self.btnPlayPauseRef.isHidden = true
+            self.imgDoc.image = #imageLiteral(resourceName: "icons8-google_forms")
+        }
+        
     }
     
     
     //TODO: Setup textFieldFloating
     private func setUpTextField(){
         self.selectionStyle = .none
-        self.viewBG.backgroundColor = AppColor.tableBGColor
         
         self.lblDocName.font = AppFont.Regular.size(AppFontName.OpenSans, size: 12)
         self.lblDocName.textColor = AppColor.darkGrayColor
@@ -52,6 +60,7 @@ class UploadDocTableViewCellAndXib: SwipeTableViewCell {
         
         self.imageView?.setImageTintColor(AppColor.themeColor)
         self.btnDeleteRef.tintColor = AppColor.darkGrayColor
+        self.btnPlayPauseRef.tintColor = AppColor.darkGrayColor
         
     }
     

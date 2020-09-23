@@ -50,4 +50,13 @@ struct Api_keys_model {
     public static let Amount:String                 = "Amount"
     public static let BookedConsulationId:String    = "BookedConsulationId"
     
+    
+    public static let CategoryId:String             = "CategoryId"
+    public static let CategoryName:String           = "CategoryName"
+    public static let BookingDate:String            = "BookingDate"
+    public static let BookingTime:String            = "BookingTime"
+    public static let Query:String                  = "Query"
+    public static let BookingId:String              = "BookingId"
+    public static let DocumentId:String             = "DocumentId"
+    
 }

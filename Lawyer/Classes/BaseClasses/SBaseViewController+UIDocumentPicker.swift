@@ -34,7 +34,7 @@ extension SBaseViewController:UIDocumentPickerDelegate{
         DispatchQueue.global(qos: .background).async {
             do
             {
-                let item = DocumentDataModel(Data(), ".pdf", "OtherDocs", String(), "document", Bool())
+                let item = DocumentDataModel(data: Data(), type: ".pdf", withName: "OtherDocs", fileName: String(), mimeType: "document", isSelected: Bool(),isAudioFile: Bool(),localSoundPath: String(),serverSoundPath: String(),Id:String(), ConsultationId:String(), DocumentUrl:String(), FileType:String(), FileName:String())
                 item.fileName = "\(myURL)"
                 item.data = try Data.init(contentsOf: URL.init(string:"\(item.fileName)")!)
                 DispatchQueue.main.async {

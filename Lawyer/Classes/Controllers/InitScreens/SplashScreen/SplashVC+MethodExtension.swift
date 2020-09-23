@@ -28,7 +28,7 @@ extension SplashVC{
     
     //TODO: IntialSetup
     private func initialSetup(){
-        self.view.backgroundColor = AppColor.themeColor
+        self.view.backgroundColor = AppColor.whiteColor
         runAnimationLogo()
     }
     

@@ -27,15 +27,15 @@ extension HomeVC:UICollectionViewDataSource{
             fatalError(ConstantTexts.unexpectedIndexPath)
         }
         
-        cell.configure(with: categoryListVM?.categoryAtIndex(indexPath.row) ?? CategoryViewModel(Category(image: UIImage(), title: String(), ExpertiseId: String())))
+        cell.configure(with: categoryListVM?.categoryAtIndex(indexPath.row) ?? CategoryViewModel(Category(image: UIImage(), Url: String(), title: String(), ExpertiseId: String())))
         
         
         
         return cell
     }
     
-
-
+    
+    
 }
 
 
@@ -44,66 +44,66 @@ extension HomeVC:UICollectionViewDataSource{
 extension HomeVC:UICollectionViewDelegate{
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-      UIView.animate(withDuration: 0.1,
-      animations: {
-          if let cell = collectionView.cellForItem(at: indexPath) as? CategoryCollectionViewCellAndXib {
-              cell.viewBG.transform = .init(scaleX: 0.95, y: 0.95)
-             cell.contentView.backgroundColor = AppColor.highLightColor
-          }
-      },
-      completion: { _ in
-          UIView.animate(withDuration: 0.05) {
-             if let cell = collectionView.cellForItem(at: indexPath) as? CategoryCollectionViewCellAndXib {
-                  cell.viewBG.transform = .identity
-                  cell.contentView.backgroundColor = .clear
-                
-                
-                UIView.animate(views: collectionView.orderedVisibleCells,
-                               animations: self.animations, reversed: true,
-                               initialAlpha: 1.0,
-                               finalAlpha: 0.0,
-                               completion: {
-                              
-                                let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: LawyerListVC.className) as! LawyerListVC
-                                if let categoryVM = self.categoryListVM?.categoryAtIndex(indexPath.row){
-                                    vc.headerTitle = categoryVM.title
-                                }
-                                self.navigationController?.pushViewController(vc, animated: true)
+        UIView.animate(withDuration: 0.1,
+                       animations: {
+                        if let cell = collectionView.cellForItem(at: indexPath) as? CategoryCollectionViewCellAndXib {
+                            cell.viewBG.transform = .init(scaleX: 0.95, y: 0.95)
+                            cell.contentView.backgroundColor = AppColor.highLightColor
+                        }
+        },
+                       completion: { _ in
+                        UIView.animate(withDuration: 0.05) {
+                            if let cell = collectionView.cellForItem(at: indexPath) as? CategoryCollectionViewCellAndXib {
+                                cell.viewBG.transform = .identity
+                                cell.contentView.backgroundColor = .clear
                                 
-                })
-                
-                  
-                  
-                  
-              }
-          }
-      })
+                                
+                                UIView.animate(views: collectionView.orderedVisibleCells,
+                                               animations: self.animations, reversed: true,
+                                               initialAlpha: 1.0,
+                                               finalAlpha: 0.0,
+                                               completion: {
+                                                
+                                                let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: LawyerListVC.className) as! LawyerListVC
+                                                if let categoryVM = self.categoryListVM?.categoryAtIndex(indexPath.row){
+                                                    vc.headerTitle = categoryVM.title
+                                                }
+                                                self.navigationController?.pushViewController(vc, animated: true)
+                                                
+                                })
+                                
+                                
+                                
+                                
+                            }
+                        }
+        })
     }
     
-  /*  func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
-           UIView.animate(withDuration: 0.5) {
-             if let cell = collectionView.cellForItem(at: indexPath) as? CategoryCollectionViewCellAndXib {
-                 cell.viewBG.transform = .init(scaleX: 0.95, y: 0.95)
-                cell.contentView.backgroundColor = AppColor.highLightColor
-             }
-         }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
-        UIView.animate(withDuration: 0.5) {
-            if let cell = collectionView.cellForItem(at: indexPath) as? CategoryCollectionViewCellAndXib {
-                cell.viewBG.transform = .identity
-                cell.contentView.backgroundColor = .clear
-                
-                let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: LawyerListVC.className) as! LawyerListVC
-                if let categoryVM = self.categoryListVM?.categoryAtIndex(indexPath.row){
-                    vc.headerTitle = categoryVM.title
-                }
-                self.navigationController?.pushViewController(vc, animated: true)
-                
-            }
-        }
-    } */
+    /*  func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+     UIView.animate(withDuration: 0.5) {
+     if let cell = collectionView.cellForItem(at: indexPath) as? CategoryCollectionViewCellAndXib {
+     cell.viewBG.transform = .init(scaleX: 0.95, y: 0.95)
+     cell.contentView.backgroundColor = AppColor.highLightColor
+     }
+     }
+     }
+     
+     func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+     UIView.animate(withDuration: 0.5) {
+     if let cell = collectionView.cellForItem(at: indexPath) as? CategoryCollectionViewCellAndXib {
+     cell.viewBG.transform = .identity
+     cell.contentView.backgroundColor = .clear
+     
+     let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: LawyerListVC.className) as! LawyerListVC
+     if let categoryVM = self.categoryListVM?.categoryAtIndex(indexPath.row){
+     vc.headerTitle = categoryVM.title
+     }
+     self.navigationController?.pushViewController(vc, animated: true)
+     
+     }
+     }
+     } */
     
 }
 

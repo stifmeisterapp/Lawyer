@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XoL-By-fmV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XoL-By-fmV">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -15,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_white" translatesAutoresizingMaskIntoConstraints="NO" id="2U1-HC-cNF">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="2U1-HC-cNF">
                                 <rect key="frame" x="88.5" y="423" width="237" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="2U1-HC-cNF" secondAttribute="height" multiplier="109:23" id="Bwq-IT-i6K"/>
@@ -23,12 +24,12 @@
                                 </constraints>
                             </imageView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="ZyD-ID-Ug7"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="2U1-HC-cNF" firstAttribute="centerY" secondItem="ahr-nJ-oNX" secondAttribute="centerY" id="bWI-wl-Bjg"/>
                             <constraint firstItem="2U1-HC-cNF" firstAttribute="centerX" secondItem="ahr-nJ-oNX" secondAttribute="centerX" id="h25-7k-pdZ"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="ZyD-ID-Ug7"/>
                     </view>
                     <connections>
                         <outlet property="logo_splash" destination="2U1-HC-cNF" id="koK-5F-IKU"/>
@@ -48,9 +49,9 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9WN-Cr-k5b" customClass="OnboardingView" customModule="Lawyer" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sid-8A-rEG">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sid-8A-rEG">
                                 <rect key="frame" x="184" y="746" width="46" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="vfp-iZ-ecO"/>
@@ -61,7 +62,8 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="OlY-Hi-VTB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="9WN-Cr-k5b" firstAttribute="top" secondItem="L5n-uo-Kp6" secondAttribute="top" id="1ke-Q4-3zM"/>
                             <constraint firstAttribute="trailing" secondItem="9WN-Cr-k5b" secondAttribute="trailing" id="au0-dD-Pnv"/>
@@ -70,7 +72,6 @@
                             <constraint firstItem="Sid-8A-rEG" firstAttribute="centerX" secondItem="L5n-uo-Kp6" secondAttribute="centerX" id="tAN-ie-LXO"/>
                             <constraint firstItem="9WN-Cr-k5b" firstAttribute="leading" secondItem="L5n-uo-Kp6" secondAttribute="leading" id="zZk-Fm-9ur"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="OlY-Hi-VTB"/>
                     </view>
                     <connections>
                         <outlet property="buttonProceedRef" destination="Sid-8A-rEG" id="joG-S9-PsT"/>
@@ -83,6 +84,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo_white" width="250" height="53.5"/>
+        <image name="logo" width="250" height="53.5"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

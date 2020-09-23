@@ -55,6 +55,15 @@ class LawyerTableViewCell: SBaseTableViewCell {
     
     //TODO: Configure with info
     public func configure(with info: CategoryViewModel){
+        self.customMethodManager?.setImage(imageView: self.imageCategory, url: info.Url)
+       /* self.imageCategory.image = info.image */
+        self.titlelLabelCategory.text = info.title
+    }
+    
+    
+    //TODO: Configure with new info
+    public func configureNew(with info: CategoryViewModel){
+       /* self.customMethodManager?.setImage(imageView: self.imageCategory, url: info.Url) */
         self.imageCategory.image = info.image
         self.titlelLabelCategory.text = info.title
     }

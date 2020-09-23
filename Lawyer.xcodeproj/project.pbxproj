@@ -41,6 +41,7 @@
 		9D25568124C1DCAB006563AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D25567F24C1DCAB006563AC /* LaunchScreen.storyboard */; };
 		9D25568C24C1DCAB006563AC /* LawyerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D25568B24C1DCAB006563AC /* LawyerTests.swift */; };
 		9D25569724C1DCAB006563AC /* LawyerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D25569624C1DCAB006563AC /* LawyerUITests.swift */; };
+		9D2AE71A251A5D8400886AD7 /* UploadDocumentVC+AVAudioRecorderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2AE719251A5D8400886AD7 /* UploadDocumentVC+AVAudioRecorderDelegate.swift */; };
 		9D31C57224FA46B3005F6F13 /* AppointmentDataModeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D31C57124FA46B3005F6F13 /* AppointmentDataModeling.swift */; };
 		9D31C57424FA4A6B005F6F13 /* AppointmentVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D31C57324FA4A6B005F6F13 /* AppointmentVM.swift */; };
 		9D31C57624FA6F4F005F6F13 /* LawyerListVC+MethodExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D31C57524FA6F4F005F6F13 /* LawyerListVC+MethodExtension.swift */; };
@@ -48,6 +49,8 @@
 		9D37602C250A59AC0006DA2A /* State_DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D37602B250A59AC0006DA2A /* State_DataModel.swift */; };
 		9D389BB524EC49C40089CDB3 /* FilterItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D389BB324EC49C40089CDB3 /* FilterItemCollectionViewCell.swift */; };
 		9D389BB624EC49C40089CDB3 /* FilterItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D389BB424EC49C40089CDB3 /* FilterItemCollectionViewCell.xib */; };
+		9D4329832518B26700192E0B /* AppointmentFooterNew.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D4329822518B26700192E0B /* AppointmentFooterNew.xib */; };
+		9D4329882518B27C00192E0B /* AppointmentFooterNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4329872518B27C00192E0B /* AppointmentFooterNew.swift */; };
 		9D46EE6124FA34670013751C /* AppointmentTimeDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D46EE6024FA34660013751C /* AppointmentTimeDataViewModel.swift */; };
 		9D46EE6424FA36570013751C /* AppointmentViewWithSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D46EE6324FA36570013751C /* AppointmentViewWithSectionModel.swift */; };
 		9D4C683024C598180064E935 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D4C682F24C598180064E935 /* Home.storyboard */; };
@@ -319,6 +322,7 @@
 		9D25569224C1DCAB006563AC /* LawyerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LawyerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D25569624C1DCAB006563AC /* LawyerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LawyerUITests.swift; sourceTree = "<group>"; };
 		9D25569824C1DCAB006563AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9D2AE719251A5D8400886AD7 /* UploadDocumentVC+AVAudioRecorderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UploadDocumentVC+AVAudioRecorderDelegate.swift"; sourceTree = "<group>"; };
 		9D31C57124FA46B3005F6F13 /* AppointmentDataModeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentDataModeling.swift; sourceTree = "<group>"; };
 		9D31C57324FA4A6B005F6F13 /* AppointmentVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentVM.swift; sourceTree = "<group>"; };
 		9D31C57524FA6F4F005F6F13 /* LawyerListVC+MethodExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LawyerListVC+MethodExtension.swift"; sourceTree = "<group>"; };
@@ -326,6 +330,8 @@
 		9D37602B250A59AC0006DA2A /* State_DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State_DataModel.swift; sourceTree = "<group>"; };
 		9D389BB324EC49C40089CDB3 /* FilterItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		9D389BB424EC49C40089CDB3 /* FilterItemCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterItemCollectionViewCell.xib; sourceTree = "<group>"; };
+		9D4329822518B26700192E0B /* AppointmentFooterNew.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppointmentFooterNew.xib; sourceTree = "<group>"; };
+		9D4329872518B27C00192E0B /* AppointmentFooterNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentFooterNew.swift; sourceTree = "<group>"; };
 		9D46EE6024FA34660013751C /* AppointmentTimeDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentTimeDataViewModel.swift; sourceTree = "<group>"; };
 		9D46EE6324FA36570013751C /* AppointmentViewWithSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentViewWithSectionModel.swift; sourceTree = "<group>"; };
 		9D4C682F24C598180064E935 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
@@ -1092,6 +1098,8 @@
 				9DCED48B2501188E00BCFEF3 /* UploadDocHeader.swift */,
 				9DE78DDB2501329D008CEC40 /* UploadFooterView.xib */,
 				9DE78DDD250132B3008CEC40 /* UploadFooterView.swift */,
+				9D4329822518B26700192E0B /* AppointmentFooterNew.xib */,
+				9D4329872518B27C00192E0B /* AppointmentFooterNew.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -1150,6 +1158,7 @@
 				9DCED48725010C7200BCFEF3 /* UploadDocumentVC+MethodExtension.swift */,
 				9DCED48D25011CFA00BCFEF3 /* UploadDocumentVC+UITableViewExtension.swift */,
 				9DE78DDF25014B74008CEC40 /* UploadDocumentVC+UITextViewExtension.swift */,
+				9D2AE719251A5D8400886AD7 /* UploadDocumentVC+AVAudioRecorderDelegate.swift */,
 				9DF205562506B09800EFA740 /* UploadDocumentVM.swift */,
 			);
 			path = UploadDocumentScreen;
@@ -1412,6 +1421,7 @@
 				9DDC563E24DB4486002DD47D /* OpenSans-Light.ttf in Resources */,
 				9DCED48A2501186E00BCFEF3 /* UploadDocHeader.xib in Resources */,
 				9D9E71FB24DC3F2A005805D7 /* FilterTableViewCellAndXib.xib in Resources */,
+				9D4329832518B26700192E0B /* AppointmentFooterNew.xib in Resources */,
 				9DCED4832501047000BCFEF3 /* loader.json in Resources */,
 				9D9E723124DDAEB5005805D7 /* PaymentHeaderView.xib in Resources */,
 				9D86012524F2AC7E00A4E3FE /* EmptyBox.json in Resources */,
@@ -1656,6 +1666,7 @@
 				9DDD4A1024E9B68E003CC77F /* ServiceClass.swift in Sources */,
 				9DC5456724C33F55009AF27A /* AppMacros.swift in Sources */,
 				9D25567524C1DCAA006563AC /* AppDelegate.swift in Sources */,
+				9D2AE71A251A5D8400886AD7 /* UploadDocumentVC+AVAudioRecorderDelegate.swift in Sources */,
 				9D04938B24FEE6D20068032D /* ProfileDataViewModel.swift in Sources */,
 				9D9E71FD24DC5D4E005805D7 /* FilterPopup_VC+UITableViewExtension.swift in Sources */,
 				9D5F2B4024C6C73600BA4015 /* CategoryListModeling.swift in Sources */,
@@ -1711,6 +1722,7 @@
 				9D645B9424DF36BC00A2B0F6 /* FAQ_VM.swift in Sources */,
 				9DC5455E24C33170009AF27A /* CustomMethodProtocol.swift in Sources */,
 				9D5F2B3524C6AF9700BA4015 /* SBaseTableViewCell.swift in Sources */,
+				9D4329882518B27C00192E0B /* AppointmentFooterNew.swift in Sources */,
 				9D50AB2825020374000ECA6A /* UploadDocTableViewCellAndXib.swift in Sources */,
 				9DAF732B2504E07D003C182C /* RectangularDashedView.swift in Sources */,
 				9D0B58FB24D4CCC600AACE59 /* LoginVC+UITextFieldDelegate.swift in Sources */,
@@ -1920,14 +1932,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9D9A8C2F60E31CEA13E5608D /* Pods-Lawyer.debug.xcconfig */;
 			buildSettings = {
-				ALL_INDIA_LEGAL_BASE_SERVICE_URL = "https://www.allindialegal.com/v1/";
+				ALL_INDIA_LEGAL_BASE_SERVICE_URL = "https://www.allindialegal.com/";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Lawyer/Lawyer.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 4Q46HXC747;
 				INFOPLIST_FILE = Lawyer/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1944,14 +1956,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FEAFD6B71A586A3C02F7E8BE /* Pods-Lawyer.release.xcconfig */;
 			buildSettings = {
-				ALL_INDIA_LEGAL_BASE_SERVICE_URL = "https://www.allindialegal.com/v1/";
+				ALL_INDIA_LEGAL_BASE_SERVICE_URL = "https://www.allindialegal.com/";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Lawyer/Lawyer.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 4Q46HXC747;
 				INFOPLIST_FILE = Lawyer/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

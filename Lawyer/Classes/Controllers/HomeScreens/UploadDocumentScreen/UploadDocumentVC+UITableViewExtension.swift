@@ -11,7 +11,6 @@ import UIKit
 import SwipeCellKit
 //MARK: - UITableViewDataSource extension
 extension UploadDocumentVC:UITableViewDataSource{
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return (self.docDataList == nil) ? 1 : self.docDataList?.numberOfSections ?? 1
     }
@@ -20,17 +19,15 @@ extension UploadDocumentVC:UITableViewDataSource{
         guard let count = self.docDataList?.numberOfRowsInSection(section) else {
             fatalError("No docDataList found...")
         }
-        
-        return count == 0 ? 1 : count
-        
+        return count
     }
     
     
-    /*override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    /* override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! SwipeTableViewCell
         cell.delegate = self
         return cell
-    }*/
+    } */
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -41,7 +38,6 @@ extension UploadDocumentVC:UITableViewDataSource{
             guard let cell = tableView.dequeueReusableCell(withIdentifier: EmptyWithAlertTableViewCell.className, for: indexPath) as? EmptyWithAlertTableViewCell else {
                 fatalError(ConstantTexts.unexpectedIndexPath)
             }
-            
             if let animationDetail = self.customMethodManager?.getAnimationNameAndMessage(errorCode: 1){
                 cell.lblValue.backgroundColor = AppColor.clearColor
                 cell.lblValue.font = AppFont.Bold.size(AppFontName.OpenSans, size: 16)
@@ -50,30 +46,28 @@ extension UploadDocumentVC:UITableViewDataSource{
                 cell.lblValue.numberOfLines = 0
                 cell.lblValue.text = animationDetail.1
                 self.customMethodManager?.showLottieAnimation(cell.viewBG, animationDetail.0, .loop)
-                
             }
-            
             return cell
-            
         }else{
             guard let cell = tableView.dequeueReusableCell(withIdentifier: UploadDocTableViewCellAndXib.className, for: indexPath) as? UploadDocTableViewCellAndXib else {
                 fatalError(ConstantTexts.unexpectedIndexPath)
             }
             
+            cell.viewBG.backgroundColor = indexPath.row%2 == 0 ? AppColor.tableBGColor : AppColor.whiteColor
+            
             if let docItem = self.docDataList?.documentAtIndex(indexPath.row){
                 cell.configure(with: docItem)
                 cell.btnDeleteRef.tag = indexPath.row
                 cell.btnDeleteRef.addTarget(self, action: #selector(btnDeleteTapped), for: .touchUpInside)
+                
+                cell.btnPlayPauseRef.tag = indexPath.row
+                cell.btnPlayPauseRef.addTarget(self, action: #selector(btnPlayTapped), for: .touchUpInside)
+                
                 cell.delegate = self
             }
-            
             return cell
-            
         }
-        
-        
     }
-    
 }
 
 
@@ -82,13 +76,14 @@ extension UploadDocumentVC:UITableViewDataSource{
 //MARK: - UITableViewDelegate extension
 extension UploadDocumentVC:UITableViewDelegate,SwipeTableViewCellDelegate{
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-       
-        guard let count = self.docDataList?.numberOfRowsInSection(section) else {
-            fatalError("No docDataList found...")
-        }
         
-        self.changeHeader(count: count)
-        return self.header
+         guard let count = self.docDataList?.numberOfRowsInSection(section) else {
+         fatalError("No docDataList found...")
+         }
+         
+       //  self.changeHeader(count: count)
+         return self.header
+         
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -111,17 +106,17 @@ extension UploadDocumentVC:UITableViewDelegate,SwipeTableViewCellDelegate{
     
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 250
+        return 300
         
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
-        return 250
+        return 300
     }
     
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return footer
+        return UIView()
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {

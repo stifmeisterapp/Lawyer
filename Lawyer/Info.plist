@@ -2,23 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-        <string>tez</string>
-        <string>phonepe</string>
-        <string>paytmmp</string>
-    </array>
-    
-    
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>All India Legal required Photo Library Additions Usage for upload profile picture and upload documents to provide information to lawyer</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>All India Legal required Photo Library Usage for upload profile picture and upload documents to provide information to lawyer</string>
-	<key>NSAppleMusicUsageDescription</key>
-	<string>All India Legal required Media Library Usage for upload profile picture and upload documents to provide information to lawyer</string>
-	<key>NSCameraUsageDescription</key>
-	<string>All India Legal required Camera Usage for upload profile picture and upload documents to provide information to lawyer</string>
 	<key>App Server Url</key>
 	<string>$(ALL_INDIA_LEGAL_BASE_SERVICE_URL)</string>
 	<key>CFBundleDevelopmentRegion</key>
@@ -70,8 +53,22 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>tez</string>
+		<string>phonepe</string>
+		<string>paytmmp</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>All India Legal required Media Library Usage for upload profile picture and upload documents to provide information to lawyer</string>
+	<key>NSCameraUsageDescription</key>
+	<string>All India Legal required Camera Usage for upload profile picture and upload documents to provide information to lawyer</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>All India Legal required Photo Library Additions Usage for upload profile picture and upload documents to provide information to lawyer</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>All India Legal required Photo Library Usage for upload profile picture and upload documents to provide information to lawyer</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>OpenSans-Bold.ttf</string>
@@ -123,8 +120,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
@@ -137,5 +132,7 @@
 	<string>Light</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>All India Legal required Microphone Usage for record and upload case related information to lawyer</string>
 </dict>
 </plist>

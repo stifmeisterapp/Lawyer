@@ -19,7 +19,7 @@ class HomeVC: SBaseViewController {
     @IBOutlet weak var imageViewDropDown: UIImageView!
     
     
-     
+    
     /*
      For Collection view
      @IBOutlet weak var categoryCollectionView: UICollectionView! */
@@ -56,7 +56,7 @@ class HomeVC: SBaseViewController {
     
     
     
-  /*   //MARK: - variables for the animate tableview
+    /*   //MARK: - variables for the animate tableview
      
      internal var animationName = String()
      
@@ -89,7 +89,17 @@ class HomeVC: SBaseViewController {
     //TODO: Implementation viewDidAppear
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        animateView()
+        if self.expertiseVM == nil{
+            self.expertiseVM = self.homeVM?.prepareDataEmpty()
+        }else{
+            self.expertiseVM = self.homeVM?.prepareDataEmpty()
+        }
+        
+        DispatchQueue.main.async {
+            self.categoryTableView.reloadData()
+        }
+        
+        self.expertise_list()
     }
     
     
@@ -99,9 +109,9 @@ class HomeVC: SBaseViewController {
     
     //TODO: Selectors
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
-        self.filter_Service()
+        self.expertise_list()
         refreshControl.endRefreshing()
-       
+        
     }
     
     
@@ -109,7 +119,7 @@ class HomeVC: SBaseViewController {
     
     @IBAction func btnCountryTapped(_ sender: UIButton) {
         
-       /* fatalError() */
+        /* fatalError() */
         
         self.customMethodManager?.openDownOnView(dropDown: self.dropDown, array: cityNameArray, anchor: self.viewLocationBackground, callBack: { (dropDown) in
             

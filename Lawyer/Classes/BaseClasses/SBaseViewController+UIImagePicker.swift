@@ -54,12 +54,11 @@ extension SBaseViewController:UIImagePickerControllerDelegate,UINavigationContro
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let choosen_image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             
-            let item = DocumentDataModel(Data(), ".png", "OtherDocs", String(), "Image/png", Bool())
+            let item = DocumentDataModel(data: Data(), type: ".png", withName: "OtherDocs", fileName: String(), mimeType: "image/png", isSelected: Bool(),isAudioFile: Bool(),localSoundPath: String(),serverSoundPath: String(),Id:String(), ConsultationId:String(), DocumentUrl:String(), FileType:String(), FileName:String())
             
             if let data = choosen_image.jpegData(compressionQuality:0.5){
                 item.data = data
             }
-            
             let imageName = UUID().uuidString
             let imagePath = getDocumentsDirectory().appendingPathComponent(imageName)
             item.fileName = "\(imagePath.lastPathComponent).png"

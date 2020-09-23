@@ -71,18 +71,33 @@ extension AppointMentTableViewCellAndXib:UICollectionViewDataSource{
 //MARK: - UICollectionViewDelegateFlowLayout extension
 extension AppointMentTableViewCellAndXib:UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let numberOfItemsPerRow:CGFloat = 4
+        let numberOfItemsPerRow:CGFloat = 3
         let spacingBetweenCells:CGFloat = 10
         
         let spacingBetweenCellsColumns:CGFloat = 10
         var numberOfItemsPerColumn:CGFloat = 0
-        if self.arrayTiming.count <= 4{
+        if self.arrayTiming.count <= 3{
             numberOfItemsPerColumn = 1
-        }else if self.arrayTiming.count > 4 && self.arrayTiming.count <= 8{
+        }else if self.arrayTiming.count > 3 && self.arrayTiming.count <= 6{
             numberOfItemsPerColumn = 2
-        }else if self.arrayTiming.count > 8 && self.arrayTiming.count <= 12{
+        }else if self.arrayTiming.count > 6 && self.arrayTiming.count <= 9{
             numberOfItemsPerColumn = 3
+        }else if self.arrayTiming.count > 9 && self.arrayTiming.count <= 12{
+            numberOfItemsPerColumn = 4
+        }else if self.arrayTiming.count > 12 && self.arrayTiming.count <= 15{
+            numberOfItemsPerColumn = 5
+        }else if self.arrayTiming.count > 15 && self.arrayTiming.count <= 18{
+            numberOfItemsPerColumn = 6
+        }else if self.arrayTiming.count > 18 && self.arrayTiming.count <= 21{
+            numberOfItemsPerColumn = 7
+        }else if self.arrayTiming.count > 21 && self.arrayTiming.count <= 24{
+            numberOfItemsPerColumn = 8
+        }else if self.arrayTiming.count > 24 && self.arrayTiming.count <= 27{
+            numberOfItemsPerColumn = 9
+        }else if self.arrayTiming.count > 27 && self.arrayTiming.count <= 30{
+            numberOfItemsPerColumn = 10
         }
+        
         
         
         let totalSpacing = (2 * self.spacing) + ((numberOfItemsPerRow - 1) * spacingBetweenCells) //Amount of total spacing in a row

@@ -47,7 +47,9 @@ struct ConstantTexts{
     static let  Sucess_Lottie                       =      "Sucess_Lottie"
     
     //TODO: Label Text
-    
+    static let  UploadLT                            =      "Upload"
+    static let  RecordLT                            =      "Record"
+    static let  StopRecordLT                        =      "Stop Record"
     static let  LawyerNameLT                        =      "Lawyer Name"
     static let  DateLT                              =      "Date"
     static let  TimeLT                              =      "Time"
@@ -191,7 +193,11 @@ struct ConstantTexts{
     
     static let  CustomerIns_LT                      =      "Register with us as a customer and gain access to a wide network of lawyers for consultations and legal counselling."
     
+    
+    static let  CustomerIns_New_LT                  =      "Connect with us as a customer and gain access to a wide network of lawyers for consultations and legal counselling."
+    
     static let  CompanyGSTIN_LT                     =      "27AAPFU0939F1ZV"
+    static let  MyRecording_LT                      =      "myRecording.m4a"
     
     
     
@@ -230,7 +236,7 @@ struct ConstantTexts{
     static let  Register_BT                         =      "Register"
     static let  DontHaveBT                          =      "Don't have an account?"
     static let  AlreadyHaveBT                       =      "Already Registered with us?"
-    static let  SignUpAsC_BT                        =      "Sign Up as a Customer."
+    static let  SignUpAsC_BT                        =      "Sign Up."
     static let  SignUpAsL_BT                        =      "Sign Up as a Lawyer."
     static let  Clear_BT                            =      "Clear"
     static let  Apply_BT                            =      "Apply"
@@ -276,12 +282,13 @@ struct ConstantTexts{
     static let  EnterCorFAddressALERT               =      "Please enter company/firm's address."
     static let  EnterValidCorFAddressALERT          =      "Please enter valid company/firm's address."
     static let  WantToLogoutALERT                   =      "Are you sure?\nYou want to Log out!"
+    static let  WantToDelRecALERT                   =      "Are you sure?\nYou want to to delete recorded audio!"
     static let  WantToDeleteDocuALERT               =      "Are you sure?\nYou want to delete uploaded document!"
     static let  RatedSuccessfullyALERT              =      "Thanks for you rating."
     static let  ContactYouSoonALERT                 =      "We'll contact you soon."
     static let  NoDataFoundALERT                    =      "No data found!"
     static let  NoDocumentUploadedYetALERT          =      "No document uploaded yet!"
-    
+    static let  DontHaveMicrophoneALERT             =      "Don't have access to use your microphone."
     
     static let  EnterMobileNumberALERT              =      "Please enter mobile number."
     static let  EnterValidMobileNumberALERT         =      "Please enter valid mobile number."
@@ -303,14 +310,17 @@ struct ConstantTexts{
     static let  EnterCouponCodeALERT                =      "Please enter coupon code."
     static let  cameraAlert                         =      "Device has no camera."
     static let  chooseOneALERT                      =      "Already selected document.\nYou can pick only one document."
+    static let  chooseOneRecordingALERT             =      "Already recorded an audio.\nYou can record only one audio."
+    static let  recordingFailALERT                  =      "Recording failed."
+    static let  audioFileMissingALERT               =      "Audio file is missing."
     
     //TODO: User defaults key
-    static let  tourOverUDK                          =      "TOUR_OVER"
-    static let  deviceToken                          =      "DEVICE_TOKEN"
-    static let  deviceID                             =      "DEVICE_ID"
+    static let  tourOverUDK                         =      "TOUR_OVER"
+    static let  deviceToken                         =      "DEVICE_TOKEN"
+    static let  deviceID                            =      "DEVICE_ID"
     
     //TODO: Static values for api keys
-    static let IpAddress_Key                         =      "0.0.0.0"
+    static let IpAddress_Key                        =      "0.0.0.0"
     
     
     //TODO: Storyboard Title

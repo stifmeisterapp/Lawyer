@@ -63,6 +63,17 @@ extension AppointmentVC{
         let formatter = DateFormatter()
         formatter.dateFormat = "dd-MMM-yyyy (EEEE)"
         
+        
+        self.customMethodManager?.provideShadowAndCornerRadius(self.btnBookRef, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.darkGrayColor, -1, 1, 1, 3, 0, AppColor.clearColor)
+        
+        self.btnBookRef.setTitle(ConstantTexts.BookConsul_BT, for: .normal)
+        self.btnBookRef.titleLabel?.font = ConstantFonts.mainBottomButtonFont
+        
+        self.btnBookRef.setTitleColor(AppColor.whiteColor, for: .normal)
+        self.btnBookRef.backgroundColor = AppColor.themeColor
+        
+        
+        
         self.tblAppointment.tableHeaderView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 0.0, height: Double.leastNormalMagnitude))
         self.tblAppointment.tableFooterView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 0.0, height: Double.leastNormalMagnitude))
         
@@ -120,11 +131,11 @@ extension AppointmentVC{
             
         }
         
-        if !validationMethodManager!.checkEmptyField(self.expID.trimmingCharacters(in: .whitespaces)){
-            validHandler( ConstantTexts.SelectCaseTypeALERT, Bool(), Bool())
-            return
-            
-        }
+        /*  if !validationMethodManager!.checkEmptyField(self.expID.trimmingCharacters(in: .whitespaces)){
+         validHandler( ConstantTexts.SelectCaseTypeALERT, Bool(), Bool())
+         return
+         
+         } */
         
         validHandler(ConstantTexts.empty,  true, Bool())
         
@@ -136,8 +147,9 @@ extension AppointmentVC{
     internal func appointmentListService(current_date:String,another_date:String,isRefresh:Bool,btnIdentity:String){
         
         self.customMethodManager?.startLoader(view:self.view)
+        let serviceURL = "\(SCustomerApi.checkslot)\(current_date)&AnotherDateType=\(another_date)"
         
-        ServiceClass.shared.webServiceBasicMethod(url: "\(SCustomerApi.consultation_slot)\(current_date)&AnotherDateType=\(another_date)&Uuid=\(self.Uuid)", method: .get, parameters: nil, header: nil, success: { (result) in
+        ServiceClass.shared.webServiceBasicMethod(url: serviceURL, method: .get, parameters: nil, header: nil, success: { (result) in
             print(result)
             self.setuserBtnIteraction()
             
@@ -264,6 +276,99 @@ extension AppointmentVC{
             
         }
         
+    }
+    
+    
+    
+    
+    
+    //TODO: Book cunsultation Service
+    internal func hitCheckCouponService(){
+        guard let user = self.customMethodManager?.getUser(entity: "User_Data") else{
+            print("No user found...")
+            return
+        }
+        
+        let parameters = [Api_keys_model.CategoryId:self.expID,
+                          Api_keys_model.CategoryName:self.expName,
+                          Api_keys_model.BookingDate:self.current_date,
+                          Api_keys_model.BookingTime:self.selectedSlot,
+                          Api_keys_model.BookingId:self.BookingId] as [String:AnyObject]
+        
+        let header = ["authorization":user.token,
+                      "Content-Type":"application/json",
+                      "accept":"application/json"]
+        
+        self.customMethodManager?.startLoader(view:self.view)
+        ServiceClass.shared.webServiceBasicMethod(url: SCustomerApi.book_consultation, method: .post, parameters: parameters, header: header, success: { (result) in
+            self.customMethodManager?.stopLoader(view:self.view)
+            print(result)
+            if let result_Dict = result as? NSDictionary{
+                if let code = result_Dict.value(forKey: "code") as? Int{
+                    if code == 200{
+                        
+                            
+                            if let data = result_Dict.value(forKey: "data") as? NSDictionary{
+                                print(data)
+                                
+                                
+                                let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: UploadDocumentVC.className) as! UploadDocumentVC
+                                /* vc.Uuid = self.Uuid
+                                 vc.price = self.price
+                                 vc.lawyer = self.lawyer */
+                                vc.date = self.current_date
+                                vc.selectedSlot = self.selectedSlot
+                                vc.type = self.type
+                                vc.expID = self.expID
+                                vc.expName = self.expName
+                                
+                                if let Id = data.value(forKey: "Id") as? Int{
+                                    vc.orderId = "\(Id)"
+                                }
+                                
+                                
+                                if let Id = data.value(forKey: "Id") as? String{
+                                    vc.orderId = "\(Id)"
+                                }
+                                
+                                
+                                self.navigationController?.pushViewController(vc, animated: true)
+                                
+                                
+                                
+                            }
+                            
+                        
+                    }else if code == 401{
+                        if let message = result_Dict.value(forKey: "message") as? String{
+                            _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style: .error, buttonTitle: ConstantTexts.OkBT, action: { (status) in
+                                if status{
+                                    self.customMethodManager?.deleteAllData(entity: "User_Data", success: {
+                                        super.moveToNextViewCViaRoot(name: ConstantTexts.AuthSBT, withIdentifier: LoginVC.className)
+                                    })
+                                }
+                            })
+                        }
+                    }else{
+                        
+                        if let message = result_Dict.value(forKey: "message") as? String{
+                            _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style:.error)
+                        }
+                        
+                    }
+                }
+            }
+            
+        }) { (error) in
+            print(error)
+            self.customMethodManager?.stopLoader(view:self.view)
+            if let errorString = (error as NSError).userInfo[ConstantTexts.errorMessage_Key] as? String{
+                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: errorString, style:.error)
+            }else{
+                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: ConstantTexts.errorMessage, style:.error)
+            }
+            
+        }
     }
     
 }

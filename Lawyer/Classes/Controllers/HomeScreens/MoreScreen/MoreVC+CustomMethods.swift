@@ -196,7 +196,7 @@ extension MoreVC{
             self.navigationController?.pushViewController(vc, animated: true)
             
         case 8:
-            _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: ConstantTexts.WantToLogoutALERT, style: AlertStyle.warning, buttonTitle:ConstantTexts.CancelBT, buttonColor:AppColor.errorColor , otherButtonTitle:  ConstantTexts.OkBT, otherButtonColor: AppColor.passGreenColor) { (isOtherButton) -> Void in
+            SweetAlert().showAlert(ConstantTexts.AppName, subTitle: ConstantTexts.WantToLogoutALERT, style: AlertStyle.warning, buttonTitle:ConstantTexts.CancelBT, buttonColor:AppColor.errorColor , otherButtonTitle:  ConstantTexts.OkBT, otherButtonColor: AppColor.passGreenColor) { (isOtherButton) -> Void in
                 if isOtherButton == true {
                     self.animateView()
                 }

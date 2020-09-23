@@ -10,14 +10,9 @@ import UIKit
 class LoginVC: SBaseViewController {
     
     //MARK: - IBOutlets
-    
-    @IBOutlet weak var btnLawyerRef: UIButton!
-    @IBOutlet weak var btnCustomerRef: UIButton!
     @IBOutlet weak var lblInstruction: UILabel!
-    
     @IBOutlet weak var btnSendOTPRef: UIButton!
     @IBOutlet weak var lblSignUpRef_Customer: UILabel!
-    @IBOutlet weak var lblSignUpRef_Lawyer: UILabel!
     @IBOutlet weak var viewBG: UIView!
     @IBOutlet weak var logInTable: UITableView!
     
@@ -93,27 +88,8 @@ class LoginVC: SBaseViewController {
         self.tag = 0
         let vc = AppStoryboard.authSB.instantiateViewController(withIdentifier: SignUpVC.className) as! SignUpVC
         vc.tag = self.tag
-        vc.callBack_SingIn = { tag in
-            self.tag = tag
-            self.setUpUpperButtonLawyerCustomer(tag:self.tag)
-            
-        }
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    
-    
-    @objc func lblSignUpRef_Lawyer_Tapped(_ sender: UITapGestureRecognizer) {
-        self.tag = 1
-        let vc = AppStoryboard.authSB.instantiateViewController(withIdentifier: SignUpVC.className) as! SignUpVC
-        vc.tag = self.tag
-        vc.callBack_SingIn = { tag in
-            self.tag = tag
-            self.setUpUpperButtonLawyerCustomer(tag:self.tag)
-        }
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    
     
     //TODO: Actions
     
@@ -130,55 +106,6 @@ class LoginVC: SBaseViewController {
                             self.isValidate()
                         }
         })
-        
-    }
-    
-    
-    
-    @IBAction func btnLawyerTapped(_ sender: UIButton) {
-        
-        
-        UIView.animate(withDuration: 0.1,
-                       animations: {
-                        
-                        self.btnLawyerRef.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
-        },
-                       completion: { _ in
-                        UIView.animate(withDuration: 0.1) {
-                            self.tag = 1
-                            self.btnLawyerRef.transform = CGAffineTransform.identity
-                            
-                            self.setUpUpperButtonLawyerCustomer(tag:self.tag)
-                            
-                            
-                            
-                        }
-        })
-        
-        
-    }
-    
-    
-    
-    @IBAction func btnCustomerTapped(_ sender: UIButton) {
-        
-        
-        UIView.animate(withDuration: 0.1,
-                       animations: {
-                        
-                        self.btnCustomerRef.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
-        },
-                       completion: { _ in
-                        UIView.animate(withDuration: 0.1) {
-                            self.tag = 0
-                            self.btnCustomerRef.transform = CGAffineTransform.identity
-                            
-                            self.setUpUpperButtonLawyerCustomer(tag:self.tag)
-                            
-                            
-                        }
-        })
-        
         
     }
     

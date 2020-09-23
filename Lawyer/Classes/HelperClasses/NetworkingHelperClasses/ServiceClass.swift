@@ -33,7 +33,6 @@ final class ServiceClass: SBaseService {
             return
         }
         
-        
         let manager = Alamofire.SessionManager.default
         manager.session.configuration.timeoutIntervalForRequest = 300
         
@@ -67,8 +66,13 @@ final class ServiceClass: SBaseService {
             return
         }
         
-        
+        print(urlValue)
+        print(header)
+        print(parameters)
         print(data.count)
+        print(data[0].fileName)
+        print(data[0].withName)
+        print(data[0].mimeType)
         let manager = Alamofire.SessionManager.default
         manager.session.configuration.timeoutIntervalForRequest = 300
         
@@ -82,6 +86,8 @@ final class ServiceClass: SBaseService {
                         let mime = "application/" + value
                         multipartFormData.append(item.data as Data, withName:item.withName,fileName: item.fileName, mimeType:mime)
                     }
+                }else if item.mimeType == "recording/mp3"{
+                    multipartFormData.append(item.data as Data, withName: item.withName, fileName: item.fileName, mimeType: item.fileName)
                 }else{
                     multipartFormData.append(item.data as Data, withName: item.withName, fileName: item.fileName, mimeType: item.fileName)
                 }

@@ -61,6 +61,9 @@ extension CategoryViewModel{
     var expertiseId:String{
         return self.category.ExpertiseId
     }
+    var Url:String{
+        return self.category.Url
+    }
     
     var image:UIImage{
         return self.category.image

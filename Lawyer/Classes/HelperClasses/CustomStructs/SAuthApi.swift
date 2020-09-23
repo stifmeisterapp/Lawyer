@@ -8,8 +8,8 @@
 
 import Foundation
 struct SAuthApi {
-    public static let signup                        = "signup"
-    public static let verify_otp                    = "verify-otp"
-    public static let siginin                       = "siginin"
-    public static let resend_otp                    = "resend-otp"
+    public static let signup                        = "v1/signup"
+    public static let verify_otp                    = "v1/verify-otp"
+    public static let siginin                       = "v1/siginin"
+    public static let resend_otp                    = "v1/resend-otp"
 }

@@ -15,6 +15,18 @@ class UploadFooterView: UIView {
     @IBOutlet weak var lblInstruction2: UILabel!
     @IBOutlet weak var viewBG: UIView!
     @IBOutlet weak var txtView: UITextView!
+    @IBOutlet weak var btnUpladDocRef: UIButton!
+    @IBOutlet weak var btnRecordVoice: UIButton!
+    
+    @IBOutlet weak var viewUpload: UIView!
+    @IBOutlet weak var viewRecord: UIView!
+    
+    @IBOutlet weak var imgUploadRef: UIImageView!
+    @IBOutlet weak var imgRecordRef: UIImageView!
+    
+    @IBOutlet weak var lblUpload: UILabel!
+    @IBOutlet weak var lblRecord: UILabel!
+    
     
     /*
     // Only override draw() if you perform custom drawing.
