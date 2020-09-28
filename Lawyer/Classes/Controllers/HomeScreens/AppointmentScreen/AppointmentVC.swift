@@ -19,6 +19,8 @@ class AppointmentVC: SBaseViewController {
     @IBOutlet weak var btnForwardRef: UIButton!
     @IBOutlet weak var tblAppointment: UITableView!
     @IBOutlet weak var btnBookRef: UIButton!
+    @IBOutlet weak var lblAlertEmpty: UILabel!
+    
     //MARK: - Variables
     
     internal var lawyer:Lawyer_Model = Lawyer_Model(CityName: String(), ConsulationType_Call_Fee: String(), ConsulationType_Meet_Fee: String(), ConsulationType_Video_Call_Fee: String(), Experience_Name: String(), Expertise_String: String(), FullName: String(), Id: String(), Language_String: String(), ProfilePhoto: String(), Uuid: String())
@@ -149,7 +151,22 @@ class AppointmentVC: SBaseViewController {
                             
                             self.validateFields { (msg, status, isSlot) in
                                 if status{
-                                    self.hitCheckCouponService()
+                                    if let orederId = USER_DEFAULTS.value(forKey: ConstantTexts.orderID) as? String{
+                                        let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: UploadDocumentVC.className) as! UploadDocumentVC
+                                        /* vc.Uuid = self.Uuid
+                                         vc.price = self.price
+                                         vc.lawyer = self.lawyer */
+                                        vc.date = self.current_date
+                                        vc.selectedSlot = self.selectedSlot
+                                        vc.type = self.type
+                                        vc.expID = self.expID
+                                        vc.expName = self.expName
+                                        vc.orderId = orederId
+                                        self.navigationController?.pushViewController(vc, animated: true)
+                                    }else{
+                                        self.hitCheckCouponService()
+                                    }
+                                    
                                     
                                 }else{
                                     if isSlot{

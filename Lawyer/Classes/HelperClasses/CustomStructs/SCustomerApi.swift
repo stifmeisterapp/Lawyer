@@ -27,6 +27,9 @@ struct SCustomerApi {
     public static let booking_form                   = "v2/customer/booking-form"
     public static let delete_document                = "v2/customer/delete-document"
     public static let get_packages                   = "v2/get-packages"
-    
-    
+    public static let create_order_V2                = "v2/payment/create-order"
+    public static let check_payment_V2               = "v2/check-payment"
+    public static let get_customer_orders_V2         = "v2/get-customer-orders?offset="
+    public static let get_orders_details_V2          = "v2/get-orders-details"
+
 }

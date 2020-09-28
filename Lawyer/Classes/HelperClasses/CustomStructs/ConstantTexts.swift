@@ -47,11 +47,13 @@ struct ConstantTexts{
     static let  Sucess_Lottie                       =      "Sucess_Lottie"
     
     //TODO: Label Text
+    static let  paymentDoneLT                       =      "Payment done"
     static let  UploadLT                            =      "Upload"
     static let  RecordLT                            =      "Record"
     static let  StopRecordLT                        =      "Stop Record"
     static let  LawyerNameLT                        =      "Lawyer Name"
     static let  DateLT                              =      "Date"
+    static let  BookingTimeLT                       =      "Booking time"
     static let  TimeLT                              =      "Time"
     static let  ConsultationCostLT                  =      "Consultation Cost"
     static let  FooterLT                            =      "You will receice a confirmation email with your consultation details.\nClick the Continue button to describe your query so that the lawyer will be able to assist you better."
@@ -93,6 +95,7 @@ struct ConstantTexts{
     static let  WeBackSoon_LT                       =      "We'll be back soon."
     static let  ContactUs_LT                        =      "Contact Us"
     static let  LogOut_LT                           =      "Logout"
+    static let  Pending_LT                          =      "Pending"
     
     static let  Total_LT                            =      "Total"
     static let  MorningLT                           =      "Morning"
@@ -112,6 +115,9 @@ struct ConstantTexts{
     static let  MoreLT                              =      "More"
     static let  HomeLT                              =      "Home"
     static let  BlogsLT                             =      "Blogs"
+    static let  OrdersLT                            =      "Orders"
+    static let  OrdersDateLT                        =      "Order date"
+    static let  OrdersTimeLT                        =      "Order time"
     static let  FlatFeesLT                          =      "Flat Fees"
     static let  CouponsLT                           =      "Coupons"
     static let  YouAreInLT                          =      "You are in"
@@ -171,6 +177,10 @@ struct ConstantTexts{
     static let  ChooseDecLT                         =      "A specialist lawyer of chartered accountant based on your case or requirement."
     static let  CityLT                              =      "City"
     static let  ExpertiseLT                         =      "Expertise"
+    
+    static let  Expert_AssignedLT                   =      "Expert Assigned"
+    static let  OrderCompletedLT                    =      "Order Completed"
+    static let  Order_completedLT                    =      "Order completed"
     static let  LanguageLT                          =      "Language"
     
     static let  CompareLT                           =      "Compare"
@@ -199,9 +209,12 @@ struct ConstantTexts{
     static let  CompanyGSTIN_LT                     =      "27AAPFU0939F1ZV"
     static let  MyRecording_LT                      =      "myRecording.m4a"
     
-    
+    static let  YourLegalExpert_LT_1                =      "Your legal expert is "
+    static let  YourLegalExpert_LT_2                =      ",he/she will contact you within 24 hours. You can write to him/her at "
     
     //TODO: Header Title Text
+    static let  OrdersHT                            =      "Orders"
+    static let  OrdersStatusHT                      =      "Order status"
     static let  CategoriesHT                        =      "Categories"
     static let  PaymentHT                           =      "Payment"
     static let  LoginHT                             =      "Login"
@@ -287,6 +300,7 @@ struct ConstantTexts{
     static let  RatedSuccessfullyALERT              =      "Thanks for you rating."
     static let  ContactYouSoonALERT                 =      "We'll contact you soon."
     static let  NoDataFoundALERT                    =      "No data found!"
+    static let  NoOrdersFoundALERT                  =      "No orders found!"
     static let  NoDocumentUploadedYetALERT          =      "No document uploaded yet!"
     static let  DontHaveMicrophoneALERT             =      "Don't have access to use your microphone."
     
@@ -310,6 +324,7 @@ struct ConstantTexts{
     static let  EnterCouponCodeALERT                =      "Please enter coupon code."
     static let  cameraAlert                         =      "Device has no camera."
     static let  chooseOneALERT                      =      "Already selected document.\nYou can pick only one document."
+    static let  chooseNextDateALERT                 =      "Sorry!\n\nNo appointment time found on current date.\nYou can pick appointment from next date."
     static let  chooseOneRecordingALERT             =      "Already recorded an audio.\nYou can record only one audio."
     static let  recordingFailALERT                  =      "Recording failed."
     static let  audioFileMissingALERT               =      "Audio file is missing."
@@ -318,6 +333,8 @@ struct ConstantTexts{
     static let  tourOverUDK                         =      "TOUR_OVER"
     static let  deviceToken                         =      "DEVICE_TOKEN"
     static let  deviceID                            =      "DEVICE_ID"
+    static let  orderID                             =      "ORDER_ID"
+    static let  paymentDone                         =      "PAYMENT_DONE"
     
     //TODO: Static values for api keys
     static let IpAddress_Key                        =      "0.0.0.0"

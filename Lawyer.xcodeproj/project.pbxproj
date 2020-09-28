@@ -116,6 +116,8 @@
 		9D7E634F2503FB4600B312A6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9D7E634E2503FB4600B312A6 /* GoogleService-Info.plist */; };
 		9D80F43824EAB176004F64D1 /* All_India_Legal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9D80F43624EAB176004F64D1 /* All_India_Legal.xcdatamodeld */; };
 		9D80F43A24EB05EF004F64D1 /* User_Data_Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80F43924EB05EF004F64D1 /* User_Data_Model.swift */; };
+		9D823B7E251F61BD00A52CE7 /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D823B7C251F61BD00A52CE7 /* OrderTableViewCell.swift */; };
+		9D823B7F251F61BD00A52CE7 /* OrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D823B7D251F61BD00A52CE7 /* OrderTableViewCell.xib */; };
 		9D86012124F29FEB00A4E3FE /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D86012024F29FEB00A4E3FE /* ErrorView.swift */; };
 		9D86012524F2AC7E00A4E3FE /* EmptyBox.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D86012224F2AC7E00A4E3FE /* EmptyBox.json */; };
 		9D86012624F2AC7E00A4E3FE /* NoInternetConnectionEmptyState.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D86012324F2AC7E00A4E3FE /* NoInternetConnectionEmptyState.json */; };
@@ -238,6 +240,25 @@
 		9DEB6EC924D9E7A200ED3FD6 /* FilterCategoryListModeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEB6EC824D9E7A200ED3FD6 /* FilterCategoryListModeling.swift */; };
 		9DEB6ECB24D9E87300ED3FD6 /* LawyerListCategoryList_VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEB6ECA24D9E87300ED3FD6 /* LawyerListCategoryList_VM.swift */; };
 		9DEB6ECD24D9FA8C00ED3FD6 /* LawyerListVC+CollectionViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEB6ECC24D9FA8C00ED3FD6 /* LawyerListVC+CollectionViewExtensions.swift */; };
+		9DEF67E82520492A00E2D6D8 /* OrderListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEF67E72520492A00E2D6D8 /* OrderListVC.swift */; };
+		9DEF67ED2520567F00E2D6D8 /* OrderListVC+CustomMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEF67EC2520567F00E2D6D8 /* OrderListVC+CustomMethods.swift */; };
+		9DEF67F225206D7F00E2D6D8 /* OrderDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEF67F125206D7E00E2D6D8 /* OrderDataModel.swift */; };
+		9DEF67F725206EF500E2D6D8 /* OrderDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEF67F625206EF500E2D6D8 /* OrderDataViewModel.swift */; };
+		9DEF67FC2520719000E2D6D8 /* OrderDataModeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEF67FB2520719000E2D6D8 /* OrderDataModeling.swift */; };
+		9DEF6801252072F300E2D6D8 /* OrderListVC+UITableViewDataSource+UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEF6800252072F300E2D6D8 /* OrderListVC+UITableViewDataSource+UITableViewDelegate.swift */; };
+		9DEF6806252073EF00E2D6D8 /* OrderList_VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEF6805252073EF00E2D6D8 /* OrderList_VM.swift */; };
+		9DEF68102521014F00E2D6D8 /* OrderStatusVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEF680F2521014F00E2D6D8 /* OrderStatusVC.swift */; };
+		9DEF6818252102A200E2D6D8 /* OrderStatusVC+CustomMethodExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEF6817252102A200E2D6D8 /* OrderStatusVC+CustomMethodExtension.swift */; };
+		9DEF681D25211C2700E2D6D8 /* OrderStatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEF681C25211C2700E2D6D8 /* OrderStatusViewModel.swift */; };
+		9DEF6822252123A800E2D6D8 /* OrderStatusDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEF6821252123A800E2D6D8 /* OrderStatusDataViewModel.swift */; };
+		9DEF68272521277A00E2D6D8 /* OrderStatusDataModeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEF68262521277A00E2D6D8 /* OrderStatusDataModeling.swift */; };
+		9DEF682C2521284100E2D6D8 /* OrderStatusVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEF682B2521284100E2D6D8 /* OrderStatusVM.swift */; };
+		9DEF6831252132A300E2D6D8 /* OrderStatusHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEF6830252132A300E2D6D8 /* OrderStatusHeaderView.swift */; };
+		9DEF6836252132BA00E2D6D8 /* OrderStatusHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DEF6835252132BA00E2D6D8 /* OrderStatusHeaderView.xib */; };
+		9DEF683C2521367100E2D6D8 /* OrderStatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEF683A2521367100E2D6D8 /* OrderStatusTableViewCell.swift */; };
+		9DEF683D2521367100E2D6D8 /* OrderStatusTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DEF683B2521367100E2D6D8 /* OrderStatusTableViewCell.xib */; };
+		9DEF68422521386000E2D6D8 /* OrderStatusVC+UITableViewDataSourceAndDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEF68412521386000E2D6D8 /* OrderStatusVC+UITableViewDataSourceAndDelegates.swift */; };
+		9DEF68522521AEAB00E2D6D8 /* OrderStatusVC+MFMailComposeViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEF68512521AEAB00E2D6D8 /* OrderStatusVC+MFMailComposeViewControllerDelegate.swift */; };
 		9DF205532506AC0700EFA740 /* DocumentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF205522506AC0700EFA740 /* DocumentViewModel.swift */; };
 		9DF205552506AEC700EFA740 /* DocumentDataModeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF205542506AEC700EFA740 /* DocumentDataModeling.swift */; };
 		9DF205572506B09800EFA740 /* UploadDocumentVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF205562506B09800EFA740 /* UploadDocumentVM.swift */; };
@@ -397,6 +418,8 @@
 		9D7E634E2503FB4600B312A6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9D80F43724EAB176004F64D1 /* All_India_Legal.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = All_India_Legal.xcdatamodel; sourceTree = "<group>"; };
 		9D80F43924EB05EF004F64D1 /* User_Data_Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User_Data_Model.swift; sourceTree = "<group>"; };
+		9D823B7C251F61BD00A52CE7 /* OrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
+		9D823B7D251F61BD00A52CE7 /* OrderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderTableViewCell.xib; sourceTree = "<group>"; };
 		9D86012024F29FEB00A4E3FE /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		9D86012224F2AC7E00A4E3FE /* EmptyBox.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = EmptyBox.json; sourceTree = "<group>"; };
 		9D86012324F2AC7E00A4E3FE /* NoInternetConnectionEmptyState.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NoInternetConnectionEmptyState.json; sourceTree = "<group>"; };
@@ -520,6 +543,25 @@
 		9DEB6EC824D9E7A200ED3FD6 /* FilterCategoryListModeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCategoryListModeling.swift; sourceTree = "<group>"; };
 		9DEB6ECA24D9E87300ED3FD6 /* LawyerListCategoryList_VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LawyerListCategoryList_VM.swift; sourceTree = "<group>"; };
 		9DEB6ECC24D9FA8C00ED3FD6 /* LawyerListVC+CollectionViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LawyerListVC+CollectionViewExtensions.swift"; sourceTree = "<group>"; };
+		9DEF67E72520492A00E2D6D8 /* OrderListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListVC.swift; sourceTree = "<group>"; };
+		9DEF67EC2520567F00E2D6D8 /* OrderListVC+CustomMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OrderListVC+CustomMethods.swift"; sourceTree = "<group>"; };
+		9DEF67F125206D7E00E2D6D8 /* OrderDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDataModel.swift; sourceTree = "<group>"; };
+		9DEF67F625206EF500E2D6D8 /* OrderDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDataViewModel.swift; sourceTree = "<group>"; };
+		9DEF67FB2520719000E2D6D8 /* OrderDataModeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDataModeling.swift; sourceTree = "<group>"; };
+		9DEF6800252072F300E2D6D8 /* OrderListVC+UITableViewDataSource+UITableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OrderListVC+UITableViewDataSource+UITableViewDelegate.swift"; sourceTree = "<group>"; };
+		9DEF6805252073EF00E2D6D8 /* OrderList_VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderList_VM.swift; sourceTree = "<group>"; };
+		9DEF680F2521014F00E2D6D8 /* OrderStatusVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderStatusVC.swift; sourceTree = "<group>"; };
+		9DEF6817252102A200E2D6D8 /* OrderStatusVC+CustomMethodExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OrderStatusVC+CustomMethodExtension.swift"; sourceTree = "<group>"; };
+		9DEF681C25211C2700E2D6D8 /* OrderStatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderStatusViewModel.swift; sourceTree = "<group>"; };
+		9DEF6821252123A800E2D6D8 /* OrderStatusDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderStatusDataViewModel.swift; sourceTree = "<group>"; };
+		9DEF68262521277A00E2D6D8 /* OrderStatusDataModeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderStatusDataModeling.swift; sourceTree = "<group>"; };
+		9DEF682B2521284100E2D6D8 /* OrderStatusVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderStatusVM.swift; sourceTree = "<group>"; };
+		9DEF6830252132A300E2D6D8 /* OrderStatusHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderStatusHeaderView.swift; sourceTree = "<group>"; };
+		9DEF6835252132BA00E2D6D8 /* OrderStatusHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderStatusHeaderView.xib; sourceTree = "<group>"; };
+		9DEF683A2521367100E2D6D8 /* OrderStatusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderStatusTableViewCell.swift; sourceTree = "<group>"; };
+		9DEF683B2521367100E2D6D8 /* OrderStatusTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderStatusTableViewCell.xib; sourceTree = "<group>"; };
+		9DEF68412521386000E2D6D8 /* OrderStatusVC+UITableViewDataSourceAndDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OrderStatusVC+UITableViewDataSourceAndDelegates.swift"; sourceTree = "<group>"; };
+		9DEF68512521AEAB00E2D6D8 /* OrderStatusVC+MFMailComposeViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OrderStatusVC+MFMailComposeViewControllerDelegate.swift"; sourceTree = "<group>"; };
 		9DF205522506AC0700EFA740 /* DocumentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentViewModel.swift; sourceTree = "<group>"; };
 		9DF205542506AEC700EFA740 /* DocumentDataModeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentDataModeling.swift; sourceTree = "<group>"; };
 		9DF205562506B09800EFA740 /* UploadDocumentVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDocumentVM.swift; sourceTree = "<group>"; };
@@ -689,6 +731,8 @@
 		9D4C683124C59DF30064E935 /* HomeScreens */ = {
 			isa = PBXGroup;
 			children = (
+				9DEF680E2521012300E2D6D8 /* OrderStatusScreens */,
+				9DEF67E6252048F600E2D6D8 /* OrderListScreens */,
 				9D0FF1E1250C11990048F26F /* PaymentCompleteScreenPopUp */,
 				9DCED48425010BD900BCFEF3 /* UploadDocumentScreen */,
 				9DD38ADE24FEA3AE00EA4D1C /* LawyerProfileScreen */,
@@ -845,6 +889,10 @@
 				9DE78DE425016DCC008CEC40 /* EmptyWithAlertTableViewCell.xib */,
 				9D50AB2625020374000ECA6A /* UploadDocTableViewCellAndXib.swift */,
 				9D50AB2725020374000ECA6A /* UploadDocTableViewCellAndXib.xib */,
+				9D823B7C251F61BD00A52CE7 /* OrderTableViewCell.swift */,
+				9D823B7D251F61BD00A52CE7 /* OrderTableViewCell.xib */,
+				9DEF683A2521367100E2D6D8 /* OrderStatusTableViewCell.swift */,
+				9DEF683B2521367100E2D6D8 /* OrderStatusTableViewCell.xib */,
 			);
 			path = TableViewCellsAndXibs;
 			sourceTree = "<group>";
@@ -875,6 +923,8 @@
 				9D04938824FEE4AF0068032D /* ProfileDataModel.swift */,
 				9D0444602505520100055B40 /* DocumentDataModel.swift */,
 				9D37602B250A59AC0006DA2A /* State_DataModel.swift */,
+				9DEF67F125206D7E00E2D6D8 /* OrderDataModel.swift */,
+				9DEF681C25211C2700E2D6D8 /* OrderStatusViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -891,6 +941,8 @@
 				9D46EE6024FA34660013751C /* AppointmentTimeDataViewModel.swift */,
 				9D04938A24FEE6D20068032D /* ProfileDataViewModel.swift */,
 				9DF205522506AC0700EFA740 /* DocumentViewModel.swift */,
+				9DEF67F625206EF500E2D6D8 /* OrderDataViewModel.swift */,
+				9DEF6821252123A800E2D6D8 /* OrderStatusDataViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -908,6 +960,8 @@
 				9D31C57124FA46B3005F6F13 /* AppointmentDataModeling.swift */,
 				9D66A8E024FEEBDF00FD1EBB /* ProfileDataModelModeling.swift */,
 				9DF205542506AEC700EFA740 /* DocumentDataModeling.swift */,
+				9DEF67FB2520719000E2D6D8 /* OrderDataModeling.swift */,
+				9DEF68262521277A00E2D6D8 /* OrderStatusDataModeling.swift */,
 			);
 			path = DipendenciesInjections;
 			sourceTree = "<group>";
@@ -1100,6 +1154,8 @@
 				9DE78DDD250132B3008CEC40 /* UploadFooterView.swift */,
 				9D4329822518B26700192E0B /* AppointmentFooterNew.xib */,
 				9D4329872518B27C00192E0B /* AppointmentFooterNew.swift */,
+				9DEF6830252132A300E2D6D8 /* OrderStatusHeaderView.swift */,
+				9DEF6835252132BA00E2D6D8 /* OrderStatusHeaderView.xib */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -1225,6 +1281,29 @@
 				9DDD4A1324E9C990003CC77F /* NetworkState.swift */,
 			);
 			path = NetworkingHelperClasses;
+			sourceTree = "<group>";
+		};
+		9DEF67E6252048F600E2D6D8 /* OrderListScreens */ = {
+			isa = PBXGroup;
+			children = (
+				9DEF67E72520492A00E2D6D8 /* OrderListVC.swift */,
+				9DEF67EC2520567F00E2D6D8 /* OrderListVC+CustomMethods.swift */,
+				9DEF6800252072F300E2D6D8 /* OrderListVC+UITableViewDataSource+UITableViewDelegate.swift */,
+				9DEF6805252073EF00E2D6D8 /* OrderList_VM.swift */,
+			);
+			path = OrderListScreens;
+			sourceTree = "<group>";
+		};
+		9DEF680E2521012300E2D6D8 /* OrderStatusScreens */ = {
+			isa = PBXGroup;
+			children = (
+				9DEF680F2521014F00E2D6D8 /* OrderStatusVC.swift */,
+				9DEF6817252102A200E2D6D8 /* OrderStatusVC+CustomMethodExtension.swift */,
+				9DEF68412521386000E2D6D8 /* OrderStatusVC+UITableViewDataSourceAndDelegates.swift */,
+				9DEF68512521AEAB00E2D6D8 /* OrderStatusVC+MFMailComposeViewControllerDelegate.swift */,
+				9DEF682B2521284100E2D6D8 /* OrderStatusVM.swift */,
+			);
+			path = OrderStatusScreens;
 			sourceTree = "<group>";
 		};
 		9DFFC28724C9CEFC00A50EA0 /* Enumrations */ = {
@@ -1376,6 +1455,7 @@
 				9D04938324FEDF100068032D /* ProfileHeaderView.xib in Resources */,
 				9DDC563924DB4486002DD47D /* OpenSans-ExtraBoldItalic.ttf in Resources */,
 				9DDC564024DB4486002DD47D /* OpenSans-Bold.ttf in Resources */,
+				9D823B7F251F61BD00A52CE7 /* OrderTableViewCell.xib in Resources */,
 				9DE78DDC2501329D008CEC40 /* UploadFooterView.xib in Resources */,
 				9D9E722824DD8D00005805D7 /* AppointmentFooterView.xib in Resources */,
 				9D5F2B2A24C5FB3900BA4015 /* TabBar.storyboard in Resources */,
@@ -1390,6 +1470,7 @@
 				9D91F9982504EACC005ED5E0 /* Sucess_Lottie.json in Resources */,
 				9D50AB2925020374000ECA6A /* UploadDocTableViewCellAndXib.xib in Resources */,
 				9D86012624F2AC7E00A4E3FE /* NoInternetConnectionEmptyState.json in Resources */,
+				9DEF6836252132BA00E2D6D8 /* OrderStatusHeaderView.xib in Resources */,
 				9DDC565124DB4601002DD47D /* Judges_Gavel.mp3 in Resources */,
 				9DDC563A24DB4486002DD47D /* OpenSans-BoldItalic.ttf in Resources */,
 				9D86012724F2AC7E00A4E3FE /* NoConnection.json in Resources */,
@@ -1428,6 +1509,7 @@
 				9D86012924F2AEB900A4E3FE /* EmptyBoxNew.json in Resources */,
 				9D7E634F2503FB4600B312A6 /* GoogleService-Info.plist in Resources */,
 				9D554C4F24C2C26300E2080D /* Launch.storyboard in Resources */,
+				9DEF683D2521367100E2D6D8 /* OrderStatusTableViewCell.xib in Resources */,
 				9DDC563F24DB4486002DD47D /* OpenSans-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1582,6 +1664,7 @@
 				9D6FED1624DEC28E00232A7A /* MoreVC.swift in Sources */,
 				9D948F2724D5716600AB41F0 /* VPMOTPView.swift in Sources */,
 				9D9E723524DDBB0E005805D7 /* PaymentVC+TableViewExtension.swift in Sources */,
+				9DEF6806252073EF00E2D6D8 /* OrderList_VM.swift in Sources */,
 				9D9E723324DDAECB005805D7 /* PaymentHeaderView.swift in Sources */,
 				9D67B12624E08B160074B3F2 /* ContactUsVC+TableViewExtension.swift in Sources */,
 				9D5F2B4224C6C7FD00BA4015 /* HomeVM.swift in Sources */,
@@ -1594,8 +1677,10 @@
 				9D645B8C24DF316B00A2B0F6 /* FAQ_VC.swift in Sources */,
 				9DDC565424DB530D002DD47D /* LawyerNewTableViewCell.swift in Sources */,
 				9D948F2B24D5BED000AB41F0 /* UIImage+Extensions.swift in Sources */,
+				9DEF681D25211C2700E2D6D8 /* OrderStatusViewModel.swift in Sources */,
 				9D787D8224C9663300EB22D2 /* UITextField+Extension.swift in Sources */,
 				9D9E71FA24DC3F2A005805D7 /* FilterTableViewCellAndXib.swift in Sources */,
+				9DEF67F725206EF500E2D6D8 /* OrderDataViewModel.swift in Sources */,
 				9D9E71F724DC32CB005805D7 /* FilterPopup_VC+CustomMethodExtension.swift in Sources */,
 				9D66A8E124FEEBDF00FD1EBB /* ProfileDataModelModeling.swift in Sources */,
 				9D04938924FEE4AF0068032D /* ProfileDataModel.swift in Sources */,
@@ -1605,9 +1690,11 @@
 				9D9E722A24DD8D22005805D7 /* AppointmentFooterView.swift in Sources */,
 				9D5F2B4524C6D29B00BA4015 /* UITableView+AdditionsExtension.swift in Sources */,
 				9D233DEF24DF0CF300B2F1C9 /* UnderConstructionVC+CustomMethodsExtension.swift in Sources */,
+				9DEF682C2521284100E2D6D8 /* OrderStatusVM.swift in Sources */,
 				9D787D8624C9848C00EB22D2 /* ValidationProtocol.swift in Sources */,
 				9D93CE5424DBF16300CC148E /* FilterPopup_VC.swift in Sources */,
 				9D0B206724CA03180073C3C4 /* SBaseViewController+MethodExtension.swift in Sources */,
+				9DEF68422521386000E2D6D8 /* OrderStatusVC+UITableViewDataSourceAndDelegates.swift in Sources */,
 				9DDD4A1224E9B8BF003CC77F /* AppReachability.swift in Sources */,
 				9D31C57224FA46B3005F6F13 /* AppointmentDataModeling.swift in Sources */,
 				9DFFC28D24C9D36B00A50EA0 /* UIImageView+Extensions.swift in Sources */,
@@ -1615,9 +1702,11 @@
 				9D9E720324DC6DAC005805D7 /* FilterPopup_Expertise_VM.swift in Sources */,
 				9D9E724924DE05AE005805D7 /* PaymentVC+UITextFieldDelegate.swift in Sources */,
 				9DDC564E24DB453B002DD47D /* TipView.swift in Sources */,
+				9DEF683C2521367100E2D6D8 /* OrderStatusTableViewCell.swift in Sources */,
 				9D9E720724DC724E005805D7 /* FilterPopup_Experience_VM.swift in Sources */,
 				9D233DEA24DEFB7400B2F1C9 /* SweetAlert.swift in Sources */,
 				9D00E20324C7E19800F6FC74 /* OnboardingVC+paper_onboardingExtension.swift in Sources */,
+				9DEF68102521014F00E2D6D8 /* OrderStatusVC.swift in Sources */,
 				9D9E721F24DD24FE005805D7 /* AppointMentTableViewCellAndXib.swift in Sources */,
 				9DEB6ECD24D9FA8C00ED3FD6 /* LawyerListVC+CollectionViewExtensions.swift in Sources */,
 				9D787D8424C9834E00EB22D2 /* ValidationClass.swift in Sources */,
@@ -1641,6 +1730,7 @@
 				9D46EE6124FA34670013751C /* AppointmentTimeDataViewModel.swift in Sources */,
 				9D9E723B24DDEC0A005805D7 /* GSTIN_Type.swift in Sources */,
 				9D46EE6424FA36570013751C /* AppointmentViewWithSectionModel.swift in Sources */,
+				9DEF6818252102A200E2D6D8 /* OrderStatusVC+CustomMethodExtension.swift in Sources */,
 				9D5F2B5224C7172600BA4015 /* LawyerListVC+TableViewExtension.swift in Sources */,
 				9DDD4A0E24E9B43E003CC77F /* Api_keys_model.swift in Sources */,
 				9D31C57424FA4A6B005F6F13 /* AppointmentVM.swift in Sources */,
@@ -1687,8 +1777,11 @@
 				9D9E723D24DDECD9005805D7 /* DataStoreStruct_GSTIN.swift in Sources */,
 				9D80F43824EAB176004F64D1 /* All_India_Legal.xcdatamodeld in Sources */,
 				9DF205532506AC0700EFA740 /* DocumentViewModel.swift in Sources */,
+				9DEF68272521277A00E2D6D8 /* OrderStatusDataModeling.swift in Sources */,
 				9D80F43A24EB05EF004F64D1 /* User_Data_Model.swift in Sources */,
+				9DEF68522521AEAB00E2D6D8 /* OrderStatusVC+MFMailComposeViewControllerDelegate.swift in Sources */,
 				9D0FF1E5250C12480048F26F /* PaymentCompleteVC+CustomMethods.swift in Sources */,
+				9DEF67FC2520719000E2D6D8 /* OrderDataModeling.swift in Sources */,
 				9D948F2924D572F200AB41F0 /* OTP_VC+ VPMOTPViewDelegate.swift in Sources */,
 				9D31C57624FA6F4F005F6F13 /* LawyerListVC+MethodExtension.swift in Sources */,
 				9D9E720924DC836B005805D7 /* FilterPopup_VC+UISearchExtension.swift in Sources */,
@@ -1699,6 +1792,7 @@
 				9DEB6EBA24D9DB5D00ED3FD6 /* FilterCollectionViewCell.swift in Sources */,
 				9D948F3424D5FFF900AB41F0 /* HomeVC+CollectionViewExtension.swift in Sources */,
 				9D04938524FEDF290068032D /* ProfileHeaderView.swift in Sources */,
+				9DEF67ED2520567F00E2D6D8 /* OrderListVC+CustomMethods.swift in Sources */,
 				9D9E724724DDFD69005805D7 /* PaymentFooterView.swift in Sources */,
 				9D6FED1C24DECFF200232A7A /* MoreVC+TableViewExtension.swift in Sources */,
 				9D25567724C1DCAA006563AC /* SceneDelegate.swift in Sources */,
@@ -1715,7 +1809,9 @@
 				9D948F2E24D5F9AD00AB41F0 /* UICollectionView+Extensions.swift in Sources */,
 				9DFED3DD24D48F7800851570 /* DataStoreStruct_Model.swift in Sources */,
 				9DEB6EC724D9E73200ED3FD6 /* FilterListModeling.swift in Sources */,
+				9DEF6822252123A800E2D6D8 /* OrderStatusDataViewModel.swift in Sources */,
 				9DF3D1C624FD3E5F00BC3B2B /* Array+Extensions.swift in Sources */,
+				9D823B7E251F61BD00A52CE7 /* OrderTableViewCell.swift in Sources */,
 				9D0FF1DE250B85FB0048F26F /* PaymentVC+RazorpayPaymentCompletionProtocol.swift in Sources */,
 				9DDD4A0C24E9B3AA003CC77F /* SAuthApi.swift in Sources */,
 				9D86012124F29FEB00A4E3FE /* ErrorView.swift in Sources */,
@@ -1735,6 +1831,7 @@
 				9DEB6ECB24D9E87300ED3FD6 /* LawyerListCategoryList_VM.swift in Sources */,
 				9D554C5F24C2D41600E2080D /* SoundProtocol.swift in Sources */,
 				9DDC564C24DB453B002DD47D /* TipViewTransition.swift in Sources */,
+				9DEF67F225206D7F00E2D6D8 /* OrderDataModel.swift in Sources */,
 				9D9E722224DD56B5005805D7 /* AppointMentTableViewCellAndXib+UICollectionViewExtension.swift in Sources */,
 				9DEB6EC924D9E7A200ED3FD6 /* FilterCategoryListModeling.swift in Sources */,
 				9D66A8E624FF12C500FD1EBB /* Detail_TableViewCellAndXib.swift in Sources */,
@@ -1748,17 +1845,20 @@
 				9DD38AE224FEA7C200EA4D1C /* LawyerProfileVC+MethodExtension.swift in Sources */,
 				9D9148A624ED77D6003A3E37 /* LawyerList_VM.swift in Sources */,
 				9DC5456324C33DAE009AF27A /* AppStoryboard.swift in Sources */,
+				9DEF6801252072F300E2D6D8 /* OrderListVC+UITableViewDataSource+UITableViewDelegate.swift in Sources */,
 				9D67B12824E08B890074B3F2 /* ContactUsVM.swift in Sources */,
 				9D5F2B5424C75DB700BA4015 /* Category.swift in Sources */,
 				9D9E722524DD57EA005805D7 /* TimeCollectionViewCellAndXib.swift in Sources */,
 				9D9E720124DC6547005805D7 /* FilterPopup_City_VM.swift in Sources */,
 				9DFED3DA24D48C7F00851570 /* Auth_TextField_TableViewCell.swift in Sources */,
+				9DEF67E82520492A00E2D6D8 /* OrderListVC.swift in Sources */,
 				9D6FED1824DEC3D900232A7A /* MoreVC+CustomMethods.swift in Sources */,
 				9D00E20124C7E0F500F6FC74 /* OnboardingVC+MethodExtension.swift in Sources */,
 				9D67B12424E075E70074B3F2 /* ContactUsVC+CustomMethodsExtension.swift in Sources */,
 				9D76C04E24C8E011002B400E /* LoginVC+MethodExtension.swift in Sources */,
 				9DE78DE525016DCC008CEC40 /* EmptyWithAlertTableViewCell.swift in Sources */,
 				9D645B9024DF332900A2B0F6 /* FAQView.swift in Sources */,
+				9DEF6831252132A300E2D6D8 /* OrderStatusHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

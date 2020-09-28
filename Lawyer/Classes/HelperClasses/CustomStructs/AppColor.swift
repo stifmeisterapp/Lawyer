@@ -22,6 +22,7 @@ struct AppColor {
     public static let placeholderColor         = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
     public static let tabUnselectTintColor     = #colorLiteral(red: 0.6642268896, green: 0.6642268896, blue: 0.6642268896, alpha: 1)
     public static let tanColor                 = #colorLiteral(red: 1, green: 0.5764705882, blue: 0, alpha: 1)
+    public static let yellowColor              = #colorLiteral(red: 0.9620714784, green: 0.6701713204, blue: 0.2562068403, alpha: 1)
     public static let whiteColor               = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     public static let errorColor               = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
     

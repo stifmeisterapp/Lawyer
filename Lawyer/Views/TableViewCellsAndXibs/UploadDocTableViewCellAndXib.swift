@@ -32,9 +32,7 @@ class UploadDocTableViewCellAndXib: SwipeTableViewCell {
     }
     
     
-    //MARK: - User Define Functions
-    //TODO: Config TableViewCell
-    
+    //MARK: - User Define Functions    
     //TODO: Configure with info
     public func configure(with info: DocumentViewModel){
         self.lblDocName.text = info.fileName

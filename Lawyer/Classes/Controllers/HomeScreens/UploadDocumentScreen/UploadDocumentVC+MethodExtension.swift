@@ -289,6 +289,7 @@ extension UploadDocumentVC{
     //TODO: Start and stop recording
     internal func startAndStopRecording(){
         if isRecording{
+            isRecording = Bool()
             self.header.lblRecord.text = ConstantTexts.RecordLT
             finishAudioRecording(success: true)
         }else{
@@ -352,14 +353,14 @@ extension UploadDocumentVC{
             audioRecorder = nil
             let urlString: String = getFileUrl().absoluteString
             self.recordingPath = urlString
-            let item = DocumentDataModel(data: self.getAudioData(localUrl: getFileUrl()), type: String(), withName: "Audio", fileName: urlString, mimeType: "recording/mp3", isSelected: Bool(),isAudioFile: true,localSoundPath: urlString,serverSoundPath: String(),Id:String(), ConsultationId:String(), DocumentUrl:String(), FileType:String(), FileName:String())
+            let item = DocumentDataModel(data: self.getAudioData(localUrl: getFileUrl()), type: String(), withName: "Audio", fileName: urlString, mimeType: "audio/mp3", isSelected: Bool(),isAudioFile: true,localSoundPath: urlString,serverSoundPath: String(),Id:String(), ConsultationId:String(), DocumentUrl:String(), FileType:String(), FileName:String())
             
-            self.docDataList?.documentDataItems.insert(item, at: 0)
-            DispatchQueue.main.async {
-                self.tblDocuments.reloadData()
-            }
+//            self.docDataList?.documentDataItems.insert(item, at: 0)
+//            DispatchQueue.main.async {
+//                self.tblDocuments.reloadData()
+//            }
             
-            // self.hitBooking_FormV2(item: item)
+             self.hitBooking_FormV2(item: item)
             
         }
         else
@@ -960,6 +961,7 @@ extension UploadDocumentVC{
                                         vc.desc = self.descriptionTxtView
                                         vc.Docs = String()
                                         vc.lawyer = self.lawyer
+                                        vc.OrderId = self.orderId
                                         self.navigationController?.pushViewController(vc, animated: true)
                                         
                                     }

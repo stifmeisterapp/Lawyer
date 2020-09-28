@@ -30,8 +30,9 @@ extension PaymentCompleteVC{
     
     //TODO: Intial setup implementation
     internal func initialSetup(){
-        self.customMethodManager?.showLottieAnimation(self.imgView, ConstantTexts.wallet_animation, .loop)
-        
+       // self.customMethodManager?.showLottieAnimation(self.imgView, ConstantTexts.wallet_animation, .loop)
+        self.imgView.setImageTintColor(AppColor.themeColor)
+        self.imgView.image = #imageLiteral(resourceName: "icons8-verified_account")
         self.lblTitle.numberOfLines = 0
         self.lblTitle.font = ConstantFonts.mainBottomButtonFont
         self.lblTitle.textColor = AppColor.themeColor
@@ -45,14 +46,14 @@ extension PaymentCompleteVC{
         self.lblKeys.font = AppFont.Semibold.size(AppFontName.OpenSans, size: 10)
         self.lblKeys.textColor = AppColor.darkGrayColor
         self.lblKeys.textAlignment = .left
-        self.lblKeys.text = "\(ConstantTexts.DateLT)\n\n\(ConstantTexts.LawyerNameLT)\n\n\(ConstantTexts.ConsultationTypeLT)\n\n\(ConstantTexts.ConsultationCostLT)"
+        self.lblKeys.text = "\(ConstantTexts.DateLT)\n\n\(ConstantTexts.BookingTimeLT)\n\n\(ConstantTexts.ConsultationTypeLT)\n\n\(ConstantTexts.ConsultationCostLT)"
         
         
         self.lblValues.numberOfLines = 0
         self.lblValues.font = AppFont.Bold.size(AppFontName.OpenSans, size: 10)
         self.lblValues.textColor = AppColor.darkGrayColor
         self.lblValues.textAlignment = .right
-        self.lblValues.text = "\(self.date) \(self.time)\n\n\(lawyer.FullName)\n\n\(self.type)\n\n\(self.cost)"
+        self.lblValues.text = "\(self.date)\n\n\(self.time)\n\n\(self.type)\n\n\(self.cost)"
         
         
         self.lblFooter.numberOfLines = 0

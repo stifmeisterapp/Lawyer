@@ -80,6 +80,9 @@ protocol CustomMethodProtocol {
     //TODO: Get table and keys for update
     func getTableAndKeys(entity:String)->String
     
+    //TODO: Call number
+     func callNumber(phoneNumber: String) 
+    
     //TODO: Setup error view
     func setupError(chidView:ErrorView,message:String,callback: @escaping () -> Void)
     

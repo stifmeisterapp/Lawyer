@@ -57,7 +57,7 @@ extension SignUpVC{
         self.customMethodManager?.provideShadowAndCornerRadius(self.btnRegisterRef, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.darkGrayColor, -1, 1, 1, 3, 0, AppColor.clearColor)
         
         
-        self.btnRegisterRef.setTitle(ConstantTexts.SendOTP_BT, for: .normal)
+        self.btnRegisterRef.setTitle(ConstantTexts.Register_BT, for: .normal)
         self.btnRegisterRef.titleLabel?.font = ConstantFonts.mainBottomButtonFont
         
         self.btnRegisterRef.setTitleColor(AppColor.whiteColor, for: .normal)
@@ -170,7 +170,7 @@ extension SignUpVC{
         let parameters = [Api_keys_model.Fullname:dataListVM_T.dataStoreStructAtIndex(0).value,
                           Api_keys_model.Mobile:dataListVM_T.dataStoreStructAtIndex(1).value,
                           Api_keys_model.Email:dataListVM_T.dataStoreStructAtIndex(2).value,
-                          Api_keys_model.type:self.tag == 0 ? "1" : "2",
+                          Api_keys_model.type:self.tag == 0 ? "0" : "1",
                           Api_keys_model.DeviceType:ConstantTexts.deviceType,
                           Api_keys_model.IpAddress:ConstantTexts.IpAddress_Key,
                           Api_keys_model.DeviceId:FirebaseId,
@@ -194,7 +194,7 @@ extension SignUpVC{
                                 if success{
                                     let vc = AppStoryboard.authSB.instantiateViewController(withIdentifier: OTP_VC.className) as! OTP_VC
                                     vc.phoneNumber = dataListVM_T.dataStoreStructAtIndex(1).value
-                                    vc.type = self.tag == 0 ? "1" : "2"
+                                    vc.type = self.tag == 0 ? "0" : "1"
                                     vc.modalPresentationStyle = .automatic //or .overFullScreen for transparency
                                     self.present(vc, animated: true, completion: nil)
                                 }

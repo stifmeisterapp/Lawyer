@@ -86,14 +86,16 @@ final class ServiceClass: SBaseService {
                         let mime = "application/" + value
                         multipartFormData.append(item.data as Data, withName:item.withName,fileName: item.fileName, mimeType:mime)
                     }
-                }else if item.mimeType == "recording/mp3"{
-                    multipartFormData.append(item.data as Data, withName: item.withName, fileName: item.fileName, mimeType: item.fileName)
+                }else if item.mimeType == "audio/mp3"{
+                    multipartFormData.append(item.data as Data, withName: item.withName, fileName: item.fileName, mimeType: item.mimeType)
                 }else{
-                    multipartFormData.append(item.data as Data, withName: item.withName, fileName: item.fileName, mimeType: item.fileName)
+                    print(item.mimeType)
+                    multipartFormData.append(item.data as Data, withName: item.withName, fileName: item.fileName, mimeType: item.mimeType)
                 }
             }
         }, to: urlValue,headers: header){
             (result) in
+        print(result)
             switch result {
             case .success(let upload, _,_ ):
                 upload.uploadProgress(closure: { (progress) in

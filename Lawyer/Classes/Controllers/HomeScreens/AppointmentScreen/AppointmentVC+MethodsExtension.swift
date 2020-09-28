@@ -87,6 +87,14 @@ extension AppointmentVC{
         self.tblAppointment.backgroundColor = AppColor.whiteColor
         self.tblAppointment.addSubview(self.refreshControl)
         
+        self.lblAlertEmpty.isHidden = true
+        self.lblAlertEmpty.textColor = AppColor.errorColor
+        self.lblAlertEmpty.numberOfLines = 0
+        self.lblAlertEmpty.textAlignment = .center
+        self.lblAlertEmpty.font = AppFont.Semibold.size(AppFontName.OpenSans, size: 14)
+        self.lblAlertEmpty.text = ConstantTexts.chooseNextDateALERT
+        self.btnBookRef.isHidden = true
+
         
         
         formatter.dateFormat = "dd-MMM-yyyy"
@@ -250,6 +258,18 @@ extension AppointmentVC{
                             
                         }
                         
+                        if let count = self.appointMentListVM?.appointments.count{
+                            if count > 0{
+                                self.btnBookRef.isHidden = false
+                                self.lblAlertEmpty.isHidden = true
+                            }else{
+                                self.btnBookRef.isHidden = true
+                                self.lblAlertEmpty.isHidden = false
+                                
+                            }
+                        }
+                        
+                        
                         DispatchQueue.main.async {
                             self.tblAppointment.reloadData()
                         }
@@ -324,11 +344,13 @@ extension AppointmentVC{
                                 
                                 if let Id = data.value(forKey: "Id") as? Int{
                                     vc.orderId = "\(Id)"
+                                    UserDefaults.standard.setValue("\(Id)", forKey: ConstantTexts.orderID)
                                 }
                                 
                                 
                                 if let Id = data.value(forKey: "Id") as? String{
                                     vc.orderId = "\(Id)"
+                                    USER_DEFAULTS.setValue("\(Id)", forKey: ConstantTexts.orderID)
                                 }
                                 
                                 

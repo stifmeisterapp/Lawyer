@@ -56,7 +56,7 @@ extension SplashVC{
                                 return
                             }
                             
-                            if user.type == "1"{
+                            if user.type == "0"{
                                 let vc = AppStoryboard.tabBarSB.instantiateViewController(withIdentifier: TabBarVC.className) as! TabBarVC
                                 UIApplication.shared.windows.first?.rootViewController = vc
                                 UIApplication.shared.windows.first?.makeKeyAndVisible()

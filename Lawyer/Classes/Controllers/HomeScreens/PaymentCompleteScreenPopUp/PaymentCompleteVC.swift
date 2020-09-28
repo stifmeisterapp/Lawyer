@@ -26,6 +26,7 @@ class PaymentCompleteVC: SBaseViewController {
     internal var time:String = String()
     internal var type:String = String()
     internal var cost:String = String()
+    internal var id:String = String()
     
     //MARK: - View life cycle methods
     //TODO: Implementation viewDidLoad
@@ -64,7 +65,8 @@ class PaymentCompleteVC: SBaseViewController {
                        completion: { _ in
                         UIView.animate(withDuration: 0.1) {
                             self.customMethodManager?.provideShadowAndCornerRadius(self.btnHomeRef, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.textColor, -1, 1, 1, 3, 0, AppColor.clearColor)
-                            self.btnHomeRef.transform = CGAffineTransform.identity
+                            
+                            NOTIFICATION_CENTER.post(name: NSNotification.Name(rawValue: ConstantTexts.paymentDone), object: ["Id":self.id])
                             self.navigationController?.popToRootViewController(animated: true)
                             
                         }

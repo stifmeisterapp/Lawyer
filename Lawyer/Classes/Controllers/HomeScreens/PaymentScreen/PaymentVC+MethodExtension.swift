@@ -459,9 +459,11 @@ extension PaymentVC{
                           Api_keys_model.ConsultTime: self.selectedSlot,
                           Api_keys_model.ConsultType: self.type,
                           Api_keys_model.Docs: self.Docs,
+                          Api_keys_model.OrderId: self.OrderId,
                           Api_keys_model.GstIn: self.dataListVM?.dataStoreStructAtIndex(0).value ?? String(),
                           Api_keys_model.IsGstin: self.header.switch_Ref.isOn,
                           Api_keys_model.LawyerId: self.Uuid,
+                          Api_keys_model.PackageID: self.Uuid,
                           Api_keys_model.Name: user.Fullname,
                           Api_keys_model.MobileNo: "\(ConstantTexts.CountryCodeLT) \(user.Mobile)",
             Api_keys_model.Email: user.Email,
@@ -476,7 +478,7 @@ extension PaymentVC{
                       "accept":"application/json"]
         
         self.customMethodManager?.startLoader(view:self.view)
-        ServiceClass.shared.webServiceBasicMethod(url: SCustomerApi.create_order, method: .post, parameters: parameters, header: header, success: { (result) in
+        ServiceClass.shared.webServiceBasicMethod(url: SCustomerApi.create_order_V2, method: .post, parameters: parameters, header: header, success: { (result) in
             self.customMethodManager?.stopLoader(view:self.view)
             print(result)
             if let result_Dict = result as? NSDictionary{
@@ -490,6 +492,11 @@ extension PaymentVC{
                                 if let OrderId = data.value(forKey: "OrderId") as? String{
                                     self.OrderId = OrderId
                                 }
+                                
+                                if let RazorOrderId = data.value(forKey: "RazorOrderId") as? String{
+                                    self.RazorOrderId = RazorOrderId
+                                }
+                                
                                 
                                 if let Key = data.value(forKey: "Key") as? String{
                                     self.Key = Key
@@ -558,24 +565,26 @@ extension PaymentVC{
             print("No user found...")
             return
         }
-        let parameters = [Api_keys_model.RazorpayOrderId: self.OrderId,
+        let parameters = [Api_keys_model.RazorpayOrderId: self.RazorOrderId,
                           Api_keys_model.RazorpayPaymentId: self.RazorpayPaymentId,
                           Api_keys_model.RazorpaySignature:self.generated_signature,
                           Api_keys_model.TaxAmount: "\(self.gst18Paid)",
             Api_keys_model.Amount: "\(self.amountPaid)",
-            Api_keys_model.BookedConsulationId: self.BookedConsulationId] as [String:AnyObject]
+            Api_keys_model.BookedConsulationId: self.OrderId] as [String:AnyObject]
         
         let header = ["authorization":user.token,
                       "Content-Type":"application/json",
                       "accept":"application/json"]
         
         self.customMethodManager?.startLoader(view:self.view)
-        ServiceClass.shared.webServiceBasicMethod(url: SCustomerApi.check_payment, method: .post, parameters: parameters, header: header, success: { (result) in
+        ServiceClass.shared.webServiceBasicMethod(url: SCustomerApi.check_payment_V2, method: .post, parameters: parameters, header: header, success: { (result) in
             self.customMethodManager?.stopLoader(view:self.view)
             print(result)
             if let result_Dict = result as? NSDictionary{
                 if let code = result_Dict.value(forKey: "code") as? Int{
                     if code == 200{
+                        
+                        USER_DEFAULTS.removeObject(forKey: ConstantTexts.orderID)
                         
                         let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: PaymentCompleteVC.className) as! PaymentCompleteVC
                         vc.lawyer = self.lawyer

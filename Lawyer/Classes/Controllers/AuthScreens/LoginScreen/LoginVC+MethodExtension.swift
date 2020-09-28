@@ -64,7 +64,7 @@ extension LoginVC{
      
         self.customMethodManager?.provideShadowAndCornerRadius(self.btnSendOTPRef, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.darkGrayColor, -1, 1, 1, 3, 0, AppColor.clearColor)
         
-        self.btnSendOTPRef.setTitle(ConstantTexts.SendOTP_BT, for: .normal)
+        self.btnSendOTPRef.setTitle(ConstantTexts.LoginHT, for: .normal)
         self.btnSendOTPRef.titleLabel?.font = ConstantFonts.mainBottomButtonFont
         
         self.btnSendOTPRef.setTitleColor(AppColor.whiteColor, for: .normal)
@@ -163,7 +163,7 @@ extension LoginVC{
       
         let parameters = [Api_keys_model.FirebaseId:FirebaseId,
                           Api_keys_model.Mobile:dataListVM_T.dataStoreStructAtIndex(0).value,
-                          Api_keys_model.type:self.tag == 0 ? "1" : "2"] as [String:AnyObject]
+                          Api_keys_model.type:self.tag == 0 ? "0" : "1"] as [String:AnyObject]
         
         
         
@@ -183,7 +183,7 @@ extension LoginVC{
                                 if success{
                                     let vc = AppStoryboard.authSB.instantiateViewController(withIdentifier: OTP_VC.className) as! OTP_VC
                                     vc.phoneNumber = dataListVM_T.dataStoreStructAtIndex(0).value
-                                    vc.type = self.tag == 0 ? "1" : "2"
+                                    vc.type = self.tag == 0 ? "0" : "1"
                                     vc.modalPresentationStyle = .automatic //or .overFullScreen for transparency
                                     self.present(vc, animated: true, completion: nil)
                                 }

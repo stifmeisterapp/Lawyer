@@ -399,6 +399,15 @@ class CustomMethodClass: CustomMethodProtocol {
         
     }
     
+    //TODO: Call number
+     func callNumber(phoneNumber: String) {
+        guard let url = URL(string: "telprompt://\(phoneNumber)"),
+            UIApplication.shared.canOpenURL(url) else {
+            return
+        }
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    }
+    
     
 }
 

@@ -58,6 +58,7 @@ class PaymentVC: SBaseViewController {
     //MARK: - variables for RazorpayCheckout
     internal var razorpay: RazorpayCheckout!
     internal var OrderId:String = String()
+    internal var RazorOrderId:String = String()
     internal var Key:String = String()
     internal var BookedConsulationId:String = String()
     internal var RazorpayPaymentId:String = String()
@@ -84,6 +85,7 @@ class PaymentVC: SBaseViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        print(self.OrderId)
         initValues()
     }
     

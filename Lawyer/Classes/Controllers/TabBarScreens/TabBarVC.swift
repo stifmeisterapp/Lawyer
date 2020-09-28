@@ -11,8 +11,8 @@ class TabBarVC: UITabBarController {
     
     //MARK: - Variables
     
-    private let images = [#imageLiteral(resourceName: "home") ,#imageLiteral(resourceName: "Blogs")  , #imageLiteral(resourceName: "Coupons"),  #imageLiteral(resourceName: "menu")]
-    private let titles = [ConstantTexts.HomeLT ,ConstantTexts.BlogsLT, ConstantTexts.CouponsLT, ConstantTexts.MoreLT]
+    private let images = [#imageLiteral(resourceName: "home") ,#imageLiteral(resourceName: "christmasgift")  , #imageLiteral(resourceName: "Coupons"),  #imageLiteral(resourceName: "menu")]
+    private let titles = [ConstantTexts.HomeLT ,ConstantTexts.OrdersLT, ConstantTexts.CouponsLT, ConstantTexts.MoreLT]
     
     //MARK: - View life cycle methods
     //TODO: Implementation viewDidLoad
@@ -28,12 +28,24 @@ class TabBarVC: UITabBarController {
         self.extendedLayoutIncludesOpaqueBars = false
     }
     
+    
+    @objc func onDidReceiveData(_ notification:Notification) {
+        // Do something now
+        self.selectedIndex = 1
+        NOTIFICATION_CENTER.removeObserver(self)
+    }
+    
+    
 }
 
 //MARK: - Extension custom methods
 extension TabBarVC{
     //TODO: Implementation setUpView
     private func setUpView() {
+        
+        
+        
+        NOTIFICATION_CENTER.addObserver(self, selector: #selector(onDidReceiveData(_:)), name: NSNotification.Name(rawValue: ConstantTexts.paymentDone), object: nil)
         
         self.tabBar.isTranslucent = true
         
