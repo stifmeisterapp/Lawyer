@@ -21,6 +21,9 @@ class OrderStatusVC:  SBaseViewController {
     @IBOutlet weak var btnCallRef: UIButton!
     @IBOutlet weak var btnMsgRef: UIButton!
     
+    @IBOutlet weak var lblSuccess: UILabel!
+    @IBOutlet weak var imgSuccess: UIImageView!
+    
     //MARK: - Variables
     internal var order:OrderDataViewModel = OrderDataViewModel(OrderDataModel(BookingDate: String(), BookingTime: String(), CategoryName: String(), CustomerEmail: String(), CustomerName: String(), CustomerPhone: String(), Id: String(), Query: String(), Status: String()))
     
@@ -86,6 +89,10 @@ class OrderStatusVC:  SBaseViewController {
                         UIView.animate(withDuration: 0.1) {
                             
                             self.btnMsgRef.transform = CGAffineTransform.identity
+                            
+                            if self.order.Status == "3"{
+                                self.navigationController?.popViewController(animated: true)
+                           }else{
                             // Modify following variables with your text / recipient
                             let recipientEmail = self.SupportEmail
                             let subject = "Multi client email support"
@@ -105,6 +112,8 @@ class OrderStatusVC:  SBaseViewController {
                             } else if let emailUrl = self.createEmailUrl(to: recipientEmail, subject: subject, body: body) {
                                 UIApplication.shared.open(emailUrl)
                             }
+                           }
+                          
                         }
                        })
         

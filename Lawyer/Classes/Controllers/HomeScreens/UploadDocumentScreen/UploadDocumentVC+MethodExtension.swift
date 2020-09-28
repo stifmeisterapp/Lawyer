@@ -638,6 +638,16 @@ extension UploadDocumentVC{
                             
                         }
                     }else if code == 404{
+                        self.recordingPath = String()
+                        do {
+                            if let url = URL(string: item.localSoundPath){
+                                try FileManager.default.removeItem(at:url)
+                            }
+                            
+                        } catch let error as NSError {
+                            print("Error: \(error.domain)")
+                        }
+                        
                         if let message = result_Dict.value(forKey: "message") as? String{
                             _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style: .error, buttonTitle: ConstantTexts.OkBT, action: { (status) in
                                 if status{
@@ -646,7 +656,15 @@ extension UploadDocumentVC{
                         }
                         
                     }else if code == 401{
-                        
+                        self.recordingPath = String()
+                        do {
+                            if let url = URL(string: item.localSoundPath){
+                                try FileManager.default.removeItem(at:url)
+                            }
+                            
+                        } catch let error as NSError {
+                            print("Error: \(error.domain)")
+                        }
                         if let count = self.docDataList?.numberOfRowsInSection(0){
                             if count > 0 {
                                 self.docDataList?.documentDataItems.removeAll()
@@ -667,7 +685,15 @@ extension UploadDocumentVC{
                             })
                         }
                     }else if code == 400{
-                        
+                        self.recordingPath = String()
+                        do {
+                            if let url = URL(string: item.localSoundPath){
+                                try FileManager.default.removeItem(at:url)
+                            }
+                            
+                        } catch let error as NSError {
+                            print("Error: \(error.domain)")
+                        }
                         self.docDataList?.documentDataItems.removeLast()
                         DispatchQueue.main.async {
                             self.tblDocuments.reloadData()
@@ -683,7 +709,15 @@ extension UploadDocumentVC{
         }) { (error) in
             print(error)
             self.customMethodManager?.stopLoader(view:self.view)
-            
+            self.recordingPath = String()
+            do {
+                if let url = URL(string: item.localSoundPath){
+                    try FileManager.default.removeItem(at:url)
+                }
+                
+            } catch let error as NSError {
+                print("Error: \(error.domain)")
+            }
             if let count = self.docDataList?.numberOfRowsInSection(0){
                 if count > 0 {
                     self.docDataList?.documentDataItems.removeAll()

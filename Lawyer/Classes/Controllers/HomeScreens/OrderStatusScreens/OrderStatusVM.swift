@@ -18,18 +18,18 @@ class OrderStatusVM: OrderStatusDataModeling {
     
     func prepareDataSource(data: NSDictionary) -> OrderStatusDataListViewModel {
         var orderStatus:[OrderStatusViewModel] = [OrderStatusViewModel]()
-        
+        var Id:String = String()
         if let Status = data.value(forKey: "Status") as? NSArray{
             var or_Status: OrderStatusViewModel = OrderStatusViewModel(isExpended: Bool(), isCompleted: Bool(), title: String(), values: [String]())
             for item in Status{
                 if let itemDict = item as? NSDictionary{
-                   /* if let id = itemDict.value(forKey: "id") as? String{
-                        
+                    if let id = itemDict.value(forKey: "id") as? String{
+                        Id = id
                     }
                     
                     if let id = itemDict.value(forKey: "id") as? Int{
-                        
-                    } */
+                        Id = "\(id)"
+                    }
                     
                     if let name = itemDict.value(forKey: "name") as? String{
                         or_Status.title = name
@@ -50,7 +50,7 @@ class OrderStatusVM: OrderStatusDataModeling {
         }
         
         if let id = data.value(forKey: "LawyerAssign") as? String{
-            var or_Status: OrderStatusViewModel = OrderStatusViewModel(isExpended: Bool(), isCompleted: Bool(), title: ConstantTexts.Expert_AssignedLT, values: [String]())
+            let or_Status: OrderStatusViewModel = OrderStatusViewModel(isExpended: Bool(), isCompleted: Bool(), title: ConstantTexts.Expert_AssignedLT, values: [String]())
             if id != "0"{
                 or_Status.isCompleted = true
                 if let LawyerName = data.value(forKey: "LawyerName") as? String{
@@ -66,7 +66,7 @@ class OrderStatusVM: OrderStatusDataModeling {
          }
          
          if let id = data.value(forKey: "LawyerAssign") as? Int{
-            var or_Status: OrderStatusViewModel = OrderStatusViewModel(isExpended: Bool(), isCompleted: Bool(), title: ConstantTexts.Expert_AssignedLT, values: [String]())
+            let or_Status: OrderStatusViewModel = OrderStatusViewModel(isExpended: Bool(), isCompleted: Bool(), title: ConstantTexts.Expert_AssignedLT, values: [String]())
             if id != 0{
                 or_Status.isCompleted = true
                 if let LawyerName = data.value(forKey: "LawyerName") as? String{
@@ -79,7 +79,12 @@ class OrderStatusVM: OrderStatusDataModeling {
             orderStatus.append(or_Status)
          }
         
-        orderStatus.append(OrderStatusViewModel(isExpended: Bool(), isCompleted: Bool(), title: ConstantTexts.OrderCompletedLT, values: [String]()))
+        if Id == "3"{
+            orderStatus.append(OrderStatusViewModel(isExpended: Bool(), isCompleted: true, title: ConstantTexts.OrderCompletedLT, values: [String]()))
+        }else{
+            orderStatus.append(OrderStatusViewModel(isExpended: Bool(), isCompleted: Bool(), title: ConstantTexts.OrderCompletedLT, values: [String]()))
+        }
+        
         
         return OrderStatusDataListViewModel(orderStatus)
     }

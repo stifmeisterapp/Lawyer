@@ -1200,6 +1200,19 @@
                                     <constraint firstAttribute="height" constant="50" id="Nhc-of-2Pk"/>
                                 </constraints>
                             </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ipg-2m-ne7">
+                                <rect key="frame" x="147" y="268" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="Tib-uH-gDd"/>
+                                    <constraint firstAttribute="width" secondItem="ipg-2m-ne7" secondAttribute="height" id="kXT-up-sRe"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dez-Md-BoQ">
+                                <rect key="frame" x="20" y="398" width="374" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qsK-Fh-tcD"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1211,20 +1224,27 @@
                             <constraint firstItem="059-Dc-nWN" firstAttribute="trailing" secondItem="03D-9l-bNj" secondAttribute="trailing" constant="-20" id="ElE-OA-byl"/>
                             <constraint firstItem="Xtw-6W-tGt" firstAttribute="leading" secondItem="agY-2k-kBQ" secondAttribute="leading" id="LR0-mB-3T3"/>
                             <constraint firstAttribute="trailing" secondItem="03D-9l-bNj" secondAttribute="trailing" id="T73-Ai-FSr"/>
+                            <constraint firstItem="dez-Md-BoQ" firstAttribute="leading" secondItem="059-Dc-nWN" secondAttribute="leading" id="Thf-Po-d8U"/>
+                            <constraint firstItem="ipg-2m-ne7" firstAttribute="centerX" secondItem="agY-2k-kBQ" secondAttribute="centerX" id="YS0-bE-tyI"/>
                             <constraint firstItem="qsK-Fh-tcD" firstAttribute="bottom" secondItem="F1C-Ey-7bM" secondAttribute="bottom" constant="10" id="ZyE-4s-LZH"/>
                             <constraint firstItem="059-Dc-nWN" firstAttribute="top" secondItem="03D-9l-bNj" secondAttribute="bottom" constant="-30" id="iC9-Ie-jFy"/>
+                            <constraint firstItem="ipg-2m-ne7" firstAttribute="centerY" secondItem="agY-2k-kBQ" secondAttribute="centerY" constant="-120" id="ieR-Zf-yRj"/>
+                            <constraint firstItem="dez-Md-BoQ" firstAttribute="top" secondItem="ipg-2m-ne7" secondAttribute="bottom" constant="10" id="nBg-1G-1If"/>
                             <constraint firstItem="F1C-Ey-7bM" firstAttribute="trailing" secondItem="Xtw-6W-tGt" secondAttribute="trailing" constant="-20" id="wGp-lU-QLw"/>
                             <constraint firstItem="03D-9l-bNj" firstAttribute="leading" secondItem="agY-2k-kBQ" secondAttribute="leading" id="wcn-x8-5Mv"/>
                             <constraint firstItem="F1C-Ey-7bM" firstAttribute="leading" secondItem="Xtw-6W-tGt" secondAttribute="leading" constant="20" id="wqp-3c-ZQB"/>
+                            <constraint firstItem="dez-Md-BoQ" firstAttribute="trailing" secondItem="059-Dc-nWN" secondAttribute="trailing" id="wsC-0A-qaK"/>
                             <constraint firstItem="F1C-Ey-7bM" firstAttribute="top" secondItem="Xtw-6W-tGt" secondAttribute="bottom" constant="10" id="xL8-qg-aOn"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="btnCallRef" destination="Ftv-Wa-QSI" id="dj1-B0-qiw"/>
                         <outlet property="btnMsgRef" destination="9Dj-Xx-1f3" id="PYi-F0-cPi"/>
+                        <outlet property="imgSuccess" destination="ipg-2m-ne7" id="mZU-Az-43A"/>
                         <outlet property="lblDetails" destination="k1Q-y3-gL1" id="zX5-g2-ix8"/>
                         <outlet property="lblImage" destination="KRz-ua-E81" id="N7P-Lh-l0Q"/>
                         <outlet property="lblStatus" destination="vnE-T4-Ohg" id="hm2-XT-zB3"/>
+                        <outlet property="lblSuccess" destination="dez-Md-BoQ" id="6ha-sC-oZq"/>
                         <outlet property="tblOrderStatus" destination="Xtw-6W-tGt" id="czL-ZR-ys5"/>
                         <outlet property="viewBG" destination="059-Dc-nWN" id="JSa-WN-VR0"/>
                         <outlet property="viewHeaderBG" destination="03D-9l-bNj" id="aL4-KY-Esi"/>
@@ -1235,6 +1255,11 @@
             <point key="canvasLocation" x="218.84057971014494" y="734.59821428571422"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="klW-4x-dlO">
+            <size key="intrinsicContentSize" width="220" height="40"/>
+        </designable>
+    </designables>
     <resources>
         <image name="AuthHeader" width="171" height="74"/>
         <image name="backDate" width="32" height="32"/>

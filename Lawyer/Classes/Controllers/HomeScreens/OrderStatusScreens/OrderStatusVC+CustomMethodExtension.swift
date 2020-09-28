@@ -53,7 +53,7 @@ extension OrderStatusVC{
         paragraphStyle.lineSpacing = 5 // Whatever line spacing you want in points
         
         
-        let myMutableString = NSMutableAttributedString()
+        var myMutableString = NSMutableAttributedString()
         myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\(order.CustomerName)\n", font: AppFont.Semibold.size(AppFontName.OpenSans, size: 14), color: AppColor.textColor) ?? NSMutableAttributedString())
         
         myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\(ConstantTexts.CaseTypeLT): ", font: AppFont.Regular.size(AppFontName.OpenSans, size: 10), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
@@ -83,12 +83,7 @@ extension OrderStatusVC{
         self.btnCallRef.titleLabel?.font = ConstantFonts.mainBottomButtonFont
         
         
-        self.btnMsgRef.backgroundColor = AppColor.themeColor
-        CustomMethodClass.shared.provideCornerRadiusTo(self.btnMsgRef, 5, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
-        self.btnMsgRef.setTitleColor(AppColor.whiteColor, for: .normal)
-        self.btnMsgRef.setTitle("     \(ConstantTexts.EmailPH)", for: .normal)
-       // self.btnMsgRef.setImage(#imageLiteral(resourceName: "email"), for: .normal)
-        self.btnMsgRef.titleLabel?.font = ConstantFonts.mainBottomButtonFont
+       
         
         
         
@@ -99,6 +94,29 @@ extension OrderStatusVC{
         self.tblOrderStatus.dataSource = self
         self.tblOrderStatus.delegate = self
         
+        
+        self.imgSuccess.image = #imageLiteral(resourceName: "icons8-verified_account")
+        self.lblSuccess.numberOfLines = 0
+        
+        /* self.customMethodManager?.setImage(imageView: self.imageCategory, url: info.Url) */
+         // *** Create instance of `NSMutableParagraphStyle`
+         let paragraphStyleCenter = NSMutableParagraphStyle()
+        paragraphStyleCenter.alignment = .center
+         // *** set LineSpacing property in points ***
+        paragraphStyleCenter.lineSpacing = 1 // Whatever line spacing you want in points
+        
+        myMutableString = NSMutableAttributedString()
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\(ConstantTexts.CosultationCompletedLT)\n\n", font: AppFont.Semibold.size(AppFontName.OpenSans, size: 14), color: AppColor.themeColor) ?? NSMutableAttributedString())
+        
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\(ConstantTexts.CosultationCompletedInsLT)", font: AppFont.Semibold.size(AppFontName.OpenSans, size: 12), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
+        
+        
+        // *** Apply attribute to string ***
+        myMutableString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyleCenter, range:NSMakeRange(0, myMutableString.length))
+        // *** Set Attributed String to your label ***
+        self.lblSuccess.attributedText = myMutableString
+        
+        
         recheckDataModels() 
         
         
@@ -108,11 +126,37 @@ extension OrderStatusVC{
             self.lblStatus.text = ConstantTexts.Pending_LT
             self.lblStatus.textColor = AppColor.errorColor
             
+            self.btnMsgRef.backgroundColor = AppColor.themeColor
+            CustomMethodClass.shared.provideCornerRadiusTo(self.btnMsgRef, 5, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
+            self.btnMsgRef.setTitleColor(AppColor.whiteColor, for: .normal)
+            self.btnMsgRef.setTitle("     \(ConstantTexts.EmailPH)", for: .normal)
+           // self.btnMsgRef.setImage(#imageLiteral(resourceName: "email"), for: .normal)
+            self.btnMsgRef.titleLabel?.font = ConstantFonts.mainBottomButtonFont
+            
+            self.btnCallRef.isHidden = false
+            self.tblOrderStatus.isHidden = false
+            
+            self.imgSuccess.isHidden = true
+            self.lblSuccess.isHidden = true
+            
         }else if order.Status == "1"{
             self.lblImage.setImageTintColor(AppColor.passGreenColor)
             self.lblImage.image = #imageLiteral(resourceName: "icons8-verified_account")
             self.lblStatus.text = ConstantTexts.paymentDoneLT
             self.lblStatus.textColor = AppColor.passGreenColor
+            
+            self.btnMsgRef.backgroundColor = AppColor.themeColor
+            CustomMethodClass.shared.provideCornerRadiusTo(self.btnMsgRef, 5, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
+            self.btnMsgRef.setTitleColor(AppColor.whiteColor, for: .normal)
+            self.btnMsgRef.setTitle("     \(ConstantTexts.EmailPH)", for: .normal)
+           // self.btnMsgRef.setImage(#imageLiteral(resourceName: "email"), for: .normal)
+            self.btnMsgRef.titleLabel?.font = ConstantFonts.mainBottomButtonFont
+            
+            self.btnCallRef.isHidden = false
+            self.tblOrderStatus.isHidden = false
+            
+            self.imgSuccess.isHidden = true
+            self.lblSuccess.isHidden = true
             
         }else if order.Status == "2"{
             self.lblImage.setImageTintColor(AppColor.passGreenColor)
@@ -120,11 +164,37 @@ extension OrderStatusVC{
             self.lblStatus.text = ConstantTexts.Expert_AssignedLT
             self.lblStatus.textColor = AppColor.passGreenColor
             
+            self.btnMsgRef.backgroundColor = AppColor.themeColor
+            CustomMethodClass.shared.provideCornerRadiusTo(self.btnMsgRef, 5, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
+            self.btnMsgRef.setTitleColor(AppColor.whiteColor, for: .normal)
+            self.btnMsgRef.setTitle("     \(ConstantTexts.EmailPH)", for: .normal)
+           // self.btnMsgRef.setImage(#imageLiteral(resourceName: "email"), for: .normal)
+            self.btnMsgRef.titleLabel?.font = ConstantFonts.mainBottomButtonFont
+            
+            self.btnCallRef.isHidden = false
+            self.tblOrderStatus.isHidden = false
+            
+            self.imgSuccess.isHidden = true
+            self.lblSuccess.isHidden = true
+            
         }else{
             self.lblImage.setImageTintColor(AppColor.passGreenColor)
             self.lblImage.image = #imageLiteral(resourceName: "icons8-verified_account")
             self.lblStatus.text = ConstantTexts.Order_completedLT
             self.lblStatus.textColor = AppColor.passGreenColor
+            
+            self.btnMsgRef.backgroundColor = AppColor.themeColor
+            CustomMethodClass.shared.provideCornerRadiusTo(self.btnMsgRef, 5, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
+            self.btnMsgRef.setTitleColor(AppColor.whiteColor, for: .normal)
+            self.btnMsgRef.setTitle("\(ConstantTexts.GoToHome_BT)", for: .normal)
+            self.btnMsgRef.setImage(UIImage(), for: .normal)
+            self.btnMsgRef.titleLabel?.font = ConstantFonts.mainBottomButtonFont
+            
+            self.btnCallRef.isHidden = true
+            self.tblOrderStatus.isHidden = true
+            
+            self.imgSuccess.isHidden = false
+            self.lblSuccess.isHidden = false
             
         }
         

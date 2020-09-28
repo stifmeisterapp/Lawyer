@@ -180,9 +180,10 @@ struct ConstantTexts{
     
     static let  Expert_AssignedLT                   =      "Expert Assigned"
     static let  OrderCompletedLT                    =      "Order Completed"
-    static let  Order_completedLT                    =      "Order completed"
+    static let  Order_completedLT                   =      "Consultation completed"
     static let  LanguageLT                          =      "Language"
-    
+    static let  CosultationCompletedLT              =      "Consultation Completed!"
+    static let  CosultationCompletedInsLT           =      "Your consultation is successfully completed, Thank you for consultation with us."
     static let  CompareLT                           =      "Compare"
     static let  CompareDecLT                        =      "Multiple lawyers in every category. Choose on the basis of their charges, language and experience."
     
