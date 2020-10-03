@@ -31,5 +31,9 @@ struct SCustomerApi {
     public static let check_payment_V2               = "v2/check-payment"
     public static let get_customer_orders_V2         = "v2/get-customer-orders?offset="
     public static let get_orders_details_V2          = "v2/get-orders-details"
-
+    public static let demo_upload_V2                 = "v2/demo/upload"
+    public static let get_city_V2                    = "v2/get-city?CityName="
+    public static let order_files_V2                 = "v2/order-files?OrderId="
+    
+    
 }

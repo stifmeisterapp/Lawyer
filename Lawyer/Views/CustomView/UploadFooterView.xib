@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -86,7 +87,13 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="59e-Es-MFp">
-                            <rect key="frame" x="45" y="0.0" width="245" height="45"/>
+                            <rect key="frame" x="45" y="0.0" width="117.5" height="45"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ri-lX-crj">
+                            <rect key="frame" x="162.5" y="0.0" width="117.5" height="45"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -97,18 +104,22 @@
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="59e-Es-MFp" secondAttribute="trailing" id="57g-uT-mN5"/>
+                        <constraint firstItem="7Ri-lX-crj" firstAttribute="top" secondItem="59e-Es-MFp" secondAttribute="top" id="AqN-oD-VbV"/>
                         <constraint firstAttribute="bottom" secondItem="59e-Es-MFp" secondAttribute="bottom" id="CGU-dg-RJN"/>
                         <constraint firstAttribute="height" constant="45" id="FWK-rP-DG3"/>
                         <constraint firstItem="EXb-c9-gWf" firstAttribute="top" secondItem="3ON-ct-SKw" secondAttribute="top" id="O8X-gt-Rir"/>
+                        <constraint firstItem="7Ri-lX-crj" firstAttribute="bottom" secondItem="59e-Es-MFp" secondAttribute="bottom" id="OZJ-ui-mRU"/>
                         <constraint firstItem="MLT-SU-RPY" firstAttribute="width" secondItem="MLT-SU-RPY" secondAttribute="height" id="XVV-yz-QZE"/>
                         <constraint firstItem="59e-Es-MFp" firstAttribute="top" secondItem="3ON-ct-SKw" secondAttribute="top" id="g9p-XN-TCG"/>
+                        <constraint firstAttribute="trailing" secondItem="7Ri-lX-crj" secondAttribute="trailing" constant="10" id="gb8-JE-yej"/>
                         <constraint firstItem="MLT-SU-RPY" firstAttribute="leading" secondItem="3ON-ct-SKw" secondAttribute="leading" constant="10" id="mqe-oL-wFW"/>
                         <constraint firstItem="MLT-SU-RPY" firstAttribute="centerY" secondItem="3ON-ct-SKw" secondAttribute="centerY" id="ouj-h3-tkm"/>
+                        <constraint firstItem="7Ri-lX-crj" firstAttribute="width" secondItem="59e-Es-MFp" secondAttribute="width" id="oyE-1V-4p3"/>
                         <constraint firstItem="EXb-c9-gWf" firstAttribute="leading" secondItem="3ON-ct-SKw" secondAttribute="leading" id="piR-W3-Jle"/>
                         <constraint firstAttribute="bottom" secondItem="EXb-c9-gWf" secondAttribute="bottom" id="v5l-j6-oKM"/>
                         <constraint firstAttribute="trailing" secondItem="EXb-c9-gWf" secondAttribute="trailing" id="vtp-cr-dbE"/>
                         <constraint firstItem="59e-Es-MFp" firstAttribute="leading" secondItem="MLT-SU-RPY" secondAttribute="trailing" constant="10" id="yjw-xt-oi8"/>
+                        <constraint firstItem="7Ri-lX-crj" firstAttribute="leading" secondItem="59e-Es-MFp" secondAttribute="trailing" id="ywZ-YK-KSM"/>
                     </constraints>
                 </view>
             </subviews>
@@ -136,6 +147,7 @@
                 <outlet property="imgUploadRef" destination="Iy8-L9-72O" id="RXk-5i-dgR"/>
                 <outlet property="lblInstruction2" destination="wK9-tx-rv3" id="7lM-ZO-pQQ"/>
                 <outlet property="lblRecord" destination="59e-Es-MFp" id="b2K-o0-Q63"/>
+                <outlet property="lblTimer" destination="7Ri-lX-crj" id="Wi4-FD-DTB"/>
                 <outlet property="lblUpload" destination="8AZ-UI-1Xw" id="phf-iR-yln"/>
                 <outlet property="txtView" destination="0yq-aq-1M3" id="7tn-am-NNb"/>
                 <outlet property="viewBG" destination="3Qp-VZ-hTg" id="Hu2-p2-GGb"/>
@@ -146,7 +158,7 @@
         </view>
     </objects>
     <resources>
-        <image name="upload" width="128" height="128"/>
+        <image name="upload" width="170.5" height="170.5"/>
         <image name="volume" width="128" height="128"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

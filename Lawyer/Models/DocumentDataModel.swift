@@ -27,8 +27,9 @@ class DocumentDataModel{
     var isAudioFile:Bool = Bool()
     var localSoundPath:String = String()
     var serverSoundPath:String = String()
+    var OrderId:String = String()
     
-    init(data:Data, type:String, withName:String,fileName:String,mimeType:String,isSelected:Bool, isAudioFile:Bool,localSoundPath:String,serverSoundPath:String, Id:String,ConsultationId:String,DocumentUrl:String,FileType:String,FileName:String){
+    init(data:Data, type:String, withName:String,fileName:String,mimeType:String,isSelected:Bool, isAudioFile:Bool,localSoundPath:String,serverSoundPath:String, Id:String,ConsultationId:String,DocumentUrl:String,FileType:String,FileName:String,OrderId:String){
         self.data = data
         self.type = type
         self.withName = withName
@@ -45,5 +46,6 @@ class DocumentDataModel{
         self.DocumentUrl = DocumentUrl
         self.FileType = FileType
         self.FileName = FileName
+        self.OrderId = OrderId
     }
 }

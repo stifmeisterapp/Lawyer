@@ -54,7 +54,7 @@ extension SBaseViewController:UIImagePickerControllerDelegate,UINavigationContro
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let choosen_image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             
-            let item = DocumentDataModel(data: Data(), type: ".png", withName: "OtherDocs", fileName: String(), mimeType: "image/png", isSelected: Bool(),isAudioFile: Bool(),localSoundPath: String(),serverSoundPath: String(),Id:String(), ConsultationId:String(), DocumentUrl:String(), FileType:String(), FileName:String())
+            let item = DocumentDataModel(data: Data(), type: ".png", withName: "OtherDocs", fileName: String(), mimeType: "image/png", isSelected: Bool(),isAudioFile: Bool(),localSoundPath: String(),serverSoundPath: String(),Id:String(), ConsultationId:String(), DocumentUrl:String(), FileType:String(), FileName:String(), OrderId: String())
             
             if let data = choosen_image.jpegData(compressionQuality:0.5){
                 item.data = data

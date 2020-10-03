@@ -54,16 +54,39 @@ extension OrderListVC:UITableViewDataSource{
                                                completion: {
                                                 print("Bahas...")
                                                 
-                                                
-                                                let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: OrderStatusVC.className) as! OrderStatusVC
-                                                
-                                                
-                                                if let order = self.orderList?.orderAtIndex(indexPath.row){
-                                                    vc.order = order
+                                                if let status =  self.orderList?.orderAtIndex(indexPath.row).Status{
+                                                    if status == "0"{
+                                                        
+                                                        let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: AppointmentVC.className) as! AppointmentVC
+                                                        
+                                                        
+                                                        if let order = self.orderList?.orderAtIndex(indexPath.row){
+                                                            vc.BookingId = order.Id
+                                                            vc.expID = order.CategoryId
+                                                            vc.expName = order.CategoryName
+                                                            vc.cityName = order.CityName
+                                                            vc.OrderId = order.Id
+                                                            vc.isComingFromOrder = true
+                                                        }
+                                                        
+                                                        self.navigationController?.pushViewController(vc, animated: true)
+                                                        
+                                                        
+                                                    }else{
+                                                        
+                                                        let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: OrderStatusVC.className) as! OrderStatusVC
+                                                        
+                                                        
+                                                        if let order = self.orderList?.orderAtIndex(indexPath.row){
+                                                            vc.order = order
+                                                        }
+                                                        
+                                                        self.navigationController?.pushViewController(vc, animated: true)
+                                                        
+                                                        
+                                                    }
+                                                    
                                                 }
-                                                
-                                                self.navigationController?.pushViewController(vc, animated: true)
-                                                
                                                 
                                                 
                                                 

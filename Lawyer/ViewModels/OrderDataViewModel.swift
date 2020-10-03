@@ -61,6 +61,16 @@ extension OrderDataViewModel{
         return self.order.CategoryName
     }
     
+    var CategoryId:String{
+        return self.order.CategoryId
+    }
+    
+    var CityName:String{
+        return self.order.CityName
+    }
+    
+    
+    
     var CustomerEmail:String{
         return self.order.CustomerEmail
     }

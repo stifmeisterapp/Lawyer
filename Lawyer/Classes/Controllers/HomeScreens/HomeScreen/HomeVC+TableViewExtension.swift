@@ -62,6 +62,7 @@ extension HomeVC:UITableViewDelegate{
                                                     vc.type = "0"
                                                     vc.expID = categoryVM.expertiseId
                                                     vc.expName = categoryVM.title
+                                                    
                                                 }
                                                 
                                                 self.navigationController?.pushViewController(vc, animated: true)

@@ -313,7 +313,8 @@ extension AppointmentVC{
                           Api_keys_model.CategoryName:self.expName,
                           Api_keys_model.BookingDate:self.current_date,
                           Api_keys_model.BookingTime:self.selectedSlot,
-                          Api_keys_model.BookingId:self.BookingId] as [String:AnyObject]
+                          Api_keys_model.BookingId:self.BookingId,
+                          Api_keys_model.CityName:self.cityName] as [String:AnyObject]
         
         let header = ["authorization":user.token,
                       "Content-Type":"application/json",
@@ -341,6 +342,8 @@ extension AppointmentVC{
                                 vc.type = self.type
                                 vc.expID = self.expID
                                 vc.expName = self.expName
+                                vc.isComingFromOrder = self.isComingFromOrder
+
                                 
                                 if let Id = data.value(forKey: "Id") as? Int{
                                     vc.orderId = "\(Id)"

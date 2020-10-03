@@ -33,6 +33,8 @@ class UploadDocumentVC: SBaseViewController {
     internal var expID:String = String()
     internal var expName:String = String()
     internal var orderId:String = String()
+    internal var isComingFromOrder:Bool = Bool()
+    
     
     
     internal var docDataModeling:DocumentDataModeling?
@@ -44,10 +46,17 @@ class UploadDocumentVC: SBaseViewController {
     internal var isAudioRecordingGranted: Bool = Bool()
     internal var isRecording: Bool = Bool()
     internal var recordingPath:String = String()
+    internal var meterTimer:Timer!
+    
+    internal var hr:Int = Int()
+    internal var min:Int = Int()
+    internal var sec:Int = Int()
     
     //MARK: - Variables for audio playing
-    internal var audioPlayer : AVAudioPlayer!
     internal var isPlaying: Bool = Bool()
+    internal var audioPlayer : AVAudioPlayer!
+    internal var player:AVPlayer?
+    internal var playerItem:AVPlayerItem?
     
     //MARK: - View life cycle methods
     //TODO: Implementation viewDidLoad
@@ -249,43 +258,70 @@ class UploadDocumentVC: SBaseViewController {
     @objc func btnPlayTapped(_ sender: UIButton) {
         if let item = self.docDataList?.documentAtIndex(sender.tag){
             
-            if let url = URL(string: item.localSoundPath){
-                if let item = self.docDataList?.documentAtIndex(sender.tag){
-                    if item.isAudioFile{
-                        if(isPlaying)
-                        {
-                            audioPlayer.stop()
-                            let indexPath = IndexPath(row: 0, section: 0)
-                            if let cell = self.tblDocuments.cellForRow(at: indexPath) as? UploadDocTableViewCellAndXib{
-                                
-                                cell.btnPlayPauseRef.setImage(UIImage(systemName: "play.fill"), for: .normal)
-                            }
-                            // play_btn_ref.setTitle("Play", for: .normal)
-                            isPlaying = false
-                        }
-                        else
-                        {
-                            if FileManager.default.fileExists(atPath: url.path)
+            if item.localSoundPath != String(){
+                
+                if let url = URL(string: item.localSoundPath){
+                    if let item = self.docDataList?.documentAtIndex(sender.tag){
+                        if item.isAudioFile{
+                            if(isPlaying)
                             {
+                                audioPlayer.stop()
                                 let indexPath = IndexPath(row: 0, section: 0)
                                 if let cell = self.tblDocuments.cellForRow(at: indexPath) as? UploadDocTableViewCellAndXib{
                                     
-                                    cell.btnPlayPauseRef.setImage(UIImage(systemName: "pause.fill"), for: .normal)
+                                    cell.btnPlayPauseRef.setImage(UIImage(systemName: "play.fill"), for: .normal)
                                 }
-                                // play_btn_ref.setTitle("pause", for: .normal)
-                                prepare_play()
-                                audioPlayer.play()
-                                isPlaying = true
+                                // play_btn_ref.setTitle("Play", for: .normal)
+                                isPlaying = false
                             }
                             else
                             {
-                                display_alert(msg_title: ConstantTexts.AppName, msg_desc: ConstantTexts.audioFileMissingALERT, action_title: ConstantTexts.OkBT)
+                                
+                                
+                                if item.localSoundPath.contains("https://") {
+                                    let playerItem:AVPlayerItem = AVPlayerItem(url: URL(fileURLWithPath: item.localSoundPath) as URL)
+                                    player = AVPlayer(playerItem: playerItem)
+                                    player!.play()
+                                    
+                                    let indexPath = IndexPath(row: 0, section: 0)
+                                    if let cell = self.tblDocuments.cellForRow(at: indexPath) as? UploadDocTableViewCellAndXib{
+                                        
+                                        cell.btnPlayPauseRef.setImage(UIImage(systemName: "play.fill"), for: .normal)
+                                    }
+                                    // play_btn_ref.setTitle("Play", for: .normal)
+                                    isPlaying = true
+                                }else{
+                                    if FileManager.default.fileExists(atPath: url.path)
+                                    {
+                                        let indexPath = IndexPath(row: 0, section: 0)
+                                        if let cell = self.tblDocuments.cellForRow(at: indexPath) as? UploadDocTableViewCellAndXib{
+                                            
+                                            cell.btnPlayPauseRef.setImage(UIImage(systemName: "pause.fill"), for: .normal)
+                                        }
+                                        // play_btn_ref.setTitle("pause", for: .normal)
+                                        prepare_play()
+                                        audioPlayer.play()
+                                        isPlaying = true
+                                    }
+                                    else
+                                    {
+                                        display_alert(msg_title: ConstantTexts.AppName, msg_desc: ConstantTexts.audioFileMissingALERT, action_title: ConstantTexts.OkBT)
+                                    }
+                                    
+                                }
+                                
                             }
                         }
                     }
+                    
                 }
                 
+            }else{
+                display_alert(msg_title: ConstantTexts.AppName, msg_desc: ConstantTexts.audioFileMissingALERT, action_title: ConstantTexts.OkBT)
             }
+            
+            
+            
         }
         
         

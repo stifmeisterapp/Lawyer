@@ -21,7 +21,7 @@ class OrderList_VM: OrderDataModeling {
         var orders:[OrderDataModel] = [OrderDataModel]()
         for item in dataArray{
             if let itemDict = item as? NSDictionary{
-                var order = OrderDataModel(BookingDate: String(), BookingTime: String(), CategoryName: String(), CustomerEmail: String(), CustomerName: String(), CustomerPhone: String(), Id: String(), Query: String(), Status: String())
+                var order = OrderDataModel(BookingDate: String(), BookingTime: String(), CategoryName: String(), CategoryId: String(), CityName: String(), CustomerEmail: String(), CustomerName: String(), CustomerPhone: String(), Id: String(),Query:String(),Status:String())
                 if let BookingDate = itemDict.value(forKey: "BookingDate") as? String{
                     order.BookingDate = BookingDate
                 }
@@ -33,6 +33,19 @@ class OrderList_VM: OrderDataModeling {
                 if let CategoryName = itemDict.value(forKey: "CategoryName") as? String{
                     order.CategoryName = CategoryName
                 }
+                
+                if let CategoryId = itemDict.value(forKey: "CategoryId") as? String{
+                    order.CategoryId = CategoryId
+                }
+                
+                if let CityName = itemDict.value(forKey: "CityName") as? String{
+                    order.CityName = CityName
+                }
+                
+                if let CategoryId = itemDict.value(forKey: "CategoryId") as? Int{
+                    order.CategoryId = "\(CategoryId)"
+                }
+                
                 
                 if let CustomerEmail = itemDict.value(forKey: "CustomerEmail") as? String{
                     order.CustomerEmail = CustomerEmail

@@ -132,7 +132,14 @@ extension HomeVC{
         DispatchQueue.main.async {
             self.categoryTableView.reloadData()
         }
+        
+        self.getCitiesName_Service()
+    
+        //TODO: For filter service
+        /*
         self.filter_Service()
+ 
+        */
     }
     
     
@@ -453,6 +460,104 @@ extension HomeVC{
         
         
     }
+    
+    
+    
+    
+    
+    //TODO: Get cities name
+    internal func getCitiesName_Service(){
+        
+        //        self.setExperise()
+        
+        self.customMethodManager?.startLoader(view:self.view)
+        ServiceClass.shared.webServiceBasicMethod(url: SCustomerApi.get_city_V2, method: .get, parameters: nil, header: nil, success: { (result) in
+            print(result)
+            self.customMethodManager?.stopLoader(view:self.view)
+            if let result_Dict = result as? NSDictionary{
+                if let code = result_Dict.value(forKey: "code") as? Int{
+                    if code == 200{
+                        if let data = result_Dict.value(forKey: "data") as? NSDictionary{
+                            print(data)
+                            
+                            //TODO: City data
+                            if let City = data.value(forKey: "city") as? NSArray{
+                                
+                                if self.cityNameArray.count > 0{
+                                    self.cityNameArray.removeAll()
+                                }
+                                
+                                if self.cityIdArray.count > 0{
+                                    self.cityIdArray.removeAll()
+                                }
+                                
+                                self.customMethodManager?.deleteAllDataFilters(entity: "City")
+                                
+                                self.cityNameArray.append(ConstantTexts.SelectCityLT)
+                                self.cityIdArray.append(ConstantTexts.empty)
+                                
+                                let context = kAppDelegate.persistentContainer.viewContext
+                                let entity = NSEntityDescription.entity(forEntityName: "City", in: context)
+                                
+                                for city in City{
+                                    if let cityDict = city as? NSDictionary{
+                                        
+                                        let cityItem = Filter(entity: ConstantTexts.CityLT, title: String(),id: String(), isSelected: Bool())
+                                        
+                                        if let CityName = cityDict.value(forKey: "CityName") as? String{
+                                            self.cityNameArray.append(CityName)
+                                            cityItem.title = CityName
+                                        }
+                                        
+                                        if let CityId = cityDict.value(forKey: "CityName") as? String{
+                                            self.cityIdArray.append(CityId)
+                                            cityItem.id = CityId
+                                        }
+                                        
+                                        if let CityId = cityDict.value(forKey: "CityName") as? Int{
+                                            self.cityIdArray.append("\(CityId)")
+                                            cityItem.id = "\(CityId)"
+                                        }
+                                        
+                                        let city = NSManagedObject(entity: entity!, insertInto: context)
+                                        city.setValue(cityItem.title, forKey: "city_name")
+                                        city.setValue(cityItem.id, forKey: "city_id")
+                                        city.setValue(cityItem.isSelected, forKey: "is_selected")
+                                        do {
+                                            try context.save()
+                                        } catch {
+                                            print("Failed saving: - \(error)")
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }else{
+                        if let message = result_Dict.value(forKey: "message") as? String{
+                            _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style:.error)
+                        }
+                        
+                    }
+                }
+            }
+            
+            
+        }) { (error) in
+            print(error)
+            self.customMethodManager?.stopLoader(view:self.view)
+            if let errorString = (error as NSError).userInfo[ConstantTexts.errorMessage_Key] as? String{
+                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: errorString, style:.error)
+            }else{
+                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: ConstantTexts.errorMessage, style:.error)
+            }
+            
+            
+            
+        }
+        
+        
+    }
+    
     
     
 }

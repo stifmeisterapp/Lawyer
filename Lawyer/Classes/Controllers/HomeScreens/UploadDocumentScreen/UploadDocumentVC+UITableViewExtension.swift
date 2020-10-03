@@ -106,12 +106,12 @@ extension UploadDocumentVC:UITableViewDelegate,SwipeTableViewCellDelegate{
     
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 300
+        return 330
         
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
-        return 300
+        return 330
     }
     
     
@@ -120,11 +120,11 @@ extension UploadDocumentVC:UITableViewDelegate,SwipeTableViewCellDelegate{
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 170
+        return 0
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat {
-        return 170
+        return 0
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {

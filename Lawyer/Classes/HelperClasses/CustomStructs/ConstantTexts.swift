@@ -49,8 +49,9 @@ struct ConstantTexts{
     //TODO: Label Text
     static let  paymentDoneLT                       =      "Payment done"
     static let  UploadLT                            =      "Upload"
+    static let  DefaultTimeLT                       =      "00:00:00"
     static let  RecordLT                            =      "Record"
-    static let  StopRecordLT                        =      "Stop Record"
+    static let  StopRecordLT                        =      "Stop"
     static let  LawyerNameLT                        =      "Lawyer Name"
     static let  DateLT                              =      "Date"
     static let  BookingTimeLT                       =      "Booking time"
@@ -61,6 +62,7 @@ struct ConstantTexts{
     static let  ConsultationCaseTypeLT              =      "Consultation Case Type"
     static let  CallConsultationLT                  =      "Call Consultation"
     static let  MeetConsultationLT                  =      "Meet Consultation"
+    static let  YourBalanceLT                       =      "Your Balance"
     
     static let  SelectYourOptionLT                  =      "Select your option"
     static let  GalleryLT                           =      "Gallery"
@@ -71,7 +73,7 @@ struct ConstantTexts{
     static let  UploadDocumentInsLT                 =      "If you have any additional documents, kindly upload the same in the above space."
     static let  UploadDocumentLT                    =      "Upload document"
     static let  DocumentUploadLT                    =      "Document uploaded"
-    static let  AdditionalInfoLT                    =      "Additional information for description"
+    static let  AdditionalInfoLT                    =      "Give a brief description of your query to make the understand your query"
     static let  NeedHelp_LT                         =      "Need Help?\nTalk to an Expert."
     static let  Education_LT                        =      "Education"
     static let  CallCharges_LT                      =      "Call charges"
@@ -177,6 +179,7 @@ struct ConstantTexts{
     static let  ChooseDecLT                         =      "A specialist lawyer of chartered accountant based on your case or requirement."
     static let  CityLT                              =      "City"
     static let  ExpertiseLT                         =      "Expertise"
+    static let  LowWalletLT                         =      "Your wallet amount is low"
     
     static let  Expert_AssignedLT                   =      "Expert Assigned"
     static let  OrderCompletedLT                    =      "Order Completed"
@@ -224,7 +227,7 @@ struct ConstantTexts{
     static let  MoreHT                              =      "More"
     static let  UnderCHT                            =      "Under construction"
     static let  LawyerDetailsHT                     =      "Lawyer details"
-    static let  UploadDocumentHT                    =      "Upload Document"
+    static let  UploadDocumentHT                    =      "Upload Document (Optional)"
     
     
     //TODO: Button Title Text
@@ -254,6 +257,7 @@ struct ConstantTexts{
     static let  SignUpAsL_BT                        =      "Sign Up as a Lawyer."
     static let  Clear_BT                            =      "Clear"
     static let  Apply_BT                            =      "Apply"
+    static let  Use_Wallet_BT                       =      "  Use wallet amount to pay"
     static let  Applied_BT                          =      "Applied"
     static let  Submit_BT                           =      "Submit"
     static let  RequestCallBack_BT                  =      "Request a Callback"
@@ -275,7 +279,7 @@ struct ConstantTexts{
     static let  EmailAddressPH                      =      "Email Address"
     static let  EmailPH                             =      "Email"
     static let  CommentPH                           =      "Comment"
-    static let  WriteCommentPH                      =      "Write description here..."
+    static let  WriteCommentPH                      =      "Write your query here..."
     static let  KeywordsPH                          =      "Keywords"
     static let  Search_PH                           =      "Search"
     static let  GSTIN_PH                            =      "GSTIN*"

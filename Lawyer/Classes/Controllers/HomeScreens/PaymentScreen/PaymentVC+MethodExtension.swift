@@ -239,6 +239,7 @@ extension PaymentVC{
         self.header.btnApplyRef.tintColor = AppColor.whiteColor
         self.header.btnApplyRef.backgroundColor = AppColor.themeColor
         self.header.btnApplyRef.setTitle(ConstantTexts.Apply_BT, for: .normal)
+        self.header.btnApplyRef.titleLabel?.font = AppFont.Regular.size(AppFontName.OpenSans, size: 12)
         self.header.btnApplyRef.addTarget(self, action: #selector(btnApplyCouponTapped), for: .touchUpInside)
         
         
@@ -286,6 +287,47 @@ extension PaymentVC{
         // *** Set Attributed String to your label ***
         header.lblGSTIN.numberOfLines = 0
         header.lblGSTIN.attributedText = myMutableString
+        
+        
+        self.header.btnWalletRef.tintColor = AppColor.darkGrayColor
+        self.header.btnWalletRef.setTitleColor(AppColor.darkGrayColor, for: .normal)
+        self.header.btnWalletRef.setTitle(ConstantTexts.Use_Wallet_BT, for: .normal)
+        self.header.btnWalletRef.titleLabel?.font = AppFont.Regular.size(AppFontName.OpenSans, size: 12)
+        self.header.btnWalletRef.addTarget(self, action: #selector(btnPayWalletTapped), for: .touchUpInside)
+        
+        
+        self.header.lblWallet.numberOfLines = 0
+        // *** Create instance of `NSMutableParagraphStyle`
+        let paragraphStyleCenter = NSMutableParagraphStyle()
+        paragraphStyleCenter.alignment = .center
+        
+        // *** set LineSpacing property in points ***
+        paragraphStyleCenter.lineSpacing = 1 // Whatever line spacing you want in points
+        
+        myMutableString = NSMutableAttributedString()
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\(ConstantTexts.YourBalanceLT)", font: AppFont.Semibold.size(AppFontName.OpenSans, size: 12), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
+        
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\n\(ConstantTexts.CurLT) ", font: AppFont.Semibold.size(AppFontName.OpenSans, size: 20), color: AppColor.textColor) ?? NSMutableAttributedString())
+        
+        if self.wallet < 590{
+            
+            myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\(self.wallet)", font: AppFont.Semibold.size(AppFontName.OpenSans, size: 30), color: AppColor.errorColor) ?? NSMutableAttributedString())
+            
+            myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\n(\(ConstantTexts.LowWalletLT))", font: AppFont.Semibold.size(AppFontName.OpenSans, size: 12), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
+            
+            
+        }else{
+            
+            myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\(self.wallet)", font: AppFont.Semibold.size(AppFontName.OpenSans, size: 30), color: AppColor.themeColor) ?? NSMutableAttributedString())
+            
+        }
+        
+        
+        
+        // *** Apply attribute to string ***
+        myMutableString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyleCenter, range:NSMakeRange(0, myMutableString.length))
+        self.header.lblWallet.attributedText = myMutableString
+        
         
         if let statesModels = self.customMethodManager?.getStates().0{
             self.stateModel = statesModels
@@ -364,6 +406,36 @@ extension PaymentVC{
     }
     
     
+    //TODO: setup cut wallet
+    internal func cutWallet(isWalletSelected:Bool){
+        
+        if isWalletSelected{
+            self.header.btnWalletRef.setImage(UIImage(systemName: "checkmark.square") ?? UIImage(), for: .normal)
+            self.header.btnApplyRef.tintColor = AppColor.whiteColor
+            self.header.btnApplyRef.setTitleColor(AppColor.whiteColor, for: .normal)
+            self.header.btnApplyRef.backgroundColor = AppColor.themeColor
+            self.header.btnApplyRef.setTitle(ConstantTexts.Apply_BT, for: .normal)
+            self.header.txtCoupon.text = ConstantTexts.empty
+            self.header.btnApplyRef.isUserInteractionEnabled = true
+            self.header.couponAppliedTitle.isHidden = true
+            self.header.imgCoupon.isHidden = true
+            self.header.txtCoupon.isUserInteractionEnabled = true
+            
+            self.amountPaid = Double(self.price) ?? 0.0
+            
+            self.header.originalPriceValue.text = "\(ConstantTexts.CurLT) \(self.amountPaid)"
+            self.gst18Paid = round(self.getPercentValue(value: self.amountPaid, percentage: 18.0))
+            self.header.gstPriceValue.text = "\(ConstantTexts.CurLT) \(self.gst18Paid)"
+            self.totalPaid = round(self.amountPaid + self.gst18Paid)
+            self.header.totalPriceValue.text = "\(ConstantTexts.CurLT) \(self.totalPaid)"
+            
+        }else{
+            self.header.btnWalletRef.setImage(UIImage(systemName: "squareshape") ?? UIImage(), for: .normal)
+        }
+
+    }
+    
+    
     
     //MARK: - Web services
     //TODO: check-coupon Service
@@ -391,8 +463,13 @@ extension PaymentVC{
                             
                             if let data = result_Dict.value(forKey: "data") as? NSDictionary{
                                 if let Discount = data.value(forKey: "Discount") as? String{
-                                    self.amountPaid = self.amountPaid - self.getPercentValue(value: self.amountPaid, percentage: Double(Discount) ?? 0.0)
+                                   // self.amountPaid = self.amountPaid - self.getPercentValue(value: self.amountPaid, percentage: Double(Discount) ?? 0.0)
+                                    
+                                    self.amountPaid = self.amountPaid - (Double(Discount) ?? 0.0)
+                                    
+                                    
                                     self.header.originalPriceValue.text = "\(ConstantTexts.CurLT) \(self.amountPaid)"
+                                    
                                     self.gst18Paid = round(self.getPercentValue(value: self.amountPaid, percentage: 18.0))
                                     self.header.gstPriceValue.text = "\(ConstantTexts.CurLT) \(self.gst18Paid)"
                                     self.totalPaid = round(self.amountPaid + self.gst18Paid)
@@ -404,7 +481,12 @@ extension PaymentVC{
                                     self.header.btnApplyRef.backgroundColor = AppColor.tableBGColor
                                     self.header.btnApplyRef.setTitleColor(AppColor.darkGrayColor, for: .normal)
                                     self.header.btnApplyRef.setTitle(ConstantTexts.Applied_BT, for: .normal)
+                                    self.header.txtCoupon.isUserInteractionEnabled = false
                                     print(self.amountPaid)
+                                    
+                                    self.isWalletSelected = Bool()
+                                    self.cutWallet(isWalletSelected:self.isWalletSelected)
+                                    
                                 }
                             }
                             
@@ -450,8 +532,10 @@ extension PaymentVC{
             return
         }
         
+        let walletStrin:String = self.isWalletSelected ? "1" : "0"
         
-        let parameters = [Api_keys_model.CasTypeId: self.expID,
+        let parameters = [Api_keys_model.Wallet: walletStrin,
+                          Api_keys_model.CasTypeId: self.expID,
                           Api_keys_model.CaseTypeName: self.expName,
                           Api_keys_model.CompanyAddress: self.dataListVM?.dataStoreStructAtIndex(3).value ?? String(),
                           Api_keys_model.CompanyName: self.dataListVM?.dataStoreStructAtIndex(1).value ?? String(),
@@ -483,7 +567,7 @@ extension PaymentVC{
             print(result)
             if let result_Dict = result as? NSDictionary{
                 if let code = result_Dict.value(forKey: "code") as? Int{
-                    if code == 200{
+                    if code == 200 || code == 201{
                         
                         if let _ = result_Dict.value(forKey: "message") as? String{
                             
@@ -511,7 +595,25 @@ extension PaymentVC{
                                 }
                                 
                                 
-                                self.showPaymentForm()
+                                if self.isWalletSelected{
+                                    
+                                    if USER_DEFAULTS.value(forKey: ConstantTexts.orderID) != nil{
+                                    USER_DEFAULTS.removeObject(forKey: ConstantTexts.orderID)
+                                    }
+                                    
+                                    let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: PaymentCompleteVC.className) as! PaymentCompleteVC
+                                    vc.lawyer = self.lawyer
+                                    vc.date = self.date
+                                    vc.time = self.selectedSlot
+                                    vc.type = self.type == "0" ? ConstantTexts.CallConsultationLT : ConstantTexts.MeetConsultationLT
+                                    vc.cost = "\(ConstantTexts.CurLT) \(self.amountPaid)"
+                                    
+                                    self.navigationController?.pushViewController(vc, animated: true)
+                                }else{
+                                    self.showPaymentForm()
+                                }
+                                
+                                
                             }
                             
                         }

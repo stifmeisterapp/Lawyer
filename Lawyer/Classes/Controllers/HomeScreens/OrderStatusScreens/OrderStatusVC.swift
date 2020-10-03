@@ -25,7 +25,7 @@ class OrderStatusVC:  SBaseViewController {
     @IBOutlet weak var imgSuccess: UIImageView!
     
     //MARK: - Variables
-    internal var order:OrderDataViewModel = OrderDataViewModel(OrderDataModel(BookingDate: String(), BookingTime: String(), CategoryName: String(), CustomerEmail: String(), CustomerName: String(), CustomerPhone: String(), Id: String(), Query: String(), Status: String()))
+    internal var order:OrderDataViewModel = OrderDataViewModel(OrderDataModel(BookingDate: String(), BookingTime: String(), CategoryName: String(), CategoryId: String(), CityName: String(), CustomerEmail: String(), CustomerName: String(), CustomerPhone: String(), Id: String(),Query:String(),Status:String()))
     
     //MARK: - Variables
     internal var customMethodManager:CustomMethodProtocol?

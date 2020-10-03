@@ -59,5 +59,6 @@ struct Api_keys_model {
     public static let BookingId:String              = "BookingId"
     public static let DocumentId:String             = "DocumentId"
     public static let PackageID:String              = "PackageID"
-    
+    public static let CityName:String               = "CityName"
+    public static let Wallet:String               = "Wallet"
 }

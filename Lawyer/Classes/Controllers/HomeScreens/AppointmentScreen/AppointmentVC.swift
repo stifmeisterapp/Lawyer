@@ -11,7 +11,7 @@ import ViewAnimator
 import DropDown
 
 class AppointmentVC: SBaseViewController {
-
+    
     //MARK: - IBOutlets
     @IBOutlet weak var viewHeader: UIView!
     @IBOutlet weak var btnBackRef: UIButton!
@@ -34,7 +34,7 @@ class AppointmentVC: SBaseViewController {
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action:
-            #selector(self.handleRefresh(_:)),
+                                    #selector(self.handleRefresh(_:)),
                                  for: UIControl.Event.valueChanged)
         refreshControl.tintColor = AppColor.themeColor
         
@@ -65,8 +65,12 @@ class AppointmentVC: SBaseViewController {
     internal var expName:String = String()
     internal var selectedSlot:String = String()
     internal var BookingId:String = String()
+    internal var cityName:String = String()
     
-   // internal var data = [AppointmentViewModel]()
+    internal var isComingFromOrder:Bool = Bool()
+    internal var OrderId:String = String()
+    
+    // internal var data = [AppointmentViewModel]()
     
     //MARK: - View life cycle methods
     //TODO: Implementation viewDidLoad
@@ -85,16 +89,16 @@ class AppointmentVC: SBaseViewController {
     
     
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
     
     
     //MARK: - Actions, Gestures, Selectors
@@ -105,7 +109,7 @@ class AppointmentVC: SBaseViewController {
                        animations: {
                         self.setuserBtnIteraction()
                         self.btnBackRef.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
-        },
+                       },
                        completion: { _ in
                         UIView.animate(withDuration: 0.1) {
                             
@@ -113,7 +117,7 @@ class AppointmentVC: SBaseViewController {
                             self.appointmentListService(current_date:self.current_date,another_date:"prev_date",isRefresh:Bool(), btnIdentity: "PREV")
                             
                         }
-        })
+                       })
         
     }
     
@@ -125,17 +129,17 @@ class AppointmentVC: SBaseViewController {
                         self.setuserBtnIteraction()
                         self.btnForwardRef.isUserInteractionEnabled = false
                         self.btnForwardRef.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
-        },
+                       },
                        completion: { _ in
                         UIView.animate(withDuration: 0.1) {
                             
                             self.btnForwardRef.transform = CGAffineTransform.identity
                             self.appointmentListService(current_date:self.current_date,another_date:"next_date",isRefresh:Bool(), btnIdentity: "NEXT")
-                          
+                            
                         }
-        })
+                       })
         
-  
+        
     }
     
     @IBAction func btnBookConsultationTappedNew(_ sender: UIButton) {
@@ -143,7 +147,7 @@ class AppointmentVC: SBaseViewController {
                        animations: {
                         self.customMethodManager?.provideShadowAndCornerRadius(self.btnBookRef, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.textColor, 0, 0, 0, 0, 0, AppColor.clearColor)
                         self.btnBookRef.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
-        },
+                       },
                        completion: { _ in
                         UIView.animate(withDuration: 0.1) {
                             self.customMethodManager?.provideShadowAndCornerRadius(self.btnBookRef, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.darkGrayColor, -1, 1, 1, 3, 0, AppColor.clearColor)
@@ -151,7 +155,8 @@ class AppointmentVC: SBaseViewController {
                             
                             self.validateFields { (msg, status, isSlot) in
                                 if status{
-                                    if let orederId = USER_DEFAULTS.value(forKey: ConstantTexts.orderID) as? String{
+                                    
+                                    if self.isComingFromOrder{
                                         let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: UploadDocumentVC.className) as! UploadDocumentVC
                                         /* vc.Uuid = self.Uuid
                                          vc.price = self.price
@@ -161,26 +166,45 @@ class AppointmentVC: SBaseViewController {
                                         vc.type = self.type
                                         vc.expID = self.expID
                                         vc.expName = self.expName
-                                        vc.orderId = orederId
+                                        vc.orderId = self.OrderId
+                                        vc.isComingFromOrder = self.isComingFromOrder
                                         self.navigationController?.pushViewController(vc, animated: true)
+                                        
                                     }else{
-                                        self.hitCheckCouponService()
+                                        if let orederId = USER_DEFAULTS.value(forKey: ConstantTexts.orderID) as? String{
+                                            let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: UploadDocumentVC.className) as! UploadDocumentVC
+                                            /* vc.Uuid = self.Uuid
+                                             vc.price = self.price
+                                             vc.lawyer = self.lawyer */
+                                            vc.date = self.current_date
+                                            vc.selectedSlot = self.selectedSlot
+                                            vc.type = self.type
+                                            vc.expID = self.expID
+                                            vc.expName = self.expName
+                                            vc.orderId = orederId
+                                            self.navigationController?.pushViewController(vc, animated: true)
+                                        }else{
+                                            self.hitCheckCouponService()
+                                        }
+                                        
                                     }
+                                    
+                                    
                                     
                                     
                                 }else{
                                     if isSlot{
                                         
                                         self.customMethodManager?.showAlert(msg, okButtonTitle: ConstantTexts.OkBT, target: self)
-                        
+                                        
                                     }
                                     /*else{
-                                        self.customMethodManager?.showToolTip(msg: msg, anchorView: self.footer.lblValue, sourceView: self.view)
-                                    } */
+                                     self.customMethodManager?.showToolTip(msg: msg, anchorView: self.footer.lblValue, sourceView: self.view)
+                                     } */
                                 }
                             }
                         }
-        })
+                       })
         
     }
     
@@ -205,7 +229,7 @@ class AppointmentVC: SBaseViewController {
                        animations: {
                         self.customMethodManager?.provideShadowAndCornerRadius(self.footer.btnBookConsultaionRef, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.textColor, 0, 0, 0, 0, 0, AppColor.clearColor)
                         self.footer.btnBookConsultaionRef.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
-        },
+                       },
                        completion: { _ in
                         UIView.animate(withDuration: 0.1) {
                             self.customMethodManager?.provideShadowAndCornerRadius(self.footer.btnBookConsultaionRef, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.darkGrayColor, -1, 1, 1, 3, 0, AppColor.clearColor)
@@ -214,48 +238,48 @@ class AppointmentVC: SBaseViewController {
                             self.validateFields { (msg, status, isSlot) in
                                 if status{
                                     self.hitCheckCouponService()
-                                   
+                                    
                                 }else{
                                     if isSlot{
                                         
                                         self.customMethodManager?.showAlert(msg, okButtonTitle: ConstantTexts.OkBT, target: self)
-                        
+                                        
                                     }
                                     /*else{
-                                        self.customMethodManager?.showToolTip(msg: msg, anchorView: self.footer.lblValue, sourceView: self.view)
-                                    } */
+                                     self.customMethodManager?.showToolTip(msg: msg, anchorView: self.footer.lblValue, sourceView: self.view)
+                                     } */
                                 }
                             }
                         }
-        })
+                       })
         
     }
     
     
-  /*  @objc func btnDropDownTapped(_ sender: UIButton) {
-        self.customMethodManager?.openDownOnView(dropDown: self.dropDown, array: self.expertise_nameArray, anchor: self.footer.viewLine, callBack: { (dropDown) in
-            
-            dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
-                print("Selected item: \(item) at index: \(index)")
-                
-                if item == ConstantTexts.SelectLT{
-                    self.expName = String()
-                    self.expID = String()
-                    self.footer.lblValue.text = ConstantTexts.SelectLT
-                }else{
-                    self.expName = item
-                    self.expID = self.expertise_idArray[index]
-                    self.footer.lblValue.text = item
-                    
-                }
-            }
-            
-            
-        })
-        
-    } */
+    /*  @objc func btnDropDownTapped(_ sender: UIButton) {
+     self.customMethodManager?.openDownOnView(dropDown: self.dropDown, array: self.expertise_nameArray, anchor: self.footer.viewLine, callBack: { (dropDown) in
+     
+     dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
+     print("Selected item: \(item) at index: \(index)")
+     
+     if item == ConstantTexts.SelectLT{
+     self.expName = String()
+     self.expID = String()
+     self.footer.lblValue.text = ConstantTexts.SelectLT
+     }else{
+     self.expName = item
+     self.expID = self.expertise_idArray[index]
+     self.footer.lblValue.text = item
+     
+     }
+     }
+     
+     
+     })
+     
+     } */
     
     
     
-
+    
 }

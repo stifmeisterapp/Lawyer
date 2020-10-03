@@ -43,13 +43,8 @@ extension UploadDocumentVC{
          self.tblDocuments.reloadData()
          }
          */
-        initialSetup()
         
-    }
-    
-    
-    //TODO: Intial setup implementation
-    internal func initialSetup(){
+        
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.stopRecordingAndPlaying(_:)), name: NSNotification.Name(rawValue: "STOP_RECORDING_AND_PLAYING"), object: nil)
         
@@ -143,6 +138,20 @@ extension UploadDocumentVC{
         self.btnSubmitRef.setTitleColor(AppColor.whiteColor, for: .normal)
         self.btnSubmitRef.backgroundColor = AppColor.themeColor
         
+        self.header.lblTimer.font = AppFont.Regular.size(AppFontName.OpenSans, size: 10)
+        self.header.lblTimer.textColor = AppColor.errorColor
+        self.header.lblTimer.numberOfLines = 0
+        self.header.lblTimer.textAlignment = .right
+        self.header.lblTimer.text = ConstantTexts.DefaultTimeLT
+        
+        
+        
+        
+    }
+    
+    
+    //TODO: Intial setup implementation
+    internal func initialSetup(){
         
         self.check_record_permission()
         
@@ -284,6 +293,11 @@ extension UploadDocumentVC{
         default:
             break
         }
+        
+        if self.isComingFromOrder{
+            self.get_OrderDetail_Service()
+        }
+        
     }
     
     //TODO: Start and stop recording
@@ -296,6 +310,10 @@ extension UploadDocumentVC{
             self.header.lblRecord.text = ConstantTexts.StopRecordLT
             isRecording = true
             self.setup_recorder()
+            self.audioRecorder.record()
+            meterTimer = Timer.scheduledTimer(timeInterval: 0.1, target:self, selector:#selector(self.updateAudioMeter(timer:)), userInfo:nil, repeats:true)
+            
+            
         }
     }
     
@@ -344,6 +362,22 @@ extension UploadDocumentVC{
     }
     
     
+    //TODO: Update audio meter
+    @objc func updateAudioMeter(timer: Timer)
+    {
+        if self.isRecording
+        {
+            self.hr = Int((audioRecorder.currentTime / 60) / 60)
+            self.min = Int(audioRecorder.currentTime / 60)
+            self.sec = Int(audioRecorder.currentTime.truncatingRemainder(dividingBy: 60))
+            let totalTimeString = String(format: "%02d:%02d:%02d", self.hr, self.min, self.sec)
+            self.header.lblTimer.text = totalTimeString
+            audioRecorder.updateMeters()
+        }
+    }
+    
+    
+    
     //TODO: Finish audio recording
     internal func finishAudioRecording(success: Bool)
     {
@@ -353,14 +387,14 @@ extension UploadDocumentVC{
             audioRecorder = nil
             let urlString: String = getFileUrl().absoluteString
             self.recordingPath = urlString
-            let item = DocumentDataModel(data: self.getAudioData(localUrl: getFileUrl()), type: String(), withName: "Audio", fileName: urlString, mimeType: "audio/mp3", isSelected: Bool(),isAudioFile: true,localSoundPath: urlString,serverSoundPath: String(),Id:String(), ConsultationId:String(), DocumentUrl:String(), FileType:String(), FileName:String())
+            let item = DocumentDataModel(data: self.getAudioData(localUrl: getFileUrl()), type: String(), withName: "Audio", fileName: urlString, mimeType: "audio/mp3", isSelected: Bool(),isAudioFile: true,localSoundPath: urlString,serverSoundPath: String(),Id:String(), ConsultationId:String(), DocumentUrl:String(), FileType:String(), FileName:String(), OrderId: String())
             
-//            self.docDataList?.documentDataItems.insert(item, at: 0)
-//            DispatchQueue.main.async {
-//                self.tblDocuments.reloadData()
-//            }
+            //            self.docDataList?.documentDataItems.insert(item, at: 0)
+            //            DispatchQueue.main.async {
+            //                self.tblDocuments.reloadData()
+            //            }
             
-             self.hitBooking_FormV2(item: item)
+            self.hitBooking_FormV2(item: item)
             
         }
         else
@@ -402,7 +436,7 @@ extension UploadDocumentVC{
         ac.addAction(UIAlertAction(title: action_title, style: .default)
         {
             (result : UIAlertAction) -> Void in
-            _ = self.navigationController?.popViewController(animated: true)
+            //  _ = self.navigationController?.popViewController(animated: true)
         })
         present(ac, animated: true)
     }
@@ -587,13 +621,19 @@ extension UploadDocumentVC{
         
         let parameters = [Api_keys_model.OrderId:self.orderId] as [String:AnyObject]
         
+        /* let parameters = [Api_keys_model.OrderId:"ed08cc49-ffdd-11ea-bbc6-000c29951e01",
+         Api_keys_model.SelectedSlot:"07:00 PM",
+         Api_keys_model.Date:"09-Sep-2020",
+         Api_keys_model.LawyerId:"a73a7544-e841-11ea-896b-000c29951e01"] as [String:AnyObject] */
+        
+        
         let header = ["Authorization":user.token,
                       "Content-Type":"multipart/form-data; boundary=<calculated when request is sent>",
                       "Accept":"*/*"]
         
         self.customMethodManager?.startLoader(view:self.view)
         
-        ServiceClass.shared.multipartImageServiceWithArrayObject(url: SCustomerApi.multiple_doc, docArray, header: header, parameters: parameters, success: { (result) in
+        ServiceClass.shared.multipartImageServiceWithArrayObject(url: SCustomerApi.demo_upload_V2, docArray, header: header, parameters: parameters, success: { (result) in
             self.customMethodManager?.stopLoader(view:self.view)
             print(result)
             if let result_Dict = result as? NSDictionary{
@@ -753,6 +793,8 @@ extension UploadDocumentVC{
                       "Content-Type":"multipart/form-data; boundary=<calculated when request is sent>",
                       "Accept":"*/*"]
         
+        //eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJJZCI6IjY2IiwiVXVpZCI6IjNjMzczY2Y5LWUyZDEtMTFlYS04OTZiLTAwMGMyOTk1MWUwMSIsIkZ1bGxuYW1lIjoidmlrYXMgc2Vtd2FsIiwiRW1haWwiOiJ2aWthcy5zZW13YWwxOTk0QGdtYWlsLmNvbSIsIk1vYmlsZSI6Ijk2NDM0NTIwMTAiLCJUeXBlIjoiMCIsIkRldmljZVR5cGUiOiIxIiwiSXBBZGRyZXNzIjoiYXNkZmdoamtsIiwiRGV2aWNlSWQiOiJzZGhzZ2hzZ2oiLCJ0aW1lIjoxNjAxNTU4ODgxfQ.-yb4mwMcIftDammmodAQhO21xfcNhFQmtF7WSCpAFFU
+        
         self.customMethodManager?.startLoader(view:self.view)
         
         ServiceClass.shared.multipartImageServiceWithArrayObject(url: SCustomerApi.booking_form, [item], header: header, parameters: parameters, success: { (result) in
@@ -825,6 +867,7 @@ extension UploadDocumentVC{
                         
                         if let message = result_Dict.value(forKey: "message") as? String{
                             _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style:.error)
+                            self.header.lblTimer.text = ConstantTexts.DefaultTimeLT
                         }
                     }
                 }
@@ -951,8 +994,19 @@ extension UploadDocumentVC{
         
         //        self.setExperise()
         
+        guard let user = self.customMethodManager?.getUser(entity: "User_Data") else{
+            print("No user found...")
+            return
+        }
+        
+        
+        let header = ["authorization":user.token,
+                      "Content-Type":"application/json",
+                      "accept":"application/json"]
+        
+        
         self.customMethodManager?.startLoader(view:self.view)
-        ServiceClass.shared.webServiceBasicMethod(url: SCustomerApi.get_packages, method: .get, parameters: nil, header: nil, success: { (result) in
+        ServiceClass.shared.webServiceBasicMethod(url: SCustomerApi.get_packages, method: .get, parameters: nil, header: header, success: { (result) in
             print(result)
             self.customMethodManager?.stopLoader(view:self.view)
             if let result_Dict = result as? NSDictionary{
@@ -971,17 +1025,17 @@ extension UploadDocumentVC{
                                             self.lawyer.Expertise_String = PackageName
                                         }
                                         
-                                      /*  if let PackageName = itemDict.value(forKey: "PackageName") as? String{
-                                        }
-                                        
-                                        if let PackageDescription = itemDict.value(forKey: "PackageDescription") as? String{
-                                        } */
+                                        /*  if let PackageName = itemDict.value(forKey: "PackageName") as? String{
+                                         }
+                                         
+                                         if let PackageDescription = itemDict.value(forKey: "PackageDescription") as? String{
+                                         } */
                                         
                                         if let Amount = itemDict.value(forKey: "Amount") as? String{
                                             self.lawyer.ConsulationType_Call_Fee = Amount
                                             self.price = Amount
                                         }
-                                        
+                                       
                                         self.lawyer.FullName = "\(ConstantTexts.AppName)"
                                         
                                         let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: PaymentVC.className) as! PaymentVC
@@ -996,6 +1050,18 @@ extension UploadDocumentVC{
                                         vc.Docs = String()
                                         vc.lawyer = self.lawyer
                                         vc.OrderId = self.orderId
+                                        
+                                       
+                                        if let wallet = data.value(forKey: "wallet") as? String{
+                                            vc.wallet = Int(wallet) ?? 0
+                                        }
+                                        
+                                        if let wallet = data.value(forKey: "wallet") as? Int{
+                                            vc.wallet = Int(wallet) ?? 0
+                                        }
+                                        
+                                        
+                                        
                                         self.navigationController?.pushViewController(vc, animated: true)
                                         
                                     }
@@ -1028,6 +1094,168 @@ extension UploadDocumentVC{
         
         
     }
+    
+    
+    
+    //TODO: get_packages web service
+    internal func get_OrderDetail_Service(){
+        
+        //        self.setExperise()
+        
+        
+        guard let user = self.customMethodManager?.getUser(entity: "User_Data") else{
+            print("No user found...")
+            return
+        }
+        
+        
+        let header = ["authorization":user.token,
+                      "Content-Type":"application/json",
+                      "accept":"application/json"]
+
+        self.customMethodManager?.startLoader(view:self.view)
+        ServiceClass.shared.webServiceBasicMethod(url: "\(SCustomerApi.order_files_V2)\(self.orderId)", method: .get, parameters: nil, header: header, success: { (result) in
+            print(result)
+            self.customMethodManager?.stopLoader(view:self.view)
+            if let result_Dict = result as? NSDictionary{
+                if let code = result_Dict.value(forKey: "code") as? Int{
+                    if code == 200{
+                        if let data = result_Dict.value(forKey: "data") as? NSDictionary{
+                            if let audio = data.value(forKey: "audio") as? NSArray{
+                                
+                                let item = DocumentDataModel(data: Data(), type: String(), withName: "Audio", fileName: String(), mimeType: "audio/mp3", isSelected: Bool(),isAudioFile: true,localSoundPath: String(),serverSoundPath: String(),Id:String(), ConsultationId:String(), DocumentUrl:String(), FileType:String(), FileName:String(), OrderId: String())
+                                
+                                for itemDic in audio{
+                                    if let audioDict = itemDic as? NSDictionary{
+                                        
+                                        if let Id = audioDict.value(forKey: "Id") as? String{
+                                            
+                                            item.Id = Id
+                                        }
+                                        
+                                        if let Id = audioDict.value(forKey: "Id") as? Int{
+                                            
+                                            item.Id = "\(Id)"
+                                        }
+                                        
+                                        if let OrderId = audioDict.value(forKey: "OrderId") as? String{
+                                            
+                                            item.OrderId = OrderId
+                                        }
+                                        
+                                        if let OrderId = audioDict.value(forKey: "OrderId") as? Int{
+                                            
+                                            item.OrderId = "\(OrderId)"
+                                        }
+                                        
+                                        
+                                        
+                                        if let AudioUrl = audioDict.value(forKey: "AudioUrl") as? String{
+                                            item.fileName = AudioUrl
+                                            item.localSoundPath = item.fileName
+                                            
+                                            do {
+                                                let data = try Data(contentsOf: URL(fileURLWithPath: item.fileName) as URL)
+                                                item.data = data
+                                            } catch {
+                                                print("Unable to load data: \(error)")
+                                            }
+                                            
+                                        }
+                                        
+                                        
+                                    }
+                                }
+                                
+                                
+                                
+                                self.docDataList?.documentDataItems.insert(item, at: 0)
+                                
+                                
+                                
+                                
+                                
+                            }
+                            
+                            if let order = data.value(forKey: "order") as? NSArray{
+                                
+                                let item = DocumentDataModel(data: Data(), type: ".png", withName: "uploads", fileName: String(), mimeType: "image/png", isSelected: Bool(),isAudioFile: Bool(),localSoundPath: String(),serverSoundPath: String(),Id:String(), ConsultationId:String(), DocumentUrl:String(), FileType:String(), FileName:String(), OrderId: String())
+                                
+                                
+                                for itemDic in order{
+                                    if let orderDict = itemDic as? NSDictionary{
+                                        if let DocumentUrl = orderDict.value(forKey: "DocumentUrl") as? String{
+                                            item.DocumentUrl = DocumentUrl
+                                            item.fileName = DocumentUrl
+                                            do {
+                                                let data = try Data(contentsOf: URL(fileURLWithPath: item.DocumentUrl) as URL)
+                                                item.data = data
+                                            } catch {
+                                                print("Unable to load data: \(error)")
+                                            }
+                                            
+                                        }
+                                        
+                                        if let Id = orderDict.value(forKey: "Id") as? String{
+                                            
+                                            item.Id = Id
+                                        }
+                                        
+                                        if let Id = orderDict.value(forKey: "Id") as? Int{
+                                            
+                                            item.Id = "\(Id)"
+                                        }
+                                        
+                                        if let OrderId = orderDict.value(forKey: "OrderId") as? String{
+                                            
+                                            item.OrderId = OrderId
+                                        }
+                                        
+                                        if let OrderId = orderDict.value(forKey: "OrderId") as? Int{
+                                            
+                                            item.OrderId = "\(OrderId)"
+                                        }
+                                        
+                                        self.docDataList?.documentDataItems.append(item)
+                                        
+                                    }
+                                    
+                                }
+                                
+                            }
+                            
+                            DispatchQueue.main.async {
+                                self.tblDocuments.reloadData()
+                            }
+                            
+                        }
+                    }else{
+                        if let message = result_Dict.value(forKey: "message") as? String{
+                            print(message)
+                          //  _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style:.error)
+                        }
+                        
+                    }
+                }
+            }
+            
+            
+        }) { (error) in
+            print(error)
+            self.customMethodManager?.stopLoader(view:self.view)
+            if let errorString = (error as NSError).userInfo[ConstantTexts.errorMessage_Key] as? String{
+                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: errorString, style:.error)
+            }else{
+                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: ConstantTexts.errorMessage, style:.error)
+            }
+            
+            
+            
+        }
+        
+        
+    }
+    
     
     
 }

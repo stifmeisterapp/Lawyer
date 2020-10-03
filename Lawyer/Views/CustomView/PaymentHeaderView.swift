@@ -51,6 +51,10 @@ class PaymentHeaderView: UIView {
     @IBOutlet weak var viewSwitch: UIView!
     @IBOutlet weak var lblGSTIN: UILabel!
     @IBOutlet weak var switch_Ref: UISwitch!
+    
+    @IBOutlet weak var btnWalletRef: UIButton!
+    @IBOutlet weak var lblWallet: UILabel!
+    
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.

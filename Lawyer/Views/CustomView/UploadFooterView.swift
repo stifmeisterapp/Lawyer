@@ -27,6 +27,8 @@ class UploadFooterView: UIView {
     @IBOutlet weak var lblUpload: UILabel!
     @IBOutlet weak var lblRecord: UILabel!
     
+    @IBOutlet weak var lblTimer: UILabel!
+    
     
     /*
     // Only override draw() if you perform custom drawing.

@@ -63,6 +63,8 @@ class PaymentVC: SBaseViewController {
     internal var BookedConsulationId:String = String()
     internal var RazorpayPaymentId:String = String()
     internal var generated_signature:String = String()
+    internal var wallet:Int = Int()
+    internal var isWalletSelected:Bool = Bool()
     
     //MARK: - variables for the animate tableview
     internal var animationName = String()
@@ -225,6 +227,29 @@ class PaymentVC: SBaseViewController {
                         }
         })
     }
+    
+    
+    @objc func btnPayWalletTapped(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.1,
+                       animations: {
+                        self.header.btnWalletRef.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+        },
+                       completion: { _ in
+                        UIView.animate(withDuration: 0.1) {
+                            self.header.btnWalletRef.transform = CGAffineTransform.identity
+                            if self.wallet < 590{
+                                self.customMethodManager?.showAlert(ConstantTexts.LowWalletLT, okButtonTitle: ConstantTexts.OkBT, target: self)
+                                
+                            }else{
+                                self.isWalletSelected = !self.isWalletSelected
+                                self.cutWallet(isWalletSelected:self.isWalletSelected)
+                            }
+                            
+                            
+                        }
+        })
+    }
+    
     
     @objc func btnbtnChangeDateTapped(_ sender: UIButton) {
         UIView.animate(withDuration: 0.1,
