@@ -120,7 +120,7 @@ class LawyerNewTableViewCell: SBaseTableViewCell {
             
             self.buttonMeetRef.isHidden = false
             self.buttonMeetRef.setTitleColor(AppColor.whiteColor, for: .normal)
-            self.buttonMeetRef.backgroundColor = AppColor.themeColor
+            self.buttonMeetRef.backgroundColor = AppColor.app_gradient_color1
             self.buttonMeetRef.setTitle(ConstantTexts.MeetBT, for: .normal)
             self.buttonMeetRef.titleLabel?.font = AppFont.Bold.size(AppFontName.OpenSans, size: 12)
             self.customMethodManager?.provideCornerRadiusTo(self.buttonMeetRef, 3, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
@@ -162,7 +162,7 @@ class LawyerNewTableViewCell: SBaseTableViewCell {
 
         //TODO: Values
         self.labelNameLayer.font = AppFont.Semibold.size(AppFontName.OpenSans, size: 14)
-        self.labelNameLayer.textColor = AppColor.themeColor
+        self.labelNameLayer.textColor = AppColor.app_gradient_color1
         self.labelNameLayer.numberOfLines = 0
         
         self.labelCityLawyer.font = AppFont.Regular.size(AppFontName.OpenSans, size: 12)

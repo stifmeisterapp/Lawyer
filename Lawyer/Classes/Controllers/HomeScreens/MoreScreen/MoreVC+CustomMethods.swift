@@ -15,7 +15,7 @@ extension MoreVC{
     //TODO: Navigation setup implenemtation
     internal func navSetup(){
         self.tabBarController?.tabBar.isHidden = false
-        super.setupNavigationBarTitle(AppColor.themeColor,ConstantTexts.MoreHT, leftBarButtonsType: [.empty], rightBarButtonsType: [])
+        super.setupNavigationBarTitle(AppColor.header_color,ConstantTexts.MoreHT, leftBarButtonsType: [.empty], rightBarButtonsType: [])
         
     }
     
@@ -139,7 +139,13 @@ extension MoreVC{
     //TODO: Animate rotate table view
     internal func animateView(){
         self.tblMore.isHidden = false
-        self.tblMore.reloadData()
+        
+        
+        DispatchQueue.main.async {
+            self.tblMore.reloadData()
+        }
+        
+        
         let fromAnimation = AnimationType.from(direction: .right, offset: 30.0)
         UIView.animate(views: tblMore.visibleCells,
                        animations: [fromAnimation], delay: 0.5)

@@ -24,6 +24,7 @@ target 'Lawyer' do
   pod 'SkeletonView'
   pod 'SwipeCellKit'
   pod 'razorpay-pod', '~> 1.1.7'
+  pod 'FSPagerView'
   # pod 'RealmSwift'
   # pod 'ObjectMapper', '~> 3.5'
 

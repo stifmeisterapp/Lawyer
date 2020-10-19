@@ -21,7 +21,12 @@ class User_Data_Model {
     var Uuid:String = String()
     var token:String = String()
     
-    init(DeviceId:String,DeviceType:String,Email:String,FirebaseId:String,Fullname:String,Id:String,IpAddress:String,Mobile:String,type:String,Uuid:String,token:String){
+    var MobileLogo:String = String()
+    var Version:String = String()
+    var WebLogo:String = String()
+    var CouponCode:String = String()
+    
+    init(DeviceId:String,DeviceType:String,Email:String,FirebaseId:String,Fullname:String,Id:String,IpAddress:String,Mobile:String,type:String,Uuid:String,token:String,MobileLogo:String,Version:String,WebLogo:String,CouponCode:String){
         
         self.DeviceId = DeviceId
         self.DeviceType = DeviceType
@@ -34,6 +39,11 @@ class User_Data_Model {
         self.type = type
         self.Uuid = Uuid
         self.token = token
+        
+        self.MobileLogo = MobileLogo
+        self.Version = Version
+        self.WebLogo = WebLogo
+        self.CouponCode = CouponCode
         
         
     }

@@ -75,29 +75,29 @@ class LawyerShortDetailTableViewCell: SBaseTableViewCell {
         self.labelNameLayer.font = UIFont.systemFont(ofSize: 15.0)
         self.labelNameLayer.textColor = AppColor.textColor
         
-        self.imageLawyerExp.setImageTintColor(AppColor.cyanColor)
+        self.imageLawyerExp.setImageTintColor(AppColor.app_gradient_color2)
         self.labelNameLayerExp.font = UIFont.systemFont(ofSize: 15.0)
         self.labelNameLayerExp.textColor = AppColor.darkGrayColor
         
-        self.imageLawyerLoc.setImageTintColor(AppColor.tanColor)
+        self.imageLawyerLoc.setImageTintColor(AppColor.app_gradient_color1)
         self.labelNameLayerLoc.font = UIFont.systemFont(ofSize: 15.0)
         self.labelNameLayerLoc.textColor = AppColor.darkGrayColor
         
         
-        self.imageLawyerLang.setImageTintColor(AppColor.themeColor)
+        self.imageLawyerLang.setImageTintColor(AppColor.app_gradient_color1)
         self.labelNameLayerLang.font = UIFont.systemFont(ofSize: 15.0)
         self.labelNameLayerLang.textColor = AppColor.darkGrayColor
         
-        self.imageLawyerNav.setImageTintColor(AppColor.themeColor)
+        self.imageLawyerNav.setImageTintColor(AppColor.app_gradient_color1)
         
         self.viewSeprator1.backgroundColor = AppColor.darkGrayColor
         self.viewSeprator2.backgroundColor = AppColor.darkGrayColor
         
         
         self.customMethodManager?.provideCornerRadiusTo(self.buttonMeetRef, 5, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
-        self.customMethodManager?.provideCornerBorderTo(self.buttonMeetRef, 1, AppColor.themeColor)
+        self.customMethodManager?.provideCornerBorderTo(self.buttonMeetRef, 1, AppColor.app_gradient_color1)
         
-        self.buttonMeetRef.setTitleColor(AppColor.themeColor, for: .normal)
+        self.buttonMeetRef.setTitleColor(AppColor.app_gradient_color1, for: .normal)
         self.buttonMeetRef.backgroundColor = AppColor.whiteColor
         self.buttonMeetRef.setTitle(ConstantTexts.MeetBT, for: .normal)
         self.buttonMeetRef.titleLabel?.font = UIFont.systemFont(ofSize: 15.0)
@@ -106,7 +106,7 @@ class LawyerShortDetailTableViewCell: SBaseTableViewCell {
         self.customMethodManager?.provideCornerRadiusTo(self.buttonCallRef, 5, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
         
         self.buttonCallRef.setTitleColor(AppColor.whiteColor, for: .normal)
-        self.buttonCallRef.backgroundColor = AppColor.themeColor
+        self.buttonCallRef.backgroundColor = AppColor.app_gradient_color1
         self.buttonCallRef.setTitle(ConstantTexts.CallBT, for: .normal)
         self.buttonCallRef.titleLabel?.font = UIFont.systemFont(ofSize: 15.0)
         

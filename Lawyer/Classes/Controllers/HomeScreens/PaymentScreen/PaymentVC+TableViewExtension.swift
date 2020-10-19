@@ -121,7 +121,7 @@ extension PaymentVC:UITableViewDelegate{
         self.footer.btnCheckOutRef.titleLabel?.font = ConstantFonts.mainBottomButtonFont
         
         self.footer.btnCheckOutRef.setTitleColor(AppColor.whiteColor, for: .normal)
-        self.footer.btnCheckOutRef.backgroundColor = AppColor.themeColor
+        self.footer.btnCheckOutRef.backgroundColor = AppColor.app_gradient_color1
          self.footer.btnCheckOutRef.addTarget(self, action: #selector(btnCheckOutTapped), for: .touchUpInside)
         
         return footer

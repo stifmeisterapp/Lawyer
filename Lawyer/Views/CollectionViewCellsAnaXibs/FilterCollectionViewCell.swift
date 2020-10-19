@@ -37,9 +37,9 @@ class FilterCollectionViewCell: UICollectionViewCell {
         
         self.customMethodManager?.provideCornerBorderTo(self, 1, AppColor.textColor)
         
-        self.viewBG.backgroundColor = AppColor.themeColor
+        self.viewBG.backgroundColor = AppColor.app_gradient_color1
         
-        self.backgroundColor = AppColor.themeColor
+        self.backgroundColor = AppColor.app_gradient_color1
         self.titleFilter.font = AppFont.Semibold.size(AppFontName.OpenSans, size: 14)
         self.titleFilter.textColor = AppColor.whiteColor
         self.titleFilter.textAlignment = .center

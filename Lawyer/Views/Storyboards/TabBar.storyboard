@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -43,10 +44,10 @@
             </objects>
             <point key="canvasLocation" x="-84" y="-1283"/>
         </scene>
-        <!--HomeVC-->
+        <!--DashboardVC-->
         <scene sceneID="MMk-ph-qBK">
             <objects>
-                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="HomeVC" id="rpq-HJ-hO4" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="DashboardVC" id="rpq-HJ-hO4" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="jov-Uy-eS7"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LFG-nm-s3N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -104,20 +105,20 @@
             </objects>
             <point key="canvasLocation" x="-84" y="717"/>
         </scene>
-        <!--OrderListVC-->
+        <!--OrderAndQueryRootViewController-->
         <scene sceneID="eKH-Aw-f2g">
             <objects>
-                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="OrderListVC" id="vqB-DC-KAZ" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="OrderAndQueryRootViewController" id="vqB-DC-KAZ" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="ma8-xA-oec"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pRN-QY-EHc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="397" y="-611"/>
         </scene>
-        <!--HomeVC-->
+        <!--ReferAndEarnRooViewController-->
         <scene sceneID="8b2-za-VH6">
             <objects>
-                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="HomeVC" id="rxB-GO-dp7" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="ReferAndEarnRooViewController" id="rxB-GO-dp7" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="L53-5m-2Y8"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UyC-4M-pbF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

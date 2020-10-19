@@ -31,11 +31,11 @@ extension PaymentCompleteVC{
     //TODO: Intial setup implementation
     internal func initialSetup(){
        // self.customMethodManager?.showLottieAnimation(self.imgView, ConstantTexts.wallet_animation, .loop)
-        self.imgView.setImageTintColor(AppColor.themeColor)
+        self.imgView.setImageTintColor(AppColor.app_gradient_color1)
         self.imgView.image = #imageLiteral(resourceName: "icons8-verified_account")
         self.lblTitle.numberOfLines = 0
         self.lblTitle.font = ConstantFonts.mainBottomButtonFont
-        self.lblTitle.textColor = AppColor.themeColor
+        self.lblTitle.textColor = AppColor.app_gradient_color1
         self.lblTitle.textAlignment = .center
         self.lblTitle.text = ConstantTexts.PaymentSuccessfull_LT
         
@@ -66,10 +66,22 @@ extension PaymentCompleteVC{
         self.customMethodManager?.provideShadowAndCornerRadius(self.btnHomeRef, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.darkGrayColor, -1, 1, 1, 3, 0, AppColor.clearColor)
         
         self.btnHomeRef.setTitle(ConstantTexts.GoToHome_BT, for: .normal)
-        self.btnHomeRef.titleLabel?.font = ConstantFonts.mainBottomButtonFont
+        self.btnHomeRef.titleLabel?.font = AppFont.Bold.size(AppFontName.OpenSans, size: 14)
         
         self.btnHomeRef.setTitleColor(AppColor.whiteColor, for: .normal)
-        self.btnHomeRef.backgroundColor = AppColor.themeColor
+        self.btnHomeRef.backgroundColor = AppColor.app_gradient_color1
+        
+        
+        
+        
+        self.customMethodManager?.provideShadowAndCornerRadius(self.btnSendToOrderStatusRef, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.darkGrayColor, -1, 1, 1, 3, 0, AppColor.clearColor)
+        
+        self.btnSendToOrderStatusRef.setTitle(ConstantTexts.GoToOrderStatus_BT, for: .normal)
+        self.btnSendToOrderStatusRef.titleLabel?.font = AppFont.Bold.size(AppFontName.OpenSans, size: 14)
+        
+        self.btnSendToOrderStatusRef.setTitleColor(AppColor.whiteColor, for: .normal)
+        self.btnSendToOrderStatusRef.backgroundColor = AppColor.app_gradient_color2
+        
         
     }
     

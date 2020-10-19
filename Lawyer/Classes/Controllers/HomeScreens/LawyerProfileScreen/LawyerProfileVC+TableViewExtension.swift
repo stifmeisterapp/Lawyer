@@ -30,8 +30,7 @@ extension LawyerProfileVC:UITableViewDataSource{
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Detail_TableViewCellAndXib.className, for: indexPath) as? Detail_TableViewCellAndXib else {
             fatalError(ConstantTexts.unexpectedIndexPath)
         }
-        
-        
+        cell.btnSelectRef.isHidden = true
         if let detailItem = self.lawyerDetailsVM?.appointmentAtIndex(indexPath.section){
             if detailItem.title == ConstantTexts.ExpertiseLT{
                 cell.viewBG.isHidden = true

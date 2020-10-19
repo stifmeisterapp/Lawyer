@@ -12,8 +12,8 @@ extension OrderListVC{
     
     //TODO: Navigation setup implenemtation
     internal func navSetup(){
-        self.tabBarController?.tabBar.isHidden = false
-        super.setupNavigationBarTitle(AppColor.themeColor,ConstantTexts.OrdersHT, leftBarButtonsType: [.empty], rightBarButtonsType: [])
+        self.tabBarController?.tabBar.isHidden = true
+        super.setupNavigationBarTitle(AppColor.header_color,ConstantTexts.OrdersHT, leftBarButtonsType: [.empty], rightBarButtonsType: [])
         
     }
     
@@ -40,6 +40,7 @@ extension OrderListVC{
     
     //TODO: Intial setup implementation
     internal func initialSetup(){
+        NOTIFICATION_CENTER.addObserver(self, selector: #selector(reloadApiData(_:)), name: NSNotification.Name(rawValue: ConstantTexts.hitOrderService), object: nil)
         
         self.orderListTableView.separatorStyle = .none
         self.orderListTableView.hideEmptyCells()
@@ -119,9 +120,18 @@ extension OrderListVC{
         let header = ["authorization":user.token,
                       "Content-Type":"application/json",
                       "accept":"application/json"]
+        print(header)
         
         
         self.customMethodManager?.startLoader(view:self.view)
+        
+        DispatchQueue.main.async {
+            if let isAddedSubview = self.customMethodManager?.isSubviewAdded(parentView: self.orderListTableView, childView: self.errorView){
+                if isAddedSubview{
+                    self.customMethodManager?.removeSubView(childView: self.errorView)
+                }
+            }
+        }
         
         ServiceClass.shared.webServiceBasicMethod(url: "\(SCustomerApi.get_customer_orders_V2)\(self.offset)", method: .get, parameters: nil, header: header, success: { (result) in
             print(result)
@@ -133,13 +143,13 @@ extension OrderListVC{
                         if let data = result_Dict.value(forKey: "data") as? NSDictionary{
                             
                             print(data)
-                            DispatchQueue.main.async {
+                          /*  DispatchQueue.main.async {
                                 if let isAddedSubview = self.customMethodManager?.isSubviewAdded(parentView: self.orderListTableView, childView: self.errorView){
                                     if isAddedSubview{
                                         self.customMethodManager?.removeSubView(childView: self.errorView)
                                     }
                                 }
-                            }
+                            } */
                             
                             if let count = data.value(forKey: "count") as? Int{
                                 self.dataCount = count

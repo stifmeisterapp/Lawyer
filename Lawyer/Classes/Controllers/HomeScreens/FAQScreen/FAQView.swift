@@ -254,8 +254,8 @@ extension FAQView: UITableViewDelegate, UITableViewDataSource {
 }
 
 public struct FAQItem {
-  public let question: String
-  public let answer: String
+  public var question: String
+  public var answer: String
   
   public init(question: String, answer: String) {
     self.question = question

@@ -13,7 +13,7 @@ extension PaymentVC{
     //TODO: Navigation setup implenemtation
     internal func navSetup(){
         self.tabBarController?.tabBar.isHidden = true
-        super.setupNavigationBarTitle(AppColor.themeColor,ConstantTexts.PaymentHT, leftBarButtonsType: [.back], rightBarButtonsType: [])
+        super.setupNavigationBarTitle(AppColor.header_color,ConstantTexts.PaymentHT, leftBarButtonsType: [.back], rightBarButtonsType: [])
         
     }
     
@@ -52,6 +52,18 @@ extension PaymentVC{
         //tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
         
+        if self.isComingFromOrder{
+            print("True")
+            print(self.OrderId)
+        }else{
+            print("false")
+
+            if let orderID = USER_DEFAULTS.value(forKey: ConstantTexts.orderID) as? String{
+                self.OrderId = orderID
+                print(self.OrderId)
+            }
+        }
+        
         self.tblPayment.tableHeaderView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 0.0, height: Double.leastNormalMagnitude))
         self.tblPayment.tableFooterView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 0.0, height: Double.leastNormalMagnitude))
         
@@ -69,7 +81,7 @@ extension PaymentVC{
         self.customMethodManager?.provideCornerBorderTo(self.header.viewUser, 0.8, AppColor.placeholderColor)
         
         self.header.lblUserHeading.font = AppFont.Bold.size(AppFontName.OpenSans, size: 14)
-        self.header.lblUserHeading.textColor = AppColor.themeColor
+        self.header.lblUserHeading.textColor = AppColor.app_gradient_color1
         self.header.lblUserHeading.numberOfLines = 0
         self.header.lblUserHeading.text = ConstantTexts.UserDetail_LT
         
@@ -96,7 +108,7 @@ extension PaymentVC{
         self.header.lblPhone.numberOfLines = 0
         
         var myMutableString = NSMutableAttributedString()
-        myMutableString.append(customMethodManager?.provideUnderlineAttributedText(text: "\(ConstantTexts.ChangeDateAndTimeBT)", font: AppFont.Bold.size(AppFontName.OpenSans, size: 10), AppColor.themeColor) ?? NSMutableAttributedString())
+        myMutableString.append(customMethodManager?.provideUnderlineAttributedText(text: "\(ConstantTexts.ChangeDateAndTimeBT)", font: AppFont.Bold.size(AppFontName.OpenSans, size: 10), AppColor.app_gradient_color1) ?? NSMutableAttributedString())
         self.header.btnChangeDateRef.setAttributedTitle(myMutableString, for: .normal)
         self.header.btnChangeDateRef.addTarget(self, action: #selector(btnbtnChangeDateTapped), for: .touchUpInside)
         
@@ -105,7 +117,7 @@ extension PaymentVC{
         self.customMethodManager?.provideCornerBorderTo(self.header.viewConsultation, 0.8, AppColor.placeholderColor)
         
         self.header.lblConsultationHeader.font = AppFont.Bold.size(AppFontName.OpenSans, size: 14)
-        self.header.lblConsultationHeader.textColor = AppColor.themeColor
+        self.header.lblConsultationHeader.textColor = AppColor.app_gradient_color1
         self.header.lblConsultationHeader.numberOfLines = 0
         self.header.lblConsultationHeader.text = ConstantTexts.ConsultationDetail_LT
         
@@ -181,7 +193,7 @@ extension PaymentVC{
         
         
         self.header.paymentSummaryTitle.font = AppFont.Bold.size(AppFontName.OpenSans, size: 14)
-        self.header.paymentSummaryTitle.textColor = AppColor.themeColor
+        self.header.paymentSummaryTitle.textColor = AppColor.app_gradient_color1
         self.header.paymentSummaryTitle.numberOfLines = 0
         self.header.paymentSummaryTitle.text = ConstantTexts.PaySummary_LT
         
@@ -230,14 +242,14 @@ extension PaymentVC{
         self.header.txtCoupon.textColor = AppColor.textColor
         self.header.txtCoupon.addPadding(.both(10.0))
         
-        self.header.txtCoupon.maxLength = 10
+       // self.header.txtCoupon.maxLength = 10
         self.header.txtCoupon.keyboardType = .default
         self.header.txtCoupon.isSecureTextEntry = false
         self.header.txtCoupon.autocapitalizationType = .allCharacters
         
         self.header.btnApplyRef.addBorders(edges: [.top,.bottom,.left,.right], color: AppColor.placeholderColor, inset: 0.0, thickness: 1.0)
         self.header.btnApplyRef.tintColor = AppColor.whiteColor
-        self.header.btnApplyRef.backgroundColor = AppColor.themeColor
+        self.header.btnApplyRef.backgroundColor = AppColor.app_gradient_color1
         self.header.btnApplyRef.setTitle(ConstantTexts.Apply_BT, for: .normal)
         self.header.btnApplyRef.titleLabel?.font = AppFont.Regular.size(AppFontName.OpenSans, size: 12)
         self.header.btnApplyRef.addTarget(self, action: #selector(btnApplyCouponTapped), for: .touchUpInside)
@@ -318,7 +330,7 @@ extension PaymentVC{
             
         }else{
             
-            myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\(self.wallet)", font: AppFont.Semibold.size(AppFontName.OpenSans, size: 30), color: AppColor.themeColor) ?? NSMutableAttributedString())
+            myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\(self.wallet)", font: AppFont.Semibold.size(AppFontName.OpenSans, size: 30), color: AppColor.app_gradient_color1) ?? NSMutableAttributedString())
             
         }
         
@@ -413,7 +425,7 @@ extension PaymentVC{
             self.header.btnWalletRef.setImage(UIImage(systemName: "checkmark.square") ?? UIImage(), for: .normal)
             self.header.btnApplyRef.tintColor = AppColor.whiteColor
             self.header.btnApplyRef.setTitleColor(AppColor.whiteColor, for: .normal)
-            self.header.btnApplyRef.backgroundColor = AppColor.themeColor
+            self.header.btnApplyRef.backgroundColor = AppColor.app_gradient_color1
             self.header.btnApplyRef.setTitle(ConstantTexts.Apply_BT, for: .normal)
             self.header.txtCoupon.text = ConstantTexts.empty
             self.header.btnApplyRef.isUserInteractionEnabled = true
@@ -463,29 +475,61 @@ extension PaymentVC{
                             
                             if let data = result_Dict.value(forKey: "data") as? NSDictionary{
                                 if let Discount = data.value(forKey: "Discount") as? String{
-                                   // self.amountPaid = self.amountPaid - self.getPercentValue(value: self.amountPaid, percentage: Double(Discount) ?? 0.0)
                                     
-                                    self.amountPaid = self.amountPaid - (Double(Discount) ?? 0.0)
+                                    if let discount_type = data.value(forKey: "DiscountType") as? String{
+                                        if discount_type == "amount"{
+                                            
+                                          //  self.amountPaid = self.amountPaid - self.getPercentValue(value: self.amountPaid, percentage: Double(Discount) ?? 0.0)
+                                            
+                                            self.amountPaid = self.amountPaid - (Double(Discount) ?? 0.0)
+                                            
+                                            
+                                            self.header.originalPriceValue.text = "\(ConstantTexts.CurLT) \(self.amountPaid)"
+                                            
+                                            self.gst18Paid = round(self.getPercentValue(value: self.amountPaid, percentage: 18.0))
+                                            self.header.gstPriceValue.text = "\(ConstantTexts.CurLT) \(self.gst18Paid)"
+                                            self.totalPaid = round(self.amountPaid + self.gst18Paid)
+                                            self.header.totalPriceValue.text = "\(ConstantTexts.CurLT) \(self.totalPaid)"
+                                            
+                                            self.header.couponAppliedTitle.isHidden = false
+                                            self.header.imgCoupon.isHidden = false
+                                            self.header.btnApplyRef.isUserInteractionEnabled = false
+                                            self.header.btnApplyRef.backgroundColor = AppColor.tableBGColor
+                                            self.header.btnApplyRef.setTitleColor(AppColor.darkGrayColor, for: .normal)
+                                            self.header.btnApplyRef.setTitle(ConstantTexts.Applied_BT, for: .normal)
+                                            self.header.txtCoupon.isUserInteractionEnabled = false
+                                            print(self.amountPaid)
+                                            
+                                            self.isWalletSelected = Bool()
+                                            self.cutWallet(isWalletSelected:self.isWalletSelected)
+                                        }else{
+                                            
+                                            self.amountPaid = self.amountPaid - self.getPercentValue(value: self.amountPaid, percentage: Double(Discount) ?? 0.0)
+                                            
+                                          //  self.amountPaid = self.amountPaid - (Double(Discount) ?? 0.0)
+                                            
+                                            
+                                            self.header.originalPriceValue.text = "\(ConstantTexts.CurLT) \(self.amountPaid)"
+                                            
+                                            self.gst18Paid = round(self.getPercentValue(value: self.amountPaid, percentage: 18.0))
+                                            self.header.gstPriceValue.text = "\(ConstantTexts.CurLT) \(self.gst18Paid)"
+                                            self.totalPaid = round(self.amountPaid + self.gst18Paid)
+                                            self.header.totalPriceValue.text = "\(ConstantTexts.CurLT) \(self.totalPaid)"
+                                            
+                                            self.header.couponAppliedTitle.isHidden = false
+                                            self.header.imgCoupon.isHidden = false
+                                            self.header.btnApplyRef.isUserInteractionEnabled = false
+                                            self.header.btnApplyRef.backgroundColor = AppColor.tableBGColor
+                                            self.header.btnApplyRef.setTitleColor(AppColor.darkGrayColor, for: .normal)
+                                            self.header.btnApplyRef.setTitle(ConstantTexts.Applied_BT, for: .normal)
+                                            self.header.txtCoupon.isUserInteractionEnabled = false
+                                            print(self.amountPaid)
+                                            
+                                            self.isWalletSelected = Bool()
+                                            self.cutWallet(isWalletSelected:self.isWalletSelected)
+                                        }
+                                    }
                                     
-                                    
-                                    self.header.originalPriceValue.text = "\(ConstantTexts.CurLT) \(self.amountPaid)"
-                                    
-                                    self.gst18Paid = round(self.getPercentValue(value: self.amountPaid, percentage: 18.0))
-                                    self.header.gstPriceValue.text = "\(ConstantTexts.CurLT) \(self.gst18Paid)"
-                                    self.totalPaid = round(self.amountPaid + self.gst18Paid)
-                                    self.header.totalPriceValue.text = "\(ConstantTexts.CurLT) \(self.totalPaid)"
-                                    
-                                    self.header.couponAppliedTitle.isHidden = false
-                                    self.header.imgCoupon.isHidden = false
-                                    self.header.btnApplyRef.isUserInteractionEnabled = false
-                                    self.header.btnApplyRef.backgroundColor = AppColor.tableBGColor
-                                    self.header.btnApplyRef.setTitleColor(AppColor.darkGrayColor, for: .normal)
-                                    self.header.btnApplyRef.setTitle(ConstantTexts.Applied_BT, for: .normal)
-                                    self.header.txtCoupon.isUserInteractionEnabled = false
-                                    print(self.amountPaid)
-                                    
-                                    self.isWalletSelected = Bool()
-                                    self.cutWallet(isWalletSelected:self.isWalletSelected)
                                     
                                 }
                             }
@@ -607,7 +651,7 @@ extension PaymentVC{
                                     vc.time = self.selectedSlot
                                     vc.type = self.type == "0" ? ConstantTexts.CallConsultationLT : ConstantTexts.MeetConsultationLT
                                     vc.cost = "\(ConstantTexts.CurLT) \(self.amountPaid)"
-                                    
+                                    vc.id = self.OrderId
                                     self.navigationController?.pushViewController(vc, animated: true)
                                 }else{
                                     self.showPaymentForm()

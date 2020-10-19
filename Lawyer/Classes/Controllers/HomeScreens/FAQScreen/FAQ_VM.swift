@@ -33,4 +33,29 @@ class FAQ_VM: FAQ_DataModeling {
         
         return items
     }
+    
+    
+    func prepareDataSourceWith(json:NSArray) -> [FAQItem]{
+        var faqItems:[FAQItem] = [FAQItem]()
+        
+        for item in json{
+            if let itemDict = item as? NSDictionary{
+                var query:FAQItem = FAQItem(question: String(), answer: ConstantTexts.QueryReso_LT)
+                
+                
+                if let Query = itemDict.value(forKey: "Query") as? String{
+                    query.question = "Q. \(Query)".trimmingCharacters(in: .whitespacesAndNewlines)
+                }
+               
+                if let Answer = itemDict.value(forKey: "Answer") as? String{
+                    query.answer = "A. \(Answer)".trimmingCharacters(in: .whitespacesAndNewlines)
+                }
+               
+                faqItems.append(query)
+            }
+        }
+        
+        
+        return faqItems
+    }
 }

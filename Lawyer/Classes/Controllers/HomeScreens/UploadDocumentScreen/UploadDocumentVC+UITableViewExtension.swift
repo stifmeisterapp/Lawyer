@@ -41,7 +41,7 @@ extension UploadDocumentVC:UITableViewDataSource{
             if let animationDetail = self.customMethodManager?.getAnimationNameAndMessage(errorCode: 1){
                 cell.lblValue.backgroundColor = AppColor.clearColor
                 cell.lblValue.font = AppFont.Bold.size(AppFontName.OpenSans, size: 16)
-                cell.lblValue.textColor = AppColor.tanColor
+                cell.lblValue.textColor = AppColor.app_gradient_color1
                 cell.lblValue.textAlignment = .center
                 cell.lblValue.numberOfLines = 0
                 cell.lblValue.text = animationDetail.1
@@ -106,12 +106,13 @@ extension UploadDocumentVC:UITableViewDelegate,SwipeTableViewCellDelegate{
     
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 330
+        return 430
         
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
-        return 330
+        return 430
+        
     }
     
     

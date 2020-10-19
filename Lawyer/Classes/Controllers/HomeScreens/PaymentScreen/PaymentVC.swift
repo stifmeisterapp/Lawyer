@@ -65,6 +65,7 @@ class PaymentVC: SBaseViewController {
     internal var generated_signature:String = String()
     internal var wallet:Int = Int()
     internal var isWalletSelected:Bool = Bool()
+    internal var isComingFromOrder:Bool = Bool()
     
     //MARK: - variables for the animate tableview
     internal var animationName = String()
@@ -88,6 +89,9 @@ class PaymentVC: SBaseViewController {
         
         // Do any additional setup after loading the view.
         print(self.OrderId)
+        
+        
+        
         initValues()
     }
     

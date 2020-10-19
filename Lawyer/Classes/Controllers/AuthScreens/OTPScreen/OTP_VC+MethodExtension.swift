@@ -14,7 +14,7 @@ extension OTP_VC{
     //TODO: Navigation setup implenemtation
     internal func navSetup(){
         super.isHiddenNavigationBar(true)
-        //  super.setupNavigationBarTitle(AppColor.themeColor, ConstantTexts.VarificationHT, leftBarButtonsType: [.back], rightBarButtonsType: [.empty])
+        //  super.setupNavigationBarTitle(AppColor.header_color, ConstantTexts.VarificationHT, leftBarButtonsType: [.back], rightBarButtonsType: [.empty])
     }
     
     //TODO: Init values
@@ -45,18 +45,18 @@ extension OTP_VC{
         
         otpView.otpFieldsCount = 4
         otpView.otpFieldDefaultBorderColor = AppColor.darkGrayColor
-        otpView.otpFieldEnteredBorderColor = AppColor.themeColor
-        otpView.otpFieldErrorBorderColor = AppColor.themeColor
+        otpView.otpFieldEnteredBorderColor = AppColor.app_gradient_color1
+        otpView.otpFieldErrorBorderColor = AppColor.app_gradient_color1
         otpView.otpFieldBorderWidth = 2
         otpView.delegate = self
         otpView.shouldAllowIntermediateEditing = false
         
-        otpView.otpFieldTextColor = AppColor.themeColor
+        otpView.otpFieldTextColor = AppColor.app_gradient_color1
         otpView.otpFieldSize = 45
         otpView.otpFieldSeparatorSpace = 10
         otpView.otpFieldFont = AppFont.Regular.size(AppFontName.OpenSans, size: 14)
         otpView.otpFieldDisplayType = .underlinedBottom
-        otpView.cursorColor = AppColor.themeColor
+        otpView.cursorColor = AppColor.app_gradient_color1
         otpView.placeHolder = ConstantTexts.ZeroLT
         // Create the UI
         otpView.initializeUI()
@@ -69,7 +69,7 @@ extension OTP_VC{
         self.btnDoneOTPRef.titleLabel?.font = ConstantFonts.mainBottomButtonFont
         
         self.btnDoneOTPRef.setTitleColor(AppColor.whiteColor, for: .normal)
-        self.btnDoneOTPRef.backgroundColor = AppColor.themeColor
+        self.btnDoneOTPRef.backgroundColor = AppColor.app_gradient_color1
         
         
         
@@ -81,7 +81,7 @@ extension OTP_VC{
         
         
         self.lblTimer.font = AppFont.Regular.size(AppFontName.OpenSans, size: 12)
-        self.lblTimer.textColor = AppColor.themeColor
+        self.lblTimer.textColor = AppColor.app_gradient_color1
         
         
         // *** Create instance of `NSMutableParagraphStyle`
@@ -93,13 +93,13 @@ extension OTP_VC{
         
         
         var myMutableString = NSMutableAttributedString()
-        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\(ConstantTexts.VarificationCode_LT)", font: AppFont.Bold.size(AppFontName.OpenSans, size: 18), color: AppColor.themeColor) ?? NSMutableAttributedString())
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\(ConstantTexts.VarificationCode_LT)", font: AppFont.Bold.size(AppFontName.OpenSans, size: 18), color: AppColor.app_gradient_color1) ?? NSMutableAttributedString())
         
         
         myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\n\n\(ConstantTexts.EnterOTP2_LT)\n", font: AppFont.Regular.size(AppFontName.OpenSans, size: 12), color: AppColor.textColor) ?? NSMutableAttributedString())
         
         
-        //   myMutableString.append(customMethodManager?.provideUnderlineAttributedText(text: "\(ConstantTexts.CountryCodeLT) \(phoneNumber)", font: AppFont.Bold.size(AppFontName.OpenSans, size: 12), AppColor.themeColor) ?? NSMutableAttributedString())
+        //   myMutableString.append(customMethodManager?.provideUnderlineAttributedText(text: "\(ConstantTexts.CountryCodeLT) \(phoneNumber)", font: AppFont.Bold.size(AppFontName.OpenSans, size: 12), AppColor.app_gradient_color1) ?? NSMutableAttributedString())
         
         
         //   myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\n\(ConstantTexts.PleaseVarify_LT)", font: AppFont.Regular.size(AppFontName.OpenSans, size: 12), color: AppColor.textColor) ?? NSMutableAttributedString())
@@ -116,7 +116,7 @@ extension OTP_VC{
         myMutableString = NSMutableAttributedString()
         myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\(ConstantTexts.DidntRecieve_BT) ", font: AppFont.Regular.size(AppFontName.OpenSans, size: 12), color: AppColor.textColor) ?? NSMutableAttributedString())
         
-        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\(ConstantTexts.ResendAgain_BT)", font: AppFont.Bold.size(AppFontName.OpenSans, size: 14), color: AppColor.themeColor) ?? NSMutableAttributedString())
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\(ConstantTexts.ResendAgain_BT)", font: AppFont.Bold.size(AppFontName.OpenSans, size: 14), color: AppColor.app_gradient_color1) ?? NSMutableAttributedString())
         self.btnResendOTPRef.setAttributedTitle(myMutableString, for: .normal)
         self.btnResendOTPRef.backgroundColor = AppColor.whiteColor
         
@@ -206,6 +206,8 @@ extension OTP_VC{
                             
                             let Fullname = data.value(forKey: "Fullname") as? String ?? String()
                             
+                            let CouponCode = data.value(forKey: "CouponCode") as? String ?? String()
+                            
                             var Id = String()
                             if let Id_Parse = data.value(forKey: "Id") as? String{
                                 Id = Id_Parse
@@ -214,6 +216,8 @@ extension OTP_VC{
                             if let Id_Parse = data.value(forKey: "Id") as? Int{
                                 Id = "\(Id_Parse)"
                             }
+                            
+                            
                             
                             let IpAddress = data.value(forKey: "IpAddress") as? String ?? String()
                             
@@ -239,8 +243,9 @@ extension OTP_VC{
                             let Uuid = data.value(forKey: "Uuid") as? String ?? String()
                             
                             let token = result_Dict.value(forKey: "token") as? String ?? String()
+                           // USER_DEFAULTS.setValue(token, forKey: ConstantTexts.userToken)
                             
-                            self.saveDataToLocal_DB(DeviceId: DeviceId, DeviceType: DeviceType, Email: Email, FirebaseId: FirebaseId, Fullname: Fullname, Id: Id, IpAddress: IpAddress, Mobile: Mobile, Type: Type, Uuid: Uuid, token: token)
+                            self.saveDataToLocal_DB(DeviceId: DeviceId, DeviceType: DeviceType, Email: Email, FirebaseId: FirebaseId, Fullname: Fullname, Id: Id, IpAddress: IpAddress, Mobile: Mobile, Type: Type, Uuid: Uuid, token: token,MobileLogo:String(), Version:String(), WebLogo:String(),CouponCode:CouponCode)
                             
                         }
                         
@@ -339,7 +344,7 @@ extension OTP_VC{
     }
     
     //TODO: Save data to local database
-    private func saveDataToLocal_DB(DeviceId:String,DeviceType:String,Email:String,FirebaseId:String,Fullname:String,Id:String,IpAddress:String,Mobile:String,Type:String,Uuid:String,token:String){
+    private func saveDataToLocal_DB(DeviceId:String,DeviceType:String,Email:String,FirebaseId:String,Fullname:String,Id:String,IpAddress:String,Mobile:String,Type:String,Uuid:String,token:String,MobileLogo:String,Version:String,WebLogo:String,CouponCode:String){
         let context = kAppDelegate.persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "User_Data", in: context)
         let user = NSManagedObject(entity: entity!, insertInto: context)
@@ -354,6 +359,11 @@ extension OTP_VC{
         user.setValue(Type, forKey: "type")
         user.setValue(Uuid, forKey: "uuid")
         user.setValue(token, forKey: "token")
+        
+        user.setValue(MobileLogo, forKey: "mobile_logo")
+        user.setValue(Version, forKey: "version")
+        user.setValue(WebLogo, forKey: "web_logo")
+        user.setValue(CouponCode, forKey: "coupon_code")
         
         do {
            try context.save()

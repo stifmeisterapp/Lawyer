@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,8 +19,8 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="3K8-ri-P4u">
-                        <rect key="frame" x="5" y="0.0" width="373" height="193"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <rect key="frame" x="5" y="15" width="373" height="163"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="10" id="gXZ-ui-edc">
                             <size key="itemSize" width="128" height="128"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -30,8 +32,8 @@
                 <constraints>
                     <constraint firstItem="3K8-ri-P4u" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="3rQ-bS-kjg"/>
                     <constraint firstAttribute="trailing" secondItem="3K8-ri-P4u" secondAttribute="trailing" constant="5" id="DU0-w6-m8y"/>
-                    <constraint firstAttribute="bottom" secondItem="3K8-ri-P4u" secondAttribute="bottom" id="Mib-Vg-ADG"/>
-                    <constraint firstItem="3K8-ri-P4u" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="pMa-CR-cRM"/>
+                    <constraint firstAttribute="bottom" secondItem="3K8-ri-P4u" secondAttribute="bottom" constant="15" id="Mib-Vg-ADG"/>
+                    <constraint firstItem="3K8-ri-P4u" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="pMa-CR-cRM"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -41,4 +43,9 @@
             <point key="canvasLocation" x="94.927536231884062" y="156.36160714285714"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

@@ -20,7 +20,7 @@ final class ServiceClass: SBaseService {
     public func webServiceBasicMethod(url:String, method:HTTPMethod, parameters:[String:Any]?, header:HTTPHeaders? = nil, success: @escaping (Any)-> (), failure: @escaping (Error)->()) -> Void {
         print(url)
         print(parameters as Any)
-       
+        
         
         if !NetworkState.isConnected() {
             failure(NSError(domain: ConstantTexts.Network_Error, code: 1009, userInfo: [ConstantTexts.errorMessage_Key : ConstantTexts.noInterNet]))
@@ -76,8 +76,8 @@ final class ServiceClass: SBaseService {
         let manager = Alamofire.SessionManager.default
         manager.session.configuration.timeoutIntervalForRequest = 300
         
-       manager.upload(multipartFormData: { (multipartFormData) in
-        for (_,item) in data.enumerated() {
+        manager.upload(multipartFormData: { (multipartFormData) in
+            for (_,item) in data.enumerated() {
                 if item.mimeType == "document"{
                     if let stringURL = URL(string: item.fileName){
                         let filename = stringURL.lastPathComponent
@@ -93,17 +93,29 @@ final class ServiceClass: SBaseService {
                     multipartFormData.append(item.data as Data, withName: item.withName, fileName: item.fileName, mimeType: item.mimeType)
                 }
             }
+            
+            
+            guard let param = parameters else {
+                return
+            }
+            for (key,value) in param {
+                multipartFormData.append((value as AnyObject).data(using: String.Encoding.utf8.rawValue)!, withName: key)
+            }
+            
+            
         }, to: urlValue,headers: header){
             (result) in
-        print(result)
+            print(result)
             switch result {
             case .success(let upload, _,_ ):
                 upload.uploadProgress(closure: { (progress) in
                     print(progress)
                 })
                 upload.responseData { response in
+                    
                     upload.responseJSON {
                         (response) -> Void in
+                        print(response)
                         switch(response.result){
                         case .success(let value):
                             print(value)
@@ -130,5 +142,5 @@ final class ServiceClass: SBaseService {
             }
         }
     }
- 
+    
 }

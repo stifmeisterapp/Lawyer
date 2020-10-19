@@ -18,6 +18,7 @@ class PaymentCompleteVC: SBaseViewController {
     @IBOutlet weak var lblValues: UILabel!
     @IBOutlet weak var lblFooter: UILabel!
     @IBOutlet weak var btnHomeRef: UIButton!
+    @IBOutlet weak var btnSendToOrderStatusRef: UIButton!
     
     //MARK: - Variables
     internal var lawyer:Lawyer_Model = Lawyer_Model(CityName: String(), ConsulationType_Call_Fee: String(), ConsulationType_Meet_Fee: String(), ConsulationType_Video_Call_Fee: String(), Experience_Name: String(), Expertise_String: String(), FullName: String(), Id: String(), Language_String: String(), ProfilePhoto: String(), Uuid: String())
@@ -65,6 +66,7 @@ class PaymentCompleteVC: SBaseViewController {
                        completion: { _ in
                         UIView.animate(withDuration: 0.1) {
                             self.customMethodManager?.provideShadowAndCornerRadius(self.btnHomeRef, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.textColor, -1, 1, 1, 3, 0, AppColor.clearColor)
+                            self.btnHomeRef.transform = .identity
                             
                             NOTIFICATION_CENTER.post(name: NSNotification.Name(rawValue: ConstantTexts.paymentDone), object: ["Id":self.id])
                             self.navigationController?.popToRootViewController(animated: true)
@@ -73,5 +75,34 @@ class PaymentCompleteVC: SBaseViewController {
         })
         
     }
+    
+    
+    @IBAction func btnGoOrderStatusTapped(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.1,
+                       animations: {
+                        self.customMethodManager?.provideShadowAndCornerRadius(self.btnSendToOrderStatusRef, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.textColor, 0, 0, 0, 0, 0, AppColor.clearColor)
+                        self.btnSendToOrderStatusRef.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+        },
+                       completion: { _ in
+                        UIView.animate(withDuration: 0.1) {
+                            self.customMethodManager?.provideShadowAndCornerRadius(self.btnSendToOrderStatusRef, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.textColor, -1, 1, 1, 3, 0, AppColor.clearColor)
+                            self.btnSendToOrderStatusRef.transform = .identity
+                            
+                            let order: OrderDataModel = OrderDataModel(BookingDate: String(), BookingTime: String(), CategoryName: String(), CategoryId: String(), CityName: String(), CustomerEmail: String(), CustomerName: String(), CustomerPhone: String(), Id: self.id, Query: String(), Status: String())
+                            
+                            
+                            let viewController = AppStoryboard.homeSB.instantiateViewController(withIdentifier: OrderStatusVC.className) as! OrderStatusVC
+                            viewController.order = OrderDataViewModel(order)
+                            let navigationController = UINavigationController(rootViewController: viewController)
+                            navigationController.navigationBar.isHidden = false
+                            self.view.window?.rootViewController = navigationController
+                            
+                           
+                            
+                        }
+        })
+        
+    }
+
 
 }

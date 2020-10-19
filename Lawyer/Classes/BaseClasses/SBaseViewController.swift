@@ -12,6 +12,7 @@ class SBaseViewController: UIViewController {
     //MARK: - Variables
     internal let myPickerController = UIImagePickerController()
     internal var getDocCallBack:((_ item : DocumentDataModel)->())?
+    internal var goToCity:(()->())?
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,7 +41,13 @@ class SBaseViewController: UIViewController {
             return }
         
         switch buttonType {
+        case .backRoot:
+            let vc = AppStoryboard.tabBarSB.instantiateViewController(withIdentifier: TabBarVC.className) as! TabBarVC
+            vc.selectedIndex = 1
+            UIApplication.shared.windows.first?.rootViewController = vc
+            UIApplication.shared.windows.first?.makeKeyAndVisible()
         case .back: self.navigationBarButtonDidTapped(buttonType)
+        case .location: self.goToCity?()
         case .empty: print("do nothing...")
             
         }

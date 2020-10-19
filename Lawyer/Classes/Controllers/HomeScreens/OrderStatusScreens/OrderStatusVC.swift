@@ -23,6 +23,7 @@ class OrderStatusVC:  SBaseViewController {
     
     @IBOutlet weak var lblSuccess: UILabel!
     @IBOutlet weak var imgSuccess: UIImageView!
+    @IBOutlet weak var btnRatingRef: UIButton!
     
     //MARK: - Variables
     internal var order:OrderDataViewModel = OrderDataViewModel(OrderDataModel(BookingDate: String(), BookingTime: String(), CategoryName: String(), CategoryId: String(), CityName: String(), CustomerEmail: String(), CustomerName: String(), CustomerPhone: String(), Id: String(),Query:String(),Status:String()))
@@ -33,6 +34,12 @@ class OrderStatusVC:  SBaseViewController {
     internal var orderVM:OrderStatusDataModeling?
     internal var SupportPhoneNumber:String = String()
     internal var SupportEmail:String = String()
+    
+    internal var lawyerName:String = String()
+    internal var lawyerImage:String = String()
+    
+    internal var LawyerId:String = String()
+    
     //MARK: - View life cycle methods
     //TODO: Implementation viewDidLoad
     override func viewDidLoad() {
@@ -51,7 +58,13 @@ class OrderStatusVC:  SBaseViewController {
     //TODO: Implementation viewDidAppear
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        //  self.viewBG.gradientBackground(from: AppColor.app_gradient_color1, to: AppColor.app_gradient_color2, direction: .topToBottom)
         //  initialSetup()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        SCREEN_NAME = ConstantTexts.empty
     }
     
     
@@ -77,6 +90,10 @@ class OrderStatusVC:  SBaseViewController {
     }
     
     
+    @objc func reloadApiData(_ notification:Notification) {
+        self.hitOrderDetailsService()
+    }
+    
     //TODO: Actions
     
     @IBAction func btnMsgTapped(_ sender: UIButton) {
@@ -92,28 +109,28 @@ class OrderStatusVC:  SBaseViewController {
                             
                             if self.order.Status == "3"{
                                 self.navigationController?.popViewController(animated: true)
-                           }else{
-                            // Modify following variables with your text / recipient
-                            let recipientEmail = self.SupportEmail
-                            let subject = "Multi client email support"
-                            let body = "This code supports sending email via multiple different email apps on iOS! :)"
-                            
-                            // Show default mail composer
-                            if MFMailComposeViewController.canSendMail() {
-                                let mail = MFMailComposeViewController()
-                                mail.mailComposeDelegate = self
-                                mail.setToRecipients([recipientEmail])
-                                mail.setSubject(subject)
-                                mail.setMessageBody(body, isHTML: false)
+                            }else{
+                                // Modify following variables with your text / recipient
+                                let recipientEmail = self.SupportEmail
+                                let subject = "Multi client email support"
+                                let body = "This code supports sending email via multiple different email apps on iOS! :)"
                                 
-                                self.present(mail, animated: true)
-                                
-                                // Show third party email composer if default Mail app is not present
-                            } else if let emailUrl = self.createEmailUrl(to: recipientEmail, subject: subject, body: body) {
-                                UIApplication.shared.open(emailUrl)
+                                // Show default mail composer
+                                if MFMailComposeViewController.canSendMail() {
+                                    let mail = MFMailComposeViewController()
+                                    mail.mailComposeDelegate = self
+                                    mail.setToRecipients([recipientEmail])
+                                    mail.setSubject(subject)
+                                    mail.setMessageBody(body, isHTML: false)
+                                    
+                                    self.present(mail, animated: true)
+                                    
+                                    // Show third party email composer if default Mail app is not present
+                                } else if let emailUrl = self.createEmailUrl(to: recipientEmail, subject: subject, body: body) {
+                                    UIApplication.shared.open(emailUrl)
+                                }
                             }
-                           }
-                          
+                            
                         }
                        })
         
@@ -135,6 +152,31 @@ class OrderStatusVC:  SBaseViewController {
         
     }
     
+    @IBAction func btnRateTapped(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.1,
+                       animations: {
+                        self.customMethodManager?.provideShadowAndCornerRadius(self.btnRatingRef, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.textColor, 0, 0, 0, 0, 0, AppColor.clearColor)
+                        self.btnRatingRef.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+                       },
+                       completion: { _ in
+                        UIView.animate(withDuration: 0.1) {
+                            self.customMethodManager?.provideShadowAndCornerRadius(self.btnRatingRef, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.textColor, -1, 1, 1, 3, 0, AppColor.clearColor)
+                            self.btnRatingRef.transform = CGAffineTransform.identity
+                            
+                            let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: LawyerRatingVC.className) as! LawyerRatingVC
+                            vc.lawyerName = self.lawyerName
+                            vc.lawyerImage = self.lawyerImage
+                            vc.ConsultationId = self.order.Id
+                            vc.LawyerId = self.LawyerId
+                            vc.modalPresentationStyle = .automatic //or .overFullScreen for transparency
+                            self.present(vc, animated: true, completion: nil)
+                            
+                            
+                        }
+                       })
+        
+    }
+    
     
     
     /*
@@ -145,6 +187,10 @@ class OrderStatusVC:  SBaseViewController {
      // Get the new view controller using segue.destination.
      // Pass the selected object to the new view controller.
      }
+     
+     
+     
+    
      
      */
     

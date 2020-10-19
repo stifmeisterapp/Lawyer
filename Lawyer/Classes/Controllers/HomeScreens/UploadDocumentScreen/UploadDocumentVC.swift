@@ -138,15 +138,20 @@ class UploadDocumentVC: SBaseViewController {
         view.endEditing(true)
     }
     
+  
+    
+    
     @objc func btnChooseTapped(_ sender: UIButton) {
         self.dismissKeyboard()
         UIView.animate(withDuration: 0.1,
                        animations: {
-                        self.header.btnUpladDocRef.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+                        self.customMethodManager?.provideShadowAndCornerRadius(self.header.viewUpload, 10, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.placeholderColor, 0, 0, 0, 0, 0, AppColor.clearColor)
+                        self.header.viewUpload.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
                        },
                        completion: { _ in
                         UIView.animate(withDuration: 0.1) {
-                            self.header.btnUpladDocRef.transform = .identity
+                            self.customMethodManager?.provideShadowAndCornerRadius(self.header.viewUpload, 10, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.placeholderColor, -1, 1, 1, 3, 0, AppColor.clearColor)
+                            self.header.viewUpload.transform = .identity
                             
                             self.openActionSheet()
                             
@@ -167,11 +172,13 @@ class UploadDocumentVC: SBaseViewController {
         self.dismissKeyboard()
         UIView.animate(withDuration: 0.1,
                        animations: {
+                        self.customMethodManager?.provideShadowAndCornerRadius(self.header.viewRecord, 10, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.placeholderColor, 0, 0, 0, 0, 0, AppColor.clearColor)
                         self.header.btnRecordVoice.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
                        },
                        completion: { _ in
                         UIView.animate(withDuration: 0.1) {
                             self.header.btnRecordVoice.transform = .identity
+                            self.customMethodManager?.provideShadowAndCornerRadius(self.header.viewRecord, 10, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.placeholderColor, -1, 1, 1, 3, 0, AppColor.clearColor)
                             if self.recordingPath == String(){
                                 self.startAndStopRecording()
                             }else{
@@ -270,6 +277,8 @@ class UploadDocumentVC: SBaseViewController {
                                 if let cell = self.tblDocuments.cellForRow(at: indexPath) as? UploadDocTableViewCellAndXib{
                                     
                                     cell.btnPlayPauseRef.setImage(UIImage(systemName: "play.fill"), for: .normal)
+                                    cell.viewLineBG.isHidden = false
+                                    cell.viewAnimationBG.isHidden = true
                                 }
                                 // play_btn_ref.setTitle("Play", for: .normal)
                                 isPlaying = false
@@ -287,6 +296,8 @@ class UploadDocumentVC: SBaseViewController {
                                     if let cell = self.tblDocuments.cellForRow(at: indexPath) as? UploadDocTableViewCellAndXib{
                                         
                                         cell.btnPlayPauseRef.setImage(UIImage(systemName: "play.fill"), for: .normal)
+                                        cell.viewLineBG.isHidden = false
+                                        cell.viewAnimationBG.isHidden = true
                                     }
                                     // play_btn_ref.setTitle("Play", for: .normal)
                                     isPlaying = true
@@ -297,8 +308,12 @@ class UploadDocumentVC: SBaseViewController {
                                         if let cell = self.tblDocuments.cellForRow(at: indexPath) as? UploadDocTableViewCellAndXib{
                                             
                                             cell.btnPlayPauseRef.setImage(UIImage(systemName: "pause.fill"), for: .normal)
+                                            cell.viewLineBG.isHidden = true
+                                            cell.viewAnimationBG.isHidden = false
+                                            self.customMethodManager?.showLottieAnimationFill(cell.viewAnimationBG, ConstantTexts.Wave, .loop)
                                         }
                                         // play_btn_ref.setTitle("pause", for: .normal)
+                                        
                                         prepare_play()
                                         audioPlayer.play()
                                         isPlaying = true

@@ -84,17 +84,17 @@ class Auth_TextField_TableViewCell: SBaseTableViewCell {
         
         textFieldFloating.titleFormatter = { $0 }
         textFieldFloating.font = AppFont.Regular.size(AppFontName.OpenSans, size: 12)
-        textFieldFloating.tintColor = AppColor.themeColor // the color of the blinking cursor
+        textFieldFloating.tintColor = AppColor.app_gradient_color1 // the color of the blinking cursor
         textFieldFloating.textColor = AppColor.darkGrayColor
-        textFieldFloating.lineColor = AppColor.placeholderColor
-        textFieldFloating.selectedTitleColor = AppColor.themeColor
-        textFieldFloating.selectedLineColor = AppColor.themeColor
+        
+        textFieldFloating.selectedTitleColor = AppColor.app_gradient_color1
+        
+       
         
         textFieldFloating.clearButtonMode = .always
         textFieldFloating.iconType = .image
         
-        textFieldFloating.lineHeight = 1.0 // bottom line height in points
-        textFieldFloating.selectedLineHeight = 1.0
+        
         
         
     }

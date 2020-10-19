@@ -13,7 +13,7 @@ extension UploadDocumentVC{
     //TODO: Navigation setup implenemtation
     internal func navSetup(){
         self.tabBarController?.tabBar.isHidden = true
-        super.setupNavigationBarTitle(AppColor.themeColor,ConstantTexts.UploadDocumentHT, leftBarButtonsType: [.back], rightBarButtonsType: [])
+        super.setupNavigationBarTitle(AppColor.header_color,ConstantTexts.UploadDocumentHT, leftBarButtonsType: [.back], rightBarButtonsType: [])
     }
     
     
@@ -72,7 +72,7 @@ extension UploadDocumentVC{
          self.header.lblInstruction1.textAlignment = .center */
         
         self.header.lblInstruction2.font = AppFont.Semibold.size(AppFontName.OpenSans, size: 14)
-        self.header.lblInstruction2.textColor = AppColor.themeColor
+        self.header.lblInstruction2.textColor = AppColor.app_gradient_color1
         self.header.lblInstruction2.numberOfLines = 0
         self.header.lblInstruction2.textAlignment = .left
         self.header.lblInstruction2.text = ConstantTexts.AdditionalInfoLT
@@ -88,30 +88,37 @@ extension UploadDocumentVC{
         
         self.header.btnUpladDocRef.backgroundColor = AppColor.clearColor
         self.customMethodManager?.provideCornerRadiusTo(self.header.btnUpladDocRef, 2.5, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
-        self.customMethodManager?.provideCornerRadiusTo(self.header.viewUpload, 2.5, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
-        self.header.viewUpload.backgroundColor = AppColor.tableBGColor
-        self.header.imgUploadRef.setImageTintColor(AppColor.darkGrayColor)
+        
+        self.customMethodManager?.provideShadowAndCornerRadius(self.header.viewUpload, 10, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.placeholderColor, -1, 1, 1, 3, 0, AppColor.clearColor)
+        
+        // self.customMethodManager?.provideCornerRadiusTo(self.header.viewUpload, 2.5, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
+        self.header.viewUpload.backgroundColor = AppColor.image_bg_color
+        self.header.imgUploadRef.setImageTintColor(AppColor.app_gradient_color1)
         
         
-        self.header.lblUpload.font = AppFont.Regular.size(AppFontName.OpenSans, size: 12)
-        self.header.lblUpload.textColor = AppColor.darkGrayColor
+        self.header.lblUpload.font = AppFont.Semibold.size(AppFontName.OpenSans, size: 14)
+        self.header.lblUpload.textColor = AppColor.app_gradient_color1
         self.header.lblUpload.numberOfLines = 0
-        self.header.lblUpload.textAlignment = .left
+        self.header.lblUpload.textAlignment = .center
         self.header.lblUpload.text = ConstantTexts.UploadLT
         
         
         
         self.header.btnRecordVoice.backgroundColor = AppColor.clearColor
         self.customMethodManager?.provideCornerRadiusTo(self.header.btnRecordVoice, 2.5, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
-        self.customMethodManager?.provideCornerRadiusTo(self.header.viewRecord, 2.5, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
-        self.header.viewRecord.backgroundColor = AppColor.tableBGColor
-        self.header.imgRecordRef.setImageTintColor(AppColor.darkGrayColor)
+        
+        self.customMethodManager?.provideShadowAndCornerRadius(self.header.viewRecord, 10, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.placeholderColor, -1, 1, 1, 3, 0, AppColor.clearColor)
+        
+       // self.customMethodManager?.provideCornerRadiusTo(self.header.viewRecord, 2.5, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
+        
+        self.header.viewRecord.backgroundColor = AppColor.image_bg_color
+        self.header.imgRecordRef.setImageTintColor(AppColor.app_gradient_color1)
         
         
-        self.header.lblRecord.font = AppFont.Regular.size(AppFontName.OpenSans, size: 12)
-        self.header.lblRecord.textColor = AppColor.darkGrayColor
+        self.header.lblRecord.font = AppFont.Semibold.size(AppFontName.OpenSans, size: 14)
+        self.header.lblRecord.textColor = AppColor.app_gradient_color1
         self.header.lblRecord.numberOfLines = 0
-        self.header.lblRecord.textAlignment = .left
+        self.header.lblRecord.textAlignment = .center
         self.header.lblRecord.text = ConstantTexts.RecordLT
         
         self.header.btnUpladDocRef.addTarget(self, action: #selector(btnChooseTapped), for: .touchUpInside)
@@ -136,13 +143,19 @@ extension UploadDocumentVC{
         self.btnSubmitRef.titleLabel?.font = ConstantFonts.mainBottomButtonFont
         
         self.btnSubmitRef.setTitleColor(AppColor.whiteColor, for: .normal)
-        self.btnSubmitRef.backgroundColor = AppColor.themeColor
+        self.btnSubmitRef.backgroundColor = AppColor.app_gradient_color1
         
-        self.header.lblTimer.font = AppFont.Regular.size(AppFontName.OpenSans, size: 10)
-        self.header.lblTimer.textColor = AppColor.errorColor
-        self.header.lblTimer.numberOfLines = 0
-        self.header.lblTimer.textAlignment = .right
-        self.header.lblTimer.text = ConstantTexts.DefaultTimeLT
+        
+         self.header.lblTimer.font = AppFont.Regular.size(AppFontName.OpenSans, size: 10)
+         self.header.lblTimer.textColor = AppColor.errorColor
+         self.header.lblTimer.numberOfLines = 0
+         self.header.lblTimer.textAlignment = .right
+         self.header.lblTimer.text = ConstantTexts.DefaultTimeLT
+         
+        self.header.viewAnimation.backgroundColor = AppColor.image_bg_color
+        self.header.viewAnimation.isHidden = true
+        self.header.imgRecordRef.isHidden = false
+        self.header.lblTimer.isHidden = false
         
         
         
@@ -304,11 +317,20 @@ extension UploadDocumentVC{
     internal func startAndStopRecording(){
         if isRecording{
             isRecording = Bool()
+            self.header.viewAnimation.isHidden = true
+            self.header.imgRecordRef.isHidden = false
+            self.header.lblTimer.isHidden = false
+            //stop animation
             self.header.lblRecord.text = ConstantTexts.RecordLT
             finishAudioRecording(success: true)
         }else{
             self.header.lblRecord.text = ConstantTexts.StopRecordLT
             isRecording = true
+            self.header.viewAnimation.isHidden = false
+            self.header.imgRecordRef.isHidden = true
+            self.header.lblTimer.isHidden = false
+            //Start animation
+            self.customMethodManager?.showLottieAnimationFill(self.header.viewAnimation, ConstantTexts.Halo, .loop)
             self.setup_recorder()
             self.audioRecorder.record()
             meterTimer = Timer.scheduledTimer(timeInterval: 0.1, target:self, selector:#selector(self.updateAudioMeter(timer:)), userInfo:nil, repeats:true)
@@ -322,6 +344,12 @@ extension UploadDocumentVC{
         if isRecording
         {
             self.header.lblRecord.text = ConstantTexts.RecordLT
+            self.header.viewAnimation.isHidden = true
+            self.header.imgRecordRef.isHidden = false
+            self.header.lblTimer.isHidden = false
+            
+            //stop animation
+            
             isRecording = false
             audioRecorder.stop()
             audioRecorder = nil
@@ -467,6 +495,9 @@ extension UploadDocumentVC{
             if let cell = self.tblDocuments.cellForRow(at: indexPath) as? UploadDocTableViewCellAndXib{
                 
                 cell.btnPlayPauseRef.setImage(UIImage(systemName: "play.fill"), for: .normal)
+                cell.viewLineBG.isHidden = false
+                cell.viewAnimationBG.isHidden = true
+                
             }
             // play_btn_ref.setTitle("Play", for: .normal)
             isPlaying = false
@@ -628,12 +659,12 @@ extension UploadDocumentVC{
         
         
         let header = ["Authorization":user.token,
-                      "Content-Type":"multipart/form-data; boundary=<calculated when request is sent>",
-                      "Accept":"*/*"]
+                      "Content-Type":"application/json",
+                      "Accept":"application/json"]
         
         self.customMethodManager?.startLoader(view:self.view)
         
-        ServiceClass.shared.multipartImageServiceWithArrayObject(url: SCustomerApi.demo_upload_V2, docArray, header: header, parameters: parameters, success: { (result) in
+        ServiceClass.shared.multipartImageServiceWithArrayObject(url: SCustomerApi.multiple_doc_V2_iOS, docArray, header: header, parameters: parameters, success: { (result) in
             self.customMethodManager?.stopLoader(view:self.view)
             print(result)
             if let result_Dict = result as? NSDictionary{
@@ -797,7 +828,7 @@ extension UploadDocumentVC{
         
         self.customMethodManager?.startLoader(view:self.view)
         
-        ServiceClass.shared.multipartImageServiceWithArrayObject(url: SCustomerApi.booking_form, [item], header: header, parameters: parameters, success: { (result) in
+        ServiceClass.shared.multipartImageServiceWithArrayObject(url: SCustomerApi.booking_form_V2_iOS, [item], header: header, parameters: parameters, success: { (result) in
             self.customMethodManager?.stopLoader(view:self.view)
             print(result)
             if let result_Dict = result as? NSDictionary{
@@ -926,6 +957,9 @@ extension UploadDocumentVC{
                 if let code = result_Dict.value(forKey: "code") as? Int{
                     if code == 200{
                         
+                        if index == 0{
+                            self.header.lblTimer.text = ConstantTexts.DefaultTimeLT
+                        }
                         self.docDataList?.documentDataItems.remove(at: index)
                         DispatchQueue.main.async {
                             self.tblDocuments.reloadData()

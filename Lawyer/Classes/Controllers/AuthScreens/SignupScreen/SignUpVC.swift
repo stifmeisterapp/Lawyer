@@ -15,7 +15,6 @@ class SignUpVC: SBaseViewController {
     @IBOutlet weak var registerTable: UITableView!
 
     @IBOutlet weak var btnRegisterRef: UIButton!
-    @IBOutlet weak var lblInstruction: UILabel!
     @IBOutlet weak var lblInstruction_SignIn_Customer: UILabel!
     
     

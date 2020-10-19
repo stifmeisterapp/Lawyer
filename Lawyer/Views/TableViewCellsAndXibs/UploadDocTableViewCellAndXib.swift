@@ -17,7 +17,8 @@ class UploadDocTableViewCellAndXib: SwipeTableViewCell {
     @IBOutlet weak var lblDocName: UILabel!
     @IBOutlet weak var btnDeleteRef: UIButton!
     @IBOutlet weak var btnPlayPauseRef: UIButton!
-    
+    @IBOutlet weak var viewAnimationBG: UIView!
+    @IBOutlet weak var viewLineBG: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -39,7 +40,17 @@ class UploadDocTableViewCellAndXib: SwipeTableViewCell {
         if info.isAudioFile{
             self.imgDoc.image = #imageLiteral(resourceName: "music-note")
             self.btnPlayPauseRef.isHidden = false
+            self.lblDocName.isHidden = true
+            self.viewBG.isHidden = false
+            self.viewLineBG.isHidden = false
+            self.viewBG.backgroundColor = AppColor.whiteColor
+            self.viewLineBG.backgroundColor = AppColor.app_gradient_color1
         }else{
+            self.viewBG.isHidden = true
+            self.viewLineBG.isHidden = true
+            self.viewBG.backgroundColor = AppColor.clearColor
+            self.viewLineBG.backgroundColor = AppColor.clearColor
+            self.lblDocName.isHidden = false
             self.btnPlayPauseRef.isHidden = true
             self.imgDoc.image = #imageLiteral(resourceName: "icons8-google_forms")
         }
@@ -56,7 +67,7 @@ class UploadDocTableViewCellAndXib: SwipeTableViewCell {
         self.lblDocName.numberOfLines = 0
         self.lblDocName.textAlignment = .left
         
-        self.imageView?.setImageTintColor(AppColor.themeColor)
+        self.imageView?.setImageTintColor(AppColor.app_gradient_color1)
         self.btnDeleteRef.tintColor = AppColor.darkGrayColor
         self.btnPlayPauseRef.tintColor = AppColor.darkGrayColor
         

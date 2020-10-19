@@ -30,6 +30,9 @@ protocol CustomMethodProtocol {
     //TODO: Run lottie animation
     func showLottieAnimation(_ view: UIView,_ animationName:String, _ loopMode:LottieLoopMode)
     
+    //TODO: Run lottie animation
+    func showLottieAnimationFill(_ view: UIView,_ animationName:String, _ loopMode:LottieLoopMode)
+    
     //TODO: Provide border
     func provideCornerBorderTo(_ item: UIView, _ border: CGFloat,_ borderColor: UIColor)
     
@@ -111,5 +114,7 @@ protocol CustomMethodProtocol {
     
     //TODO: Get root view controller
     func rootViewController() -> UIViewController
+    
+    
     
 }

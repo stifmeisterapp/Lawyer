@@ -8,8 +8,9 @@
 
 import Foundation
 struct Api_keys_model {
-    
+    public static let Phone:String                  = "Phone"
     public static let Fullname:String               = "Fullname"
+    public static let FullName:String               = "FullName"
     public static let Email:String                  = "Email"
     public static let Mobile:String                 = "Mobile"
     public static let type:String                   = "Type"
@@ -60,5 +61,12 @@ struct Api_keys_model {
     public static let DocumentId:String             = "DocumentId"
     public static let PackageID:String              = "PackageID"
     public static let CityName:String               = "CityName"
-    public static let Wallet:String               = "Wallet"
+    public static let Wallet:String                 = "Wallet"
+    
+    public static let UserId:String                 = "UserId"
+    public static let Ratnig:String                 = "Rating"
+    public static let Message:String                = "Message"
+    public static let ConsultationId:String         = "ConsultationId"
+    
+    
 }

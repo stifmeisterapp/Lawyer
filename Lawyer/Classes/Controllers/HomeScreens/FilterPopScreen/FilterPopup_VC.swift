@@ -30,7 +30,7 @@ class FilterPopup_VC: SBaseViewController {
     
     internal var index:Int = Int()
     internal var headerTitle:String = String()
-    internal var searchActive = Bool()
+    internal var searchActive:Bool = Bool()
     
     internal var validationMethodManager:ValidationProtocol?
     internal var customMethodManager:CustomMethodProtocol?
@@ -47,7 +47,7 @@ class FilterPopup_VC: SBaseViewController {
         refreshControl.addTarget(self, action:
             #selector(self.handleRefresh(_:)),
                                  for: UIControl.Event.valueChanged)
-        refreshControl.tintColor = AppColor.themeColor
+        refreshControl.tintColor = AppColor.app_gradient_color1
         return refreshControl
     }()
     

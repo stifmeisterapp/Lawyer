@@ -75,7 +75,7 @@ extension AppointmentVC:UITableViewDataSource{
 extension AppointmentVC:UITableViewDelegate{
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header: AppointmentHeaderView  = Bundle.main.loadNibNamed(AppointmentHeaderView.className, owner: self, options: nil)?.first as! AppointmentHeaderView
-        header.backgroundColor = AppColor.tableBGColor
+        header.backgroundColor = AppColor.image_bg_color
         header.labelName.font = AppFont.Semibold.size(AppFontName.OpenSans, size: 14)
         header.labelName.textColor = AppColor.darkGrayColor
         header.labelName.numberOfLines = 0
@@ -93,17 +93,17 @@ extension AppointmentVC:UITableViewDelegate{
         
         if let appointMentItem = self.appointMentListVM?.appointmentAtIndex(indexPath.section){
             if appointMentItem.list.count <= 3{
-                return 60
+                return 100
             }else if appointMentItem.list.count > 3 && appointMentItem.list.count <= 6{
-                return 120
+                return 160
             }else if appointMentItem.list.count > 6 && appointMentItem.list.count <= 9{
-                return 180
+                return 220
             }else if appointMentItem.list.count > 9 && appointMentItem.list.count <= 12{
-                return 240
+                return 280
             }else if appointMentItem.list.count > 12 && appointMentItem.list.count <= 15{
-                return 300
+                return 340
             }else{
-                return 360
+                return 400
             }
             
         }else{
@@ -116,17 +116,17 @@ extension AppointmentVC:UITableViewDelegate{
         
         if let appointMentItem = self.appointMentListVM?.appointmentAtIndex(indexPath.section){
             if appointMentItem.list.count <= 3{
-                return 60
+                return 100
             }else if appointMentItem.list.count > 3 && appointMentItem.list.count <= 6{
-                return 120
+                return 160
             }else if appointMentItem.list.count > 6 && appointMentItem.list.count <= 9{
-                return 180
+                return 220
             }else if appointMentItem.list.count > 9 && appointMentItem.list.count <= 12{
-                return 240
+                return 280
             }else if appointMentItem.list.count > 12 && appointMentItem.list.count <= 15{
-                return 300
+                return 340
             }else{
-                return 360
+                return 400
             }
             
         }else{
@@ -155,7 +155,7 @@ extension AppointmentVC:UITableViewDelegate{
                 self.footer.btnBookConsultaionRef.titleLabel?.font = ConstantFonts.mainBottomButtonFont
                 
                 self.footer.btnBookConsultaionRef.setTitleColor(AppColor.whiteColor, for: .normal)
-                self.footer.btnBookConsultaionRef.backgroundColor = AppColor.themeColor
+                self.footer.btnBookConsultaionRef.backgroundColor = AppColor.app_gradient_color1
                 self.footer.btnBookConsultaionRef.addTarget(self, action: #selector(btnBookConsultationTapped), for: .touchUpInside)
                /* self.footer.imgHammer.setImageTintColor(AppColor.darkGrayColor)
                 self.footer.imgDD.setImageTintColor(AppColor.darkGrayColor)

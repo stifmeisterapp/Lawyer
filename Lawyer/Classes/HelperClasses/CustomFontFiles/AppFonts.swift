@@ -15,6 +15,8 @@ enum AppFontName: String {
   
     case OpenSans           =        "OpenSans"
     case OpenSansLight      =        "OpenSansLight"
+    case Tahoma             =        "Tahoma"
+    case Verdana            =        "Verdana"
 }
 
 enum AppFont: String {

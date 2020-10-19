@@ -11,8 +11,8 @@ class TabBarVC: UITabBarController {
     
     //MARK: - Variables
     
-    private let images = [#imageLiteral(resourceName: "home") ,#imageLiteral(resourceName: "christmasgift")  , #imageLiteral(resourceName: "Coupons"),  #imageLiteral(resourceName: "menu")]
-    private let titles = [ConstantTexts.HomeLT ,ConstantTexts.OrdersLT, ConstantTexts.CouponsLT, ConstantTexts.MoreLT]
+    private let images = [#imageLiteral(resourceName: "home") ,#imageLiteral(resourceName: "icons-1")  , #imageLiteral(resourceName: "christmasgift"),  #imageLiteral(resourceName: "menu")]
+    private let titles = [ConstantTexts.HomeLT ,ConstantTexts.OrdersLT, ConstantTexts.ReferAndEarnHT, ConstantTexts.MoreLT]
     
     //MARK: - View life cycle methods
     //TODO: Implementation viewDidLoad
@@ -32,7 +32,7 @@ class TabBarVC: UITabBarController {
     @objc func onDidReceiveData(_ notification:Notification) {
         // Do something now
         self.selectedIndex = 1
-        NOTIFICATION_CENTER.removeObserver(self)
+       // NOTIFICATION_CENTER.removeObserver(self)
     }
     
     
@@ -57,10 +57,10 @@ extension TabBarVC{
         if let tabBarItems = tabBar.items{
             for index in 0..<tabBarItems.count {
                 
-                tabBarItems[index].setTitleTextAttributes([NSAttributedString.Key.foregroundColor: AppColor.themeColor], for: .selected)
+                tabBarItems[index].setTitleTextAttributes([NSAttributedString.Key.foregroundColor: AppColor.app_gradient_color1], for: .selected)
                 tabBarItems[index].imageInsets = UIEdgeInsets(top: 6, left: 6, bottom: 6, right: 6)
                 
-                let image = images[index].withRenderingMode(.alwaysOriginal).withTintColor(AppColor.themeColor)
+                let image = images[index].withRenderingMode(.alwaysOriginal).withTintColor(AppColor.app_gradient_color1)
                 
                 tabBarItems[index].selectedImage = image
                 tabBarItems[index].image = images[index]

@@ -13,7 +13,7 @@ import UIKit
 //TODO: Parent view model for showing list of category
 struct CategoryListViewModel {
     
-    let categories:[Category]
+    var categories:[Category]
     
 }
 
@@ -56,6 +56,10 @@ extension CategoryViewModel{
 extension CategoryViewModel{
     var title:String{
         return self.category.title
+    }
+    
+    var Description:String{
+        return self.category.Description
     }
     
     var expertiseId:String{

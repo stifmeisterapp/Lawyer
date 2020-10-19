@@ -18,7 +18,7 @@ extension SBaseViewController{
         self.navigationController?.navigationBar.prefersLargeTitles = false
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.barTintColor = barColor
-        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: AppColor.whiteColor]
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: AppColor.header_text_color]
         
         var rightBarButtonItems = [UIBarButtonItem]()
         for rightButtonType in rightBarButtonsType {

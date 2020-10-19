@@ -15,6 +15,7 @@ class Detail_TableViewCellAndXib: SBaseTableViewCell {
     @IBOutlet weak var lblValue: UILabel!
     @IBOutlet weak var viewBG: UIView!
     @IBOutlet weak var tagListView: TagListView!
+    @IBOutlet weak var btnSelectRef: UIButton!
     
     
     override func awakeFromNib() {

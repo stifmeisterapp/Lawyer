@@ -12,7 +12,7 @@ extension ContactUsVC{
     //TODO: Navigation setup implenemtation
     internal func navSetup(){
         self.tabBarController?.tabBar.isHidden = true
-        super.setupNavigationBarTitle(AppColor.themeColor,ConstantTexts.ContactUs_LT, leftBarButtonsType: [.back], rightBarButtonsType: [])
+        super.setupNavigationBarTitle(AppColor.header_color,ConstantTexts.ContactUs_LT, leftBarButtonsType: [.back], rightBarButtonsType: [])
     }
     
     
@@ -48,7 +48,7 @@ extension ContactUsVC{
         view.addGestureRecognizer(tap)
         
         
-        self.lblMail.backgroundColor = AppColor.themeColor
+        self.lblMail.backgroundColor = AppColor.app_gradient_color1
         self.customMethodManager?.provideCornerRadiusTo(self.lblMail, 5, [.layerMinXMinYCorner, .layerMinXMaxYCorner])
         
         
@@ -69,7 +69,7 @@ extension ContactUsVC{
         self.lblMail.attributedText = myMutableString
         
         
-        self.lblContact.backgroundColor = AppColor.themeColor
+        self.lblContact.backgroundColor = AppColor.app_gradient_color1
         self.customMethodManager?.provideCornerRadiusTo(self.lblContact, 5, [ .layerMaxXMaxYCorner,.layerMaxXMinYCorner])
         
         myMutableString = NSMutableAttributedString()
@@ -100,7 +100,7 @@ extension ContactUsVC{
         self.btnCallBackRef.titleLabel?.font = ConstantFonts.mainBottomButtonFont
         
         self.btnCallBackRef.setTitleColor(AppColor.whiteColor, for: .normal)
-        self.btnCallBackRef.backgroundColor = AppColor.themeColor
+        self.btnCallBackRef.backgroundColor = AppColor.app_gradient_color1
         
         registerNib()
         

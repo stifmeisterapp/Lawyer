@@ -48,18 +48,12 @@ extension LoginVC{
        
        
         
-        customMethodManager?.provideShadowAndCornerRadius(self.viewBG, 5, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.placeholderColor, -1, 1, 1, 3, 0, AppColor.clearColor)
+       // customMethodManager?.provideShadowAndCornerRadius(self.viewBG, 5, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.placeholderColor, -1, 1, 1, 3, 0, AppColor.clearColor)
         
         self.logInTable.separatorStyle = .none
         self.logInTable.backgroundColor = AppColor.whiteColor
         
-        
-        self.lblInstruction.font = AppFont.Regular.size(AppFontName.OpenSans, size: 12)
-        self.lblInstruction.textColor = AppColor.darkGrayColor
-        self.lblInstruction.numberOfLines = 0
-        self.lblInstruction.textAlignment = .center
-        self.lblInstruction.text = ConstantTexts.CustomerIns_New_LT
-    
+     
         registerNib()
      
         self.customMethodManager?.provideShadowAndCornerRadius(self.btnSendOTPRef, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.darkGrayColor, -1, 1, 1, 3, 0, AppColor.clearColor)
@@ -68,7 +62,7 @@ extension LoginVC{
         self.btnSendOTPRef.titleLabel?.font = ConstantFonts.mainBottomButtonFont
         
         self.btnSendOTPRef.setTitleColor(AppColor.whiteColor, for: .normal)
-        self.btnSendOTPRef.backgroundColor = AppColor.themeColor
+        self.btnSendOTPRef.backgroundColor = AppColor.app_gradient_color1
         
         
         
@@ -83,7 +77,7 @@ extension LoginVC{
         let myMutableString = NSMutableAttributedString()
         myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\(ConstantTexts.DontHaveBT)  ", font: AppFont.Regular.size(AppFontName.OpenSans, size: 12), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
         
-        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: ConstantTexts.SignUpAsC_BT, font: AppFont.Bold.size(AppFontName.OpenSans, size: 12), color: AppColor.themeColor) ?? NSMutableAttributedString())
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: ConstantTexts.SignUpAsC_BT, font: AppFont.Bold.size(AppFontName.OpenSans, size: 12), color: AppColor.app_gradient_color1) ?? NSMutableAttributedString())
         
         // *** Apply attribute to string ***
         myMutableString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, myMutableString.length))
@@ -101,7 +95,7 @@ extension LoginVC{
     
     //TODO: register nib file
     private func registerNib(){
-        self.logInTable.register(nib: Auth_TextField_TableViewCell.className)
+        self.logInTable.register(nib: AuthNewTableViewCellAndXib.className)
         
         DispatchQueue.main.asyncAfter(deadline: .now()) {
             self.logInTable.isHidden = false
@@ -129,7 +123,7 @@ extension LoginVC{
                 }else{
                     let indexPath = IndexPath(row: row, section: section)
                     
-                    if let cell = self.logInTable.cellForRow(at: indexPath) as? Auth_TextField_TableViewCell{
+                    if let cell = self.logInTable.cellForRow(at: indexPath) as? AuthNewTableViewCellAndXib{
                         
                         self.customMethodManager?.showToolTip(msg: strMsg, anchorView: cell.textFieldFloating, sourceView: self.view)
                         cell.textFieldFloating.becomeFirstResponder()

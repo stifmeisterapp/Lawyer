@@ -260,6 +260,16 @@ class CustomMethodClass: CustomMethodProtocol {
     
     //TODO: Delete all data
     func deleteAllData( entity:String,success: @escaping () -> ()) {
+        
+        if USER_DEFAULTS.value(forKey: ConstantTexts.mobile_logo) != nil{
+            USER_DEFAULTS.removeObject(forKey: ConstantTexts.mobile_logo)
+           
+        }
+        
+      /*  let domain = Bundle.main.bundleIdentifier!
+        USER_DEFAULTS.removePersistentDomain(forName: domain)
+        USER_DEFAULTS.synchronize() */
+        
         let context = kAppDelegate.persistentContainer.viewContext
         let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
         let request = NSBatchDeleteRequest(fetchRequest: fetch)
@@ -292,7 +302,7 @@ class CustomMethodClass: CustomMethodProtocol {
     //TODO: Get user from data base
     func getUser(entity: String) -> User_Data_Model{
         
-        let user = User_Data_Model(DeviceId: String(), DeviceType: String(), Email: String(), FirebaseId: String(), Fullname: String(), Id: String(), IpAddress: String(), Mobile: String(), type: String(), Uuid: String(), token: String())
+        let user = User_Data_Model(DeviceId: String(), DeviceType: String(), Email: String(), FirebaseId: String(), Fullname: String(), Id: String(), IpAddress: String(), Mobile: String(), type: String(), Uuid: String(), token: String(),MobileLogo:String(), Version:String(), WebLogo:String(), CouponCode: String())
         
         let context = kAppDelegate.persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
@@ -316,6 +326,11 @@ class CustomMethodClass: CustomMethodProtocol {
                 user.type = data.value(forKey: "type") as? String ?? String()
                 user.Uuid = data.value(forKey: "uuid") as? String ?? String()
                 user.token = data.value(forKey: "token") as? String ?? String()
+                
+                user.MobileLogo = data.value(forKey: "mobile_logo") as? String ?? String()
+                user.WebLogo = data.value(forKey: "web_logo") as? String ?? String()
+                user.Version = data.value(forKey: "version") as? String ?? String()
+                user.CouponCode = data.value(forKey: "coupon_code") as? String ?? String()
                 
             }
             
@@ -461,6 +476,22 @@ extension CustomMethodClass {
     }
     
     
+    
+    //TODO: Run lottie animation
+    func showLottieAnimationFill(_ view: UIView,_ animationName:String, _ loopMode:LottieLoopMode) {
+        let animationViewLottie = AnimationView(name: animationName)
+        view.isUserInteractionEnabled = false
+        animationViewLottie.isHidden = false
+        view.clipsToBounds = true
+        animationViewLottie.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height)
+        animationViewLottie.contentMode = .scaleToFill
+        animationViewLottie.animationSpeed = 1
+        animationViewLottie.loopMode = loopMode
+        view.addSubview(animationViewLottie)
+        animationViewLottie.play()
+    }
+    
+    
     //TODO: Setup error view
     func setupError(chidView:ErrorView,message:String,callback: @escaping () -> Void){
         chidView.backgroundColor = AppColor.clearColor
@@ -468,7 +499,7 @@ extension CustomMethodClass {
         chidView.lblDescription.backgroundColor = AppColor.clearColor
         
         chidView.lblDescription.font = AppFont.Bold.size(AppFontName.OpenSans, size: 18)
-        chidView.lblDescription.textColor = AppColor.tanColor
+        chidView.lblDescription.textColor = AppColor.app_gradient_color1
         chidView.lblDescription.textAlignment = .center
         chidView.lblDescription.numberOfLines = 0
         chidView.lblDescription.text = message

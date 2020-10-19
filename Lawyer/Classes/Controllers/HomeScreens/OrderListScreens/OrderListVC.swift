@@ -33,7 +33,7 @@ class OrderListVC: SBaseViewController {
         refreshControl.addTarget(self, action:
                                     #selector(self.handleRefresh(_:)),
                                  for: UIControl.Event.valueChanged)
-        refreshControl.tintColor = AppColor.themeColor
+        refreshControl.tintColor = AppColor.app_gradient_color1
         
         return refreshControl
     }()
@@ -89,6 +89,15 @@ class OrderListVC: SBaseViewController {
         self.getCustomersOrdersService(isRefresh: true)
         refreshControl.endRefreshing()
         
+    }
+    
+    @objc func reloadApiData(_ notification:Notification) {
+        // Do something now
+        self.isPagination = false
+        self.offset = Int()
+        self.getCustomersOrdersService(isRefresh: true)
+     //   NOTIFICATION_CENTER.removeObserver(self)
+
     }
     
     

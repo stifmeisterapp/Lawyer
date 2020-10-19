@@ -10,7 +10,6 @@ import UIKit
 class LoginVC: SBaseViewController {
     
     //MARK: - IBOutlets
-    @IBOutlet weak var lblInstruction: UILabel!
     @IBOutlet weak var btnSendOTPRef: UIButton!
     @IBOutlet weak var lblSignUpRef_Customer: UILabel!
     @IBOutlet weak var viewBG: UIView!

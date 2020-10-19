@@ -66,7 +66,7 @@ extension FilterPopup_VC{
         
         self.customMethodManager?.provideCornerRadiusTo(self.btnDoneRef, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
         self.customMethodManager?.provideCornerBorderTo(self.btnDoneRef, 1, AppColor.darkGrayColor)
-        self.btnDoneRef.backgroundColor = AppColor.themeColor
+        self.btnDoneRef.backgroundColor = AppColor.app_gradient_color1
         self.btnDoneRef.titleLabel?.font = AppFont.Bold.size(AppFontName.OpenSans, size: 12)
         self.btnDoneRef.setTitle(ConstantTexts.Apply_BT, for: .normal)
         self.btnDoneRef.setTitleColor(AppColor.whiteColor, for: .normal)
@@ -178,7 +178,10 @@ extension FilterPopup_VC{
     //TODO: Animate rotate collection view
     internal func animateView(){
         self.filterTableView.isHidden = false
-        self.filterTableView.reloadData()
+        DispatchQueue.main.async {
+            self.filterTableView.reloadData()
+        }
+        
         let fromAnimation = AnimationType.from(direction: .right, offset: 30.0)
         UIView.animate(views: filterTableView.visibleCells,
                        animations: [fromAnimation], delay: 0.5)  

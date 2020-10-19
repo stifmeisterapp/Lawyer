@@ -52,7 +52,10 @@ extension FilterPopup_VC:UISearchBarDelegate{
                 }
             }
         }
-        self.filterTableView.reloadData()
+        DispatchQueue.main.async {
+            self.filterTableView.reloadData()
+        }
+        
     }
 }
 

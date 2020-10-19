@@ -15,7 +15,7 @@ extension LawyerListVC{
     //TODO: Navigation setup implenemtation
     internal func navSetup(){
         self.tabBarController?.tabBar.isHidden = true
-        super.setupNavigationBarTitle(AppColor.themeColor,self.headerTitle, leftBarButtonsType: [.back], rightBarButtonsType: [])
+        super.setupNavigationBarTitle(AppColor.header_color,self.headerTitle, leftBarButtonsType: [.back], rightBarButtonsType: [])
         
     }
     
@@ -81,7 +81,7 @@ extension LawyerListVC{
         
         self.btnSearchRef.addBorders(edges: [.top,.bottom,.left,.right], color: AppColor.placeholderColor, inset: 0.0, thickness: 1.0)
         self.btnSearchRef.tintColor = AppColor.whiteColor
-        self.btnSearchRef.backgroundColor = AppColor.themeColor
+        self.btnSearchRef.backgroundColor = AppColor.app_gradient_color1
         
         self.btnFilterRef.backgroundColor = AppColor.tableBGColor
         self.btnFilterRef.titleLabel?.font = AppFont.Bold.size(AppFontName.OpenSans, size: 12)

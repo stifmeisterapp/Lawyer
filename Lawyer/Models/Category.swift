@@ -13,4 +13,5 @@ struct Category {
     var Url:String
     var title:String
     var ExpertiseId:String
+    var Description:String
 }

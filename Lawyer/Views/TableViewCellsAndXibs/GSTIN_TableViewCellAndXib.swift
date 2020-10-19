@@ -90,7 +90,7 @@ class GSTIN_TableViewCellAndXib: SBaseTableViewCell {
         self.backgroundColor = AppColor.tableBGColor
         customMethodManager?.provideCornerBorderTo(self.textField, 1, AppColor.placeholderColor)
         textField.font = AppFont.Regular.size(AppFontName.OpenSans, size: 12)
-        textField.tintColor = AppColor.themeColor // the color of the blinking cursor
+        textField.tintColor = AppColor.app_gradient_color1 // the color of the blinking cursor
         textField.textColor = AppColor.darkGrayColor
         textField.clearButtonMode = .always
         textField.addPadding(.both(10.0))

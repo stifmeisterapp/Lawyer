@@ -17,7 +17,8 @@ import FirebaseCrashlytics
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
-    
+    var callBack:(()->())?
+    internal var customMethodManager:CustomMethodProtocol?
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -32,6 +33,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         /// Firebase implementation
         FirebaseApp.configure()
        
+        self.registerForRemoteNotification()
+        
         Crashlytics.crashlytics().setCrashlyticsCollectionEnabled(true)
         Crashlytics.crashlytics().checkForUnsentReports { _ in
             Crashlytics.crashlytics().sendUnsentReports()
@@ -95,6 +98,7 @@ extension SceneDelegate:MessagingDelegate{
         print("Firebase registration token: \(fcmToken)")
         USER_DEFAULTS.set(fcmToken, forKey: ConstantTexts.deviceToken)
     }
+    
 }
 
 

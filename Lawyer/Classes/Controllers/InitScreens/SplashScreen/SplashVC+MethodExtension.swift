@@ -29,16 +29,25 @@ extension SplashVC{
     //TODO: IntialSetup
     private func initialSetup(){
         self.view.backgroundColor = AppColor.whiteColor
+        
+       /* for family in UIFont.familyNames {
+            print("\(family)")
+
+            for name in UIFont.fontNames(forFamilyName: family) {
+                print("\(name)")
+            }
+        }
+        */
         runAnimationLogo()
     }
     
     
     //TODO: Run logo animation
     private func runAnimationLogo(){
-        UIView.animate(withDuration: 3, delay: 0, options: [.curveEaseIn], animations: {
+        UIView.animate(withDuration: 0, delay: 0, options: [.curveEaseIn], animations: {
             // self.soundManager?.playSound("Judges_Gavel.mp3")
-            self.logo_splash.alpha = 0
-            self.logo_splash.transform = CGAffineTransform(scaleX: 3, y: 3)
+            self.logo_splash.alpha = 1
+            self.logo_splash.transform = CGAffineTransform(scaleX: 1, y: 1)
             
         }) { (done) in
             if done{
@@ -73,7 +82,7 @@ extension SplashVC{
                     
                     
                 }else{
-                    super.moveToNextViewCViaRoot(name: ConstantTexts.LaunchSBT, withIdentifier: OnboardingVC.className)
+                    super.moveToNextViewCViaRoot(name: ConstantTexts.LaunchSBT, withIdentifier: AppTourVC.className)
                 }
                 
             }

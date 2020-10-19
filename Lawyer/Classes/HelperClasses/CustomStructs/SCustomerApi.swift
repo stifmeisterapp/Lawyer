@@ -34,6 +34,15 @@ struct SCustomerApi {
     public static let demo_upload_V2                 = "v2/demo/upload"
     public static let get_city_V2                    = "v2/get-city?CityName="
     public static let order_files_V2                 = "v2/order-files?OrderId="
+    public static let multiple_doc_V2_iOS            = "v2/customer/multiple-doc-ios"
+    public static let booking_form_V2_iOS            = "v2/customer/booking-form-ios"
+    public static let query_list_V2                  = "v2/customer/query-list?OffSet="
+    public static let freeconsultation_V2            = "v2/customer/freeconsultation"
+    public static let force_updateV2                 = "v2/force-update"
+    public static let wallet_list_V2                 = "v2/wallet-list?OffSet="
+    public static let lawyer_ratingt_V2              = "v2/lawyer-rating"
+
     
-    
+    //https://www.allindialegal.com/v2/lawyer-rating
+
 }

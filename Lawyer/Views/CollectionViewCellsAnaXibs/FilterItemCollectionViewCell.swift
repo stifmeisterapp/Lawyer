@@ -38,7 +38,7 @@ class FilterItemCollectionViewCell: UICollectionViewCell {
         
         self.viewBG.backgroundColor = AppColor.tintColor
         
-        self.backgroundColor = AppColor.themeColor
+        self.backgroundColor = AppColor.app_gradient_color1
         self.titleFilter.font = AppFont.Semibold.size(AppFontName.OpenSans, size: 14)
         self.titleFilter.textColor = AppColor.whiteColor
         self.titleFilter.textAlignment = .center

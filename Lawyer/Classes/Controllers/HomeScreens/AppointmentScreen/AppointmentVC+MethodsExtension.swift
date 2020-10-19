@@ -15,7 +15,7 @@ extension AppointmentVC{
     //TODO: Navigation setup implenemtation
     internal func navSetup(){
         self.tabBarController?.tabBar.isHidden = true
-        super.setupNavigationBarTitle(AppColor.themeColor,ConstantTexts.BookAppointmentLT, leftBarButtonsType: [.back], rightBarButtonsType: [])
+        super.setupNavigationBarTitle(AppColor.whiteColor,ConstantTexts.BookAppointmentLT, leftBarButtonsType: [.back], rightBarButtonsType: [])
         
     }
     
@@ -43,13 +43,14 @@ extension AppointmentVC{
     //TODO: Intial setup implementation
     private func initialSetup(){
         
-        self.viewHeader.gradientBackground(from: AppColor.placeholderColor, to: AppColor.placeholderColor, direction: .leftToRight)
-        
+      //  self.viewHeader.gradientBackground(from: AppColor.errorColor, to: AppColor.app_gradient_color1, direction: .leftToRight)
+    
+        self.viewHeader.backgroundColor = AppColor.whiteColor
         
         self.btnBackRef.setImage(#imageLiteral(resourceName: "backDate").withRenderingMode(.alwaysTemplate), for: .normal)
         self.btnForwardRef.setImage(#imageLiteral(resourceName: "forwardDate").withRenderingMode(.alwaysTemplate), for: .normal)
-        self.btnBackRef.tintColor = AppColor.themeColor
-        self.btnForwardRef.tintColor = AppColor.themeColor
+        self.btnBackRef.tintColor = AppColor.app_gradient_color1
+        self.btnForwardRef.tintColor = AppColor.app_gradient_color1
         
         self.btnBackRef.isHidden = self.count_Tapped <= 0 ? true : false
         self.setuserBtnIteraction()
@@ -57,7 +58,9 @@ extension AppointmentVC{
         self.lblDate.textColor = AppColor.darkGrayColor
         self.lblDate.font = AppFont.Semibold.size(AppFontName.OpenSans, size: 14)
         self.lblDate.textAlignment = .center
-        self.lblDate.backgroundColor = AppColor.tableBGColor
+        self.lblDate.backgroundColor = AppColor.whiteColor
+        
+        self.customMethodManager?.provideCornerRadiusTo(self.lblDate, 4, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
         
         let date = Date()
         let formatter = DateFormatter()
@@ -70,7 +73,7 @@ extension AppointmentVC{
         self.btnBookRef.titleLabel?.font = ConstantFonts.mainBottomButtonFont
         
         self.btnBookRef.setTitleColor(AppColor.whiteColor, for: .normal)
-        self.btnBookRef.backgroundColor = AppColor.themeColor
+        self.btnBookRef.backgroundColor = AppColor.app_gradient_color1
         
         
         
@@ -121,7 +124,10 @@ extension AppointmentVC{
     //TODO: Animate rotate collection view
     internal func animateView(){
         self.tblAppointment.isHidden = false
-        self.tblAppointment.reloadData()
+        DispatchQueue.main.async {
+            self.tblAppointment.reloadData()
+        }
+        
         let fromAnimation = AnimationType.from(direction: .right, offset: 30.0)
         UIView.animate(views: tblAppointment.visibleCells,
                        animations: [fromAnimation], delay: 0.5)
@@ -263,8 +269,14 @@ extension AppointmentVC{
                                 self.btnBookRef.isHidden = false
                                 self.lblAlertEmpty.isHidden = true
                             }else{
-                                self.btnBookRef.isHidden = true
-                                self.lblAlertEmpty.isHidden = false
+                               /* self.btnBookRef.isHidden = true
+                                self.lblAlertEmpty.isHidden = false */
+                                self.setuserBtnIteraction()
+                                self.btnBookRef.isHidden = false
+                                self.lblAlertEmpty.isHidden = true
+                                self.appointmentListService(current_date:self.current_date,another_date:"next_date",isRefresh:Bool(), btnIdentity: "NEXT")
+                                
+                                
                                 
                             }
                         }
@@ -346,16 +358,28 @@ extension AppointmentVC{
 
                                 
                                 if let Id = data.value(forKey: "Id") as? Int{
-                                    vc.orderId = "\(Id)"
                                     UserDefaults.standard.setValue("\(Id)", forKey: ConstantTexts.orderID)
                                 }
                                 
                                 
                                 if let Id = data.value(forKey: "Id") as? String{
-                                    vc.orderId = "\(Id)"
                                     USER_DEFAULTS.setValue("\(Id)", forKey: ConstantTexts.orderID)
                                 }
                                 
+                                
+                              /*  if let category = data.value(forKey: "category") as? NSDictionary{
+                                    if let Id = category.value(forKey: "Id") as? Int{
+                                        UserDefaults.standard.setValue("\(Id)", forKey: ConstantTexts.orderID)
+                                    }
+                                    
+                                    
+                                    if let Id = category.value(forKey: "Id") as? String{
+                                        USER_DEFAULTS.setValue("\(Id)", forKey: ConstantTexts.orderID)
+                                    }
+                                    
+                                } */
+                                
+                               
                                 
                                 self.navigationController?.pushViewController(vc, animated: true)
                                 

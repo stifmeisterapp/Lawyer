@@ -11,8 +11,10 @@ import UIKit
 extension FAQ_VC{
     //TODO: Navigation setup implenemtation
     internal func navSetup(){
-        self.tabBarController?.tabBar.isHidden = true
-        super.setupNavigationBarTitle(AppColor.themeColor,ConstantTexts.FAQs_LT, leftBarButtonsType: [.back], rightBarButtonsType: [])
+       // self.tabBarController?.tabBar.isHidden = true
+        self.tabBarController?.tabBar.isHidden = false
+
+        super.setupNavigationBarTitle(AppColor.header_color,ConstantTexts.FAQs_LT, leftBarButtonsType: [.back], rightBarButtonsType: [])
     }
     
     //TODO: Init values

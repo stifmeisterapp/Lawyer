@@ -47,7 +47,7 @@ extension SignUpVC{
         view.addGestureRecognizer(tap)
         
         
-        customMethodManager?.provideShadowAndCornerRadius(self.viewBG, 5, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.placeholderColor, -1, 1, 1, 3, 0, AppColor.clearColor)
+      //  customMethodManager?.provideShadowAndCornerRadius(self.viewBG, 5, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.placeholderColor, -1, 1, 1, 3, 0, AppColor.clearColor)
         
         self.registerTable.separatorStyle = .none
         self.registerTable.backgroundColor = AppColor.whiteColor
@@ -61,11 +61,10 @@ extension SignUpVC{
         self.btnRegisterRef.titleLabel?.font = ConstantFonts.mainBottomButtonFont
         
         self.btnRegisterRef.setTitleColor(AppColor.whiteColor, for: .normal)
-        self.btnRegisterRef.backgroundColor = AppColor.themeColor
+        self.btnRegisterRef.backgroundColor = AppColor.app_gradient_color1
         
         
         
-        self.lblInstruction.numberOfLines = 0
         // *** Create instance of `NSMutableParagraphStyle`
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .center
@@ -78,7 +77,7 @@ extension SignUpVC{
         
         myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\(ConstantTexts.AlreadyHaveBT)  ", font: AppFont.Regular.size(AppFontName.OpenSans, size: 12), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
         
-        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: ConstantTexts.LoginHT, font: AppFont.Bold.size(AppFontName.OpenSans, size: 12), color: AppColor.themeColor) ?? NSMutableAttributedString())
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: ConstantTexts.LoginHT, font: AppFont.Bold.size(AppFontName.OpenSans, size: 12), color: AppColor.app_gradient_color1) ?? NSMutableAttributedString())
         
         
         // *** Apply attribute to string ***
@@ -91,22 +90,13 @@ extension SignUpVC{
         let lblInstruction_SignIn_Customer_Tap = UITapGestureRecognizer(target: self, action: #selector(self.lblInstruction_SignIn_Customer_Tapped(_:)))
         self.lblInstruction_SignIn_Customer.isUserInteractionEnabled = true
         self.lblInstruction_SignIn_Customer.addGestureRecognizer(lblInstruction_SignIn_Customer_Tap)
-        
-        
-        self.lblInstruction.font = AppFont.Regular.size(AppFontName.OpenSans, size: 12)
-        self.lblInstruction.textColor = AppColor.darkGrayColor
-        self.lblInstruction.numberOfLines = 0
-        self.lblInstruction.textAlignment = .center
-        self.lblInstruction.text = ConstantTexts.CustomerIns_LT
-        
-       
-        
+      
     }
     
     
     //TODO: register nib file
     private func registerNib(){
-        self.registerTable.register(nib: Auth_TextField_TableViewCell.className)
+        self.registerTable.register(nib: AuthNewTableViewCellAndXib.className)
         
         DispatchQueue.main.asyncAfter(deadline: .now()) {
             self.registerTable.isHidden = false
@@ -135,7 +125,7 @@ extension SignUpVC{
                 }else{
                     let indexPath = IndexPath(row: row, section: section)
                     
-                    if let cell = self.registerTable.cellForRow(at: indexPath) as? Auth_TextField_TableViewCell{
+                    if let cell = self.registerTable.cellForRow(at: indexPath) as? AuthNewTableViewCellAndXib{
                         
                         self.customMethodManager?.showToolTip(msg: strMsg, anchorView: cell.textFieldFloating, sourceView: self.view)
                         cell.textFieldFloating.becomeFirstResponder()

@@ -19,12 +19,17 @@ extension SignUpVC:UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: Auth_TextField_TableViewCell.className, for: indexPath) as? Auth_TextField_TableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: AuthNewTableViewCellAndXib.className, for: indexPath) as? AuthNewTableViewCellAndXib else {
             fatalError(ConstantTexts.unexpectedIndexPath)
         }
         cell.textFieldFloating.delegate = self
         cell.configure(with: dataListVM?.dataStoreStructAtIndex(indexPath.row) ?? DataStoreStruct_ViewModel(DataStoreStruct(title: ConstantTexts.MobileNumberPH, placeholder: ConstantTexts.MobileNumberPH, value: ConstantTexts.empty, type: SignUpType.MobileNumber, image: UIImage(systemName: "phone.fill") ?? UIImage())))
-        
+      
+      /*  cell.textFieldFloating.selectedLineColor = AppColor.app_gradient_color1
+        cell.textFieldFloating.lineColor = AppColor.placeholderColor
+        cell.textFieldFloating.lineHeight = 1.0 // bottom line height in points
+        cell.textFieldFloating.selectedLineHeight = 1.0 */
+
         return cell
     }
 }

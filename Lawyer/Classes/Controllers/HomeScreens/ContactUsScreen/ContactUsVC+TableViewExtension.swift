@@ -25,6 +25,12 @@ extension ContactUsVC:UITableViewDataSource{
         cell.textFieldFloating.delegate = self
         cell.configure(with: dataListVM?.dataStoreStructAtIndex(indexPath.row) ?? DataStoreStruct_ViewModel(DataStoreStruct(title: ConstantTexts.MobileNumberPH, placeholder: ConstantTexts.MobileNumberPH, value: ConstantTexts.empty, type: SignUpType.MobileNumber, image: UIImage(systemName: "phone.fill") ?? UIImage())))
         
+        
+        cell.textFieldFloating.selectedLineColor = AppColor.app_gradient_color1
+        cell.textFieldFloating.lineColor = AppColor.placeholderColor
+        cell.textFieldFloating.lineHeight = 1.0 // bottom line height in points
+        cell.textFieldFloating.selectedLineHeight = 1.0
+        
         return cell
     }
 }

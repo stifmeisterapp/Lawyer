@@ -13,7 +13,7 @@ extension UnderConstructionVC{
     //TODO: Navigation setup implenemtation
     internal func navSetup(){
         self.tabBarController?.tabBar.isHidden = true
-        super.setupNavigationBarTitle(AppColor.themeColor,ConstantTexts.UnderCHT, leftBarButtonsType: [.back], rightBarButtonsType: [])
+        super.setupNavigationBarTitle(AppColor.header_color,ConstantTexts.UnderCHT, leftBarButtonsType: [.back], rightBarButtonsType: [])
         
     }
     
@@ -37,7 +37,7 @@ extension UnderConstructionVC{
         paragraphStyle.lineSpacing = 2 // Whatever line spacing you want in points
         
         let myMutableString = NSMutableAttributedString()
-        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: ConstantTexts.UnderConstruction_LT, font: AppFont.Bold.size(AppFontName.OpenSans, size: 18), color: AppColor.tanColor) ?? NSMutableAttributedString())
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: ConstantTexts.UnderConstruction_LT, font: AppFont.Bold.size(AppFontName.OpenSans, size: 18), color: AppColor.app_gradient_color1) ?? NSMutableAttributedString())
         myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\n\(ConstantTexts.WeBackSoon_LT)", font: AppFont.Semibold.size(AppFontName.OpenSans, size: 14), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
         
         // *** Apply attribute to string ***

@@ -18,8 +18,14 @@ extension PaymentVC: RazorpayPaymentCompletionProtocol{
             return
         }
         
+        
+        guard let logo = USER_DEFAULTS.value(forKey: ConstantTexts.mobile_logo) as? String else{
+            print("No logo found...")
+            return
+        }
+        
         //TODO: Razor pay integration
-        self.razorpay = RazorpayCheckout.initWithKey(ConstantTexts.razorpayTestKey, andDelegate: self)
+        self.razorpay = RazorpayCheckout.initWithKey(self.Key, andDelegate: self)
         
         
         let options: [String:Any] = [
@@ -27,13 +33,14 @@ extension PaymentVC: RazorpayPaymentCompletionProtocol{
             "currency": "INR",//We support more that 92 international currencies.
             "description": ConstantTexts.ConsultationPaymentLT,
             "name": ConstantTexts.AppName,
-            "image": "https://url-to-image.png",
+            "image": "\(logo)",
+            "order_id":"\(self.RazorOrderId)",
             "prefill": [
                 "contact": user.Mobile,
                 "email": user.Email
             ],
             "theme": [
-                "color": "#3B579F"
+                "color": "#012B72"
             ]
         ]
         print(options)

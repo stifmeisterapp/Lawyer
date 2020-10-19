@@ -27,11 +27,24 @@ extension OrderStatusVC:UITableViewDataSource{
         
         
         if item.isExpended{
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: OrderStatusTableViewCell.className, for: indexPath) as? OrderStatusTableViewCell else {
-                fatalError(ConstantTexts.unexpectedIndexPath)
+            
+            if indexPath.section == 0{
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: OrderStatusNewTableViewCell.className, for: indexPath) as? OrderStatusNewTableViewCell else {
+                    fatalError(ConstantTexts.unexpectedIndexPath)
+                }
+                cell.configureNew(with: item.values[indexPath.row])
+                return cell
+            }else if indexPath.section == 1{
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: OrderStatusTableViewCell.className, for: indexPath) as? OrderStatusTableViewCell else {
+                    fatalError(ConstantTexts.unexpectedIndexPath)
+                }
+                cell.configureNew(with: item.values[indexPath.row])
+                return cell
+            }else{
+                return UITableViewCell()
             }
-            cell.configureNew(with: item.values[indexPath.row])
-            return cell
+            
+           
             
         }else{
             return UITableViewCell()
@@ -47,10 +60,10 @@ extension OrderStatusVC:UITableViewDataSource{
         if let info = self.orderModel?.orderAtIndex(section){
             header.lblTitle.text = info.title
             if info.isCompleted{
-                header.upperView.backgroundColor = AppColor.themeColor
-                header.lowerView.backgroundColor = AppColor.themeColor
-                header.imgCat.setImageTintColor(AppColor.themeColor)
-                header.imgCat.backgroundColor = AppColor.themeColor
+                header.upperView.backgroundColor = AppColor.app_gradient_color1
+                header.lowerView.backgroundColor = AppColor.app_gradient_color1
+                header.imgCat.setImageTintColor(AppColor.app_gradient_color1)
+                header.imgCat.backgroundColor = AppColor.app_gradient_color1
                 header.imgCat.image = #imageLiteral(resourceName: "icons8-verified_account")
                 
             }else{
@@ -62,7 +75,7 @@ extension OrderStatusVC:UITableViewDataSource{
                 
             }
             
-            if section == 1{
+            if section == 1 || section == 0{
                 
                 if (self.orderModel?.numberOfRowsInSection(section) ?? 0) > 0{
                     if info.isExpended{

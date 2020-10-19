@@ -33,7 +33,7 @@ class TimeCollectionViewCellAndXib: UICollectionViewCell {
            self.title.text = info.title
            if info.isSelected{
                self.title.textColor = AppColor.whiteColor
-               self.title.backgroundColor = AppColor.themeColor
+               self.title.backgroundColor = AppColor.app_gradient_color1
            }else{
                self.title.textColor = AppColor.darkGrayColor
                self.title.backgroundColor = AppColor.whiteColor
@@ -50,7 +50,7 @@ class TimeCollectionViewCellAndXib: UICollectionViewCell {
             customMethodManager = CustomMethodClass.shared
         }
         
-        self.customMethodManager?.provideCornerRadiusTo(self, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
+        self.customMethodManager?.provideCornerRadiusTo(self, 4, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
         self.customMethodManager?.provideCornerBorderTo(self, 1, AppColor.placeholderColor)
         
        

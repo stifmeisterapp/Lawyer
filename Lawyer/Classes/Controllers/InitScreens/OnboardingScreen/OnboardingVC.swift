@@ -14,6 +14,8 @@ class OnboardingVC: SBaseViewController {
     @IBOutlet weak var onboardingView: OnboardingView!
     @IBOutlet weak var buttonProceedRef: UIButton!
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

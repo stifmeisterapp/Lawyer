@@ -41,7 +41,7 @@ class LawyerProfileVC: SBaseViewController {
         refreshControl.addTarget(self, action:
             #selector(self.handleRefresh(_:)),
                                  for: UIControl.Event.valueChanged)
-        refreshControl.tintColor = AppColor.themeColor
+        refreshControl.tintColor = AppColor.app_gradient_color1
         
         return refreshControl
     }()

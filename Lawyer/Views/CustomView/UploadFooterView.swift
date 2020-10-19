@@ -24,8 +24,10 @@ class UploadFooterView: UIView {
     @IBOutlet weak var imgUploadRef: UIImageView!
     @IBOutlet weak var imgRecordRef: UIImageView!
     
+   
     @IBOutlet weak var lblUpload: UILabel!
     @IBOutlet weak var lblRecord: UILabel!
+    @IBOutlet weak var viewAnimation: UIView!
     
     @IBOutlet weak var lblTimer: UILabel!
     

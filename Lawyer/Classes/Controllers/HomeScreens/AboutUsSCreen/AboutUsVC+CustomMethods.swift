@@ -13,7 +13,7 @@ extension AboutUsVC{
     //TODO: Navigation setup implenemtation
        internal func navSetup(){
            self.tabBarController?.tabBar.isHidden = true
-           super.setupNavigationBarTitle(AppColor.themeColor,ConstantTexts.AboutUs_LT, leftBarButtonsType: [.back], rightBarButtonsType: [])
+           super.setupNavigationBarTitle(AppColor.header_color,ConstantTexts.AboutUs_LT, leftBarButtonsType: [.back], rightBarButtonsType: [])
            
            
        }

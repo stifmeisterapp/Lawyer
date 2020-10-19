@@ -13,7 +13,7 @@ extension LawyerProfileVC{
     //TODO: Navigation setup implenemtation
     internal func navSetup(){
         self.tabBarController?.tabBar.isHidden = true
-        super.setupNavigationBarTitle(AppColor.themeColor,ConstantTexts.LawyerDetailsHT, leftBarButtonsType: [.back], rightBarButtonsType: [])
+        super.setupNavigationBarTitle(AppColor.header_color,ConstantTexts.LawyerDetailsHT, leftBarButtonsType: [.back], rightBarButtonsType: [])
     }
     
     
@@ -46,7 +46,7 @@ extension LawyerProfileVC{
         
         
         self.nameLabel.font = ConstantFonts.mainBottomButtonFont
-        self.nameLabel.textColor = AppColor.themeColor
+        self.nameLabel.textColor = AppColor.app_gradient_color1
         self.nameLabel.numberOfLines = 2
         
         if self.meetPrice == ConstantTexts.DefaultFeeValueLT{
@@ -54,7 +54,7 @@ extension LawyerProfileVC{
         }else{
             self.buttonMeetRef.isHidden = false
             self.buttonMeetRef.setTitleColor(AppColor.whiteColor, for: .normal)
-            self.buttonMeetRef.backgroundColor = AppColor.themeColor
+            self.buttonMeetRef.backgroundColor = AppColor.app_gradient_color1
             self.buttonMeetRef.setTitle(ConstantTexts.MeetBT, for: .normal)
             self.buttonMeetRef.titleLabel?.font = ConstantFonts.mainBottomButtonFont
             self.customMethodManager?.provideCornerRadiusTo(self.buttonMeetRef, 3, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
@@ -66,7 +66,7 @@ extension LawyerProfileVC{
         }else{
             self.buttonCallRef.isHidden = false
             self.buttonCallRef.setTitleColor(AppColor.whiteColor, for: .normal)
-            self.buttonCallRef.backgroundColor = AppColor.themeColor
+            self.buttonCallRef.backgroundColor = AppColor.app_gradient_color1
             self.buttonCallRef.setTitle(ConstantTexts.CallBT, for: .normal)
             self.buttonCallRef.titleLabel?.font = ConstantFonts.mainBottomButtonFont
             self.customMethodManager?.provideCornerRadiusTo(self.buttonCallRef, 3, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])

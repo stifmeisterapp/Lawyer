@@ -46,8 +46,9 @@ class LawyerTableViewCell: SBaseTableViewCell {
         self.backgroundColor = AppColor.tableBGColor
         self.titlelLabelCategory.font = AppFont.Semibold.size(AppFontName.OpenSans, size: 12)
         self.titlelLabelCategory.textColor = AppColor.darkGrayColor
+        self.titlelLabelCategory.numberOfLines = 4
         
-        self.imageCategory.contentMode = .scaleAspectFit
+        
         
        /*
         self.imageCategory.setImageTintColor(AppColor.darkGrayColor)
@@ -60,7 +61,24 @@ class LawyerTableViewCell: SBaseTableViewCell {
     public func configure(with info: CategoryViewModel){
         self.customMethodManager?.setImage(imageView: self.imageCategory, url: info.Url)
        /* self.imageCategory.image = info.image */
-        self.titlelLabelCategory.text = info.title
+        self.imageCategory.contentMode = .scaleAspectFit
+        
+        // *** Create instance of `NSMutableParagraphStyle`
+        let paragraphStyleLeft = NSMutableParagraphStyle()
+        paragraphStyleLeft.alignment = .left
+        
+        // *** set LineSpacing property in points ***
+        paragraphStyleLeft.lineSpacing = 1 // Whatever line spacing you want in points
+        
+       let myMutableString = NSMutableAttributedString()
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\(info.title)\n", font: AppFont.Semibold.size(AppFontName.OpenSans, size: 16), color: AppColor.textColor) ?? NSMutableAttributedString())
+        
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\(info.Description)", font: AppFont.Regular.size(AppFontName.OpenSans, size: 10), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
+       
+        // *** Apply attribute to string ***
+        myMutableString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyleLeft, range:NSMakeRange(0, myMutableString.length))
+        self.titlelLabelCategory.attributedText = myMutableString
+        
     }
     
     
@@ -69,6 +87,7 @@ class LawyerTableViewCell: SBaseTableViewCell {
        /* self.customMethodManager?.setImage(imageView: self.imageCategory, url: info.Url) */
         self.imageCategory.image = info.image
         self.titlelLabelCategory.text = info.title
+        self.imageCategory.contentMode = .center
     }
     
 }

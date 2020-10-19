@@ -62,7 +62,7 @@ extension OrderStatusDataViewModel{
         return self.orderDetail.title
     }
     
-    var values:[String]{
+    var values:[OrederStatusDataModel]{
         return self.orderDetail.values
     }
    

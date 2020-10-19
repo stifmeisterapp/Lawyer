@@ -36,7 +36,7 @@ class FilterTableViewCellAndXib: SBaseTableViewCell {
     public func configure(with info: FilterViewModel) {
         self.labelTitle.text = info.title
         if info.isSelected{
-            self.imageVie.setImageTintColor(AppColor.themeColor)
+            self.imageVie.setImageTintColor(AppColor.app_gradient_color1)
             self.imageVie.image = UIImage(systemName: "checkmark.square.fill")
         }else{
             self.imageVie.setImageTintColor(AppColor.placeholderColor)

@@ -17,8 +17,7 @@ class HomeVC: SBaseViewController {
     @IBOutlet weak var imageViewLoction: UIImageView!
     @IBOutlet weak var labelLoationTitle: UILabel!
     @IBOutlet weak var imageViewDropDown: UIImageView!
-    
-    
+    @IBOutlet weak var searchBar: UISearchBar!
     
     /*
      For Collection view
@@ -33,6 +32,8 @@ class HomeVC: SBaseViewController {
     
     internal var homeVM: CategoryListModeling?
     internal var customMethodManager:CustomMethodProtocol?
+    internal var validationMethodManager:ValidationProtocol?
+
     internal let dropDown = DropDown()
     
     internal var cityNameArray = [String]()
@@ -40,13 +41,15 @@ class HomeVC: SBaseViewController {
     internal var cityId:String = String()
     internal var cityName:String = String()
     
+    internal var searchActive:Bool = Bool()
+    
     
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action:
             #selector(self.handleRefresh(_:)),
                                  for: UIControl.Event.valueChanged)
-        refreshControl.tintColor = AppColor.themeColor
+        refreshControl.tintColor = AppColor.app_gradient_color1
         
         return refreshControl
     }()
@@ -89,17 +92,7 @@ class HomeVC: SBaseViewController {
     //TODO: Implementation viewDidAppear
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if self.expertiseVM == nil{
-            self.expertiseVM = self.homeVM?.prepareDataEmpty()
-        }else{
-            self.expertiseVM = self.homeVM?.prepareDataEmpty()
-        }
-        
-        DispatchQueue.main.async {
-            self.categoryTableView.reloadData()
-        }
-        
-        self.expertise_list()
+       
     }
     
     
@@ -109,8 +102,125 @@ class HomeVC: SBaseViewController {
     
     //TODO: Selectors
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        self.searchActive = Bool()
+        self.searchBar.text = ConstantTexts.empty
         self.expertise_list()
         refreshControl.endRefreshing()
+        
+    }
+    
+    
+    //TODO: Selectors
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+    
+    
+    @objc func btnSelectCellTapped(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.1,
+                       animations: {
+                        let indexPath = IndexPath(row: sender.tag, section: 0)
+                        if let cell = self.categoryTableView.cellForRow(at: indexPath) as? CategoryTableViewCellAndXib {
+                            cell.viewBG.transform = .init(scaleX: 0.95, y: 0.95)
+                            cell.contentView.backgroundColor = AppColor.highLightColor
+                        }
+                       },
+                       completion: { _ in
+                        UIView.animate(withDuration: 0.05) {
+                            let indexPath = IndexPath(row: sender.tag, section: 0)
+                            if let cell = self.categoryTableView.cellForRow(at: indexPath) as? CategoryTableViewCellAndXib {
+                                cell.viewBG.transform = .identity
+                                cell.contentView.backgroundColor = AppColor.clearColor
+                                
+                                if self.cityName == String(){
+                                    
+                                    
+                                    self.customMethodManager?.showAlertWithCancel(title: ConstantTexts.AppName, message: ConstantTexts.SelectCityALERT, btnOkTitle: ConstantTexts.SelectCityBT, btnCancelTitle: ConstantTexts.CancelBT, callBack: { (status) in
+                                          if status{
+                                            self.searchActive = Bool()
+                                            self.searchBar.text = ConstantTexts.empty
+                                            let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: CityListViewController.className) as! CityListViewController
+                                            vc.getCity = { item in
+                                                self.cityName = item
+                                                print(item)
+                                            }
+                                            self.navigationController?.pushViewController(vc, animated: true)
+                                          }else{
+                                              print("Do nothing...")
+                                          }
+                                      })
+                                    
+                                   
+                                }else{
+                                    
+                                    UIView.animate(views: self.categoryTableView.visibleCells,
+                                                   animations: self.animations, reversed: true,
+                                                   initialAlpha: 1.0,
+                                                   finalAlpha: 0.0,
+                                                   completion: {
+                                                    
+                                                    self.animateView()
+                                                    
+                                                    let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: AppointmentVC.className) as! AppointmentVC
+                                                    
+                                                    if self.searchActive{
+                                                        if let categoryVM = self.expertiseVM?.categoryAtIndex(indexPath.row){
+                                                            vc.type = "0"
+                                                            vc.expID = categoryVM.expertiseId
+                                                            vc.expName = categoryVM.title
+                                                            vc.cityName = self.cityName
+                                                            
+                                                        }
+                                                    }else{
+                                                        if let categoryVM = self.categoryListVM?.categoryAtIndex(indexPath.row){
+                                                            vc.type = "0"
+                                                            vc.expID = categoryVM.expertiseId
+                                                            vc.expName = categoryVM.title
+                                                            vc.cityName = self.cityName
+                                                            
+                                                        }
+                                                    }
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    self.navigationController?.pushViewController(vc, animated: true)
+                                                    
+                                                    
+                                                    //TODO: When lawyer list applied
+                                                    
+                                                    /*  let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: LawyerListVC.className) as! LawyerListVC
+                                                    if let categoryVM = self.categoryListVM?.categoryAtIndex(indexPath.row){
+                                                    vc.headerTitle = categoryVM.title
+                                                    
+                                                    self.customMethodManager?.updateIsSelect(entity: ConstantTexts.ExpertiseLT, primary_key: self.customMethodManager?.getTableAndKeys(entity: ConstantTexts.ExpertiseLT) ?? String(), primary_value: categoryVM.expertiseId, key: "is_selected", value: true)
+                                                    
+                                                    vc.filters.append(Filter(entity: ConstantTexts.ExpertiseLT, title: categoryVM.title, id: categoryVM.expertiseId, isSelected: true))
+                                                    
+                                                    }
+                                                    if self.cityIdArray.count > 0{
+                                                    
+                                                    if self.cityId == String(){
+                                                    // yaha name wala code karna hai
+                                                    }else{
+                                                    self.customMethodManager?.updateIsSelect(entity: ConstantTexts.CityLT, primary_key: self.customMethodManager?.getTableAndKeys(entity: ConstantTexts.CityLT) ?? String(), primary_value: self.cityId, key: "is_selected", value: true)
+                                                    
+                                                    vc.filters.append(Filter(entity: ConstantTexts.CityLT, title: self.cityName, id: self.cityId, isSelected: true))
+                                                    }
+                                                    }
+                                                    vc.cityId = self.cityId
+                                                    print(self.cityId)
+                                                    self.navigationController?.pushViewController(vc, animated: true) */
+                                                   })
+                                }
+                                
+                                
+                                
+                            }
+                        }
+                       })
+        
         
     }
     
