@@ -23,13 +23,13 @@ extension QueryListVC{
         }
         
         
-        if faqVM == nil {
+      /*  if faqVM == nil {
             faqVM = FAQ_VM.shared
-        }
+        } */
         
         
         
-      /*  if self.queryVM == nil {
+      if self.queryVM == nil {
             self.queryVM = QueryListVM.shared
         }
         
@@ -48,7 +48,7 @@ extension QueryListVC{
         DispatchQueue.main.async {
             self.orderListTableView.reloadData()
         }
-         */
+         
         
         initialSetup()
         
@@ -79,7 +79,7 @@ extension QueryListVC{
     //TODO: Recheck data models implenemtation
     private func recheckDataModels(){
         registerNib()
-        self.addFaqViewConstraints() 
+       /* self.addFaqViewConstraints() */
         
         /* DispatchQueue.main.asyncAfter(deadline: .now()) {
          self.lawyerTableView.isHidden = false
@@ -89,7 +89,7 @@ extension QueryListVC{
          self.lawyerTableView.reloadData()
          } */
         
-        
+        self.getQuerisLisService(isRefresh:Bool())
     }
     
     //TODO: register nib file
@@ -108,12 +108,12 @@ extension QueryListVC{
          } */
         
         
-       /* self.orderListTableView.register(nib: Detail_TableViewCellAndXib.className) */
+        self.orderListTableView.register(nib: QueryTableViewCellAndXib.className)
 
     }
     
     
-    private func addFaqViewConstraints() {
+  /*  private func addFaqViewConstraints() {
         
         if let faqV = faqView{
             let faqViewTrailing = NSLayoutConstraint(item: faqV, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailingMargin, multiplier: 1, constant: 17)
@@ -125,7 +125,7 @@ extension QueryListVC{
         }
         
         
-    }
+    } */
     
     
     //MARK: - Web services methods
@@ -329,7 +329,7 @@ extension QueryListVC{
     
 //MARK: - Web services methods
 //TODO: Get customer's orders web service
- internal func  getQuerisLisService(isRefresh:Bool){
+/* internal func  getQuerisLisService(isRefresh:Bool){
     
     
     guard let user = self.customMethodManager?.getUser(entity: "User_Data") else{
@@ -587,7 +587,7 @@ extension QueryListVC{
                    
                 }else{
                     if let message = result_Dict.value(forKey: "message") as? String{
-                        _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style:.error)
+                        self.customMethodManager?.showAlert(message, okButtonTitle: ConstantTexts.OkBT, target: self)
                     }
                     
                 }
@@ -673,6 +673,216 @@ extension QueryListVC{
         }
     }
 }
+    
+*/
+    
+    
+ 
+    
+    
+    //TODO: Get customer's orders web service
+    internal func  getQuerisLisService(isRefresh:Bool){
+        
+        
+        guard let user = self.customMethodManager?.getUser(entity: "User_Data") else{
+            print("No user found...")
+            return
+        }
+        
+        let header = ["authorization":user.token,
+                      "Content-Type":"application/json",
+                      "accept":"application/json"]
+        print(header)
+        
+        
+        self.customMethodManager?.startLoader(view:self.view)
+        
+        DispatchQueue.main.async {
+            if let isAddedSubview = self.customMethodManager?.isSubviewAdded(parentView: self.orderListTableView, childView: self.errorView){
+                if isAddedSubview{
+                    self.customMethodManager?.removeSubView(childView: self.errorView)
+                }
+            }
+        }
+        
+        ServiceClass.shared.webServiceBasicMethod(url: "\(SCustomerApi.query_list_V2)\(self.offset)", method: .get, parameters: nil, header: header, success: { (result) in
+            print(result)
+            self.customMethodManager?.stopLoader(view:self.view)
+            if let result_Dict = result as? NSDictionary{
+                if let code = result_Dict.value(forKey: "code") as? Int{
+                    if code == 200{
+                        
+                        if let data = result_Dict.value(forKey: "data") as? NSDictionary{
+                            
+                            print(data)
+                          /*  DispatchQueue.main.async {
+                                if let isAddedSubview = self.customMethodManager?.isSubviewAdded(parentView: self.orderListTableView, childView: self.errorView){
+                                    if isAddedSubview{
+                                        self.customMethodManager?.removeSubView(childView: self.errorView)
+                                    }
+                                }
+                            } */
+                            
+                            if let count = data.value(forKey: "count") as? Int{
+                                self.dataCount = count
+                            }
+                            
+                            if let count = data.value(forKey: "count") as? String{
+                                self.dataCount = Int(count) ?? 0
+                            }
+                            
+                            if let order = data.value(forKey: "data") as? NSArray{
+                                //For table refresh
+                                if isRefresh{
+                                    /*  self.resetFilters() */
+                                    if let count = self.queryList?.queries.count{
+                                        if count > 0{
+                                            self.queryList?.queries.removeAll()
+                                        }
+                                    }
+                                }
+                                
+                                
+                                //For checking pagination and append data
+                                if let count = self.queryList?.queries.count{
+                                    if count == 0{
+                                        
+                                        self.isPagination = false
+                                        if let orders = self.queryVM?.prepareDataSource(data: order).queries{
+                                            self.queryList?.queries.append(contentsOf: orders)
+                                        }
+                                    }else{
+                                        if count >= self.dataCount{
+                                            self.isPagination = true
+                                            
+                                        }else{
+                                            
+                                            self.isPagination = false
+                                            if let orders = self.queryVM?.prepareDataSource(data: order).queries{
+                                                self.queryList?.queries.append(contentsOf: orders)
+                                            }
+                                        }
+                                        
+                                    }
+                                }
+                                
+                                
+                                //For checking pagination...
+                                if let count = self.queryList?.queries.count{
+                                    self.offset = count
+                                    
+                                    if count == 0{
+                                        self.isPagination = false
+                                        
+                                        DispatchQueue.main.async {
+                                            if let isAddedSubview = self.customMethodManager?.isSubviewAdded(parentView: self.orderListTableView, childView: self.errorView){
+                                                if isAddedSubview{
+                                                    
+                                                }else{
+                                                    self.customMethodManager?.setupError(chidView: self.errorView, message: ConstantTexts.NoOrdersFoundALERT, callback: {
+                                                        self.self.customMethodManager?.showLottieAnimation(self.errorView.viewLottie, ConstantTexts.EmptyBoxNew, .loop)
+                                                    })
+                                                    
+                                                    self.customMethodManager?.addSubView(parentView: self.orderListTableView, childView: self.errorView)
+                                                }
+                                            }
+                                        }
+                                        
+                                        
+                                    }else{
+                                        if count >= self.dataCount{
+                                            self.isPagination = true
+                                            
+                                        }else{
+                                            self.isPagination = false
+                                        }
+                                    }
+                                }
+                                
+                                
+                                
+                            }
+                            
+                        }
+                        
+                        // self.animateView()
+                        DispatchQueue.main.async {
+                            self.orderListTableView.reloadData()
+                        }
+                        
+                        
+                    }else{
+                        if let message = result_Dict.value(forKey: "message") as? String{
+                            self.customMethodManager?.showAlert(message, okButtonTitle: ConstantTexts.OkBT, target: self)
+
+                        }
+                        
+                    }
+                }
+            }
+            
+            
+        }) { (error) in
+            print(error)
+            
+            if let count = self.queryList?.queries.count{
+                if count > 0{
+                    self.queryList?.queries.removeAll()
+                }
+            }
+            
+            DispatchQueue.main.async {
+                self.orderListTableView.reloadData()
+            }
+            
+            self.customMethodManager?.stopLoader(view:self.view)
+            if let _ = (error as NSError).userInfo[ConstantTexts.errorMessage_Key] as? String{
+                
+                let errorCode = (error as NSError).code
+                if let animationDetail = self.customMethodManager?.getAnimationNameAndMessage(errorCode: errorCode){
+                    DispatchQueue.main.async {
+                        if let isAddedSubview = self.customMethodManager?.isSubviewAdded(parentView: self.orderListTableView, childView: self.errorView){
+                            if isAddedSubview{
+                                
+                                self.customMethodManager?.setupError(chidView: self.errorView, message: animationDetail.1,callback: {
+                                    self.self.customMethodManager?.showLottieAnimation(self.errorView.viewLottie, animationDetail.0, .loop)
+                                })
+                                
+                            }else{
+                                self.customMethodManager?.setupError(chidView: self.errorView, message: animationDetail.1,callback: {
+                                    self.self.customMethodManager?.showLottieAnimation(self.errorView.viewLottie, animationDetail.0, .loop)
+                                })
+                                
+                                self.customMethodManager?.addSubView(parentView: self.orderListTableView, childView: self.errorView)
+                            }
+                        }
+                    }
+                    
+                    
+                }
+                
+            }else{
+                DispatchQueue.main.async {
+                    if let isAddedSubview = self.customMethodManager?.isSubviewAdded(parentView: self.orderListTableView, childView: self.errorView){
+                        if isAddedSubview{
+                            
+                            self.customMethodManager?.setupError(chidView: self.errorView, message: ConstantTexts.errorMessage, callback: {
+                                self.self.customMethodManager?.showLottieAnimation(self.errorView.viewLottie, ConstantTexts.SomeThingWentWrong, .loop)
+                            })
+                            
+                        }else{
+                            self.customMethodManager?.setupError(chidView: self.errorView, message: ConstantTexts.errorMessage, callback: {
+                                self.self.customMethodManager?.showLottieAnimation(self.errorView.viewLottie, ConstantTexts.SomeThingWentWrong, .loop)
+                            })
+                            
+                            self.customMethodManager?.addSubView(parentView: self.orderListTableView, childView: self.errorView)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
     
   
 }

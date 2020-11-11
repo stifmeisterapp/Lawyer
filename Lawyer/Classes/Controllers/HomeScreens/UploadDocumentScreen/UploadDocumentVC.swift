@@ -77,7 +77,7 @@ class UploadDocumentVC: SBaseViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        initialSetup()
+        
     }
     
     //TODO: Implementation viewWillDisappear
@@ -206,14 +206,9 @@ class UploadDocumentVC: SBaseViewController {
         if let item = self.docDataList?.documentAtIndex(sender.tag){
             if item.isAudioFile{
                 
-                SweetAlert().showAlert(ConstantTexts.AppName, subTitle: ConstantTexts.WantToDelRecALERT, style: AlertStyle.warning, buttonTitle:ConstantTexts.CancelBT, buttonColor:AppColor.errorColor , otherButtonTitle:  ConstantTexts.OkBT, otherButtonColor: AppColor.passGreenColor) { (isOtherButton) -> Void in
-                    if isOtherButton == true {
-                        DispatchQueue.main.async {
-                            self.tblDocuments.reloadData()
-                        }
-                    }
-                    else
-                    {
+                
+                self.customMethodManager?.showAlertWithCancel(title: ConstantTexts.AppName, message: ConstantTexts.WantToDelRecALERT, btnOkTitle: ConstantTexts.OkBT, btnCancelTitle: ConstantTexts.CancelBT, callBack: { (status) in
+                    if status {
                         
                         self.header.lblRecord.textColor = AppColor.darkGrayColor
                         self.header.lblRecord.text = ConstantTexts.RecordLT
@@ -235,24 +230,30 @@ class UploadDocumentVC: SBaseViewController {
                             self.tblDocuments.reloadData()
                         }
                         
-                    }
-                    
-                }
-            }else{
-                
-                
-                SweetAlert().showAlert(ConstantTexts.AppName, subTitle: ConstantTexts.WantToDelRecALERT, style: AlertStyle.warning, buttonTitle:ConstantTexts.CancelBT, buttonColor:AppColor.errorColor , otherButtonTitle:  ConstantTexts.OkBT, otherButtonColor: AppColor.passGreenColor) { (isOtherButton) -> Void in
-                    if isOtherButton == true {
+                    }else{
                         DispatchQueue.main.async {
                             self.tblDocuments.reloadData()
                         }
                     }
-                    else
-                    {
+                })
+                
+            }else{
+                
+                
+                
+                self.customMethodManager?.showAlertWithCancel(title: ConstantTexts.AppName, message: ConstantTexts.WantToDelRecALERT, btnOkTitle: ConstantTexts.OkBT, btnCancelTitle: ConstantTexts.CancelBT, callBack: { (status) in
+                    if status {
                         self.hitDeleteDocService(DocumentId:item.Id,index:sender.tag)
+                    }else{
+                        DispatchQueue.main.async {
+                            self.tblDocuments.reloadData()
+                        }
                     }
-                    
-                }
+                })
+                
+                
+                
+                
                 
                 
             }

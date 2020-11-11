@@ -63,11 +63,12 @@ class OrederStatusDataModel{
     
     var title:String = String()
     
-    
+    var Review:String = String()
+    var IsRating:String = String()
     
    
   
-    init(PaymentAmount:String,PaymentDate:String,PaymentMethod:String,GST:String,Query:String,LawyerAssign:String,LawyerName:String,Experience:String,ProfilePhoto:String,Qualification:String,SupportEmail:String,SupportPhoneNumber:String,title:String,BookingDate:String,BookingTime:String){
+    init(PaymentAmount:String,PaymentDate:String,PaymentMethod:String,GST:String,Query:String,LawyerAssign:String,LawyerName:String,Experience:String,ProfilePhoto:String,Qualification:String,SupportEmail:String,SupportPhoneNumber:String,title:String,BookingDate:String,BookingTime:String,Review:String,IsRating:String){
         self.PaymentAmount = PaymentAmount
         self.PaymentDate = PaymentDate
         self.PaymentMethod = PaymentMethod
@@ -83,6 +84,8 @@ class OrederStatusDataModel{
         self.BookingDate = BookingDate
         self.BookingTime = BookingTime
         
+        self.Review = Review
+        self.IsRating = IsRating
         
         self.SupportEmail = ProfilePhoto
         self.SupportPhoneNumber = Qualification

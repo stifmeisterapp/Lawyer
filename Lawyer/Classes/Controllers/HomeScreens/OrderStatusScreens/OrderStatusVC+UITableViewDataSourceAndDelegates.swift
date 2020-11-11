@@ -40,8 +40,30 @@ extension OrderStatusVC:UITableViewDataSource{
                 }
                 cell.configureNew(with: item.values[indexPath.row])
                 return cell
+            }else if indexPath.section == 2 && self.rate == "0" && self.Review == String() && self.Id == "3"{
+                
+                  
+                    guard let cell = tableView.dequeueReusableCell(withIdentifier: RateLawyer_UITableViewCell.className, for: indexPath) as? RateLawyer_UITableViewCell else {
+                        fatalError(ConstantTexts.unexpectedIndexPath)
+                    }
+                    
+                    
+                    cell.btnRatingRef.tag = indexPath.section
+                    cell.btnRatingRef.addTarget(self, action: #selector(btnCellRateTapped), for: .touchUpInside)
+                    
+                    return cell
+                
+                
+                
             }else{
-                return UITableViewCell()
+               
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: AfterRateTableViewCell.className, for: indexPath) as? AfterRateTableViewCell else {
+                    fatalError(ConstantTexts.unexpectedIndexPath)
+                }
+                
+                cell.configureNew(with: item.values[indexPath.row])
+                
+                return cell
             }
             
            
@@ -75,7 +97,6 @@ extension OrderStatusVC:UITableViewDataSource{
                 
             }
             
-            if section == 1 || section == 0{
                 
                 if (self.orderModel?.numberOfRowsInSection(section) ?? 0) > 0{
                     if info.isExpended{
@@ -89,16 +110,7 @@ extension OrderStatusVC:UITableViewDataSource{
                     header.lblTitle.textColor = AppColor.darkGrayColor
                     header.lblTitle.font = AppFont.Semibold.size(AppFontName.OpenSans, size: 10)
                 }
-                
-                
-            }else{
-                header.lblTitle.textColor = AppColor.darkGrayColor
-                header.lblTitle.font = AppFont.Semibold.size(AppFontName.OpenSans, size: 10)
-            }
-            
-            
-            
-            
+
             if section == 0{
                 header.upperView.isHidden = true
                 header.lowerView.isHidden = false

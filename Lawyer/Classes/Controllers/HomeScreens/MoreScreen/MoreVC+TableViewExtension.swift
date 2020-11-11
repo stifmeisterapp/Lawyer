@@ -67,11 +67,11 @@ extension MoreVC:UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return (self.tblMore.frame.size.height) / 9
+        return 70
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return (self.tblMore.frame.size.height) / 9
+        return 70
     }
     
 

@@ -17,6 +17,8 @@ extension DashboardVC{
     internal func navSetup(){
         self.tabBarController?.tabBar.isHidden = false
         super.setupNavigationBarTitle(AppColor.header_color,ConstantTexts.ChooseServiceHT, leftBarButtonsType: [.empty], rightBarButtonsType: [.location])
+        super.isHiddenNavigationBar(true)
+      //  self.navigationController?.navigationBar.isHidden = true
         
     }
     
@@ -33,6 +35,37 @@ extension DashboardVC{
     
     //TODO: Intial setup implementation
     private func initialSetup(){
+        self.viewHeaderBG.backgroundColor = AppColor.whiteColor
+        self.lblHeaderTitle.backgroundColor = AppColor.clearColor
+        self.lblHeaderTitle.font = AppFont.Semibold.size(AppFontName.OpenSans, size: 14)
+        self.lblHeaderTitle.textColor = AppColor.textColor
+        self.lblHeaderTitle.textAlignment = .center
+        self.lblHeaderTitle.numberOfLines = 0
+        self.lblHeaderTitle.text = ConstantTexts.ChooseServiceHT
+        
+        self.lblHeaderSelectLocationTitle.backgroundColor = AppColor.clearColor
+        self.lblHeaderSelectLocationTitle.font = AppFont.Regular.size(AppFontName.OpenSans, size: 8)
+        self.lblHeaderSelectLocationTitle.textColor = AppColor.textColor
+        self.lblHeaderSelectLocationTitle.textAlignment = .center
+        self.lblHeaderSelectLocationTitle.numberOfLines = 0
+        self.lblHeaderSelectLocationTitle.text = ConstantTexts.ChooseCityHT
+        
+        if let city = USER_DEFAULTS.value(forKey: ConstantTexts.selectedCity) as? String{
+            self.cityName = city
+            self.lblHeaderSelectLocationTitle.text = self.cityName
+        }else{
+            self.cityName = String()
+            self.lblHeaderSelectLocationTitle.text = ConstantTexts.ChooseCityHT
+        }
+        
+      
+        
+        if MAIN_SCREEN_HEIGHT > 736{
+            self.NSLayoutConstraintHeaderHeight.constant = 84
+        }else{
+            self.NSLayoutConstraintHeaderHeight.constant = 64
+        }
+        
         self.viewMainBG.backgroundColor = AppColor.app_bg_color
         self.scrollView.backgroundColor = AppColor.app_bg_color
         self.view.backgroundColor = AppColor.app_bg_color
@@ -121,8 +154,11 @@ extension DashboardVC{
         super.goToCity = {
             let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: CityListViewController.className) as! CityListViewController
             vc.getCity = { item in
-                self.cityName = item
-                print(item)
+                if let city = USER_DEFAULTS.value(forKey: ConstantTexts.selectedCity) as? String{
+                    self.cityName = city
+                    self.lblHeaderSelectLocationTitle.text = self.cityName
+                }
+                
             }
             self.navigationController?.pushViewController(vc, animated: true)
         }
@@ -143,6 +179,47 @@ extension DashboardVC{
         self.bannerView.isSkeletonable = true
         self.pageControl.isSkeletonable = true
         
+        
+        
+        self.customMethodManager?.provideCornerRadiusTo(self.viewPopup, 5, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
+        
+        self.lblHeaderPopupTitle.numberOfLines = 0
+        
+        /* self.customMethodManager?.setImage(imageView: self.imageCategory, url: info.Url) */
+        // *** Create instance of `NSMutableParagraphStyle`
+        let paragraphStyleCenter = NSMutableParagraphStyle()
+        paragraphStyleCenter.alignment = .left
+        // *** set LineSpacing property in points ***
+        paragraphStyleCenter.lineSpacing = 5 // Whatever line spacing you want in points
+        
+        let myMutableString = NSMutableAttributedString()
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\(ConstantTexts.AppName)\n", font: AppFont.Semibold.size(AppFontName.OpenSans, size: 18), color: AppColor.app_gradient_color1) ?? NSMutableAttributedString())
+        
+        
+        
+        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\(ConstantTexts.SelectCityALERT)", font: AppFont.Semibold.size(AppFontName.OpenSans, size: 14), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
+        
+        
+        // *** Apply attribute to string ***
+        myMutableString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyleCenter, range:NSMakeRange(0, myMutableString.length))
+        // *** Set Attributed String to your label ***
+   
+        self.lblHeaderPopupTitle.attributedText = myMutableString
+        
+        self.customMethodManager?.provideCornerRadiusTo(self.btnCancelRef, 5, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
+        self.customMethodManager?.provideCornerBorderTo(self.btnCancelRef, 2, AppColor.app_gradient_color1)
+        self.btnCancelRef.titleLabel?.font = ConstantFonts.mainBottomButtonFont
+        self.btnCancelRef.setTitle(ConstantTexts.CancelBT, for: .normal)
+        self.btnCancelRef.setTitleColor(AppColor.app_gradient_color1, for: .normal)
+        
+        
+        self.customMethodManager?.provideCornerRadiusTo(self.btnOkRef, 5, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner])
+        self.customMethodManager?.provideCornerBorderTo(self.btnOkRef, 2, AppColor.app_gradient_color1)
+        self.btnOkRef.titleLabel?.font = ConstantFonts.mainBottomButtonFont
+        self.btnOkRef.setTitle(ConstantTexts.OkBT, for: .normal)
+        self.btnOkRef.setTitleColor(AppColor.app_gradient_color1, for: .normal)
+        
+        self.initalHideBlurView()
         
         recheckDataModels()
         
@@ -175,6 +252,8 @@ extension DashboardVC{
         UIView.animate(views: dash_CollectionView.visibleCells,
                        animations: [zoomAnimation, rotateAnimation],
                        duration: 0.5)
+        
+        self.forceUpdateService()
     }
     
     
@@ -235,6 +314,38 @@ extension DashboardVC{
         
     }
 
+    
+    //TODO: Implementation initail hide blur view
+    internal func initalHideBlurView(){
+        self.blurView.isHidden = true
+        self.blurView.alpha = 0
+        self.animateView()
+    }
+    
+    
+    //TODO: Implementation hide blur view
+    internal func hideBlurView(){
+        UIView.animate(withDuration: 0.3, animations: {
+            self.blurView.alpha = 0
+        }) { (status) in
+            self.blurView.alpha = 0
+            self.blurView.isHidden = true
+            
+        }
+        
+    }
+    
+    //TODO: Show blurr view
+    internal func showAlert() {
+        animateView()
+        self.blurView.isHidden = false
+        UIView.animate(withDuration: 0.3, animations: {
+            self.blurView.alpha = 0.85
+        }) { (status) in
+            self.blurView.alpha = 0.85
+        }
+        
+    }
     
     
     //TODO: Expertise web service
@@ -313,7 +424,9 @@ extension DashboardVC{
                         }
                     }else{
                         if let message = result_Dict.value(forKey: "message") as? String{
-                            _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style:.error)
+                            
+                            self.customMethodManager?.showAlert(message, okButtonTitle: ConstantTexts.OkBT, target: self)
+                            
                         }
                         
                     }
@@ -325,9 +438,13 @@ extension DashboardVC{
             print(error)
             self.hideAnimation()
             if let errorString = (error as NSError).userInfo[ConstantTexts.errorMessage_Key] as? String{
-                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: errorString, style:.error)
+                
+                self.customMethodManager?.showAlert(errorString, okButtonTitle: ConstantTexts.OkBT, target: self)
             }else{
-                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: ConstantTexts.errorMessage, style:.error)
+                
+                self.customMethodManager?.showAlert(ConstantTexts.errorMessage, okButtonTitle: ConstantTexts.OkBT, target: self)
+
+                
             }
             
             
@@ -395,7 +512,9 @@ extension DashboardVC{
                         }
                     }else{
                         if let message = result_Dict.value(forKey: "message") as? String{
-                            _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style:.error)
+                            
+                            self.customMethodManager?.showAlert(message, okButtonTitle: ConstantTexts.OkBT, target: self)
+                            
                         }
                         
                     }
@@ -407,9 +526,13 @@ extension DashboardVC{
             print(error)
             self.hideAnimation()
             if let errorString = (error as NSError).userInfo[ConstantTexts.errorMessage_Key] as? String{
-                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: errorString, style:.error)
+                
+                self.customMethodManager?.showAlert(errorString, okButtonTitle: ConstantTexts.OkBT, target: self)
+                
             }else{
-                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: ConstantTexts.errorMessage, style:.error)
+                
+                self.customMethodManager?.showAlert(ConstantTexts.errorMessage, okButtonTitle: ConstantTexts.OkBT, target: self)
+
             }
             
             

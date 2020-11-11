@@ -48,7 +48,7 @@ class MoreVC: SBaseViewController {
     //TODO: Implementation viewDidAppear
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        animateView()
+       // animateView()
     }
     
     //TODO: Implementation viewWillDisappear

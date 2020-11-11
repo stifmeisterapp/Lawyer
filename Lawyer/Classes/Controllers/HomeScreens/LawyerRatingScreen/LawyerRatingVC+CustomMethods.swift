@@ -138,25 +138,29 @@ extension LawyerRatingVC{
                     if code == 200{
                         
                         if let message = result_Dict.value(forKey: "message") as? String{
-                            _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style:.success)
+                          //  self.customMethodManager?.showAlert(message, okButtonTitle: ConstantTexts.OkBT, target: self)
+
                             NOTIFICATION_CENTER.post(name: NSNotification.Name(rawValue: ConstantTexts.paymentDone), object: nil)
-                            
-                            self.navigationController?.popToRootViewController(animated: true)
+                            self.callBackRating?()
+                            self.dismiss(animated: true, completion: nil)
                         }
                     }else if code == 401{
                         if let message = result_Dict.value(forKey: "message") as? String{
-                            _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style: .error, buttonTitle: ConstantTexts.OkBT, action: { (status) in
+                            
+                            
+                            self.customMethodManager?.showAlertWithOK(title: ConstantTexts.AppName, message: message, btnOkTitle: ConstantTexts.OkBT, callBack: { (status) in
                                 if status{
                                     self.customMethodManager?.deleteAllData(entity: "User_Data", success: {
                                         super.moveToNextViewCViaRoot(name: ConstantTexts.AuthSBT, withIdentifier: LoginVC.className)
                                     })
                                 }
                             })
+                       
                         }
                     }else{
                         
                         if let message = result_Dict.value(forKey: "message") as? String{
-                            _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style:.error)
+                            self.customMethodManager?.showAlert(message, okButtonTitle: ConstantTexts.OkBT, target: self)
                         }
                         
                     }
@@ -167,9 +171,10 @@ extension LawyerRatingVC{
             print(error)
             self.customMethodManager?.stopLoader(view:self.view)
             if let errorString = (error as NSError).userInfo[ConstantTexts.errorMessage_Key] as? String{
-                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: errorString, style:.error)
+                self.customMethodManager?.showAlert(errorString, okButtonTitle: ConstantTexts.OkBT, target: self)
             }else{
-                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: ConstantTexts.errorMessage, style:.error)
+                self.customMethodManager?.showAlert(ConstantTexts.errorMessage, okButtonTitle: ConstantTexts.OkBT, target: self)
+
             }
             
         }

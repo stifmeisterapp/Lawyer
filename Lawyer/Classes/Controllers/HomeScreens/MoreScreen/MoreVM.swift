@@ -23,7 +23,7 @@ class MoreVM: CategoryListModeling {
     
     
     //TODO: Prepare data source implementation
-    func prepareDataSource() -> CategoryListViewModel {
+   /* func prepareDataSource() -> CategoryListViewModel {
         let categories = [Category(image: #imageLiteral(resourceName: "GoogleBlogSearch100px").maskWithColor(color: AppColor.app_gradient_color1) ?? UIImage(), Url: String(), title: ConstantTexts.BlogsLT, ExpertiseId: String(), Description: String()),
                           Category(image: #imageLiteral(resourceName: "Comments96px1").maskWithColor(color: AppColor.app_gradient_color1) ?? UIImage(), Url: String(), title: ConstantTexts.FAQs_LT, ExpertiseId: String(), Description: String()),
                           Category(image: #imageLiteral(resourceName: "Share96px1").maskWithColor(color: AppColor.app_gradient_color1) ?? UIImage(), Url: String(), title: ConstantTexts.Share_LT, ExpertiseId: String(), Description: String()),
@@ -32,6 +32,19 @@ class MoreVM: CategoryListModeling {
                           Category(image: #imageLiteral(resourceName: "About100px").maskWithColor(color: AppColor.app_gradient_color1) ?? UIImage(), Url: String(), title: ConstantTexts.AboutUs_LT, ExpertiseId: String(), Description: String()),
                           Category(image: #imageLiteral(resourceName: "Call96px").maskWithColor(color: AppColor.app_gradient_color1) ?? UIImage(), Url: String(), title: ConstantTexts.ContactUs_LT, ExpertiseId: String(), Description: String()),
                           Category(image: #imageLiteral(resourceName: "translation").maskWithColor(color: AppColor.app_gradient_color1) ?? UIImage(), Url: String(), title: ConstantTexts.LanguageLT, ExpertiseId: String(), Description: String()),
+                          Category(image: #imageLiteral(resourceName: "LogoutRoundedUp96px").maskWithColor(color: AppColor.app_gradient_color1) ?? UIImage(), Url: String(), title: ConstantTexts.LogOut_LT, ExpertiseId: String(), Description: String())]
+        
+        return CategoryListViewModel(categories: categories)
+    } */
+    
+    
+    
+    //TODO: Prepare data source implementation
+    func prepareDataSource() -> CategoryListViewModel {
+        let categories = [Category(image: #imageLiteral(resourceName: "Share96px1").maskWithColor(color: AppColor.app_gradient_color1) ?? UIImage(), Url: String(), title: ConstantTexts.Share_LT, ExpertiseId: String(), Description: String()),
+                          Category(image: #imageLiteral(resourceName: "Rating96px").maskWithColor(color: AppColor.app_gradient_color1) ?? UIImage(), Url: String(), title: ConstantTexts.RateUs_LT, ExpertiseId: String(), Description: String()),
+                          Category(image: #imageLiteral(resourceName: "About100px").maskWithColor(color: AppColor.app_gradient_color1) ?? UIImage(), Url: String(), title: ConstantTexts.AboutUs_LT, ExpertiseId: String(), Description: String()),
+                          Category(image: #imageLiteral(resourceName: "Call96px").maskWithColor(color: AppColor.app_gradient_color1) ?? UIImage(), Url: String(), title: ConstantTexts.ContactUs_LT, ExpertiseId: String(), Description: String()),
                           Category(image: #imageLiteral(resourceName: "LogoutRoundedUp96px").maskWithColor(color: AppColor.app_gradient_color1) ?? UIImage(), Url: String(), title: ConstantTexts.LogOut_LT, ExpertiseId: String(), Description: String())]
         
         return CategoryListViewModel(categories: categories)

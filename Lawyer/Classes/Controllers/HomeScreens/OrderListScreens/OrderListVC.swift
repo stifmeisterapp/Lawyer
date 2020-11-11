@@ -76,7 +76,7 @@ class OrderListVC: SBaseViewController {
     //TODO: Implementation viewDidAppear
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        initialSetup()
+        
     }
     
     

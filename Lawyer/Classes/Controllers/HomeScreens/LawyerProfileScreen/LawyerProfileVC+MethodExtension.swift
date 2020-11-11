@@ -179,7 +179,7 @@ extension LawyerProfileVC{
                         }
                     }else{
                         if let message = result_Dict.value(forKey: "message") as? String{
-                            _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style:.error)
+                            self.customMethodManager?.showAlert(message, okButtonTitle: ConstantTexts.OkBT, target: self)
                         }
                         
                     }
@@ -191,9 +191,14 @@ extension LawyerProfileVC{
             print(error)
             self.hideAnimation()
             if let errorString = (error as NSError).userInfo[ConstantTexts.errorMessage_Key] as? String{
-                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: errorString, style:.error)
+                
+                self.customMethodManager?.showAlert(errorString, okButtonTitle: ConstantTexts.OkBT, target: self)
+                
             }else{
-                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: ConstantTexts.errorMessage, style:.error)
+                
+                self.customMethodManager?.showAlert(ConstantTexts.errorMessage, okButtonTitle: ConstantTexts.OkBT, target: self)
+
+                
             }
             
             

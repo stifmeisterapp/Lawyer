@@ -19,10 +19,10 @@ extension OnboardingVC{
     internal func initialSetup(){
         self.buttonProceedRef.isHidden = true
         self.buttonProceedRef.alpha = 0
-        self.buttonProceedRef.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
-        self.buttonProceedRef.setTitleColor(AppColor.whiteColor, for: .normal)
+        self.buttonProceedRef.titleLabel?.font = UIFont.boldSystemFont(ofSize: 12)
+        self.buttonProceedRef.setTitleColor(AppColor.app_gradient_color1, for: .normal)
         self.buttonProceedRef.setTitle(ConstantTexts.PROCEED_BT, for: .normal)
-        
+        self.buttonProceedRef.backgroundColor = AppColor.clearColor
         self.onboardingView.dataSource = self
         self.onboardingView.delegate = self
     }

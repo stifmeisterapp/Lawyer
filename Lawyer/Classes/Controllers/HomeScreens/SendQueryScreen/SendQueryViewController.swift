@@ -21,7 +21,11 @@ class SendQueryViewController: SBaseViewController {
     internal var customMethodManager:CustomMethodProtocol?
     internal var descriptionTxtView: String = String()
     internal var validationMethodManager:ValidationProtocol?
-   
+    internal var expertiseVM:CategoryListViewModel?
+    
+    internal var CategoryName:String = String()
+    internal var CategoryId:String = String()
+    
     //MARK: - View life cycle methods
     //TODO: Implementation viewDidLoad
     
@@ -76,8 +80,15 @@ class SendQueryViewController: SBaseViewController {
                                     print("hit api")
                                     self.hitSendQueryService()
                                 }else{
-                                    self.customMethodManager?.showToolTip(msg: strMsg, anchorView: self.header.txtView, sourceView: self.view)
-                                    self.header.txtView.becomeFirstResponder()
+                                    
+                                    if strMsg ==  ConstantTexts.EnterSelectCategoryALERT{
+                                        self.customMethodManager?.showToolTipBottom(msg: strMsg, anchorView: self.header.viewLocationBackground, sourceView: self.view)
+                                    }else{
+                                        self.customMethodManager?.showToolTip(msg: strMsg, anchorView: self.header.txtView, sourceView: self.view)
+                                        self.header.txtView.becomeFirstResponder()
+                                    }
+                                    
+                                    
                                 }
                             }
                            // self.get_packages_Service()
@@ -101,6 +112,45 @@ class SendQueryViewController: SBaseViewController {
                              } */
                         }
                        })
+        
+    }
+    
+    
+    
+    @objc func btnSelectCategoryTapped(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.1,
+                       animations: {
+                        self.customMethodManager?.provideShadowAndCornerRadius(self.header.viewLocationBackground, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.textColor, 0, 0, 0, 0, 0, AppColor.clearColor)
+                        self.header.viewLocationBackground.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+        },
+                       completion: { _ in
+                        UIView.animate(withDuration: 0.1) {
+                            self.customMethodManager?.provideShadowAndCornerRadius(self.header.viewLocationBackground, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.placeholderColor, -1, 1, 1, 3, 0, AppColor.clearColor)
+                            self.header.viewLocationBackground.transform = CGAffineTransform.identity
+                            let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: HomeVC.className) as! HomeVC
+                            vc.categoryListVM = self.expertiseVM
+                            
+                            if let city = USER_DEFAULTS.value(forKey: ConstantTexts.selectedCity) as? String{
+                                vc.cityName = city
+                            }else{
+                                vc.cityName = String()
+                            }
+                            vc.isComingFromSendQuery = true
+                            
+                            vc.sendBackSelectedCategory = { (CategoryName,CategoryId) in
+                                print(CategoryName)
+                                print(CategoryId)
+                                self.CategoryName = CategoryName
+                                self.CategoryId = CategoryId
+                                self.header.labelLoationTitle.text = self.CategoryName
+                            }
+                            
+                            
+                            self.navigationController?.pushViewController(vc, animated: true)
+                            //isComingFromSendQuery
+                           // self.isValidate()
+                        }
+        })
         
     }
 

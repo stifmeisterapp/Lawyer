@@ -34,7 +34,7 @@ extension OrderStatusVC{
         
         
         
-        self.initialSetup()
+        initialSetup()
         
     }
     
@@ -83,10 +83,7 @@ extension OrderStatusVC{
         self.btnCallRef.setTitle("     \(ConstantTexts.CallLT)", for: .normal)
         // self.btnCallRef.setImage(#imageLiteral(resourceName: "telephone"), for: .normal)
         self.btnCallRef.titleLabel?.font = ConstantFonts.mainBottomButtonFont
-        //        self.btnCallRef.isHidden = true
-        //        self.btnMsgRef.isHidden = true
-        
-        
+       
         self.tblOrderStatus.isScrollEnabled = false
         self.tblOrderStatus.separatorStyle = .none
         self.tblOrderStatus.hideEmptyCells()
@@ -95,48 +92,8 @@ extension OrderStatusVC{
         self.tblOrderStatus.delegate = self
         
         
-        self.imgSuccess.image = #imageLiteral(resourceName: "icons8-verified_account")
-        self.lblSuccess.numberOfLines = 0
-        
-        /* self.customMethodManager?.setImage(imageView: self.imageCategory, url: info.Url) */
-        // *** Create instance of `NSMutableParagraphStyle`
-        let paragraphStyleCenter = NSMutableParagraphStyle()
-        paragraphStyleCenter.alignment = .center
-        // *** set LineSpacing property in points ***
-        paragraphStyleCenter.lineSpacing = 1 // Whatever line spacing you want in points
-        
-        myMutableString = NSMutableAttributedString()
-        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\(ConstantTexts.CosultationCompletedLT)\n\n", font: AppFont.Semibold.size(AppFontName.OpenSans, size: 14), color: AppColor.app_gradient_color1) ?? NSMutableAttributedString())
-        
-        myMutableString.append(customMethodManager?.provideSimpleAttributedText(text: "\(ConstantTexts.CosultationCompletedInsLT)", font: AppFont.Semibold.size(AppFontName.OpenSans, size: 12), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
-        
-        
-        // *** Apply attribute to string ***
-        myMutableString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyleCenter, range:NSMakeRange(0, myMutableString.length))
-        // *** Set Attributed String to your label ***
-        self.lblSuccess.attributedText = myMutableString
-        
-        
-        self.customMethodManager?.provideShadowAndCornerRadius(self.btnRatingRef, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.darkGrayColor, -1, 1, 1, 3, 0, AppColor.clearColor)
-        
-        self.btnRatingRef.setTitle(ConstantTexts.RateLawyer_BT, for: .normal)
-        self.btnRatingRef.titleLabel?.font = ConstantFonts.mainBottomButtonFont
-        
-        self.btnRatingRef.setTitleColor(AppColor.whiteColor, for: .normal)
-        self.btnRatingRef.backgroundColor = AppColor.app_gradient_color1
-
-        /*  self.orderListTableView.separatorStyle = .none
-         self.orderListTableView.hideEmptyCells()
-         self.orderListTableView.isScrollEnabled = true
-         self.orderListTableView.backgroundColor = AppColor.whiteColor
-         self.orderListTableView.addSubview(self.refreshControl)
-         self.orderListTableView.dataSource = self
-         self.orderListTableView.delegate = self
-         DispatchQueue.main.async {
-         self.orderListTableView.reloadData()
-         }
-         
-         */
+      
+       
         
         NOTIFICATION_CENTER.addObserver(self, selector: #selector(reloadApiData(_:)), name: NSNotification.Name(rawValue: ConstantTexts.hitOrderStatusService), object: nil)
         
@@ -177,16 +134,12 @@ extension OrderStatusVC{
          } */
         
         
-        self.tblOrderStatus.registerMultiple(nibs: [OrderStatusNewTableViewCell.className,OrderStatusTableViewCell.className])
+        self.tblOrderStatus.registerMultiple(nibs: [OrderStatusNewTableViewCell.className,OrderStatusTableViewCell.className,RateLawyer_UITableViewCell.className,AfterRateTableViewCell.className])
         
         self.tblOrderStatus.isHidden = false
         self.btnMsgRef.isHidden = true
         self.btnCallRef.isHidden = true
-        self.imgSuccess.isHidden = true
-        self.lblSuccess.isHidden = true
-        self.btnRatingRef.isHidden = true
-        
-        
+       
         self.hitOrderDetailsService()
         
     }
@@ -198,10 +151,7 @@ extension OrderStatusVC{
         
         self.btnMsgRef.isHidden = true
         self.btnCallRef.isHidden = true
-        self.imgSuccess.isHidden = true
-        self.lblSuccess.isHidden = true
-        self.btnRatingRef.isHidden = true
-        
+       
         if Id == "0"{
             self.lblImage.setImageTintColor(AppColor.errorColor)
             self.lblImage.image = #imageLiteral(resourceName: "icons8-future_filled")
@@ -218,10 +168,7 @@ extension OrderStatusVC{
             
             self.btnMsgRef.isHidden = true
             self.btnCallRef.isHidden = true
-            self.imgSuccess.isHidden = true
-            self.lblSuccess.isHidden = true
-            self.btnRatingRef.isHidden = true
-            
+           
         }else if Id == "1"{
             self.lblImage.setImageTintColor(AppColor.passGreenColor)
             self.lblImage.image = #imageLiteral(resourceName: "icons8-verified_account")
@@ -239,9 +186,6 @@ extension OrderStatusVC{
             
             self.btnMsgRef.isHidden = true
             self.btnCallRef.isHidden = true
-            self.imgSuccess.isHidden = true
-            self.lblSuccess.isHidden = true
-            self.btnRatingRef.isHidden = true
             
         }else if Id == "2"{
             self.lblImage.setImageTintColor(AppColor.passGreenColor)
@@ -260,10 +204,7 @@ extension OrderStatusVC{
             
             self.btnMsgRef.isHidden = true
             self.btnCallRef.isHidden = true
-            self.imgSuccess.isHidden = true
-            self.lblSuccess.isHidden = true
-            self.btnRatingRef.isHidden = true
-            
+           
         }else{
             self.lblImage.setImageTintColor(AppColor.passGreenColor)
             self.lblImage.image = #imageLiteral(resourceName: "icons8-verified_account")
@@ -276,15 +217,20 @@ extension OrderStatusVC{
             self.btnMsgRef.setTitle("\(ConstantTexts.GoToHome_BT)", for: .normal)
             self.btnMsgRef.setImage(UIImage(), for: .normal)
             self.btnMsgRef.titleLabel?.font = ConstantFonts.mainBottomButtonFont
-            
+            /*
             self.tblOrderStatus.isHidden = true
             
             self.btnMsgRef.isHidden = true
             self.btnCallRef.isHidden = true
             self.btnRatingRef.isHidden = true
             self.imgSuccess.isHidden = false
-            self.lblSuccess.isHidden = false
- 
+            self.lblSuccess.isHidden = false */
+            
+            self.tblOrderStatus.isHidden = false
+            
+            self.btnMsgRef.isHidden = true
+            self.btnCallRef.isHidden = true
+           
         }
         
         self.btnMsgRef.isHidden = true
@@ -325,7 +271,7 @@ extension OrderStatusVC{
                             paragraphStyle.lineSpacing = 5 // Whatever line spacing you want in points
                             
                             
-                            var myMutableString = NSMutableAttributedString()
+                            let myMutableString = NSMutableAttributedString()
                             myMutableString.append(self.customMethodManager?.provideSimpleAttributedText(text: "\(user.Fullname)\n", font: AppFont.Semibold.size(AppFontName.OpenSans, size: 14), color: AppColor.textColor) ?? NSMutableAttributedString())
                             
                             myMutableString.append(self.customMethodManager?.provideSimpleAttributedText(text: "\(ConstantTexts.CaseTypeLT): ", font: AppFont.Regular.size(AppFontName.OpenSans, size: 10), color: AppColor.darkGrayColor) ?? NSMutableAttributedString())
@@ -363,39 +309,34 @@ extension OrderStatusVC{
                             
                             
                             if let Status = data.value(forKey: "Status") as? NSArray{
-                                var Id: String = String()
+                                
                                 for item in Status{
                                     if let itemDict = item as? NSDictionary{
                                         if let id = itemDict.value(forKey: "id") as? String{
-                                            Id = id
+                                            self.Id = id
                                         }
                                         
                                         if let id = itemDict.value(forKey: "id") as? Int{
-                                            Id = "\(id)"
+                                            self.Id = "\(id)"
                                         }
                                         
                                     }
                                 }
                                 
-                                self.setStatus(Id: Id)
+                                self.setStatus(Id: self.Id)
                                 
-                                var rate:String = String()
+                               
                                 if let IsRating = data.value(forKey: "IsRating") as? String{
-                                    rate = "\(IsRating)"
+                                    self.rate = "\(IsRating)"
                                 }
                                 
                                 if let IsRating = data.value(forKey: "IsRating") as? Int{
-                                    rate = "\(IsRating)"
+                                    self.rate = "\(IsRating)"
                                 }
                                 
-                                let Review = data.value(forKey: "Review") as? String ?? String()
+                                self.Review = data.value(forKey: "Review") as? String ?? String()
                                 
-                                if rate == "0" && Review == String() && Id == "3"{
-                                    self.btnRatingRef.isHidden = false
-                                }else{
-                                    self.btnRatingRef.isHidden = true
-                                }
-                                
+                              
  
                             }
                             
@@ -437,18 +378,20 @@ extension OrderStatusVC{
                         }
                     }else if code == 401{
                         if let message = result_Dict.value(forKey: "message") as? String{
-                            _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style: .error, buttonTitle: ConstantTexts.OkBT, action: { (status) in
+                            self.customMethodManager?.showAlertWithOK(title: ConstantTexts.AppName, message: message, btnOkTitle: ConstantTexts.OkBT, callBack: { (status) in
                                 if status{
                                     self.customMethodManager?.deleteAllData(entity: "User_Data", success: {
                                         super.moveToNextViewCViaRoot(name: ConstantTexts.AuthSBT, withIdentifier: LoginVC.className)
                                     })
                                 }
                             })
-                        }
+                                                    }
                     }else{
                         
                         if let message = result_Dict.value(forKey: "message") as? String{
-                            _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style:.error)
+                            
+                            self.customMethodManager?.showAlert(message, okButtonTitle: ConstantTexts.OkBT, target: self)
+                            
                         }
                         
                     }
@@ -459,9 +402,11 @@ extension OrderStatusVC{
             print(error)
             self.customMethodManager?.stopLoader(view:self.view)
             if let errorString = (error as NSError).userInfo[ConstantTexts.errorMessage_Key] as? String{
-                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: errorString, style:.error)
+                self.customMethodManager?.showAlert(errorString, okButtonTitle: ConstantTexts.OkBT, target: self)
             }else{
-                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: ConstantTexts.errorMessage, style:.error)
+                
+                self.customMethodManager?.showAlert(ConstantTexts.errorMessage, okButtonTitle: ConstantTexts.OkBT, target: self)
+
             }
             
         }

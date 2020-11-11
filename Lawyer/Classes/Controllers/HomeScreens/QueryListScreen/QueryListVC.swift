@@ -13,23 +13,25 @@ class QueryListVC: SBaseViewController {
     
     
     //MARK: - IBOutlets
-    //  @IBOutlet weak var orderListTableView: UITableView!
+      @IBOutlet weak var orderListTableView: UITableView!
     
     //MARK: - Variables
     
-    /*  internal var queryList:QueryDataViewListModel?
-     internal var queryVM: QueryDataModeling? */
+    internal var queryList:QueryDataViewNewListModel?
+     internal var queryVM: QueryDataViewNewModeling?
     
     
-    internal var faqView: FAQView!
+  /*  internal var faqView: FAQView!
     internal var faqVM: FAQ_DataModeling?
-    internal var faqList: [FAQItem] = [FAQItem]()
+    internal var faqList: [FAQItem] = [FAQItem]() */
     
     
     internal var customMethodManager:CustomMethodProtocol?
     internal var offset:Int = 0
     internal var dataCount:Int = Int()
     internal var isPagination: Bool = Bool()
+    
+    
     
     
     //MARK: - Variables for animation
@@ -69,7 +71,7 @@ class QueryListVC: SBaseViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.getQuerisLisService(isRefresh:Bool())
+       
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -108,6 +110,11 @@ class QueryListVC: SBaseViewController {
         //   NOTIFICATION_CENTER.removeObserver(self)
         
     }
+    
+    
+    
+    
+    
     
   /*  @objc func btnExpendTapped(_ sender: UIButton) {
         

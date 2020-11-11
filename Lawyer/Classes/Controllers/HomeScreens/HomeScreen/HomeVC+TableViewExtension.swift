@@ -60,23 +60,28 @@ extension HomeVC:UITableViewDelegate{
                                 cell.viewBG.transform = .identity
                                 cell.contentView.backgroundColor = AppColor.clearColor
                                 
+                                if let city = USER_DEFAULTS.value(forKey: ConstantTexts.selectedCity) as? String{
+                                    self.cityName = city
+                                }else{
+                                    self.cityName = String()
+                                }
+                                
                                 if self.cityName == String(){
-                                    
-                                    
-                                    self.customMethodManager?.showAlertWithCancel(title: ConstantTexts.AppName, message: ConstantTexts.SelectCityALERT, btnOkTitle: ConstantTexts.SelectCityBT, btnCancelTitle: ConstantTexts.CancelBT, callBack: { (status) in
+                                  /*  self.customMethodManager?.showAlertWithCancel(title: ConstantTexts.AppName, message: ConstantTexts.SelectCityALERT, btnOkTitle: ConstantTexts.SelectCityBT, btnCancelTitle: ConstantTexts.CancelBT, callBack: { (status) in
                                           if status{
-                                            let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: CityListViewController.className) as! CityListViewController
-                                            vc.getCity = { item in
-                                                self.cityName = item
-                                                print(item)
-                                            }
-                                            self.navigationController?.pushViewController(vc, animated: true)
-                                          }else{
-                                              print("Do nothing...")
+                                                let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: CityListViewController.className) as! CityListViewController
+                                                vc.getCity = { item in
+                                                    if let city = USER_DEFAULTS.value(forKey: ConstantTexts.selectedCity) as? String{
+                                                        self.cityName = city
+                                                        self.lblHeaderSelectLocationTitle.text = self.cityName
+                                                    }
+                                                }
+                                                self.navigationController?.pushViewController(vc, animated: true)
                                           }
-                                      })
+                                      }) */
                                     
-                                   
+                                    self.showAlert()
+                                    
                                 }else{
                                     
                                     UIView.animate(views: tableView.visibleCells,
@@ -86,32 +91,62 @@ extension HomeVC:UITableViewDelegate{
                                                    completion: {
                                                     
                                                     
-                                                    let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: AppointmentVC.className) as! AppointmentVC
-                                                    
-                                                    if self.searchActive{
-                                                        if let categoryVM = self.expertiseVM?.categoryAtIndex(indexPath.row){
-                                                            vc.type = "0"
-                                                            vc.expID = categoryVM.expertiseId
-                                                            vc.expName = categoryVM.title
-                                                            vc.cityName = self.cityName
-                                                            
+                                                    if self.isComingFromSendQuery{
+                                                        
+                                                        var CategoryName:String = String()
+                                                        var CategoryId:String = String()
+                                                        if self.searchActive{
+                                                            if let categoryVM = self.expertiseVM?.categoryAtIndex(indexPath.row){
+                                                                
+                                                                CategoryId = categoryVM.expertiseId
+                                                                CategoryName = categoryVM.title
+                                                               
+                                                            }
+                                                        }else{
+                                                            if let categoryVM = self.categoryListVM?.categoryAtIndex(indexPath.row){
+                                                                CategoryId = categoryVM.expertiseId
+                                                                CategoryName = categoryVM.title
+                                                                
+                                                            }
                                                         }
+                                                        
+                                                        self.sendBackSelectedCategory!(CategoryName, CategoryId)
+                                                        
+                                                        self.navigationController?.popViewController(animated: true)
+                                                        
                                                     }else{
-                                                        if let categoryVM = self.categoryListVM?.categoryAtIndex(indexPath.row){
-                                                            vc.type = "0"
-                                                            vc.expID = categoryVM.expertiseId
-                                                            vc.expName = categoryVM.title
-                                                            vc.cityName = self.cityName
-                                                            
+                                                        
+                                                        
+                                                        
+                                                        let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: AppointmentVC.className) as! AppointmentVC
+                                                        
+                                                        if self.searchActive{
+                                                            if let categoryVM = self.expertiseVM?.categoryAtIndex(indexPath.row){
+                                                                vc.type = "0"
+                                                                vc.expID = categoryVM.expertiseId
+                                                                vc.expName = categoryVM.title
+                                                                vc.cityName = self.cityName
+                                                                
+                                                            }
+                                                        }else{
+                                                            if let categoryVM = self.categoryListVM?.categoryAtIndex(indexPath.row){
+                                                                vc.type = "0"
+                                                                vc.expID = categoryVM.expertiseId
+                                                                vc.expName = categoryVM.title
+                                                                vc.cityName = self.cityName
+                                                                
+                                                            }
                                                         }
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        self.navigationController?.pushViewController(vc, animated: true)
+                                                        
+                                                        
+                                                        
                                                     }
-                                                    
-                                                    
-                                                    
-                                                    
-                                                    self.navigationController?.pushViewController(vc, animated: true)
-                                                    
-                                                    
+                                                
                                                     //TODO: When lawyer list applied
                                                     
                                                     /*  let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: LawyerListVC.className) as! LawyerListVC

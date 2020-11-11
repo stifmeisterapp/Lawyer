@@ -158,7 +158,7 @@ extension UploadDocumentVC{
         self.header.lblTimer.isHidden = false
         
         
-        
+        initialSetup()
         
     }
     
@@ -192,22 +192,20 @@ extension UploadDocumentVC{
     
     //TODO: Delete row form index
     internal func deleteRow(index:Int){
-        SweetAlert().showAlert(ConstantTexts.AppName, subTitle: ConstantTexts.WantToDeleteDocuALERT, style: AlertStyle.warning, buttonTitle:ConstantTexts.CancelBT, buttonColor:AppColor.errorColor , otherButtonTitle:  ConstantTexts.OkBT, otherButtonColor: AppColor.passGreenColor) { (isOtherButton) -> Void in
-            if isOtherButton == true {
-                DispatchQueue.main.async {
-                    self.tblDocuments.reloadData()
-                }
-            }
-            else
-            {
+        
+        self.customMethodManager?.showAlertWithCancel(title: ConstantTexts.AppName, message: ConstantTexts.WantToDeleteDocuALERT, btnOkTitle: ConstantTexts.OkBT, btnCancelTitle: ConstantTexts.CancelBT, callBack: { (status) in
+            if status{
                 self.docDataList?.documentDataItems.remove(at: index)
                 DispatchQueue.main.async {
                     self.tblDocuments.reloadData()
                 }
                 
+            }else{
+                DispatchQueue.main.async {
+                    self.tblDocuments.reloadData()
+                }
             }
-            
-        }
+        })
     }
     
     
@@ -546,8 +544,31 @@ extension UploadDocumentVC{
                                     DispatchQueue.main.async {
                                         self.tblDocuments.reloadData()
                                         
+                                      
+                                        
+                                        
                                         if let message = result_Dict.value(forKey: "message") as? String{
-                                            _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style: .success, buttonTitle: ConstantTexts.OkBT, action: { (status) in
+                                            
+                                            let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: PaymentVC.className) as! PaymentVC
+                                            vc.Uuid = self.Uuid
+                                            vc.date = self.date
+                                            vc.selectedSlot = self.selectedSlot
+                                            vc.price = self.price
+                                            vc.type = self.type
+                                            vc.expID = self.expID
+                                            vc.expName = self.expName
+                                            vc.desc = self.descriptionTxtView
+                                            if let count = self.docDataList?.numberOfRowsInSection(0){
+                                                if count > 0{
+                                                    if let fileName = self.docDataList?.documentAtIndex(0).fileName{
+                                                        vc.Docs = fileName
+                                                    }
+                                                }
+                                            }
+                                            self.navigationController?.pushViewController(vc, animated: true)
+                                            
+                                            
+                                          /*  _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style: .success, buttonTitle: ConstantTexts.OkBT, action: { (status) in
                                                 if status{
                                                     let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: PaymentVC.className) as! PaymentVC
                                                     vc.Uuid = self.Uuid
@@ -566,7 +587,7 @@ extension UploadDocumentVC{
                                                         }
                                                     }
                                                     self.navigationController?.pushViewController(vc, animated: true)         }
-                                            })
+                                            }) */
                                         }
                                         
                                         
@@ -578,7 +599,8 @@ extension UploadDocumentVC{
                         }
                     }else if code == 404{
                         if let message = result_Dict.value(forKey: "message") as? String{
-                            _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style: .error, buttonTitle: ConstantTexts.OkBT, action: { (status) in
+                            
+                            self.customMethodManager?.showAlertWithOK(title: ConstantTexts.AppName, message: message, btnOkTitle: ConstantTexts.OkBT, callBack: { (status) in
                                 if status{
                                     self.navigationController?.popViewController(animated: true)                            }
                             })
@@ -597,13 +619,17 @@ extension UploadDocumentVC{
                         }
                         
                         if let message = result_Dict.value(forKey: "message") as? String{
-                            _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style: .error, buttonTitle: ConstantTexts.OkBT, action: { (status) in
+                            
+                            
+                            
+                            self.customMethodManager?.showAlertWithOK(title: ConstantTexts.AppName, message: message, btnOkTitle: ConstantTexts.OkBT, callBack: { (status) in
                                 if status{
                                     self.customMethodManager?.deleteAllData(entity: "User_Data", success: {
                                         super.moveToNextViewCViaRoot(name: ConstantTexts.AuthSBT, withIdentifier: LoginVC.className)
                                     })
                                 }
                             })
+                            
                         }
                     }
                 }
@@ -624,9 +650,14 @@ extension UploadDocumentVC{
             }
             
             if let errorString = (error as NSError).userInfo[ConstantTexts.errorMessage_Key] as? String{
-                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: errorString, style:.error)
+                
+                self.customMethodManager?.showAlert(errorString, okButtonTitle: ConstantTexts.OkBT, target: self)
+                
             }else{
-                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: ConstantTexts.errorMessage, style:.error)
+                
+                self.customMethodManager?.showAlert(ConstantTexts.errorMessage, okButtonTitle: ConstantTexts.OkBT, target: self)
+
+                
             }
             
         }
@@ -720,10 +751,13 @@ extension UploadDocumentVC{
                         }
                         
                         if let message = result_Dict.value(forKey: "message") as? String{
-                            _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style: .error, buttonTitle: ConstantTexts.OkBT, action: { (status) in
+                            
+                            self.customMethodManager?.showAlertWithOK(title: ConstantTexts.AppName, message: message, btnOkTitle: ConstantTexts.OkBT, callBack: { (status) in
                                 if status{
                                     self.navigationController?.popViewController(animated: true)                            }
                             })
+                            
+                          
                         }
                         
                     }else if code == 401{
@@ -747,13 +781,16 @@ extension UploadDocumentVC{
                         }
                         
                         if let message = result_Dict.value(forKey: "message") as? String{
-                            _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style: .error, buttonTitle: ConstantTexts.OkBT, action: { (status) in
+                            
+                            
+                            self.customMethodManager?.showAlertWithOK(title: ConstantTexts.AppName, message: message, btnOkTitle: ConstantTexts.OkBT, callBack: { (status) in
                                 if status{
                                     self.customMethodManager?.deleteAllData(entity: "User_Data", success: {
                                         super.moveToNextViewCViaRoot(name: ConstantTexts.AuthSBT, withIdentifier: LoginVC.className)
                                     })
                                 }
                             })
+                            
                         }
                     }else if code == 400{
                         self.recordingPath = String()
@@ -771,7 +808,10 @@ extension UploadDocumentVC{
                         }
                         
                         if let message = result_Dict.value(forKey: "message") as? String{
-                            _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style:.error)
+                            
+                            
+                            self.customMethodManager?.showAlert(message, okButtonTitle: ConstantTexts.OkBT, target: self)
+                            
                         }
                     }
                 }
@@ -800,9 +840,14 @@ extension UploadDocumentVC{
             }
             
             if let errorString = (error as NSError).userInfo[ConstantTexts.errorMessage_Key] as? String{
-                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: errorString, style:.error)
+                
+                self.customMethodManager?.showAlert(errorString, okButtonTitle: ConstantTexts.OkBT, target: self)
+                
             }else{
-                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: ConstantTexts.errorMessage, style:.error)
+                
+                self.customMethodManager?.showAlert(ConstantTexts.errorMessage, okButtonTitle: ConstantTexts.OkBT, target: self)
+
+                
             }
             
         }
@@ -867,10 +912,13 @@ extension UploadDocumentVC{
                          } */
                     }else if code == 404{
                         if let message = result_Dict.value(forKey: "message") as? String{
-                            _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style: .error, buttonTitle: ConstantTexts.OkBT, action: { (status) in
+                            
+                            self.customMethodManager?.showAlertWithOK(title: ConstantTexts.AppName, message: message, btnOkTitle: ConstantTexts.OkBT, callBack: { (status) in
                                 if status{
                                     self.navigationController?.popViewController(animated: true)                            }
                             })
+                            
+                           
                         }
                         
                     }else if code == 401{
@@ -886,18 +934,23 @@ extension UploadDocumentVC{
                         }
                         
                         if let message = result_Dict.value(forKey: "message") as? String{
-                            _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style: .error, buttonTitle: ConstantTexts.OkBT, action: { (status) in
+                            
+                            self.customMethodManager?.showAlertWithOK(title: ConstantTexts.AppName, message: message, btnOkTitle: ConstantTexts.OkBT, callBack: { (status) in
                                 if status{
                                     self.customMethodManager?.deleteAllData(entity: "User_Data", success: {
                                         super.moveToNextViewCViaRoot(name: ConstantTexts.AuthSBT, withIdentifier: LoginVC.className)
                                     })
                                 }
                             })
+
+                            
                         }
                     }else if code == 400{
                         
                         if let message = result_Dict.value(forKey: "message") as? String{
-                            _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style:.error)
+                            
+                            self.customMethodManager?.showAlert(message, okButtonTitle: ConstantTexts.OkBT, target: self)
+                            
                             self.header.lblTimer.text = ConstantTexts.DefaultTimeLT
                         }
                     }
@@ -919,9 +972,14 @@ extension UploadDocumentVC{
             }
             
             if let errorString = (error as NSError).userInfo[ConstantTexts.errorMessage_Key] as? String{
-                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: errorString, style:.error)
+                
+                self.customMethodManager?.showAlert(errorString, okButtonTitle: ConstantTexts.OkBT, target: self)
+                
             }else{
-                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: ConstantTexts.errorMessage, style:.error)
+                
+                self.customMethodManager?.showAlert(ConstantTexts.errorMessage, okButtonTitle: ConstantTexts.OkBT, target: self)
+
+                
             }
             
         }
@@ -966,10 +1024,12 @@ extension UploadDocumentVC{
                         }
                     }else if code == 404{
                         if let message = result_Dict.value(forKey: "message") as? String{
-                            _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style: .error, buttonTitle: ConstantTexts.OkBT, action: { (status) in
+                            
+                            self.customMethodManager?.showAlertWithOK(title: ConstantTexts.AppName, message: message, btnOkTitle: ConstantTexts.OkBT, callBack: { (status) in
                                 if status{
                                     self.navigationController?.popViewController(animated: true)                            }
                             })
+                            
                         }
                         
                     }else if code == 401{
@@ -985,13 +1045,16 @@ extension UploadDocumentVC{
                         }
                         
                         if let message = result_Dict.value(forKey: "message") as? String{
-                            _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style: .error, buttonTitle: ConstantTexts.OkBT, action: { (status) in
+                            
+                            self.customMethodManager?.showAlertWithOK(title: ConstantTexts.AppName, message: message, btnOkTitle: ConstantTexts.OkBT, callBack: { (status) in
                                 if status{
                                     self.customMethodManager?.deleteAllData(entity: "User_Data", success: {
                                         super.moveToNextViewCViaRoot(name: ConstantTexts.AuthSBT, withIdentifier: LoginVC.className)
                                     })
                                 }
                             })
+                            
+                            
                         }
                     }
                 }
@@ -1012,9 +1075,9 @@ extension UploadDocumentVC{
             }
             
             if let errorString = (error as NSError).userInfo[ConstantTexts.errorMessage_Key] as? String{
-                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: errorString, style:.error)
+                self.customMethodManager?.showAlert(errorString, okButtonTitle: ConstantTexts.OkBT, target: self)
             }else{
-                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: ConstantTexts.errorMessage, style:.error)
+                self.customMethodManager?.showAlert(ConstantTexts.errorMessage, okButtonTitle: ConstantTexts.OkBT, target: self)
             }
             
         }
@@ -1105,7 +1168,8 @@ extension UploadDocumentVC{
                         }
                     }else{
                         if let message = result_Dict.value(forKey: "message") as? String{
-                            _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style:.error)
+                            self.customMethodManager?.showAlert(message, okButtonTitle: ConstantTexts.OkBT, target: self)
+
                         }
                         
                     }
@@ -1117,9 +1181,13 @@ extension UploadDocumentVC{
             print(error)
             self.customMethodManager?.stopLoader(view:self.view)
             if let errorString = (error as NSError).userInfo[ConstantTexts.errorMessage_Key] as? String{
-                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: errorString, style:.error)
+                self.customMethodManager?.showAlert(errorString, okButtonTitle: ConstantTexts.OkBT, target: self)
+
             }else{
-                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: ConstantTexts.errorMessage, style:.error)
+                
+                self.customMethodManager?.showAlert(ConstantTexts.errorMessage, okButtonTitle: ConstantTexts.OkBT, target: self)
+
+                
             }
             
             
@@ -1266,7 +1334,8 @@ extension UploadDocumentVC{
                     }else{
                         if let message = result_Dict.value(forKey: "message") as? String{
                             print(message)
-                          //  _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style:.error)
+                           // self.customMethodManager?.showAlert(message, okButtonTitle: ConstantTexts.OkBT, target: self)
+
                         }
                         
                     }
@@ -1278,9 +1347,9 @@ extension UploadDocumentVC{
             print(error)
             self.customMethodManager?.stopLoader(view:self.view)
             if let errorString = (error as NSError).userInfo[ConstantTexts.errorMessage_Key] as? String{
-                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: errorString, style:.error)
+                self.customMethodManager?.showAlert(errorString, okButtonTitle: ConstantTexts.OkBT, target: self)
             }else{
-                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: ConstantTexts.errorMessage, style:.error)
+                self.customMethodManager?.showAlert(ConstantTexts.AppName, okButtonTitle: ConstantTexts.OkBT, target: self)
             }
             
             

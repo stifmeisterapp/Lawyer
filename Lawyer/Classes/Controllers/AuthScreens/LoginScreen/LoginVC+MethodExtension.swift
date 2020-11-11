@@ -173,15 +173,14 @@ extension LoginVC{
                         
                         if let message = result_Dict.value(forKey: "message") as? String{
                             
-                            _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style: .success, buttonTitle: ConstantTexts.OkBT, action: { (success) in
-                                if success{
-                                    let vc = AppStoryboard.authSB.instantiateViewController(withIdentifier: OTP_VC.className) as! OTP_VC
-                                    vc.phoneNumber = dataListVM_T.dataStoreStructAtIndex(0).value
-                                    vc.type = self.tag == 0 ? "0" : "1"
-                                    vc.modalPresentationStyle = .automatic //or .overFullScreen for transparency
-                                    self.present(vc, animated: true, completion: nil)
-                                }
-                            })
+                            
+                            let vc = AppStoryboard.authSB.instantiateViewController(withIdentifier: OTP_VC.className) as! OTP_VC
+                            vc.phoneNumber = dataListVM_T.dataStoreStructAtIndex(0).value
+                            vc.type = self.tag == 0 ? "0" : "1"
+                            vc.modalPresentationStyle = .automatic //or .overFullScreen for transparency
+                            self.present(vc, animated: true, completion: nil)
+                            
+                       
                             
                         }
                         
@@ -189,7 +188,7 @@ extension LoginVC{
                     }else{
                         
                         if let message = result_Dict.value(forKey: "message") as? String{
-                            _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style:.error)
+                            self.customMethodManager?.showAlert(message, okButtonTitle: ConstantTexts.OkBT, target: self)
                         }
                         
                     }
@@ -200,9 +199,10 @@ extension LoginVC{
             print(error)
             self.customMethodManager?.stopLoader(view:self.view)
             if let errorString = (error as NSError).userInfo[ConstantTexts.errorMessage_Key] as? String{
-                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: errorString, style:.error)
+                self.customMethodManager?.showAlert(errorString, okButtonTitle: ConstantTexts.OkBT, target: self)
             }else{
-                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: ConstantTexts.errorMessage, style:.error)
+                self.customMethodManager?.showAlert( ConstantTexts.errorMessage, okButtonTitle: ConstantTexts.OkBT, target: self)
+
             }
             
             

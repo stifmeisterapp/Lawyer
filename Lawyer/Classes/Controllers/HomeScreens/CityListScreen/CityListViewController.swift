@@ -128,7 +128,12 @@ class CityListViewController: SBaseViewController {
                             if let cell = self.cityTableView.cellForRow(at: indexPath) as? Detail_TableViewCellAndXib{
                                 cell.transform = CGAffineTransform.identity
                                 let name: String = self.searchActive ? self.cityNameArray_Filter[sender.tag] : self.cityNameArray[sender.tag]
+                                USER_DEFAULTS.setValue(name, forKey: ConstantTexts.selectedCity)
                                 self.getCity?(name)
+                                
+                                
+                                
+                                
                                 self.navigationController?.popViewController(animated: true)
                             }
                             

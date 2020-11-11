@@ -130,9 +130,9 @@ extension ContactUsVC{
             self.contactUsListModel?.validateFields(dataStore: dataListVM_T, validHandler: { (strMsg, status, row, section) in
                 if status{
                     
-                  
+                    self.customMethodManager?.showAlert(ConstantTexts.ContactYouSoonALERT, okButtonTitle: ConstantTexts.OkBT, target: self)
+
                     
-                    _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: ConstantTexts.ContactYouSoonALERT, style: .success)
                     
                     
                 }else{

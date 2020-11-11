@@ -46,18 +46,18 @@ extension AppTourVC:UICollectionViewDelegate{
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let pageWidth = self.tourCollectionView.frame.size.width
             pageControl.currentPage = Int(self.tourCollectionView.contentOffset.x / pageWidth)
-        
+        self.buttonProceedRef.tag = Int(self.tourCollectionView.contentOffset.x / pageWidth)
         if pageControl.currentPage == 2{
             self.buttonProceedRef.isHidden = false
-            UIView.animate(withDuration: 0.4) {
-                self.buttonProceedRef.alpha = 1
-            }
+            self.buttonProceedRef.alpha = 1
+            self.buttonProceedRef.setTitle(ConstantTexts.SKIP_BT, for: .normal)
+            
         }else{
             if self.buttonProceedRef.alpha == 1{
-                UIView.animate(withDuration: 0.2) {
-                    self.buttonProceedRef.alpha = 0
-                }
-                self.buttonProceedRef.isHidden = true
+                self.buttonProceedRef.isHidden = false
+                self.buttonProceedRef.alpha = 1
+                self.buttonProceedRef.setTitle(ConstantTexts.SKIP_BT, for: .normal)
+                
             }
         }
     }

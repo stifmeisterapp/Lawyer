@@ -20,7 +20,7 @@ class OrderStatusVM: OrderStatusDataModeling {
         var orderStatus:[OrderStatusViewModel] = [OrderStatusViewModel]()
         var Id:String = String()
         var nameR:String = String()
-        let OrederStatusDataModelValue:OrederStatusDataModel = OrederStatusDataModel(PaymentAmount: String(), PaymentDate: String(), PaymentMethod: String(), GST: "\(ConstantTexts.Gst_ValueLT)", Query: String(), LawyerAssign: String(), LawyerName: String(), Experience: String(), ProfilePhoto: String(), Qualification: String(),SupportEmail:String(),SupportPhoneNumber:String(),title: String(),BookingDate:String(),BookingTime: String())
+        let OrederStatusDataModelValue:OrederStatusDataModel = OrederStatusDataModel(PaymentAmount: String(), PaymentDate: String(), PaymentMethod: String(), GST: "\(ConstantTexts.Gst_ValueLT)", Query: String(), LawyerAssign: String(), LawyerName: String(), Experience: String(), ProfilePhoto: String(), Qualification: String(),SupportEmail:String(),SupportPhoneNumber:String(),title: String(),BookingDate:String(),BookingTime: String(),Review:String(), IsRating: String())
         
         OrederStatusDataModelValue.PaymentAmount = data.value(forKey: "PaymentAmount") as? String ?? String()
         OrederStatusDataModelValue.PaymentDate = data.value(forKey: "PaymentDate") as? String ?? String()
@@ -35,6 +35,22 @@ class OrderStatusVM: OrderStatusDataModeling {
         
         OrederStatusDataModelValue.BookingDate = data.value(forKey: "BookingDate") as? String ?? String()
         OrederStatusDataModelValue.BookingTime = data.value(forKey: "BookingTime") as? String ?? String()
+        
+        OrederStatusDataModelValue.Review = data.value(forKey: "Review") as? String ?? String()
+        
+        if let IsRating = data.value(forKey: "IsRating") as? String{
+            OrederStatusDataModelValue.IsRating = "\(IsRating)"
+        }
+        
+        if let IsRating = data.value(forKey: "IsRating") as? Int{
+            OrederStatusDataModelValue.IsRating = "\(IsRating)"
+        }
+        
+        if let IsRating = data.value(forKey: "IsRating") as? Double{
+            OrederStatusDataModelValue.IsRating = "\(IsRating)"
+        }
+        
+        
         
         OrederStatusDataModelValue.SupportEmail = data.value(forKey: "SupportEmail") as? String ?? String()
         OrederStatusDataModelValue.SupportPhoneNumber = data.value(forKey: "SupportPhoneNumber") as? String ?? String()
@@ -108,11 +124,26 @@ class OrderStatusVM: OrderStatusDataModeling {
         
         if Id == "3"{
             
-            orderStatus.append(OrderStatusViewModel(isExpended: Bool(), isCompleted: true, title: ConstantTexts.OrderCompletedLT, values: [OrederStatusDataModel]()))
+            orderStatus.append(OrderStatusViewModel(isExpended: Bool(), isCompleted: true, title: ConstantTexts.OrderCompletedLT, values: [OrederStatusDataModelValue]))
         }else{
             orderStatus.append(OrderStatusViewModel(isExpended: Bool(), isCompleted: Bool(), title: ConstantTexts.OrderCompletedLT, values: [OrederStatusDataModel]()))
         }
         
+        for index in 0..<orderStatus.count{
+             if Id == "1"{
+                if index == 0{
+                    orderStatus[index].isExpended = true
+                }
+            }else if Id == "2"{
+                if index == 1{
+                    orderStatus[index].isExpended = true
+                }
+            }else{
+                if index == 2{
+                    orderStatus[index].isExpended = true
+                }
+            }
+        }
         
         return OrderStatusDataListViewModel(orderStatus)
     }

@@ -17,7 +17,6 @@ import FirebaseCrashlytics
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
-    var callBack:(()->())?
     internal var customMethodManager:CustomMethodProtocol?
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {

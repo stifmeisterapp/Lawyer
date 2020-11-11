@@ -51,6 +51,6 @@ enum AppFont: String {
 
 //MARK: - Constant fonts
 struct ConstantFonts{
-    static let  mainBottomButtonFont           =      AppFont.Bold.size(AppFontName.OpenSans, size: 18)
+    static let  mainBottomButtonFont           =      AppFont.Bold.size(AppFontName.OpenSans, size: 16)
 }
 

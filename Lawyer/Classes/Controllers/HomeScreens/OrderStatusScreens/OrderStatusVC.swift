@@ -21,10 +21,7 @@ class OrderStatusVC:  SBaseViewController {
     @IBOutlet weak var btnCallRef: UIButton!
     @IBOutlet weak var btnMsgRef: UIButton!
     
-    @IBOutlet weak var lblSuccess: UILabel!
-    @IBOutlet weak var imgSuccess: UIImageView!
-    @IBOutlet weak var btnRatingRef: UIButton!
-    
+   
     //MARK: - Variables
     internal var order:OrderDataViewModel = OrderDataViewModel(OrderDataModel(BookingDate: String(), BookingTime: String(), CategoryName: String(), CategoryId: String(), CityName: String(), CustomerEmail: String(), CustomerName: String(), CustomerPhone: String(), Id: String(),Query:String(),Status:String()))
     
@@ -39,6 +36,11 @@ class OrderStatusVC:  SBaseViewController {
     internal var lawyerImage:String = String()
     
     internal var LawyerId:String = String()
+    
+    
+    internal var rate:String = String()
+    internal var Review:String = String()
+    internal var Id: String = String()
     
     //MARK: - View life cycle methods
     //TODO: Implementation viewDidLoad
@@ -59,7 +61,7 @@ class OrderStatusVC:  SBaseViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         //  self.viewBG.gradientBackground(from: AppColor.app_gradient_color1, to: AppColor.app_gradient_color2, direction: .topToBottom)
-        //  initialSetup()
+       
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -93,6 +95,52 @@ class OrderStatusVC:  SBaseViewController {
     @objc func reloadApiData(_ notification:Notification) {
         self.hitOrderDetailsService()
     }
+    
+    
+    @objc func btnCellRateTapped(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.1,
+                       animations: {
+                       
+                        let indexPath = IndexPath(row: 0, section: sender.tag)
+                        if let cell = self.tblOrderStatus.cellForRow(at: indexPath) as? RateLawyer_UITableViewCell{
+                            
+                            self.customMethodManager?.provideShadowAndCornerRadius(cell.btnRatingRef, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.textColor, 0, 0, 0, 0, 0, AppColor.clearColor)
+                            cell.btnRatingRef.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+                            
+                            
+                            
+                        }
+                        
+                       },
+                       completion: { _ in
+                        UIView.animate(withDuration: 0.1) {
+                            
+                            let indexPath = IndexPath(row: 0, section: 2)
+                            if let cell = self.tblOrderStatus.cellForRow(at: indexPath) as? RateLawyer_UITableViewCell{
+                                
+                                
+                                self.customMethodManager?.provideShadowAndCornerRadius(cell.btnRatingRef, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.textColor, -1, 1, 1, 3, 0, AppColor.clearColor)
+                                cell.btnRatingRef.transform = CGAffineTransform.identity
+                                
+                                let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: LawyerRatingVC.className) as! LawyerRatingVC
+                                vc.lawyerName = self.lawyerName
+                                vc.lawyerImage = self.lawyerImage
+                                vc.ConsultationId = self.order.Id
+                                vc.LawyerId = self.LawyerId
+                                vc.callBackRating = {
+                                    self.hitOrderDetailsService()
+                                }
+                                vc.modalPresentationStyle = .automatic //or .overFullScreen for transparency
+                                self.present(vc, animated: true, completion: nil)
+                                
+                            }
+                            
+                           
+                        }
+                       })
+        
+    }
+    
     
     //TODO: Actions
     
@@ -152,30 +200,6 @@ class OrderStatusVC:  SBaseViewController {
         
     }
     
-    @IBAction func btnRateTapped(_ sender: UIButton) {
-        UIView.animate(withDuration: 0.1,
-                       animations: {
-                        self.customMethodManager?.provideShadowAndCornerRadius(self.btnRatingRef, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.textColor, 0, 0, 0, 0, 0, AppColor.clearColor)
-                        self.btnRatingRef.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
-                       },
-                       completion: { _ in
-                        UIView.animate(withDuration: 0.1) {
-                            self.customMethodManager?.provideShadowAndCornerRadius(self.btnRatingRef, 2, [.layerMinXMinYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner], AppColor.textColor, -1, 1, 1, 3, 0, AppColor.clearColor)
-                            self.btnRatingRef.transform = CGAffineTransform.identity
-                            
-                            let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: LawyerRatingVC.className) as! LawyerRatingVC
-                            vc.lawyerName = self.lawyerName
-                            vc.lawyerImage = self.lawyerImage
-                            vc.ConsultationId = self.order.Id
-                            vc.LawyerId = self.LawyerId
-                            vc.modalPresentationStyle = .automatic //or .overFullScreen for transparency
-                            self.present(vc, animated: true, completion: nil)
-                            
-                            
-                        }
-                       })
-        
-    }
     
     
     

@@ -10,66 +10,35 @@ import Foundation
 import UIKit
 
 //MARK: - UITableViewDataSource extension
-/*extension QueryListVC:UITableViewDataSource{
+extension QueryListVC:UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
         return (self.queryList == nil) ? 0 : self.queryList?.numberOfSections ?? 0
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        guard let item = self.queryList?.QueryAtIndex(section) else {
-            fatalError("No FilterCategoryViewModel found...")
-        }
-        
-        return item.isOpen ? self.queryList?.numberOfRowsInSection(section) ?? 0 : 0
+        return self.queryList?.numberOfRowsInSection(section) ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         
-        guard let item = self.queryList?.QueryAtIndex(indexPath.section) else {
+        guard let item = self.queryList?.QueryAtIndex(indexPath.row) else {
             fatalError("No FilterCategoryViewModel found...")
         }
         
-        if item.isOpen{
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: Detail_TableViewCellAndXib.className, for: indexPath) as? Detail_TableViewCellAndXib else {
-                fatalError(ConstantTexts.unexpectedIndexPath)
-            }
-            
-            cell.viewBG.isHidden = false
-            cell.tagListView.isHidden = true
-            cell.btnSelectRef.isHidden = true
-            cell.lblValue.text = item.Answer[indexPath.row]
-            
-            return cell
-            
-        }else{
-            return UITableViewCell()
-        }
         
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: QueryTableViewCellAndXib.className, for: indexPath) as? QueryTableViewCellAndXib else {
+            fatalError(ConstantTexts.unexpectedIndexPath)
+        }
+        cell.configureNew(with: item)
+        
+        
+        return cell
         
     }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header: QueryHeader  = Bundle.main.loadNibNamed(QueryHeader.className, owner: self, options: nil)?.first as! QueryHeader
-        
-        header.labelName.translatesAutoresizingMaskIntoConstraints = false
-        header.backgroundColor = AppColor.whiteColor
-        header.labelName.font = AppFont.Semibold.size(AppFontName.OpenSans, size: 16)
-        header.labelName.textColor = AppColor.darkGrayColor
-        header.labelName.numberOfLines = 0
-        header.imageView.setImageTintColor(AppColor.darkGrayColor)
-        header.btnSelectRef.tag = section
-        header.btnSelectRef.addTarget(self, action: #selector(btnExpendTapped), for: .touchUpInside)
-        
-        if let detailItem = self.queryList?.QueryAtIndex(section) {
-            header.labelName.text = detailItem.Query
-        }
-
-        return header
-    }
-    
 }
+
 
 
 
@@ -78,37 +47,60 @@ import UIKit
 extension QueryListVC:UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        guard let item = self.queryList?.QueryAtIndex(indexPath.row) else {
-            fatalError("No FilterCategoryViewModel found...")
-        }
-        return item.isOpen ? UITableView.automaticDimension : 0
+        
+        return UITableView.automaticDimension
         
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        guard let item = self.queryList?.QueryAtIndex(indexPath.row) else {
-            fatalError("No FilterCategoryViewModel found...")
-        }
-        return item.isOpen ? UITableView.automaticDimension : 0
+        
+        return UITableView.automaticDimension
         
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        guard let item = self.queryList?.QueryAtIndex(section) else {
-            fatalError("No FilterCategoryViewModel found...")
-        }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        return  item.Query.height(withConstrainedWidth: MAIN_SCREEN_WIDTH - 55, font: AppFont.Semibold.size(AppFontName.OpenSans, size: 16))
+        UIView.animate(withDuration: 0.1,
+                       animations: {
+                        
+                        if let cell = tableView.cellForRow(at: indexPath) as? QueryTableViewCellAndXib {
+                            cell.viewBG.transform = .init(scaleX: 0.95, y: 0.95)
+                            cell.contentView.backgroundColor = AppColor.whiteColor
+                        }
+                       },
+                       completion: { _ in
+                        UIView.animate(withDuration: 0.05) {
+                            if let cell = tableView.cellForRow(at: indexPath) as? QueryTableViewCellAndXib {
+                                cell.viewBG.transform = .identity
+                                cell.contentView.backgroundColor = .clear
+                                
+                                
+                                if let status =  self.queryList?.QueryAtIndex(indexPath.row).Status{
+                                    if status == ConstantTexts.OpenLT{
+                                        print("Do nothing")
+                                    }else{
+                                        UIView.animate(views: tableView.visibleCells,
+                                                       animations: self.animations, reversed: true,
+                                                       initialAlpha: 1.0,
+                                                       finalAlpha: 0.0,
+                                                       completion: {
+                                                        print("Bahas...")
+                                                        let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: QueryDetailVC.className) as! QueryDetailVC
+                                                        
+                                                        if let order = self.queryList?.QueryAtIndex(indexPath.row){
+                                                            vc.order = order
+                                                        }
+                                                        self.navigationController?.pushViewController(vc, animated: true)
+                                                        DispatchQueue.main.async {
+                                                            self.orderListTableView.reloadData()
+                                                        }
+                                                       })
+                                    }
+                                }
+                            }
+                        }
+                       })
     }
-    
-    func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
-        guard let item = self.queryList?.QueryAtIndex(section) else {
-            fatalError("No FilterCategoryViewModel found...")
-        }
-        
-        return  item.Query.height(withConstrainedWidth: MAIN_SCREEN_WIDTH - 55, font: AppFont.Semibold.size(AppFontName.OpenSans, size: 16))
-    }
-    
     
     
     /* func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -120,15 +112,13 @@ extension QueryListVC:UITableViewDelegate{
     
     
 }
- */
-
 
 //MARK: - UIScrollView Delegate
-extension QueryListVC:UIScrollViewDelegate,UITableViewDelegate{
+extension QueryListVC:UIScrollViewDelegate{
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView){
-        if self.faqView.tableView.contentOffset.y != 0{
+        if self.orderListTableView.contentOffset.y != 0{
             
-            if ((self.faqView.tableView.contentOffset.y + self.faqView.tableView.frame.size.height) >= self.faqView.tableView.contentSize.height){
+            if ((self.orderListTableView.contentOffset.y + self.orderListTableView.frame.size.height) >= self.orderListTableView.contentSize.height){
                 
                 print(self.isPagination)
                 if self.isPagination == false{

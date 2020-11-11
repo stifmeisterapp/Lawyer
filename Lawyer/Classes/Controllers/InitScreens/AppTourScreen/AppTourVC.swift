@@ -73,8 +73,7 @@ class AppTourVC: SBaseViewController {
     //TODO: Actions
     @IBAction func btnProceedTapped(_ sender: UIButton) {
         USER_DEFAULTS.set(true, forKey: ConstantTexts.tourOverUDK)
-        super.moveToNextViewCViaRoot(name: ConstantTexts.AuthSBT, withIdentifier: LoginVC.className)
-        
+         super.moveToNextViewCViaRoot(name: ConstantTexts.AuthSBT, withIdentifier: LoginVC.className)
     }
     
     /*

@@ -76,12 +76,13 @@ extension OTP_VC{
         let image = UIImage(systemName: "x.circle.fill") ?? UIImage()
         image.setImageTintWith(AppColor.darkGrayColor)
         self.btnDismissRef.setImage(image, for: .normal)
-        self.btnDismissRef.tintColor = AppColor.darkGrayColor
+        self.btnDismissRef.tintColor = AppColor.whiteColor
         
         
         
-        self.lblTimer.font = AppFont.Regular.size(AppFontName.OpenSans, size: 12)
-        self.lblTimer.textColor = AppColor.app_gradient_color1
+        self.lblTimer.font = ConstantFonts.mainBottomButtonFont
+        self.lblTimer.textColor = AppColor.errorColor
+        self.lblTimer.textAlignment = .center
         
         
         // *** Create instance of `NSMutableParagraphStyle`
@@ -252,23 +253,12 @@ extension OTP_VC{
                         
                         
                         
-                        
-                        /*  if let message = result_Dict.value(forKey: "message") as? String{
-                         
-                         _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style: .success, buttonTitle: ConstantTexts.OkBT, action: { (success) in
-                         if success{
-                         let vc = AppStoryboard.tabBarSB.instantiateViewController(withIdentifier: TabBarVC.className) as! TabBarVC
-                         UIApplication.shared.windows.first?.rootViewController = vc
-                         UIApplication.shared.windows.first?.makeKeyAndVisible()
-                         }
-                         })
-                         
-                         } */
-                        
+                      
                         
                     }else{
                         if let message = result_Dict.value(forKey: "message") as? String{
-                            _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style:.error)
+                            self.customMethodManager?.showAlert(message, okButtonTitle: ConstantTexts.OkBT, target: self)
+
                         }
                         
                     }
@@ -279,9 +269,11 @@ extension OTP_VC{
             print(error)
             self.customMethodManager?.stopLoader(view:self.view)
             if let errorString = (error as NSError).userInfo[ConstantTexts.errorMessage_Key] as? String{
-                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: errorString, style:.error)
+                self.customMethodManager?.showAlert(errorString, okButtonTitle: ConstantTexts.OkBT, target: self)
+
             }else{
-                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: ConstantTexts.errorMessage, style:.error)
+                self.customMethodManager?.showAlert(ConstantTexts.errorMessage, okButtonTitle: ConstantTexts.OkBT, target: self)
+
             }
             
             
@@ -320,7 +312,8 @@ extension OTP_VC{
                         self.startTimer()
                     }else{
                         if let message = result_Dict.value(forKey: "message") as? String{
-                            _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: message, style:.error)
+                            self.customMethodManager?.showAlert(message, okButtonTitle: ConstantTexts.OkBT, target: self)
+
                         }
                         
                     }
@@ -331,9 +324,11 @@ extension OTP_VC{
             print(error)
             self.customMethodManager?.stopLoader(view:self.view)
             if let errorString = (error as NSError).userInfo[ConstantTexts.errorMessage_Key] as? String{
-                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: errorString, style:.error)
+                self.customMethodManager?.showAlert(errorString, okButtonTitle: ConstantTexts.OkBT, target: self)
+
             }else{
-                _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: ConstantTexts.errorMessage, style:.error)
+                self.customMethodManager?.showAlert(ConstantTexts.errorMessage, okButtonTitle: ConstantTexts.OkBT, target: self)
+
             }
             
             

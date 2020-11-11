@@ -81,6 +81,11 @@ struct ConstantTexts{
     
     static let  AdditionalQuerLT                    =      "Create your query related to any legal issue and you will recieve some advice by our expert"
     
+    static let  QueryStatusLT                       =      "Your Query is created, you will be reported soon"
+    static let  QuestionLT                          =      "Question: "
+    static let  AnswerLT                            =      "Answer: "
+    static let  OpenLT                              =      "Open"
+    static let  ResolvedLT                          =      "Resolved"
     
     static let  NeedHelp_LT                         =      "Need Help?\nTalk to an Expert."
     static let  Education_LT                        =      "Education"
@@ -136,6 +141,7 @@ struct ConstantTexts{
     static let  OrdersLT                            =      "Orders"
     static let  OrdersDateLT                        =      "Order date"
     static let  OrdersTimeLT                        =      "Order time"
+    static let  AdvLT                               =      "Adv. "
     static let  FlatFeesLT                          =      "Flat Fees"
     static let  CouponsLT                           =      "Coupons"
     static let  YouAreInLT                          =      "You are in"
@@ -205,6 +211,7 @@ struct ConstantTexts{
     static let  Order_completedLT                   =      "Consultation completed"
     static let  LanguageLT                          =      "Language"
     static let  CosultationCompletedLT              =      "Consultation Completed!"
+    static let  CosultationCompletedNewLT           =      "Your review for our lawyer"
     static let  CosultationCompletedInsLT           =      "Your consultation is successfully completed, Thank you for consultation with us."
     static let  CompareLT                           =      "Compare"
     static let  CompareDecLT                        =      "Multiple lawyers in every category. Choose on the basis of their charges, language and experience."
@@ -232,6 +239,7 @@ struct ConstantTexts{
     static let  CompanyGSTIN_LT                     =      "27AAPFU0939F1ZV"
     static let  MyRecording_LT                      =      "myRecording.m4a"
     static let  Categories_LT                       =      "Category"
+    static let  Select_categories_LT                =      "Select category:-"
     
     static let  YourLegalExpert_LT_1                =      "Your legal expert is "
     static let  YourLegalExpert_LT_2                =      ",he/she will contact you within 24 hours. You can write to him/her at "
@@ -254,6 +262,7 @@ struct ConstantTexts{
     static let  ReferAndEarnHT                      =      "Refer & Earn"
     static let  QuerisHT                            =      "Queries"
     static let  OrdersStatusHT                      =      "Order status"
+    static let  QueryStatusHT                       =      "Query status"
     static let  CategoriesHT                        =      "Categories"
     static let  PaymentHT                           =      "Payment"
     static let  LoginHT                             =      "Login"
@@ -281,6 +290,7 @@ struct ConstantTexts{
     static let  LIST_VIEW_BT                        =      "LIST VIEW"
     static let  MAP_VIEW_BT                         =      "MAP VIEW"
     static let  PROCEED_BT                          =      "PROCEED"
+    static let  SKIP_BT                             =      "SKIP"
     static let  NEXTC_BT                            =      "NEXT"
     static let  LawyerBT                            =      "For Lawyer"
     static let  CustomerBT                          =      "For Customer"
@@ -377,6 +387,9 @@ struct ConstantTexts{
     static let  SelectCaseTypeALERT                 =      "Please select case type."
     static let  EnterDescriptionALERT               =      "Please enter description."
     static let  EnterCouponCodeALERT                =      "Please enter coupon code."
+    
+    static let  EnterSelectCategoryALERT            =      "Please select category."
+    
     static let  cameraAlert                         =      "Device has no camera."
     static let  chooseOneALERT                      =      "Already selected document.\nYou can pick only one document."
     static let  chooseNextDateALERT                 =      "Sorry!\n\nNo appointment time found on current date.\nYou can pick appointment from next date."
@@ -397,10 +410,10 @@ struct ConstantTexts{
     static let  hitEarnedService                    =      "HIT_EARNED_SERVICE"
     static let  changeToQuery                       =      "CHANGE_TO_QUERY"
     static let  hitOrderStatusService               =      "HIT_ORDER_STATUS_SERVICE"
+    static let  selectedCity                        =      "SELECTED_CITY"
 
     //TODO: Static values for api keys
     static let IpAddress_Key                        =      "0.0.0.0"
-    
     
     //TODO: Storyboard Title
     static let  AuthSBT                             =      "Auth"

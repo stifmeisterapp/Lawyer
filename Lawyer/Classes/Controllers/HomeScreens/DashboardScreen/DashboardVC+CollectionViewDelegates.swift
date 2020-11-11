@@ -56,21 +56,35 @@ extension DashboardVC:UICollectionViewDelegate{
                             if let cell = collectionView.cellForItem(at: indexPath) as? CategoryCollectionViewCellAndXib {
                                 cell.viewBG.transform = .identity
                                 cell.contentView.backgroundColor = .clear
+                                
+                                if let city = USER_DEFAULTS.value(forKey: ConstantTexts.selectedCity) as? String{
+                                    self.cityName = city
+                                }else{
+                                    self.cityName = String()
+                                }
+                                
                                 if self.cityName == String(){
                                     
-                                    
-                                    self.customMethodManager?.showAlertWithCancel(title: ConstantTexts.AppName, message: ConstantTexts.SelectCityALERT, btnOkTitle: ConstantTexts.SelectCityBT, btnCancelTitle: ConstantTexts.CancelBT, callBack: { (status) in
+                                  /*  self.customMethodManager?.showAlertWithCancel(title: ConstantTexts.AppName, message: ConstantTexts.SelectCityALERT, btnOkTitle: ConstantTexts.SelectCityBT, btnCancelTitle: ConstantTexts.CancelBT, callBack: { (status) in
                                           if status{
                                             let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: CityListViewController.className) as! CityListViewController
                                             vc.getCity = { item in
-                                                self.cityName = item
-                                                print(item)
+                                                if let city = USER_DEFAULTS.value(forKey: ConstantTexts.selectedCity) as? String{
+                                                    self.cityName = city
+                                                    self.lblHeaderSelectLocationTitle.text = self.cityName
+                                                }
+                                                
                                             }
                                             self.navigationController?.pushViewController(vc, animated: true)
                                           }else{
                                               print("Do nothing...")
                                           }
-                                      })
+                                      }) */
+                                    
+                                    
+                                    self.showAlert()
+                                    
+                                    
                                     
                                    
                                 }else{

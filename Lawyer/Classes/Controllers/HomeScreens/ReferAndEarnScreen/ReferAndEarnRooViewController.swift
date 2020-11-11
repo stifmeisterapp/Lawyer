@@ -21,7 +21,7 @@ class ReferAndEarnRooViewController: SBaseViewController {
     //TODO: Implementation viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        initValues()
         // Do any additional setup after loading the view.
         
     }
@@ -35,7 +35,7 @@ class ReferAndEarnRooViewController: SBaseViewController {
     //TODO: Implementation viewDidAppear
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        initValues()
+        
     }
     
     /*

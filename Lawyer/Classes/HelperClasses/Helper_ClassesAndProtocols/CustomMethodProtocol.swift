@@ -21,6 +21,9 @@ protocol CustomMethodProtocol {
     //TODO: Show ToolTip
     func showToolTip(msg:String,anchorView:UIView,sourceView:UIView)
     
+    //TODO: Show ToolTip
+    func showToolTipBottom(msg:String,anchorView:UIView,sourceView:UIView)
+    
     //TODO: Provide corner radius
     func provideCornerRadiusTo(_ view:UIView, _ radius:CGFloat, _ corners:CACornerMask)
     
@@ -105,8 +108,15 @@ protocol CustomMethodProtocol {
     //TODO: Show alert simple
     func showAlert(_ message: String, okButtonTitle: String?, target: UIViewController?)
     
+    
+    
+    
     //TODO: Show alert with cancel
     func showAlertWithCancel(title:String,message:String,btnOkTitle:String,btnCancelTitle:String,callBack:@escaping ((Bool)->()))
+    
+    //TODO: Show alert with cancel
+    func showAlertWithOK(title:String,message:String,btnOkTitle:String,callBack:@escaping ((Bool)->()))
+    
     
    
     //TODO - Get topmost view controller

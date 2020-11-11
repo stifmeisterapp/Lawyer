@@ -34,7 +34,7 @@ class LawyerRatingVC:SBaseViewController  {
     
     internal var LawyerId:String = String()
     internal var ConsultationId:String = String()
-    
+    internal var callBackRating:(()->())?
     //MARK: - View life cycle methods
     //TODO: Implementation viewDidLoad
     override func viewDidLoad() {

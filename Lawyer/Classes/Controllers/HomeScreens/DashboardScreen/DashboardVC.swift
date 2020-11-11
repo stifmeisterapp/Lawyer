@@ -20,6 +20,14 @@ class DashboardVC: SBaseViewController {
     @IBOutlet weak var viewCollectionBG: UIView!
     @IBOutlet weak var viewMoreBG: UIView!
     
+    
+    @IBOutlet weak var viewHeaderBG: UIView!
+    @IBOutlet weak var viewHeaderCityBG: UIView!
+    @IBOutlet weak var lblHeaderTitle: UILabel!
+    @IBOutlet weak var lblHeaderSelectLocationTitle: UILabel!
+    @IBOutlet weak var NSLayoutConstraintHeaderHeight: NSLayoutConstraint!
+    
+    
     @IBOutlet weak var lblMore: UILabel!
     
     @IBOutlet weak var lblStartCons_Paid: UILabel!
@@ -31,10 +39,11 @@ class DashboardVC: SBaseViewController {
     @IBOutlet weak var bannerView: FSPagerView!
     @IBOutlet weak var imgMore: UIImageView!
     
-
-    
-    //MARK: - Variables
-    internal var images:[String] = [String]()
+    @IBOutlet weak var blurView: UIVisualEffectView!
+    @IBOutlet weak var viewPopup: UIView!
+    @IBOutlet weak var lblHeaderPopupTitle: UILabel!
+    @IBOutlet weak var btnCancelRef: UIButton!
+    @IBOutlet weak var btnOkRef: UIButton!
     
     @IBOutlet weak var pageControl: FSPageControl!{
         didSet {
@@ -48,6 +57,8 @@ class DashboardVC: SBaseViewController {
         }
     }
     
+    //MARK: - Variables
+    internal var images:[String] = [String]()
     
     internal var customMethodManager:CustomMethodProtocol?
     internal var categoryListVM:CategoryListViewModel?
@@ -87,7 +98,7 @@ class DashboardVC: SBaseViewController {
         
         self.viewGradient.gradientBackground(from: AppColor.app_gradient_color1, to: AppColor.app_gradient_color2, direction: .topToBottom)
         
-        
+     /*
         if self.categoryListVM == nil{
             self.categoryListVM = self.homeVM?.prepareDataEmpty()
         }else{
@@ -97,12 +108,17 @@ class DashboardVC: SBaseViewController {
         DispatchQueue.main.async {
             self.dash_CollectionView.reloadData()
         }
-        
-        self.forceUpdateService()
+         */
+       
         
     }
     
-    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        super.isHiddenNavigationBar(false)
+        self.initalHideBlurView()
+    }
+  
     //MARK: - Actions, Gestures, Selectors
     //TODO: Selectors
     
@@ -117,7 +133,13 @@ class DashboardVC: SBaseViewController {
                             self.viewMoreBG.transform = CGAffineTransform.identity
                             let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: HomeVC.className) as! HomeVC
                             vc.categoryListVM = self.expertiseVM
-                            vc.cityName = self.cityName
+                            
+                            if let city = USER_DEFAULTS.value(forKey: ConstantTexts.selectedCity) as? String{
+                                vc.cityName = city
+                            }else{
+                                vc.cityName = String()
+                            }
+                            
                             self.navigationController?.pushViewController(vc, animated: true)
                         }
                        })
@@ -150,11 +172,83 @@ class DashboardVC: SBaseViewController {
                         UIView.animate(withDuration: 0.1) {
                             self.btnStartCons_Free.transform = CGAffineTransform.identity
                             let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: SendQueryViewController.className) as! SendQueryViewController
-                            
+                            vc.expertiseVM = self.expertiseVM
                             self.navigationController?.pushViewController(vc, animated: true)
                         }
                        })
     }
+    
+    @IBAction func btnSelectCityTapped(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.1,
+                       animations: {
+                        self.viewHeaderCityBG.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+                       },
+                       completion: { _ in
+                        UIView.animate(withDuration: 0.1) {
+                            self.viewHeaderCityBG.transform = CGAffineTransform.identity
+                            let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: CityListViewController.className) as! CityListViewController
+                            vc.getCity = { item in
+                                
+                                if let city = USER_DEFAULTS.value(forKey: ConstantTexts.selectedCity) as? String{
+                                    self.cityName = city
+                                    self.lblHeaderSelectLocationTitle.text = self.cityName
+                                }
+                                
+                               
+                            }
+                            self.navigationController?.pushViewController(vc, animated: true)
+                            
+                        }
+                       })
+    }
+    
+    
+    
+    @IBAction func hideRatingAction(_ sender: Any) {
+        self.hideBlurView()
+    }
+    
+    
+    @IBAction func btnCancelAction(_ sender: Any) {
+        UIView.animate(withDuration: 0.1,
+                       animations: {
+                        self.btnCancelRef.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+                       },
+                       completion: { _ in
+                        UIView.animate(withDuration: 0.1) {
+                            self.btnCancelRef.transform = CGAffineTransform.identity
+                            self.hideBlurView()
+                            
+                        }
+                       })
+    }
+    
+    @IBAction func btnOkAction(_ sender: Any) {
+        UIView.animate(withDuration: 0.1,
+                       animations: {
+                        self.btnOkRef.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+                       },
+                       completion: { _ in
+                        UIView.animate(withDuration: 0.1) {
+                            self.btnOkRef.transform = CGAffineTransform.identity
+                            self.hideBlurView()
+                            
+                            let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: CityListViewController.className) as! CityListViewController
+                            vc.getCity = { item in
+                                if let city = USER_DEFAULTS.value(forKey: ConstantTexts.selectedCity) as? String{
+                                    self.cityName = city
+                                    self.lblHeaderSelectLocationTitle.text = self.cityName
+                                }
+                                
+                            }
+                            self.navigationController?.pushViewController(vc, animated: true)
+
+                            
+                        }
+                       })
+    }
+    
+    
     
     /*
      // MARK: - Navigation

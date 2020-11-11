@@ -253,6 +253,18 @@
 		9DA30C75253B6DEE00E50732 /* LawyerRatingVC+CustomMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA30C74253B6DEE00E50732 /* LawyerRatingVC+CustomMethods.swift */; };
 		9DA30C7A253B73F400E50732 /* LawyerRatingVC+UITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA30C79253B73F400E50732 /* LawyerRatingVC+UITextView.swift */; };
 		9DAF732B2504E07D003C182C /* RectangularDashedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAF732A2504E07D003C182C /* RectangularDashedView.swift */; };
+		9DB145C4254705040028EBEA /* CityListViewController+TextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB145C3254705040028EBEA /* CityListViewController+TextFieldDelegate.swift */; };
+		9DB145CA254710990028EBEA /* RateLawyer_UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB145C8254710990028EBEA /* RateLawyer_UITableViewCell.swift */; };
+		9DB145CB254710990028EBEA /* RateLawyer_UITableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DB145C9254710990028EBEA /* RateLawyer_UITableViewCell.xib */; };
+		9DB145D125471C280028EBEA /* AfterRateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB145CF25471C280028EBEA /* AfterRateTableViewCell.swift */; };
+		9DB145D225471C280028EBEA /* AfterRateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DB145D025471C280028EBEA /* AfterRateTableViewCell.xib */; };
+		9DB145D72548125A0028EBEA /* QueryDataModelNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB145D62548125A0028EBEA /* QueryDataModelNew.swift */; };
+		9DB145DC254812F30028EBEA /* QueryDataModelNewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB145DB254812F20028EBEA /* QueryDataModelNewViewModel.swift */; };
+		9DB145E1254814E50028EBEA /* QueryDataViewNewModeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB145E0254814E50028EBEA /* QueryDataViewNewModeling.swift */; };
+		9DB145E7254839EA0028EBEA /* QueryTableViewCellAndXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB145E5254839EA0028EBEA /* QueryTableViewCellAndXib.swift */; };
+		9DB145E8254839EA0028EBEA /* QueryTableViewCellAndXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DB145E6254839EA0028EBEA /* QueryTableViewCellAndXib.xib */; };
+		9DB145EE254848BF0028EBEA /* QueryDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB145ED254848BF0028EBEA /* QueryDetailVC.swift */; };
+		9DB145F625484CCA0028EBEA /* QueryDetailVC+CustomMethodExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB145F525484CCA0028EBEA /* QueryDetailVC+CustomMethodExtension.swift */; };
 		9DC5455A24C32EF9009AF27A /* TypewriterKeys.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DC5455924C32EF9009AF27A /* TypewriterKeys.ttf */; };
 		9DC5455C24C32F8C009AF27A /* AppFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC5455B24C32F8C009AF27A /* AppFonts.swift */; };
 		9DC5455E24C33170009AF27A /* CustomMethodProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC5455D24C33170009AF27A /* CustomMethodProtocol.swift */; };
@@ -644,6 +656,18 @@
 		9DA30C74253B6DEE00E50732 /* LawyerRatingVC+CustomMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LawyerRatingVC+CustomMethods.swift"; sourceTree = "<group>"; };
 		9DA30C79253B73F400E50732 /* LawyerRatingVC+UITextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LawyerRatingVC+UITextView.swift"; sourceTree = "<group>"; };
 		9DAF732A2504E07D003C182C /* RectangularDashedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangularDashedView.swift; sourceTree = "<group>"; };
+		9DB145C3254705040028EBEA /* CityListViewController+TextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CityListViewController+TextFieldDelegate.swift"; sourceTree = "<group>"; };
+		9DB145C8254710990028EBEA /* RateLawyer_UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateLawyer_UITableViewCell.swift; sourceTree = "<group>"; };
+		9DB145C9254710990028EBEA /* RateLawyer_UITableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RateLawyer_UITableViewCell.xib; sourceTree = "<group>"; };
+		9DB145CF25471C280028EBEA /* AfterRateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterRateTableViewCell.swift; sourceTree = "<group>"; };
+		9DB145D025471C280028EBEA /* AfterRateTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AfterRateTableViewCell.xib; sourceTree = "<group>"; };
+		9DB145D62548125A0028EBEA /* QueryDataModelNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryDataModelNew.swift; sourceTree = "<group>"; };
+		9DB145DB254812F20028EBEA /* QueryDataModelNewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryDataModelNewViewModel.swift; sourceTree = "<group>"; };
+		9DB145E0254814E50028EBEA /* QueryDataViewNewModeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryDataViewNewModeling.swift; sourceTree = "<group>"; };
+		9DB145E5254839EA0028EBEA /* QueryTableViewCellAndXib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryTableViewCellAndXib.swift; sourceTree = "<group>"; };
+		9DB145E6254839EA0028EBEA /* QueryTableViewCellAndXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QueryTableViewCellAndXib.xib; sourceTree = "<group>"; };
+		9DB145ED254848BF0028EBEA /* QueryDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryDetailVC.swift; sourceTree = "<group>"; };
+		9DB145F525484CCA0028EBEA /* QueryDetailVC+CustomMethodExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QueryDetailVC+CustomMethodExtension.swift"; sourceTree = "<group>"; };
 		9DC5455924C32EF9009AF27A /* TypewriterKeys.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TypewriterKeys.ttf; sourceTree = "<group>"; };
 		9DC5455B24C32F8C009AF27A /* AppFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFonts.swift; sourceTree = "<group>"; };
 		9DC5455D24C33170009AF27A /* CustomMethodProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMethodProtocol.swift; sourceTree = "<group>"; };
@@ -829,6 +853,7 @@
 				9D1C5472252F8CFC0042D710 /* CityListViewController.swift */,
 				9D1C547A252F8E4B0042D710 /* CityListViewController+CustomMethods.swift */,
 				9D1C547F252F914C0042D710 /* CityListViewController+UITableView.swift */,
+				9DB145C3254705040028EBEA /* CityListViewController+TextFieldDelegate.swift */,
 			);
 			path = CityListScreen;
 			sourceTree = "<group>";
@@ -946,6 +971,7 @@
 		9D4C683124C59DF30064E935 /* HomeScreens */ = {
 			isa = PBXGroup;
 			children = (
+				9DB145EC2548488C0028EBEA /* QueryDetailScreen */,
 				9DA30C6B253B6C7A00E50732 /* LawyerRatingScreen */,
 				9DA30C39253B19A000E50732 /* EarnedScreen */,
 				9D1453002539B66900AEC169 /* ReferScreen */,
@@ -1127,6 +1153,12 @@
 				9D6E75532538B7DE004D506D /* OrderStatusNewTableViewCell.xib */,
 				9DA30C48253B477300E50732 /* ReferAndEarnTableViewCell.swift */,
 				9DA30C49253B477300E50732 /* ReferAndEarnTableViewCell.xib */,
+				9DB145C8254710990028EBEA /* RateLawyer_UITableViewCell.swift */,
+				9DB145C9254710990028EBEA /* RateLawyer_UITableViewCell.xib */,
+				9DB145CF25471C280028EBEA /* AfterRateTableViewCell.swift */,
+				9DB145D025471C280028EBEA /* AfterRateTableViewCell.xib */,
+				9DB145E5254839EA0028EBEA /* QueryTableViewCellAndXib.swift */,
+				9DB145E6254839EA0028EBEA /* QueryTableViewCellAndXib.xib */,
 			);
 			path = TableViewCellsAndXibs;
 			sourceTree = "<group>";
@@ -1162,6 +1194,7 @@
 				9DF973A825369ECB0055A9BC /* QueryDataModel.swift */,
 				9D6E754D25388FE1004D506D /* OrederStatusDataModel.swift */,
 				9DA30C4F253B4C0700E50732 /* EarnDataModel.swift */,
+				9DB145D62548125A0028EBEA /* QueryDataModelNew.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1182,6 +1215,7 @@
 				9DEF6821252123A800E2D6D8 /* OrderStatusDataViewModel.swift */,
 				9DF973D52536A0560055A9BC /* QueryDataViewModel.swift */,
 				9DA30C54253B4C6300E50732 /* EarnDataViewModel.swift */,
+				9DB145DB254812F20028EBEA /* QueryDataModelNewViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -1203,6 +1237,7 @@
 				9DEF68262521277A00E2D6D8 /* OrderStatusDataModeling.swift */,
 				9DF973DA2536A87D0055A9BC /* QueryDataModeling.swift */,
 				9DA30C59253B4DBD00E50732 /* EarnDataModeling.swift */,
+				9DB145E0254814E50028EBEA /* QueryDataViewNewModeling.swift */,
 			);
 			path = DipendenciesInjections;
 			sourceTree = "<group>";
@@ -1472,6 +1507,15 @@
 				9DA30C79253B73F400E50732 /* LawyerRatingVC+UITextView.swift */,
 			);
 			path = LawyerRatingScreen;
+			sourceTree = "<group>";
+		};
+		9DB145EC2548488C0028EBEA /* QueryDetailScreen */ = {
+			isa = PBXGroup;
+			children = (
+				9DB145ED254848BF0028EBEA /* QueryDetailVC.swift */,
+				9DB145F525484CCA0028EBEA /* QueryDetailVC+CustomMethodExtension.swift */,
+			);
+			path = QueryDetailScreen;
 			sourceTree = "<group>";
 		};
 		9DC5455824C32EE7009AF27A /* CustomFontFiles */ = {
@@ -1853,6 +1897,7 @@
 				9D25567C24C1DCAA006563AC /* Main.storyboard in Resources */,
 				9D54710F2538733100B5BF1A /* AuthNewTableViewCellAndXib.xib in Resources */,
 				9D1F382F24F29B6000AD7D1C /* ErrorView.xib in Resources */,
+				9DB145E8254839EA0028EBEA /* QueryTableViewCellAndXib.xib in Resources */,
 				9DA30C4B253B477300E50732 /* ReferAndEarnTableViewCell.xib in Resources */,
 				9D1C54A0253048300042D710 /* ARIALBD.TTF in Resources */,
 				9D9E721524DCA90E005805D7 /* AppointmentHeaderView.xib in Resources */,
@@ -1862,6 +1907,7 @@
 				9DDC564224DB4486002DD47D /* OpenSans-Italic.ttf in Resources */,
 				9D1C54CC25304E140042D710 /* TAHOMABD.TTF in Resources */,
 				9D389BB624EC49C40089CDB3 /* FilterItemCollectionViewCell.xib in Resources */,
+				9DB145D225471C280028EBEA /* AfterRateTableViewCell.xib in Resources */,
 				9D1C54C325304E120042D710 /* VERDANA0.TTF in Resources */,
 				9D6E75552538B7DE004D506D /* OrderStatusNewTableViewCell.xib in Resources */,
 				9D1C54AF253048300042D710 /* ARIALLGTITL.TTF in Resources */,
@@ -1888,6 +1934,7 @@
 				9D86012924F2AEB900A4E3FE /* EmptyBoxNew.json in Resources */,
 				9D1C54C525304E120042D710 /* verdana.ttf in Resources */,
 				9D1C54A5253048300042D710 /* ArialCEMTBlack.ttf in Resources */,
+				9DB145CB254710990028EBEA /* RateLawyer_UITableViewCell.xib in Resources */,
 				9D7E634F2503FB4600B312A6 /* GoogleService-Info.plist in Resources */,
 				9D1C54A1253048300042D710 /* ARIALBLACKITALIC.TTF in Resources */,
 				9D1C54A2253048300042D710 /* ARIALLGT.TTF in Resources */,
@@ -2065,16 +2112,19 @@
 				9DDC565424DB530D002DD47D /* LawyerNewTableViewCell.swift in Sources */,
 				9D948F2B24D5BED000AB41F0 /* UIImage+Extensions.swift in Sources */,
 				9DEF681D25211C2700E2D6D8 /* OrderStatusViewModel.swift in Sources */,
+				9DB145E1254814E50028EBEA /* QueryDataViewNewModeling.swift in Sources */,
 				9D787D8224C9663300EB22D2 /* UITextField+Extension.swift in Sources */,
 				9D1452D42539AA1C00AEC169 /* ReferAndEarnRooViewController+CustomMethods.swift in Sources */,
 				9D9E71FA24DC3F2A005805D7 /* FilterTableViewCellAndXib.swift in Sources */,
 				9DEF67F725206EF500E2D6D8 /* OrderDataViewModel.swift in Sources */,
+				9DB145F625484CCA0028EBEA /* QueryDetailVC+CustomMethodExtension.swift in Sources */,
 				9D9E71F724DC32CB005805D7 /* FilterPopup_VC+CustomMethodExtension.swift in Sources */,
 				9D66A8E124FEEBDF00FD1EBB /* ProfileDataModelModeling.swift in Sources */,
 				9D04938924FEE4AF0068032D /* ProfileDataModel.swift in Sources */,
 				9DE9FCCC2537180800BB7B9F /* QueryHeaderView.swift in Sources */,
 				9D9E723824DDEA4D005805D7 /* GSTIN_TableViewCellAndXib.swift in Sources */,
 				9D6B0DD12534225F00B62767 /* OrderAndQueryRootViewController+CustomMethod.swift in Sources */,
+				9DB145CA254710990028EBEA /* RateLawyer_UITableViewCell.swift in Sources */,
 				9DD38AE024FEA3D000EA4D1C /* LawyerProfileVC.swift in Sources */,
 				9D76C04C24C8DE46002B400E /* LoginVC.swift in Sources */,
 				9D9E722A24DD8D22005805D7 /* AppointmentFooterView.swift in Sources */,
@@ -2116,6 +2166,7 @@
 				9D9E721724DCAA25005805D7 /* AppointmentHeaderView.swift in Sources */,
 				9D786B622537548400D4F3F0 /* AppTourCollectionViewCell.swift in Sources */,
 				9DCED48625010C0300BCFEF3 /* UploadDocumentVC.swift in Sources */,
+				9DB145E7254839EA0028EBEA /* QueryTableViewCellAndXib.swift in Sources */,
 				9D9E722D24DD9E3E005805D7 /* PaymentVC.swift in Sources */,
 				9D5F2B3724C6B15000BA4015 /* HomeVC.swift in Sources */,
 				9D9E720B24DC8EF9005805D7 /* FilterPopup_Empty_VM.swift in Sources */,
@@ -2139,6 +2190,7 @@
 				9D9148A024ED70B0003A3E37 /* Lawyer_View_Model.swift in Sources */,
 				9DCED48825010C7200BCFEF3 /* UploadDocumentVC+MethodExtension.swift in Sources */,
 				9D76C05324C8EBD2002B400E /* SignUpVC+MethodExtension.swift in Sources */,
+				9DB145DC254812F30028EBEA /* QueryDataModelNewViewModel.swift in Sources */,
 				9DD38ADD24FEA35E00EA4D1C /* SkeletonView.swift in Sources */,
 				9D1C547B252F8E4B0042D710 /* CityListViewController+CustomMethods.swift in Sources */,
 				9D5FE2B024D4B59D002A94F1 /* LoginVC+TableViewExtension.swift in Sources */,
@@ -2147,6 +2199,7 @@
 				9D554C5524C2C8D300E2080D /* SplashVC.swift in Sources */,
 				9DDD4A1424E9C990003CC77F /* NetworkState.swift in Sources */,
 				9DF205552506AEC700EFA740 /* DocumentDataModeling.swift in Sources */,
+				9DB145D72548125A0028EBEA /* QueryDataModelNew.swift in Sources */,
 				9DDD4A0824E9B143003CC77F /* SBaseService.swift in Sources */,
 				9D554C5724C2C9CD00E2080D /* SplashVC+MethodExtension.swift in Sources */,
 				9D0B58FF24D5390000AACE59 /* SignUpVC+UITextFieldDelegate.swift in Sources */,
@@ -2182,8 +2235,10 @@
 				9D5F2B3D24C6C3A500BA4015 /* CategoryViewModel.swift in Sources */,
 				9DF205572506B09800EFA740 /* UploadDocumentVM.swift in Sources */,
 				9DF973E02536A99A0055A9BC /* QueryListVM.swift in Sources */,
+				9DB145EE254848BF0028EBEA /* QueryDetailVC.swift in Sources */,
 				9D1453022539B68B00AEC169 /* ReferralVC.swift in Sources */,
 				9D9E721A24DCB2BA005805D7 /* AppointmentViewModel.swift in Sources */,
+				9DB145C4254705040028EBEA /* CityListViewController+TextFieldDelegate.swift in Sources */,
 				9D9E721024DC95C8005805D7 /* AppointmentVC+MethodsExtension.swift in Sources */,
 				9D318FC92535DB3B000BF188 /* OrderAndQueryRootViewController+ScrollViewDelegate.swift in Sources */,
 				9DA30C5F253B4E4F00E50732 /* EarnVM.swift in Sources */,
@@ -2278,6 +2333,7 @@
 				9DC5456324C33DAE009AF27A /* AppStoryboard.swift in Sources */,
 				9D23AD2B252B312B007AA2CC /* CategoryTableViewCellAndXib.swift in Sources */,
 				9DEF6801252072F300E2D6D8 /* OrderListVC+UITableViewDataSource+UITableViewDelegate.swift in Sources */,
+				9DB145D125471C280028EBEA /* AfterRateTableViewCell.swift in Sources */,
 				9D67B12824E08B890074B3F2 /* ContactUsVM.swift in Sources */,
 				9D5F2B5424C75DB700BA4015 /* Category.swift in Sources */,
 				9D9E722524DD57EA005805D7 /* TimeCollectionViewCellAndXib.swift in Sources */,

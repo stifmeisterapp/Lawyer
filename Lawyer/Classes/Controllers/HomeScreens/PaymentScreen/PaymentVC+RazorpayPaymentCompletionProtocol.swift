@@ -52,7 +52,10 @@ extension PaymentVC: RazorpayPaymentCompletionProtocol{
     }
     
     func onPaymentError(_ code: Int32, description str: String) {
-        _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: str, style: .error)
+        
+        self.customMethodManager?.showAlert(str, okButtonTitle: ConstantTexts.OkBT, target: self)
+
+        
     }
     
     func onPaymentSuccess(_ payment_id: String) {

@@ -157,16 +157,9 @@ extension MoreVC{
     internal func perforAction(Index:Int){
         switch Index{
             
+       
         case 0:
-            let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: UnderConstructionVC.className) as! UnderConstructionVC
-            self.navigationController?.pushViewController(vc, animated: true)
             
-        case 1:
-            
-            let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: FAQ_VC.className) as! FAQ_VC
-            self.navigationController?.pushViewController(vc, animated: true)
-            
-        case 2:
             self.animateView()
             let message = ConstantTexts.Link_LT
             //Set the link to share.
@@ -182,41 +175,33 @@ extension MoreVC{
             }
             
             
-            
-        case 3:
-            let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: UnderConstructionVC.className) as! UnderConstructionVC
-            self.navigationController?.pushViewController(vc, animated: true)
-            
-        case 4:
+      
+        case 1:
             self.rateUs()
-        case 5:
+            
+        case 2:
             let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: AboutUsVC.className) as! AboutUsVC
             self.navigationController?.pushViewController(vc, animated: true)
-            
-        case 6:
+        case 3:
             let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: ContactUsVC.className) as! ContactUsVC
             self.navigationController?.pushViewController(vc, animated: true)
-            
-        case 7:
-            let vc = AppStoryboard.homeSB.instantiateViewController(withIdentifier: UnderConstructionVC.className) as! UnderConstructionVC
-            self.navigationController?.pushViewController(vc, animated: true)
-            
-        case 8:
-            SweetAlert().showAlert(ConstantTexts.AppName, subTitle: ConstantTexts.WantToLogoutALERT, style: AlertStyle.warning, buttonTitle:ConstantTexts.CancelBT, buttonColor:AppColor.errorColor , otherButtonTitle:  ConstantTexts.OkBT, otherButtonColor: AppColor.passGreenColor) { (isOtherButton) -> Void in
-                if isOtherButton == true {
-                    self.animateView()
-                }
-                else
-                {
+       
+        case 4:
+            self.customMethodManager?.showAlertWithCancel(title: ConstantTexts.AppName, message: ConstantTexts.WantToLogoutALERT, btnOkTitle: ConstantTexts.OkBT, btnCancelTitle: ConstantTexts.CancelBT, callBack: { (status) in
+                if status{
                     
                     self.customMethodManager?.deleteAllData(entity: "User_Data", success: {
                         super.moveToNextViewCViaRoot(name: ConstantTexts.AuthSBT, withIdentifier: LoginVC.className)
                     })
                     
                     
+                }else{
+                    self.animateView()
                 }
-                
-            }
+            })
+            
+            
+       
         default:
             print("Do nothing...")
             //temp
@@ -241,6 +226,7 @@ extension MoreVC{
     internal func initalHideBlurView(){
         self.blurView.isHidden = true
         self.blurView.alpha = 0
+        self.animateView()
     }
     
     //TODO: Implementation hide blur view
@@ -262,7 +248,9 @@ extension MoreVC{
         }) { (status) in
             self.blurView.alpha = 0
             self.blurView.isHidden = true
-            _ = SweetAlert().showAlert(ConstantTexts.AppName, subTitle: ConstantTexts.RatedSuccessfullyALERT, style: .success)
+            
+            self.customMethodManager?.showAlert( ConstantTexts.RatedSuccessfullyALERT, okButtonTitle: ConstantTexts.OkBT, target: self)
+            
             
         }
         

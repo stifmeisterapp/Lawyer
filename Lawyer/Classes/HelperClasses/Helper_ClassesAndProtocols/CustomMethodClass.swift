@@ -99,6 +99,19 @@ class CustomMethodClass: CustomMethodProtocol {
         topViewController?.present(alert, animated: true)
     }
     
+    //TODO: Show alert with cancel
+    func showAlertWithOK(title:String,message:String,btnOkTitle:String,callBack:@escaping ((Bool)->())){
+        let topViewController: UIViewController? = self.topMostViewController(rootViewController: self.rootViewController())
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: btnOkTitle, style: .default, handler: { action in
+            callBack(true)
+        }))
+        topViewController?.present(alert, animated: true)
+    }
+    
+    
     //TODO: Get root view controller
     func rootViewController() -> UIViewController
     {
@@ -146,6 +159,24 @@ class CustomMethodClass: CustomMethodProtocol {
                              containerView: sourceView,
                              direction: .top, dismissAfterDuration: 2.0)
     }
+    
+    //TODO: Show ToolTip
+    func showToolTipBottom(msg:String,anchorView:UIView,sourceView:UIView){
+        let rightBottomView = TipView()
+        rightBottomView.color = AppColor.errorColor
+        rightBottomView.textColor = AppColor.whiteColor
+        rightBottomView.font = AppFont.Semibold.size(AppFontName.OpenSans, size: 12)
+        rightBottomView.maxWidth = anchorView.frame.size.width - 50
+        rightBottomView.dismissClosure = { tipview in
+            print("call back to there..")
+        }
+        // Dismiss after spwcified duration
+        rightBottomView.show(message: msg,
+                             sourceView: anchorView,
+                             containerView: sourceView,
+                             direction: .bottom, dismissAfterDuration: 2.0)
+    }
+    
     
     
     //TODO: Provide corner radius

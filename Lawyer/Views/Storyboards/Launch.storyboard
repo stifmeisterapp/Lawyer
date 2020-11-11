@@ -105,31 +105,40 @@
                                     <outlet property="delegate" destination="Xbh-N1-H46" id="6p6-cw-fqm"/>
                                 </connections>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H6A-Fd-rRN">
-                                <rect key="frame" x="60" y="744" width="294" height="50"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Ye-nD-cYN">
+                                <rect key="frame" x="0.0" y="812" width="414" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H6A-Fd-rRN">
+                                        <rect key="frame" x="348" y="0.0" width="46" height="50"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="btnProceedTapped:" destination="Xbh-N1-H46" eventType="touchUpInside" id="Cf3-SP-NRx"/>
+                                        </connections>
+                                    </button>
+                                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="qIm-l1-mLT">
+                                        <rect key="frame" x="145.5" y="11" width="123" height="28"/>
+                                    </pageControl>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="9Gq-6q-a0C"/>
+                                    <constraint firstAttribute="bottom" secondItem="H6A-Fd-rRN" secondAttribute="bottom" id="2Tc-17-899"/>
+                                    <constraint firstItem="qIm-l1-mLT" firstAttribute="centerY" secondItem="5Ye-nD-cYN" secondAttribute="centerY" id="CjT-1U-hwp"/>
+                                    <constraint firstItem="H6A-Fd-rRN" firstAttribute="top" secondItem="5Ye-nD-cYN" secondAttribute="top" id="gjd-mR-pqm"/>
+                                    <constraint firstItem="qIm-l1-mLT" firstAttribute="centerX" secondItem="5Ye-nD-cYN" secondAttribute="centerX" id="tLB-Me-5Zj"/>
+                                    <constraint firstAttribute="height" constant="50" id="uEe-vc-8B3"/>
+                                    <constraint firstAttribute="trailing" secondItem="H6A-Fd-rRN" secondAttribute="trailing" constant="20" id="zwE-Rx-izJ"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="btnProceedTapped:" destination="Xbh-N1-H46" eventType="touchUpInside" id="Cf3-SP-NRx"/>
-                                </connections>
-                            </button>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="qIm-l1-mLT">
-                                <rect key="frame" x="145.5" y="814" width="123" height="28"/>
-                            </pageControl>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="iuN-dM-2aG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="UQp-GR-jqz" firstAttribute="bottom" secondItem="iuN-dM-2aG" secondAttribute="bottom" id="2sr-kp-QbN"/>
-                            <constraint firstItem="qIm-l1-mLT" firstAttribute="top" secondItem="H6A-Fd-rRN" secondAttribute="bottom" constant="20" id="8Cl-4V-b5C"/>
-                            <constraint firstItem="qIm-l1-mLT" firstAttribute="centerX" secondItem="H6A-Fd-rRN" secondAttribute="centerX" id="OPK-EI-Wuz"/>
+                            <constraint firstItem="5Ye-nD-cYN" firstAttribute="trailing" secondItem="UQp-GR-jqz" secondAttribute="trailing" id="FS4-ZE-hq2"/>
+                            <constraint firstItem="5Ye-nD-cYN" firstAttribute="leading" secondItem="UQp-GR-jqz" secondAttribute="leading" id="IYC-44-M6y"/>
                             <constraint firstAttribute="trailing" secondItem="UQp-GR-jqz" secondAttribute="trailing" id="Pxb-TP-G04"/>
                             <constraint firstItem="UQp-GR-jqz" firstAttribute="leading" secondItem="VOS-EX-euA" secondAttribute="leading" id="TgG-og-wl7"/>
-                            <constraint firstItem="qIm-l1-mLT" firstAttribute="bottom" secondItem="UQp-GR-jqz" secondAttribute="bottom" constant="-20" id="Vse-xY-iXI"/>
-                            <constraint firstItem="H6A-Fd-rRN" firstAttribute="leading" secondItem="UQp-GR-jqz" secondAttribute="leading" constant="60" id="WG0-pr-aIx"/>
-                            <constraint firstItem="H6A-Fd-rRN" firstAttribute="trailing" secondItem="UQp-GR-jqz" secondAttribute="trailing" constant="-60" id="XhC-LE-pDg"/>
+                            <constraint firstItem="5Ye-nD-cYN" firstAttribute="bottom" secondItem="UQp-GR-jqz" secondAttribute="bottom" id="ZVj-8y-eE9"/>
                             <constraint firstItem="UQp-GR-jqz" firstAttribute="top" secondItem="VOS-EX-euA" secondAttribute="top" id="rjY-4x-D6Y"/>
                         </constraints>
                     </view>
